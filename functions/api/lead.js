@@ -6,8 +6,8 @@
 //   ZOHO_CLIENT_ID
 //   ZOHO_CLIENT_SECRET
 //   ZOHO_REFRESH_TOKEN      (one-time generated in Zoho API Console)
-//   ZOHO_API_DOMAIN         e.g. "https://www.zohoapis.com"
-//   ZOHO_ACCOUNTS_DOMAIN    e.g. "https://accounts.zoho.com"
+//   ZOHO_API_DOMAIN         "https://www.zohoapis.eu"   <- Unitty org is EU
+//   ZOHO_ACCOUNTS_DOMAIN    "https://accounts.zoho.eu"  <- EU, not .com
 //
 // The function:
 //   1. Validates required fields.
