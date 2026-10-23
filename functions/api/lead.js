@@ -12,7 +12,7 @@
 // The function:
 //   1. Validates required fields.
 //   2. Refreshes the Zoho access token via refresh_token (short-lived).
-//   3. Maps the form payload to Zoho CRM Lead fields (incl. custom UTM + Landing_Version).
+//   3. Maps the form payload to the Unitty CRM Lead fields (incl. lowercase utm_*).
 //   4. POSTs to /crm/v6/Leads.
 //   5. Returns { ok: true, lead_id } or { ok: false, error }.
 
@@ -44,34 +44,39 @@ export async function onRequestPost(context) {
     return json({ ok: false, error: "Zoho auth failed: " + err.message }, 500);
   }
 
-  // 3. Map payload → Zoho Lead
+  // 3. Map payload -> Zoho Lead (Unitty CRM field API names, confirmed 2026-10-23)
+  //
+  // Empty values are stripped below rather than sent as "". Zoho rejects an
+  // empty string on a picklist, and a rejected field can fail the whole record.
   const lead = {
     First_Name: body.firstName,
     Last_Name: body.lastName || "(not provided)",
     Email: body.email,
-    Phone: body.phone,
+    Mobile: body.phone,
     Company: body.company,
-    Industry: body.industry || "",
-    Title: body.jobTitle || "",
+    Industry: body.industry,
+    Designation: body.jobTitle,               // "Designation" = job title in Zoho
+    Lead_Source: body.heardFrom,              // the "where did you hear about us" answer
     Description: buildDescription(body),
-    Lead_Source: mapLeadSource(body),
 
-    // --- Custom fields (create these in Zoho CRM → Leads → Fields) ---
-    Landing_Version: body.landing_version || "",
-    Lang: body.lang || "",
-    Selected_Solutions: body.selected_solutions || "",
-    UTM_Source: body.utm_source || "",
-    UTM_Medium: body.utm_medium || "",
-    UTM_Campaign: body.utm_campaign || "",
-    UTM_Content: body.utm_content || "",
-    UTM_Term: body.utm_term || "",
-    First_UTM_Source: body.first_utm_source || "",
-    First_UTM_Campaign: body.first_utm_campaign || "",
-    First_Referrer: body.first_referrer || "",
-    First_Touch_Date: body.first_touch_date || "",
-    Heard_From: body.heardFrom || "",
-    Submission_URL: body.submission_url || "",
+    // attribution - lowercase API names, as created on the Unitty org
+    utm_source: body.utm_source,
+    utm_medium: body.utm_medium,
+    utm_campaign: body.utm_campaign,
+    utm_content: body.utm_content,
+    utm_term: body.utm_term,
+    page_url: body.submission_url,
+    language_version: mapLanguageVersion(body.lang),
   };
+
+  // first_touch is deliberately not sent yet - parked until it is implemented
+  // the same way as on the other sites. Everything else stays in Description.
+
+  for (const k of Object.keys(lead)) {
+    if (lead[k] === undefined || lead[k] === null || String(lead[k]).trim() === "") {
+      delete lead[k];
+    }
+  }
 
   // 4. POST to Zoho
   const zohoRes = await fetch(
@@ -121,27 +126,10 @@ async function refreshZohoToken(env) {
   return data.access_token;
 }
 
-function mapLeadSource(body) {
-  // Priority: explicit UTM source > "Where did you hear" dropdown > referrer heuristic > direct
-  if (body.utm_source) {
-    const src = String(body.utm_source).toLowerCase();
-    if (src.includes("facebook") || src.includes("fb")) return "Facebook";
-    if (src.includes("instagram") || src.includes("ig")) return "Instagram";
-    if (src.includes("google")) return "Google";
-    if (src.includes("linkedin") || src.includes("li")) return "Linkedin";
-    if (src.includes("youtube") || src.includes("yt")) return "Youtube";
-    if (src.includes("tiktok")) return "TikTok";
-    return "Meta"; // Meta Ads catch-all
-  }
-  if (body.heardFrom) {
-    return body.heardFrom; // Already a valid picklist value
-  }
-  const ref = (body.first_referrer || "").toLowerCase();
-  if (ref.includes("crm.ge")) return "crm.ge";
-  if (ref.includes("unitty.io")) return "unitty.io";
-  if (ref.includes("facebook")) return "Facebook";
-  if (ref.includes("google")) return "Google";
-  return "Other";
+function mapLanguageVersion(lang) {
+  // the page stores en/ka/ru; the Zoho picklist expects En/Ka/Ru
+  const map = { en: "En", ka: "Ka", ru: "Ru" };
+  return map[String(lang || "").toLowerCase()] || "";
 }
 
 function buildDescription(body) {

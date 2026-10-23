@@ -233,14 +233,18 @@
   }
   .video-poster {
     position: absolute; inset: 0;
-    background: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 100%);
+    /* the real video frame, pulled straight from YouTube's thumbnail CDN.
+       hqdefault is 4:3 and letterboxed, so cover crops the bars away. */
+    background: #0f0f0f url("https://i.ytimg.com/vi/ULC-xitBW0M/hqdefault.jpg") center/cover no-repeat;
     display: grid; place-items: center;
   }
   .video-poster::before {
     content: "";
     position: absolute; inset: 0;
-    background-image:
-      radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--accent) 20%, transparent) 0%, transparent 60%);
+    /* darkened so the caption and the green play button stay readable */
+    background:
+      radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--accent) 22%, transparent) 0%, transparent 60%),
+      rgba(8, 8, 8, 0.48);
   }
   .video-play {
     position: relative;
