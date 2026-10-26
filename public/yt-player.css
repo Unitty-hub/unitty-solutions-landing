@@ -1,0 +1,63 @@
+/* One-click minimal YouTube player - pairs with /yt-player.js */
+.yt-card { position: relative; overflow: hidden; cursor: pointer; isolation: isolate; }
+.yt-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* the YouTube iframe sits at the bottom of the stack */
+.yt-frame { position: absolute; inset: 0; overflow: hidden; background: #000; z-index: 0; }
+.yt-frame iframe { position: absolute; left: 0; width: 100%; border: 0; pointer-events: none; }
+.yt-fit-contain iframe { top: 0; height: 100%; }
+/* vertical Shorts (9:16) filling a shorter card: crop top and bottom, like object-fit: cover */
+.yt-fit-cover iframe { top: 50%; height: auto; aspect-ratio: 9 / 16; transform: translateY(-50%); }
+
+/* transparent shield: YouTube's own buttons and overlays can never be clicked or hovered */
+.yt-shield { position: absolute; inset: 0; z-index: 1; }
+
+/* our poster + caption sit on top until the video plays */
+.yt-poster { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; transition: opacity 0.25s ease; }
+.yt-poster-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.yt-poster::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--accent) 22%, transparent) 0%, transparent 60%),
+    rgba(8, 8, 8, 0.42);
+}
+.yt-play {
+  position: relative; z-index: 1;
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--accent); color: var(--accent-ink);
+  display: grid; place-items: center;
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent) 20%, transparent);
+  transition: transform 0.2s ease;
+}
+.yt-play svg { width: 24px; height: 24px; margin-left: 3px; }
+.yt-card:hover .yt-play { transform: scale(1.08); }
+.yt-caption { z-index: 3; pointer-events: none; transition: opacity 0.25s ease; }
+
+/* loading: the play button breathes while the first frame arrives */
+.yt-card[data-state="loading"] .yt-play { animation: yt-pulse 0.9s ease-in-out infinite; }
+@keyframes yt-pulse { 50% { transform: scale(0.9); opacity: 0.75; } }
+
+/* playing: only the video is visible */
+.yt-card[data-state="playing"] .yt-poster,
+.yt-card[data-state="playing"] .yt-caption { opacity: 0; pointer-events: none; }
+
+/* paused: keep the current frame visible behind a light veil and the play button */
+.yt-card[data-state="paused"] .yt-poster { background: transparent; }
+.yt-card[data-state="paused"] .yt-poster-img { opacity: 0; }
+.yt-card[data-state="paused"] .yt-caption { opacity: 0; }
+
+/* muted fallback (Safari / iOS): one tap on this turns the sound on */
+.yt-sound {
+  position: absolute; right: 14px; top: 14px; z-index: 4;
+  width: 44px; height: 44px; border-radius: 50%; border: 0;
+  background: var(--accent); color: var(--accent-ink);
+  display: none; place-items: center; cursor: pointer;
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 22%, transparent);
+  animation: yt-pulse 1.4s ease-in-out infinite;
+}
+.yt-sound svg { width: 20px; height: 20px; }
+.yt-card[data-muted="1"] .yt-sound { display: grid; }
+
+@media (prefers-reduced-motion: reduce) {
+  .yt-card[data-state="loading"] .yt-play, .yt-sound { animation: none; }
+}

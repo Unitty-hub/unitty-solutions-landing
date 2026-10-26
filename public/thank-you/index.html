@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Georgian:wght@400;500;600;700;900&display=swap">
+<link rel="stylesheet" href="/yt-player.css">
 <style>
   /* ===== LGV Big Noodle — brand headline font ===== */
   @font-face {
@@ -247,24 +248,6 @@
     background: #0f0f0f url("https://i.ytimg.com/vi/ULC-xitBW0M/hqdefault.jpg") center/cover no-repeat;
     display: grid; place-items: center;
   }
-  .video-poster::before {
-    content: "";
-    position: absolute; inset: 0;
-    /* darkened so the caption and the green play button stay readable */
-    background:
-      radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--accent) 22%, transparent) 0%, transparent 60%),
-      rgba(8, 8, 8, 0.48);
-  }
-  .video-play {
-    position: relative;
-    width: 72px; height: 72px; border-radius: 50%;
-    background: var(--accent); color: var(--accent-ink);
-    display: grid; place-items: center;
-    box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent) 20%, transparent);
-    transition: transform 0.2s ease;
-  }
-  .video-card:hover .video-play { transform: scale(1.08); }
-  .video-play svg { width: 24px; height: 24px; margin-left: 3px; }
   .video-caption {
     position: absolute; bottom: 20px; left: 20px; right: 20px;
     display: flex; justify-content: space-between; align-items: flex-end;
@@ -551,13 +534,11 @@
     <div class="sec-eyebrow" data-i18n="ty.video.eyebrow">Before we talk</div>
     <h2 class="sec-title" data-i18n="ty.video.title">A 60-second note from Unitty</h2>
 
-    <div class="video-card" onclick="playVideo()">
-      <div class="video-poster">
-        <div class="video-play">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </div>
+    <div class="video-card yt-card" data-yt-id="ULC-xitBW0M" data-yt-fit="contain" role="button" tabindex="0" aria-label="Play video: Welcome from Giorgi">
+      <div class="yt-poster video-poster">
+        <div class="yt-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
       </div>
-      <div class="video-caption">
+      <div class="video-caption yt-caption">
         <h3 class="video-title" data-i18n="ty.video.caption">Welcome from Giorgi</h3>
         <span class="video-dur">0:58</span>
       </div>
@@ -760,28 +741,6 @@
     if (el) el.textContent = name;
   }
 
-  // Click-to-load facade: our own poster and play button stay until the
-  // visitor clicks, then the player is swapped in. Nothing from YouTube is
-  // loaded before that - no third-party script, no cookie, faster first paint.
-  var VIDEO_ID = 'ULC-xitBW0M';
-  function playVideo() {
-    var card = document.querySelector('.video-card');
-    if (!card || card.dataset.playing === '1') return;
-    card.dataset.playing = '1';
-    card.style.cursor = 'default';
-    card.onclick = null;
-    var f = document.createElement('iframe');
-    f.src = 'https://www.youtube-nocookie.com/embed/' + VIDEO_ID +
-            '?autoplay=1&rel=0&modestbranding=1&playsinline=1&color=white&iv_load_policy=3';
-    f.title = 'Welcome from Giorgi';
-    f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';
-    f.allowFullscreen = true;
-    f.setAttribute('style','position:absolute;inset:0;width:100%;height:100%;border:0;');
-    card.innerHTML = '';
-    card.appendChild(f);
-    if (window.clarity) { try { clarity('set','welcome_video','played'); } catch (e) {} }
-  }
-
   function scrollToBookings(e) {
     e.preventDefault();
     var t = document.getElementById('bookings');
@@ -795,3 +754,4 @@
     alert('In production this triggers a download of "' + map[kind] + '.pdf" - stored on your CDN.');
   }
 </script>
+<script src="/yt-player.js" defer></script>
