@@ -73,6 +73,6 @@
       "ru": "Персональные SMS-напоминания и уведомления прямо из CRM - о платежах, встречах и бронях."
     }
   },
-  "insert_before": "<!-- ============ PRICING TIERS ============ -->",
+  "insert_before": "<!-- ============ PROCESS (3 steps) ============ -->",
   "insert_file": "solutions.extra.html"
 }
