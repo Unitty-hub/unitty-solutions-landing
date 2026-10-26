@@ -29,7 +29,7 @@ export async function onRequestPost(context) {
     return json({ ok: false, error: "Invalid JSON" }, 400);
   }
 
-  const required = ["firstName", "email", "phone", "company"];
+  const required = ["fullName", "email", "phone", "company"];
   for (const field of required) {
     if (!body[field] || String(body[field]).trim() === "") {
       return json({ ok: false, error: `Missing required field: ${field}` }, 400);
@@ -48,14 +48,16 @@ export async function onRequestPost(context) {
   //
   // Empty values are stripped below rather than sent as "". Zoho rejects an
   // empty string on a picklist, and a rejected field can fail the whole record.
+  // Single "Full Name" field: one word -> Last_Name only;
+  // two or more words -> first word is First_Name, the rest is Last_Name.
+  const { firstName, lastName } = splitFullName(body.fullName);
+
   const lead = {
-    First_Name: body.firstName,
-    Last_Name: body.lastName || "(not provided)",
+    First_Name: firstName,
+    Last_Name: lastName,
     Email: body.email,
     Mobile: body.phone,
     Company: body.company,
-    Industry: body.industry,
-    Designation: body.jobTitle,               // "Designation" = job title in Zoho
     Lead_Source: body.heardFrom,              // the "where did you hear about us" answer
     Description: buildDescription(body),
 
@@ -124,6 +126,14 @@ async function refreshZohoToken(env) {
   const data = await res.json();
   if (!data.access_token) throw new Error("No access_token in response: " + JSON.stringify(data));
   return data.access_token;
+}
+
+function splitFullName(fullName) {
+  const parts = String(fullName || "").trim().split(/\s+/).filter(Boolean);
+  if (parts.length <= 1) {
+    return { firstName: "", lastName: parts[0] || "" };
+  }
+  return { firstName: parts[0], lastName: parts.slice(1).join(" ") };
 }
 
 function mapLanguageVersion(lang) {
