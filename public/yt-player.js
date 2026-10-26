@@ -69,6 +69,7 @@
     var ready = false;
     var wantPlay = false;
     var watchdog = null;
+    var userStarted = false; // YouTube can fire PLAYING/PAUSED on its own while cueing; ignore until the visitor clicks
 
     function state(s) { card.setAttribute('data-state', s); }
     state('idle');
@@ -93,6 +94,11 @@
             },
             onStateChange: function (e) {
               var YS = window.YT.PlayerState;
+              if (!userStarted) {
+                if (e.data === YS.PLAYING) { try { player.pauseVideo(); player.seekTo(0, true); } catch (err) {} }
+                log('--- ignored state before first click', e.data);
+                return;
+              }
               if (e.data === YS.PLAYING) {
                 clearTimeout(watchdog);
                 state('playing');
@@ -102,6 +108,7 @@
                 log('<<< ended', id);
                 try { player.seekTo(0, true); player.pauseVideo(); } catch (err) {}
                 card.removeAttribute('data-muted');
+                userStarted = false;
                 state('idle');
               }
             },
@@ -112,6 +119,7 @@
     }
 
     function play() {
+      userStarted = true;
       wantPlay = false;
       if (!ready) { wantPlay = true; state('loading'); build(); return; }
       log('--- play', id);
