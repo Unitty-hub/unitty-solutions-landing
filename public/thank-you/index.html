@@ -17,6 +17,15 @@
     font-display: swap;
   }
 
+  /* ===== BPG 110 Mod — secondary (body) text font. No Cyrillic: RU falls back to the system stack ===== */
+  @font-face {
+    font-family: 'BPG 110 Mod';
+    src: url('/BPG110Mod-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
   /* Dark-only, same tokens as the landing page. Brand lime is #C1FD3A, taken from the Unitty logo. */
   :root {
     --bg:        #0A0A0A;
@@ -38,7 +47,7 @@
     margin: 0;
     background: var(--bg);
     color: var(--fg);
-    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, 'Noto Sans Georgian', sans-serif;
+    font-family: 'BPG 110 Mod', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, 'Noto Sans Georgian', sans-serif;
     font-size: 16px; line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
