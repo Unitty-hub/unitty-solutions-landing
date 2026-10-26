@@ -1,0 +1,78 @@
+{
+  "name": "solutions",
+  "description": "Unitty Solutions - 75+ ready-made CRM, AI, data and integration solutions plus our own products. Pick, add to your request and book a free 20-minute call.",
+  "i18n": {
+    "nav.brand": {
+      "ka": "Unitty Solutions",
+      "en": "Unitty Solutions",
+      "ru": "Unitty Solutions"
+    },
+    "hero.headline.line1": {
+      "ka": "75+ მზა გადაწყვეტა ერთ სივრცეში",
+      "en": "75+ ready-made solutions in one place",
+      "ru": "75+ готовых решений в одном месте"
+    },
+    "hero.sub": {
+      "ka": "500+ წარმატებული დანერგვის გამოცდილებით: შეარჩიე შენთვის საინტერესო გადაწყვეტები, დაამატე მოთხოვნაში და 20 წუთში ერთად განვიხილავთ, რომელი გამოგადგება. უფასოდ - თუ ახლავე დაჯავშნი.",
+      "en": "With 500+ successful implementations behind us: pick the solutions that interest you, add them to your request, and in 20 minutes we'll go through which ones fit. Free if you book now.",
+      "ru": "Опираясь на 500+ успешных внедрений: выберите интересные решения, добавьте их в запрос, и за 20 минут мы вместе разберём, какие вам подойдут. Бесплатно - если бронируете сейчас."
+    },
+    "prod.title": {
+      "ka": "ჩვენი პროდუქტები",
+      "en": "Our own products",
+      "ru": "Наши продукты"
+    },
+    "prod.sub": {
+      "ka": "ჩვენ მიერ შექმნილი მზა სერვისები, რომლებიც სწრაფად ერთვება შენს სისტემაში.",
+      "en": "Ready-made services we built ourselves, quick to plug into your system.",
+      "ru": "Готовые сервисы, которые мы создали сами и быстро подключаем к вашей системе."
+    },
+    "prod.cta": {
+      "ka": "მოითხოვე →",
+      "en": "Request →",
+      "ru": "Запросить →"
+    },
+    "prod.1.desc": {
+      "ka": "ბანკის ტრანზაქციები (TBC, საქართველოს ბანკი) ავტომატურად შედის CRM-ში - გადახდების მიბმით და შიდა განვადების გრაფიკით.",
+      "en": "Bank transactions (TBC, Bank of Georgia) flow into your CRM automatically - with payment matching and in-house installment schedules.",
+      "ru": "Транзакции банков (TBC, Банк Грузии) автоматически попадают в CRM - с привязкой платежей и графиком внутренней рассрочки."
+    },
+    "prod.2.desc": {
+      "ka": "AI ჩატ-ასისტენტი შენს საიტზე: 24/7 პასუხობს კითხვებს და ლიდებს პირდაპირ CRM-ში წერს.",
+      "en": "An AI chat assistant on your website: answers questions 24/7 and writes leads straight into your CRM.",
+      "ru": "AI-чат-ассистент на вашем сайте: отвечает на вопросы 24/7 и записывает лиды прямо в CRM."
+    },
+    "prod.3.desc": {
+      "ka": "ქართულენოვანი შეხვედრების ტრანსკრიფცია, მოკლე შეჯამება და შემდეგი ნაბიჯები - ავტომატურად.",
+      "en": "Transcription of Georgian-language meetings, a short summary and next steps - automatically.",
+      "ru": "Расшифровка встреч на грузинском, краткое резюме и следующие шаги - автоматически."
+    },
+    "prod.4.desc": {
+      "ka": "Claude, მიერთებული შენს მონაცემებთან: დასვი კითხვა ჩვეულებრივი ენით და მიიღე პასუხი რიცხვებით.",
+      "en": "Claude connected to your data: ask in plain language and get answers in numbers.",
+      "ru": "Claude, подключённый к вашим данным: спрашивайте обычным языком и получайте ответы в цифрах."
+    },
+    "prod.5.desc": {
+      "ka": "ზარები, ჩანაწერები და click-to-call პირდაპირ CRM-ში - ზარის სწორ მენეჯერზე გადამისამართებით.",
+      "en": "Calls, recordings and click-to-call right inside your CRM - with routing to the right manager.",
+      "ru": "Звонки, записи и click-to-call прямо в CRM - с маршрутизацией на нужного менеджера."
+    },
+    "prod.6.desc": {
+      "ka": "ყოველი ახალი ლიდი ავტომატურად მუშავდება: კონტაქტის შექმნა, დუბლიკატების პოვნა, მენეჯერზე მიბმა.",
+      "en": "Every new lead is processed automatically: contact created, duplicates found, owner assigned.",
+      "ru": "Каждый новый лид обрабатывается автоматически: создание контакта, поиск дублей, назначение менеджера."
+    },
+    "prod.7.desc": {
+      "ka": "პარტნიორები ლიდებს ერთ სივრცეში აგზავნიან და სტატუსს ხედავენ, შენ კი ყოველი რეკომენდაციის სრულ ისტორიას.",
+      "en": "Partners submit leads in one place and see their status, while you get the full history of every referral.",
+      "ru": "Партнёры отправляют лиды в одном месте и видят их статус, а вы - полную историю каждой рекомендации."
+    },
+    "prod.8.desc": {
+      "ka": "პერსონალიზებული SMS შეხსენებები და შეტყობინებები პირდაპირ CRM-იდან - გადახდებზე, შეხვედრებზე, ჯავშნებზე.",
+      "en": "Personalised SMS reminders and notifications straight from your CRM - for payments, meetings and bookings.",
+      "ru": "Персональные SMS-напоминания и уведомления прямо из CRM - о платежах, встречах и бронях."
+    }
+  },
+  "insert_before": "<!-- ============ PRICING TIERS ============ -->",
+  "insert_file": "solutions.extra.html"
+}

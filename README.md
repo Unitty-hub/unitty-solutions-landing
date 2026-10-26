@@ -69,3 +69,20 @@ wrangler pages deploy public
 
 - Owner: Giorgi Kordzakhia (digital@unitty.io)
 - Phone: +995 32 2 05 50 60
+
+## Multiple landings (added 2026-10-26)
+
+One Cloudflare Pages project serves every landing. `functions/_middleware.js` maps the subdomain to a folder:
+
+| Domain | Folder | Preview before the domain is connected |
+|---|---|---|
+| start.unitty.io | `public/` | - |
+| crm.unitty.io | `public/crm/` | start.unitty.io/crm/ |
+| ai.unitty.io | `public/ai/` | start.unitty.io/ai/ |
+| banks.unitty.io | `public/banks/` | start.unitty.io/banks/ |
+| solutions.unitty.io | `public/solutions/` | start.unitty.io/solutions/ |
+
+- `public/index.html` (start) is the template. Each `landings/<name>.json` holds only what differs (texts in KA/EN/RU, an optional extra block).
+- After changing the start page or a `landings/*.json`, run `python3 tools/build_landings.py` to regenerate the landings.
+- The thank-you page, `/api/lead`, `tracking.js`, fonts and images are shared. Each lead carries `Landing_Version` like `crm-v27-2026-10-26`.
+- Translations workbook: `python3 tools/build_translations.py` (one sheet per landing + Thank-you).

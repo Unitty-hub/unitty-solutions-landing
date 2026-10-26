@@ -14,7 +14,16 @@
 (function () {
   'use strict';
 
-  var SITE_VERSION = 'v26-2026-10-26';
+  var BUILD = 'v27-2026-10-26';
+  // Which landing this is: <meta name="unitty-landing" content="crm"> (start / crm / ai / banks / solutions).
+  // The thank-you page gets it from the ?v= parameter the landing passes along.
+  var LANDING = (function () {
+    var m = document.querySelector('meta[name="unitty-landing"]');
+    if (m && m.content) return m.content;
+    try { var v = new URLSearchParams(location.search).get('v') || ''; if (v.indexOf('-v') > 0) return v.split('-v')[0]; } catch (e) {}
+    return 'start';
+  })();
+  var SITE_VERSION = LANDING + '-' + BUILD;          // e.g. "crm-v27-2026-10-26" -> Lead.Landing_Version
   var CLARITY_ID = 'yczxtdyn7h';
   var META_PIXEL_ID = '1468998947504136';
 
@@ -133,7 +142,8 @@
     try { window.clarity.apply(null, arguments); } catch (e) {}
   }
   var attrNow = getAttribution();
-  clarity('set', 'site', 'start.unitty.io');
+  clarity('set', 'site', location.hostname);
+  clarity('set', 'landing', LANDING);
   clarity('set', 'page', PAGE);
   clarity('set', 'landing_version', SITE_VERSION);
   clarity('set', 'lang', (function () { try { return localStorage.getItem('unitty-lang') || 'ka'; } catch (e) { return 'ka'; } })());
@@ -163,7 +173,7 @@
       var already = false;
       try { already = sessionStorage.getItem(firedKey) === '1'; } catch (e) {}
       if (!already) {
-        window.fbq('track', 'Lead', { content_name: 'start.unitty.io lead form', landing_version: SITE_VERSION }, { eventID: eid });
+        window.fbq('track', 'Lead', { content_name: LANDING + ' lead form', landing_version: SITE_VERSION }, { eventID: eid });
         clarity('event', 'lead_thankyou_view');
         try { sessionStorage.setItem(firedKey, '1'); } catch (e) {}
         log('+++ Meta Lead event sent', eid);
@@ -174,6 +184,7 @@
   // ---------- public API ----------
   window.UnittyTracking = {
     version: SITE_VERSION,
+    landing: LANDING,
     page: PAGE,
     getAttribution: getAttribution,
     newEventId: newEventId,

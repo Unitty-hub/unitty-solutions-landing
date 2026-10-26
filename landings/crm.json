@@ -1,0 +1,24 @@
+{
+  "name": "crm",
+  "description": "Unitty - CRM selection and implementation for your business. Book a free 20-minute call.",
+  "i18n": {
+    "nav.brand": {"ka": "Unitty CRM", "en": "Unitty CRM", "ru": "Unitty CRM"},
+    "hero.headline.line1": {"ka": "სწორი CRM-ის შერჩევა რთულია", "en": "Choosing the right CRM is hard", "ru": "Выбрать правильную CRM сложно"},
+    "hero.headline.line3.plain": {"ka": "კვლევას და ტესტირებას", "en": "of research and trials", "ru": "исследований и тестов"},
+    "hero.sub": {
+      "ka": "500+ წარმატებული დანერგვის გამოცდილებით, 20 წუთში მოგიყვები, რომელი CRM მოერგება შენს გაყიდვებს, რა ეღირება დანერგვა და რამდენ ხანში ამუშავდება. უფასოდ - თუ ახლავე დაჯავშნი.",
+      "en": "With 500+ successful implementations behind us, in 20 minutes I'll tell you which CRM fits your sales, what implementation costs and how fast it can go live. Free if you book now.",
+      "ru": "Опираясь на 500+ успешных внедрений, за 20 минут расскажу, какая CRM подойдёт вашим продажам, сколько стоит внедрение и как быстро она заработает. Бесплатно - если бронируете сейчас."
+    },
+    "vs.sub": {
+      "ka": "შენ უკვე იხდი Excel-ის, მიმოფანტული ჩატების და დავიწყებული ზარების საფასურს. ერთი ზარი გაჩვენებს, როგორ გადავიდეს ყველაფერი ერთ სისტემაში.",
+      "en": "You're already paying for spreadsheets, scattered chats and forgotten follow-ups. One call shows you how to move everything into one system.",
+      "ru": "Вы уже платите за таблицы, разбросанные чаты и забытые перезвоны. Один звонок покажет, как собрать всё в одной системе."
+    },
+    "final.sub": {
+      "ka": "მოგვიყევი შენი გაყიდვების პროცესზე - ერთად შევარჩევთ CRM-ს, რომელიც მას მოერგება.",
+      "en": "Tell us about your sales process - together we'll pick the CRM that fits it.",
+      "ru": "Расскажите о вашем процессе продаж - вместе подберём CRM, которая ему подойдёт."
+    }
+  }
+}
