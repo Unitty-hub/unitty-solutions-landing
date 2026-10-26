@@ -11,6 +11,7 @@
 <link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/yt-player.css">
+<script src="/tracking.js"></script>
 <style>
   /* ===== LGV Big Noodle — brand headline font ===== */
   @font-face {
@@ -1845,86 +1846,26 @@
   }
 
 
-  // ============ VERSION TRACKING ============
-  // Bumped per deployment. Used for sequential A/B version comparison in Zoho + Clarity.
-  const LANDING_VERSION = "v22-2026-10-23";
+  // ============ VERSION + ATTRIBUTION ============
+  // Version, UTM / click-ID capture, Clarity and the Meta Pixel all live in /tracking.js.
+  // Bump SITE_VERSION there on every published change.
+  const LANDING_VERSION = (window.UnittyTracking && window.UnittyTracking.version) || 'unknown';
   document.documentElement.setAttribute('data-landing-version', LANDING_VERSION);
 
-  // ============ UTM CAPTURE ============
-  // First-touch persists forever in localStorage.
-  // Last-touch overwrites on every visit.
-  // Both are sent on form submit so Zoho sees origin AND most recent channel.
-  (function captureUTM() {
-    const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
-    const params = new URLSearchParams(window.location.search);
-    const current = {};
-    let hasUTM = false;
-    UTM_KEYS.forEach(k => {
-      const v = params.get(k);
-      if (v) { current[k] = v; hasUTM = true; }
-    });
-    if (hasUTM) {
-      current._timestamp = new Date().toISOString();
-      current._landing_url = window.location.href;
-      current._referrer = document.referrer || '(direct)';
-      try {
-        // Last-touch: always overwrite
-        localStorage.setItem('unitty_utm_last', JSON.stringify(current));
-        // First-touch: only set once
-        if (!localStorage.getItem('unitty_utm_first')) {
-          localStorage.setItem('unitty_utm_first', JSON.stringify(current));
-        }
-      } catch (e) {}
+  // Funnel events for Clarity (no personal data): which CTA was clicked, when the form was started
+  document.addEventListener('click', function (e) {
+    const a = e.target.closest('a[href^="#"], button');
+    if (!a || !window.UnittyTracking) return;
+    const key = a.getAttribute('data-i18n') || (a.querySelector('[data-i18n]') || {}).getAttribute?.('data-i18n') || '';
+    if (/pricing\.\d\.cta|pricing\.blueprint\.cta|hero\.cta|request|cta/.test(key)) {
+      window.UnittyTracking.event('cta_click', { last_cta: key });
     }
-    // Also always track latest referrer + landing page even without UTM
-    try {
-      if (!localStorage.getItem('unitty_first_touch')) {
-        localStorage.setItem('unitty_first_touch', JSON.stringify({
-          referrer: document.referrer || '(direct)',
-          landing_url: window.location.href,
-          timestamp: new Date().toISOString(),
-          landing_version: LANDING_VERSION,
-        }));
-      }
-    } catch (e) {}
-  })();
-
-  function getUTM(which /* 'first' | 'last' */) {
-    try {
-      const raw = localStorage.getItem(which === 'first' ? 'unitty_utm_first' : 'unitty_utm_last');
-      return raw ? JSON.parse(raw) : {};
-    } catch (e) { return {}; }
-  }
-
-  function getFirstTouch() {
-    try {
-      const raw = localStorage.getItem('unitty_first_touch');
-      return raw ? JSON.parse(raw) : {};
-    } catch (e) { return {}; }
-  }
-
-  // ============ CLARITY VERSION TAG ============
-  // Clarity script expected to be injected via <head>. If present, tag the session.
-  (function tagClarity() {
-    if (typeof window.clarity === 'function') {
-      try {
-        window.clarity('set', 'landing_version', LANDING_VERSION);
-        window.clarity('set', 'lang', currentLang);
-        const first = getFirstTouch();
-        if (first.referrer) window.clarity('set', 'first_referrer', first.referrer);
-      } catch (e) {}
-    } else {
-      // Retry once after 2s in case Clarity loads async
-      setTimeout(() => {
-        if (typeof window.clarity === 'function') {
-          try {
-            window.clarity('set', 'landing_version', LANDING_VERSION);
-            window.clarity('set', 'lang', currentLang);
-          } catch (e) {}
-        }
-      }, 2000);
-    }
-  })();
+  }, true);
+  document.addEventListener('focusin', function onFirstFocus(e) {
+    if (!e.target.closest('#leadForm') || !window.UnittyTracking) return;
+    window.UnittyTracking.event('form_started');
+    document.removeEventListener('focusin', onFirstFocus, true);
+  }, true);
 
   // ===== Solutions data =====
   const SOLUTIONS = [
@@ -2189,36 +2130,18 @@
     const submitBtn = form.querySelector('.form-submit');
     const data = Object.fromEntries(new FormData(form).entries());
 
-    // Attach all tracking metadata server-side cannot infer
-    const utm_first = getUTM('first');
-    const utm_last = getUTM('last');
-    const first_touch = getFirstTouch();
+    // Attribution: full landing URL, every query parameter, click IDs, Meta cookies (see /tracking.js)
+    const T = window.UnittyTracking;
+    const attribution = T ? T.getAttribution() : { landing_version: LANDING_VERSION, submission_url: window.location.href };
+    const event_id = T ? T.newEventId() : String(Date.now());
     const selected_solutions = Array.from(state.selected || []).join(' | ');
 
     const payload = {
-      // Form fields (as entered by lead)
-      ...data,
-      // Tracking metadata
-      landing_version: LANDING_VERSION,
+      ...data,                       // form fields as entered
       lang: currentLang,
       selected_solutions: selected_solutions,
-      // UTM - last-touch (most recent attribution)
-      utm_source: utm_last.utm_source || '',
-      utm_medium: utm_last.utm_medium || '',
-      utm_campaign: utm_last.utm_campaign || '',
-      utm_content: utm_last.utm_content || '',
-      utm_term: utm_last.utm_term || '',
-      // UTM - first-touch (original acquisition channel)
-      first_utm_source: utm_first.utm_source || '',
-      first_utm_medium: utm_first.utm_medium || '',
-      first_utm_campaign: utm_first.utm_campaign || '',
-      first_referrer: first_touch.referrer || '(direct)',
-      first_landing_url: first_touch.landing_url || '',
-      first_touch_date: first_touch.timestamp || '',
-      // Submission context
-      submission_url: window.location.href,
-      submission_user_agent: navigator.userAgent,
-      submission_timestamp: new Date().toISOString(),
+      event_id: event_id,            // shared by the Pixel Lead event and the server-side Conversions API event
+      attribution: attribution,
     };
 
     // Disable button while sending
@@ -2235,18 +2158,13 @@
 
       if (!res.ok) throw new Error('HTTP ' + res.status);
 
-      // Success → tag Clarity + redirect to thank-you
-      try {
-        if (typeof window.clarity === 'function') {
-          window.clarity('event', 'form_submitted');
-          window.clarity('set', 'lead_email', data.email || '');
-        }
-      } catch (err) {}
+      // Success → Clarity event, then the thank-you page (which fires the Meta Lead event with this event_id)
+      if (T) T.event('form_submitted', { lead_source: data.heardFrom || '' });
 
-      // Preserve first name + landing_version in URL so thank-you page can personalize + attribute
       const qs = new URLSearchParams({
         name: (data.fullName || '').trim().split(/\s+/)[0] || '',
         v: LANDING_VERSION,
+        eid: event_id,
       });
       window.location.href = THANK_YOU_URL + '?' + qs.toString();
 
@@ -2256,11 +2174,7 @@
       if (originalBtnText) originalBtnText.textContent = t('form.submit');
       document.getElementById('formSuccess').style.display = 'none';
       document.getElementById('formError').style.display = 'block';
-      try {
-        if (typeof window.clarity === 'function') {
-          window.clarity('event', 'form_submit_failed');
-        }
-      } catch (e) {}
+      if (T) T.event('form_submit_failed');
     }
   }
 
