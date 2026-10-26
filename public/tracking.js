@@ -14,7 +14,7 @@
 (function () {
   'use strict';
 
-  var SITE_VERSION = 'v24-2026-10-26';
+  var SITE_VERSION = 'v25-2026-10-26';
   var CLARITY_ID = 'yczxtdyn7h';
   var META_PIXEL_ID = '1468998947504136';
 

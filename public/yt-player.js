@@ -61,9 +61,27 @@
     sound.setAttribute('aria-label', 'Turn sound on');
     sound.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>';
 
+    // our own minimal controls: elapsed / total time + a seek bar (YouTube's UI stays hidden)
+    var controls = document.createElement('div');
+    controls.className = 'yt-controls';
+    controls.innerHTML = '<span class="yt-time">0:00 / 0:00</span><div class="yt-track" role="slider" aria-label="Seek" tabindex="0"><div class="yt-fill"></div></div>';
+    var timeEl = controls.querySelector('.yt-time');
+    var track = controls.querySelector('.yt-track');
+    var fill = controls.querySelector('.yt-fill');
+
+    // total length shown on the poster before the first click
+    var durEl = card.querySelector('[data-yt-duration]');
+    if (!durEl) {
+      durEl = document.createElement('span');
+      durEl.className = 'yt-dur-chip';
+      durEl.setAttribute('data-yt-duration', '');
+    }
+
     card.insertBefore(frameWrap, card.firstChild);
     card.appendChild(shield);
     card.appendChild(sound);
+    card.appendChild(controls);
+    if (!durEl.parentNode) card.appendChild(durEl);
 
     var player = null;
     var ready = false;
@@ -73,6 +91,48 @@
 
     function state(s) { card.setAttribute('data-state', s); }
     state('idle');
+
+    function fmt(sec) {
+      sec = Math.max(0, Math.round(sec || 0));
+      return Math.floor(sec / 60) + ':' + ('0' + (sec % 60)).slice(-2);
+    }
+    function duration() { try { return player.getDuration() || 0; } catch (e) { return 0; } }
+    function refresh() {
+      if (!ready) return;
+      var d = duration(), t = 0;
+      try { t = player.getCurrentTime() || 0; } catch (e) {}
+      timeEl.textContent = fmt(t) + ' / ' + fmt(d);
+      fill.style.width = d ? Math.min(100, (t / d) * 100) + '%' : '0%';
+    }
+    setInterval(function () {
+      var st = card.getAttribute('data-state');
+      if (st === 'playing' || st === 'paused') refresh();
+    }, 250);
+
+    function seekFromEvent(e) {
+      var d = duration();
+      if (!d) return;
+      var r = track.getBoundingClientRect();
+      var x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+      var frac = Math.min(1, Math.max(0, x / r.width));
+      try { player.seekTo(frac * d, true); } catch (err) {}
+      refresh();
+      log('--- seek', Math.round(frac * 100) + '%');
+    }
+    var dragging = false;
+    track.addEventListener('pointerdown', function (e) {
+      e.stopPropagation(); dragging = true; seekFromEvent(e);
+      try { track.setPointerCapture(e.pointerId); } catch (err) {}
+    });
+    track.addEventListener('pointermove', function (e) { if (dragging) seekFromEvent(e); });
+    track.addEventListener('pointerup', function () { dragging = false; });
+    track.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault(); e.stopPropagation();
+      try { player.seekTo(Math.max(0, player.getCurrentTime() + (e.key === 'ArrowRight' ? 5 : -5)), true); } catch (err) {}
+      refresh();
+    });
+    controls.addEventListener('click', function (e) { e.stopPropagation(); });
 
     function build() {
       if (player) return;
@@ -90,6 +150,8 @@
             onReady: function () {
               ready = true;
               log('+++ player ready', id);
+              var d = duration();
+              if (d) { durEl.textContent = fmt(d); timeEl.textContent = '0:00 / ' + fmt(d); }
               if (wantPlay) play();
             },
             onStateChange: function (e) {
@@ -139,7 +201,7 @@
     }
 
     card.addEventListener('click', function (e) {
-      if (e.target.closest('.yt-sound')) return;
+      if (e.target.closest('.yt-sound') || e.target.closest('.yt-controls')) return;
       var s = card.getAttribute('data-state');
       if (s === 'playing') {
         try { player.pauseVideo(); } catch (err) {}
