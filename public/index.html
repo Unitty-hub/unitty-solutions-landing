@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Georgian:wght@400;500;600;700;900&display=swap">
+<link rel="stylesheet" href="/yt-player.css">
 <style>
   /* ===== LGV Big Noodle — brand headline font ===== */
   @font-face {
@@ -265,7 +266,7 @@
     border: 1px solid var(--border);
     border-radius: 20px;
     overflow: hidden;
-    background: #BFFF00; /* matches photo lime background */
+    background: #0f0f0f;
     aspect-ratio: 4 / 5;
     max-width: 440px;
     margin-inline: auto;
@@ -281,6 +282,12 @@
     object-fit: cover;
     object-position: center 20%;
     display: block;
+  }
+  .giorgi-card .yt-poster-img { object-position: center 20%; }
+  .giorgi-card .yt-poster::after {
+    background:
+      radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--accent) 18%, transparent) 0%, transparent 55%),
+      rgba(8, 8, 8, 0.2);
   }
   .giorgi-badge {
     position: absolute; bottom: 20px; left: 20px; right: 20px;
@@ -1341,11 +1348,15 @@
 
     </div>
 
-    <div class="giorgi-card">
-      <div class="giorgi-photo">
-        <img src="giorgi.png" alt="Giorgi Kordzakhia, CEO of Unitty.io">
+    <div class="giorgi-card yt-card" data-yt-id="l4jso17V4vs" data-yt-fit="cover" role="button" tabindex="0" aria-label="Play video: Giorgi Kordzakhia, CEO of Unitty.io">
+      <div class="yt-poster">
+        <!-- the Short's own vertical frame; falls back to Giorgi's photo if YouTube has none -->
+        <img class="yt-poster-img" src="https://i.ytimg.com/vi/l4jso17V4vs/oardefault.jpg" alt="" fetchpriority="high"
+             onload="if(this.naturalWidth<=120){this.onload=null;this.src='giorgi.png';}"
+             onerror="this.onerror=null;this.src='giorgi.png';">
+        <div class="yt-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
       </div>
-      <div class="giorgi-badge">
+      <div class="giorgi-badge yt-caption">
         <div>
           <p class="giorgi-name" data-i18n="giorgi.name">Giorgi Kordzakhia</p>
           <p class="giorgi-role" data-i18n="giorgi.role">CEO · Unitty.io</p>
@@ -2274,3 +2285,4 @@
   // Init
   applyI18n();
 </script>
+<script src="/yt-player.js" defer></script>
