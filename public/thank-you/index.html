@@ -82,6 +82,13 @@
     width: 32px; height: 32px; border-radius: 8px;
     display: block; object-fit: contain;
   }
+  /* brand stays on one line; slightly smaller on very narrow phones */
+  .logo span { white-space: nowrap; }
+  @media (max-width: 400px) {
+    .logo { font-size: 17px; gap: 8px; }
+    .logo-mark { width: 28px; height: 28px; }
+  }
+
   /* ===== NAV PHONE (click-to-call) - same as landing ===== */
   .nav-phone {
     display: inline-flex; align-items: center; gap: 7px;
@@ -523,7 +530,7 @@
   <div class="wrap wrap-wide nav-inner">
     <a href="/" class="logo">
       <img src="unitty-logo.png" alt="Unitty" class="logo-mark">
-      <span>Unitty</span>
+      <span>Unitty Advisor</span>
     </a>
     <div class="nav-right" style="display:flex;align-items:center;gap:12px;">
       <!-- shown only Mon-Fri 10:00-19:00 Tbilisi time (see setCallButtonVisibility) -->

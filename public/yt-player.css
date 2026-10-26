@@ -5,7 +5,9 @@
 /* the YouTube iframe sits at the bottom of the stack */
 .yt-frame { position: absolute; inset: 0; overflow: hidden; background: #000; z-index: 0; }
 .yt-frame iframe { position: absolute; left: 0; width: 100%; border: 0; pointer-events: none; }
-.yt-fit-contain iframe { top: 0; height: 100%; }
+/* 16:9 in a 16:9 card: the iframe is taller than the card, so YouTube letterboxes the video into
+   exactly the visible area and its title bar (top) and logo / "more videos" strip (bottom) are cut off */
+.yt-fit-contain iframe { top: -90px; height: calc(100% + 180px); }
 /* vertical Shorts (9:16) filling a shorter card: crop top and bottom, like object-fit: cover */
 .yt-fit-cover iframe { top: 50%; height: auto; aspect-ratio: 9 / 16; transform: translateY(-50%); }
 
@@ -41,9 +43,7 @@
 .yt-card[data-state="playing"] .yt-poster,
 .yt-card[data-state="playing"] .yt-caption { opacity: 0; pointer-events: none; }
 
-/* paused: keep the current frame visible behind a light veil and the play button */
-.yt-card[data-state="paused"] .yt-poster { background: transparent; }
-.yt-card[data-state="paused"] .yt-poster-img { opacity: 0; }
+/* paused: our poster comes back over YouTube's pause screen ("More videos" etc.) */
 .yt-card[data-state="paused"] .yt-caption { opacity: 0; }
 
 /* muted fallback (Safari / iOS): one tap on this turns the sound on */
