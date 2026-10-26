@@ -251,6 +251,7 @@ function buildDescription(body, attr, server) {
   const lines = [
     `Landing version: ${attr.landing_version || "?"}`,
     `Language: ${body.lang || "?"}`,
+    `Hero headline: ${body.hero_variant || "default"}`,
     `Submitted: ${attr.submitted_at || new Date().toISOString()}`,
     `From URL: ${attr.submission_url || "?"}`,
     "",

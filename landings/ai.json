@@ -1,10 +1,25 @@
 {
   "name": "ai",
   "description": "Unitty - AI automations and services for your business: chat assistant, meeting transcription, process automation. Book a free 20-minute call.",
+  "pains": [
+    "chats"
+  ],
   "i18n": {
-    "nav.brand": {"ka": "Unitty AI", "en": "Unitty AI", "ru": "Unitty AI"},
-    "hero.headline.line1": {"ka": "AI ყველგანაა, შედეგი - არა", "en": "AI is everywhere. Results aren't.", "ru": "AI везде. Результата нет."},
-    "hero.headline.line3.plain": {"ka": "ცდას და შეცდომას", "en": "of trial and error", "ru": "проб и ошибок"},
+    "nav.brand": {
+      "ka": "Unitty AI",
+      "en": "Unitty AI",
+      "ru": "Unitty AI"
+    },
+    "hero.headline.line1": {
+      "ka": "AI ყველგანაა, შედეგი - არა",
+      "en": "AI is everywhere. Results aren't.",
+      "ru": "AI везде. Результата нет."
+    },
+    "hero.headline.line3.plain": {
+      "ka": "ცდას და შეცდომას",
+      "en": "of trial and error",
+      "ru": "проб и ошибок"
+    },
     "hero.sub": {
       "ka": "500+ წარმატებული დანერგვის გამოცდილებით, 20 წუთში მოგიყვები, სად დაგიზოგავს AI რეალურად დროს - ჩატ-ასისტენტიდან შეხვედრების ტრანსკრიფციამდე და პროცესების ავტომატიზაციამდე. უფასოდ - თუ ახლავე დაჯავშნი.",
       "en": "With 500+ successful implementations behind us, in 20 minutes I'll show you where AI will actually save you time - from a chat assistant to meeting transcription and process automation. Free if you book now.",
@@ -19,6 +34,11 @@
       "ka": "მოგვიყევი, სად გეხარჯება ყველაზე მეტი დრო - ერთად ვიპოვით, სად დაგეხმარება AI.",
       "en": "Tell us where your team loses the most time - together we'll find where AI can help.",
       "ru": "Расскажите, где ваша команда теряет больше всего времени - вместе найдём, где поможет AI."
+    },
+    "pain.chats.fix": {
+      "ka": "AI ასისტენტი 24/7 პასუხობს ყველა არხზე, რთულ კითხვებს კი მენეჯერს გადასცემს.",
+      "en": "An AI assistant replies 24/7 on every channel and hands tricky questions to a manager.",
+      "ru": "AI-ассистент отвечает 24/7 во всех каналах и передаёт сложные вопросы менеджеру."
     }
   }
 }

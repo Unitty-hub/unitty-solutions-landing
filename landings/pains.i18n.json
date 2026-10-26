@@ -1,0 +1,252 @@
+{
+ "pain.title": {
+  "ka": "ნაცნობია?",
+  "en": "Sound familiar?",
+  "ru": "Знакомо?"
+ },
+ "pain.sub": {
+  "ka": "ასეთ სიტუაციებს ყოველდღე ვხედავთ. ერთი ზარი გაჩვენებს, როგორ მოაგვარო შენი.",
+  "en": "We see these situations every day. One call shows you how to fix yours.",
+  "ru": "Мы видим такие ситуации каждый день. Один звонок покажет, как решить вашу."
+ },
+ "pain.cta": {
+  "ka": "მოითხოვე უფასო ზარი",
+  "en": "Request a free call",
+  "ru": "Запросить бесплатный звонок"
+ },
+ "pain.fix.label": {
+  "ka": "გამოსავალი:",
+  "en": "The fix:",
+  "ru": "Решение:"
+ },
+ "pain.manager.from": {
+  "ka": "ანა · გაყიდვების მენეჯერი",
+  "en": "Ana · Sales manager",
+  "ru": "Анна · менеджер по продажам"
+ },
+ "pain.manager.msg": {
+  "ka": "ხვალიდან აღარ მოვდივარ. წარმატებები!",
+  "en": "I'm not coming in from tomorrow. Good luck!",
+  "ru": "С завтрашнего дня я больше не выхожу. Удачи!"
+ },
+ "pain.manager.lost1": {
+  "ka": "კლიენტების ბაზა",
+  "en": "Client base",
+  "ru": "База клиентов"
+ },
+ "pain.manager.lost2": {
+  "ka": "მიმოწერის ისტორია",
+  "en": "Chat history",
+  "ru": "История переписки"
+ },
+ "pain.manager.lost3": {
+  "ka": "შეთანხმებული ფასები",
+  "en": "Agreed prices",
+  "ru": "Согласованные цены"
+ },
+ "pain.manager.title": {
+  "ka": "მენეჯერი წავიდა. კლიენტებიც თან წაიყვანა.",
+  "en": "Your manager left. And took the clients along.",
+  "ru": "Менеджер ушёл. И забрал клиентов с собой."
+ },
+ "pain.manager.fix": {
+  "ka": "სწორ CRM-ში კლიენტის ისტორია კომპანიას რჩება და არა თანამშრომლის ტელეფონს.",
+  "en": "In the right CRM, client history stays with the company, not on an employee's phone.",
+  "ru": "В правильной CRM история клиента остаётся у компании, а не в телефоне сотрудника."
+ },
+ "pain.28.sell": {
+  "ka": "გაყიდვა",
+  "en": "Selling",
+  "ru": "Продажи"
+ },
+ "pain.28.rest": {
+  "ka": "დანარჩენი",
+  "en": "Everything else",
+  "ru": "Всё остальное"
+ },
+ "pain.28.title": {
+  "ka": "გაყიდვების მენეჯერის დროის მხოლოდ 28% მიდის გაყიდვაზე",
+  "en": "Only 28% of a sales rep's time goes to selling",
+  "ru": "Только 28% времени менеджера уходит на продажи"
+ },
+ "pain.28.body": {
+  "ka": "დანარჩენი ცხრილებს, ზარებსა და მიმოწერას ეხარჯება.",
+  "en": "The rest goes to spreadsheets, calls and messaging.",
+  "ru": "Остальное уходит на таблицы, звонки и переписку."
+ },
+ "pain.28.fix": {
+  "ka": "ავტომატიზაცია რუტინას აშორებს და მენეჯერს გაყიდვას უბრუნებს.",
+  "en": "Automation takes the routine away and gives the rep back to selling.",
+  "ru": "Автоматизация убирает рутину и возвращает менеджера к продажам."
+ },
+ "pain.28.source": {
+  "ka": "წყარო: Salesforce, State of Sales",
+  "en": "Source: Salesforce, State of Sales",
+  "ru": "Источник: Salesforce, State of Sales"
+ },
+ "pain.owner.c1": {
+  "ka": "კლიენტს დაურეკე!",
+  "en": "Call the client!",
+  "ru": "Позвони клиенту!"
+ },
+ "pain.owner.c2": {
+  "ka": "ინვოისი rs.ge-ზე",
+  "en": "Invoice on rs.ge",
+  "ru": "Счёт на rs.ge"
+ },
+ "pain.owner.c3": {
+  "ka": "Instagram-ზე ვინ უპასუხა?",
+  "en": "Who replied on Instagram?",
+  "ru": "Кто ответил в Instagram?"
+ },
+ "pain.owner.c4": {
+  "ka": "ფასი გაუგზავნე?",
+  "en": "Did you send the price?",
+  "ru": "Цену отправил?"
+ },
+ "pain.owner.c5": {
+  "ka": "მენეჯერი დღეს არ მოვა",
+  "en": "Manager is off today",
+  "ru": "Менеджер сегодня не придёт"
+ },
+ "pain.owner.c6": {
+  "ka": "ანგარიში ხვალ!!",
+  "en": "Report tomorrow!!",
+  "ru": "Отчёт завтра!!"
+ },
+ "pain.owner.title": {
+  "ka": "ბიზნესის მფლობელი ხარ თუ ყველაფრის მენეჯერი?",
+  "en": "Business owner or the manager of everything?",
+  "ru": "Владелец бизнеса или менеджер всего подряд?"
+ },
+ "pain.owner.body": {
+  "ka": "ყველა კითხვა შენთან მოდის, ყველა დავალება შენ გახსოვს.",
+  "en": "Every question lands on you, every task is on your mind.",
+  "ru": "Все вопросы идут к вам, все задачи держите в голове вы."
+ },
+ "pain.owner.fix": {
+  "ka": "სისტემა თვითონ ახსენებს გუნდს, ვის რა ევალება, შენ კი ბიზნესს მართავ.",
+  "en": "The system reminds the team who owes what, so you can run the business.",
+  "ru": "Система сама напоминает команде, кто что должен, а вы управляете бизнесом."
+ },
+ "pain.excel.h1": {
+  "ka": "კლიენტი",
+  "en": "Client",
+  "ru": "Клиент"
+ },
+ "pain.excel.h2": {
+  "ka": "ტელეფონი",
+  "en": "Phone",
+  "ru": "Телефон"
+ },
+ "pain.excel.h3": {
+  "ka": "სტატუსი",
+  "en": "Status",
+  "ru": "Статус"
+ },
+ "pain.excel.sticky": {
+  "ka": "ვინ წაშალა მე-3 სვეტი?!",
+  "en": "Who deleted column C?!",
+  "ru": "Кто удалил третий столбец?!"
+ },
+ "pain.excel.title": {
+  "ka": "ისევ Excel-ში ეძებ, ვის რა მიჰყიდე?",
+  "en": "Still searching Excel for who bought what?",
+  "ru": "Всё ещё ищете в Excel, кому что продали?"
+ },
+ "pain.excel.body": {
+  "ka": "კლიენტები ფაილებში, რვეულებსა და ტელეფონში.",
+  "en": "Clients spread across files, notebooks and phones.",
+  "ru": "Клиенты в файлах, тетрадях и телефонах."
+ },
+ "pain.excel.fix": {
+  "ka": "ერთ სისტემაში ყველა კლიენტი, გაყიდვა და შეთანხმება ერთი ძებნით ჩანს.",
+  "en": "In one system every client, sale and agreement is one search away.",
+  "ru": "В одной системе каждый клиент, продажа и договорённость находятся одним поиском."
+ },
+ "pain.chats.m1": {
+  "ka": "ფასი რა ღირს?",
+  "en": "How much is it?",
+  "ru": "Сколько стоит?"
+ },
+ "pain.chats.m2": {
+  "ka": "მიწოდება გაქვთ?",
+  "en": "Do you deliver?",
+  "ru": "Доставка есть?"
+ },
+ "pain.chats.m3": {
+  "ka": "გამარჯობა, ხართ?",
+  "en": "Hi, are you there?",
+  "ru": "Здравствуйте, вы тут?"
+ },
+ "pain.chats.m4": {
+  "ka": "შეკვეთა მინდა",
+  "en": "I'd like to order",
+  "ru": "Хочу заказать"
+ },
+ "pain.chats.title": {
+  "ka": "კლიენტმა მოგწერა. ვინ უპასუხა?",
+  "en": "A client messaged you. Who replied?",
+  "ru": "Клиент написал. Кто ответил?"
+ },
+ "pain.chats.body": {
+  "ka": "სანამ პასუხს ეძებ, კლიენტი სხვასთან ყიდულობს.",
+  "en": "While you look for the answer, the client buys elsewhere.",
+  "ru": "Пока вы ищете ответ, клиент покупает у другого."
+ },
+ "pain.chats.fix": {
+  "ka": "ყველა არხი ერთ ფანჯარაში: ჩანს, ვინ უპასუხა და რა უპასუხა.",
+  "en": "All channels in one window: you see who replied and what.",
+  "ru": "Все каналы в одном окне: видно, кто и что ответил."
+ },
+ "hero.v.manager.a": {
+  "ka": "მენეჯერი წავიდა.",
+  "en": "Your manager left.",
+  "ru": "Менеджер ушёл."
+ },
+ "hero.v.manager.b": {
+  "ka": "კლიენტებიც თან წაიყვანა?",
+  "en": "With your clients?",
+  "ru": "Вместе с клиентами?"
+ },
+ "hero.v.28.a": {
+  "ka": "გაყიდვების დროის მხოლოდ",
+  "en": "Only 28% of sales time",
+  "ru": "Только 28% времени"
+ },
+ "hero.v.28.b": {
+  "ka": "28% მიდის გაყიდვაზე",
+  "en": "goes to selling",
+  "ru": "уходит на продажи"
+ },
+ "hero.v.owner.a": {
+  "ka": "ბიზნესის მფლობელი ხარ",
+  "en": "Business owner",
+  "ru": "Владелец бизнеса"
+ },
+ "hero.v.owner.b": {
+  "ka": "თუ ყველაფრის მენეჯერი?",
+  "en": "or manager of everything?",
+  "ru": "или менеджер всего?"
+ },
+ "hero.v.excel.a": {
+  "ka": "ისევ Excel-ში ეძებ,",
+  "en": "Still searching Excel",
+  "ru": "Всё ещё ищете в Excel,"
+ },
+ "hero.v.excel.b": {
+  "ka": "ვის რა მიჰყიდე?",
+  "en": "for who bought what?",
+  "ru": "кому что продали?"
+ },
+ "hero.v.chats.a": {
+  "ka": "კლიენტმა მოგწერა.",
+  "en": "A client messaged you.",
+  "ru": "Клиент написал."
+ },
+ "hero.v.chats.b": {
+  "ka": "ვინ უპასუხა?",
+  "en": "Who replied?",
+  "ru": "Кто ответил?"
+ }
+}

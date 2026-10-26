@@ -1,0 +1,5 @@
+{
+  "name": "start",
+  "output": "public/index.html",
+  "pains": ["owner"]
+}

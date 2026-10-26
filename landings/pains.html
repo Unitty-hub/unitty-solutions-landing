@@ -1,0 +1,161 @@
+<!-- ============ PAINS ("Sound familiar?") ============ -->
+<!-- Built by tools/build_landings.py from landings/pains.html. Each landing lists its cards in "pains". -->
+<style>
+  .pains .pain-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 40px; }
+  .pains .pain-grid.count-1 { grid-template-columns: 1fr; max-width: 920px; margin-inline: auto; }
+  .pains .pain-grid.count-5 .pain-card:nth-child(n+4) { grid-column: span 1; }
+  @media (min-width: 1000px) {
+    .pains .pain-grid.count-5 { grid-template-columns: repeat(6, 1fr); }
+    .pains .pain-grid.count-5 .pain-card { grid-column: span 2; }
+    .pains .pain-grid.count-5 .pain-card:nth-child(4) { grid-column: 2 / span 2; }
+    .pains .pain-grid.count-5 .pain-card:nth-child(5) { grid-column: 4 / span 2; }
+  }
+  .pain-card {
+    position: relative; display: flex; flex-direction: column; gap: 14px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
+    padding: 22px; overflow: hidden;
+  }
+  .pain-grid.count-1 .pain-card { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 28px; padding: 28px; }
+  .pain-grid.count-1 .pain-card .pain-visual { grid-row: span 4; }
+  @media (max-width: 760px) { .pain-grid.count-1 .pain-card { grid-template-columns: 1fr; } .pain-grid.count-1 .pain-card .pain-visual { grid-row: auto; } }
+  .pain-visual {
+    position: relative; min-height: 170px; border-radius: 12px; padding: 16px;
+    background: radial-gradient(circle at 80% 0%, color-mix(in srgb, var(--danger) 14%, transparent), transparent 60%), var(--surface-2);
+    border: 1px solid var(--border);
+    display: flex; flex-direction: column; justify-content: center; gap: 10px;
+  }
+  .pain-title {
+    font-family: 'LGV Big Noodle', 'Helvetica Neue Bold', 'Helvetica Neue', -apple-system, Arial, 'Noto Sans Georgian', sans-serif;
+    font-weight: 700; font-size: 26px; line-height: 1.15; color: var(--fg); margin: 0;
+  }
+  .pain-body { font-size: 15px; line-height: 1.55; color: var(--fg-dim); margin: 0; }
+  .pain-fix {
+    margin: auto 0 0; padding: 12px 14px; border-radius: 10px; font-size: 14px; line-height: 1.5; color: var(--fg);
+    background: color-mix(in srgb, var(--accent) 8%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  }
+  .pain-fix b { color: var(--accent); font-weight: 600; margin-right: 6px; }
+  .pain-source { font-size: 14px; color: var(--fg-mute); margin: 0; }
+
+  /* manager */
+  .pv-bubble { align-self: flex-start; max-width: 92%; background: #2B2B28; border-radius: 14px 14px 14px 4px; padding: 10px 12px; }
+  .pv-bubble small { display: block; font-size: 14px; color: var(--fg-dim); margin-bottom: 4px; }
+  .pv-bubble span { font-size: 15px; color: var(--fg); }
+  .pv-lost { list-style: none; padding: 0; margin: 4px 0 0; display: grid; gap: 6px; }
+  .pv-lost li { font-size: 14px; color: var(--fg-mute); text-decoration: line-through; text-decoration-color: var(--danger); display: flex; gap: 8px; align-items: center; }
+  .pv-lost li::before { content: "✕"; color: var(--danger); text-decoration: none; font-size: 14px; }
+
+  /* 28% */
+  .pv-big { font-family: 'LGV Big Noodle', 'Helvetica Neue Bold', Arial, sans-serif; font-size: 72px; line-height: 1; color: var(--accent); }
+  .pv-bar { display: flex; height: 14px; border-radius: 999px; overflow: hidden; background: color-mix(in srgb, var(--danger) 55%, #3a3a36); }
+  .pv-bar i { width: 28%; background: var(--accent); }
+  .pv-legend { display: flex; justify-content: space-between; font-size: 14px; color: var(--fg-dim); }
+
+  /* owner */
+  .pv-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .pv-chips span { font-size: 14px; padding: 6px 10px; border-radius: 8px; background: #2B2B28; color: var(--fg); border: 1px solid var(--border-2); }
+  .pv-chips span:nth-child(odd) { transform: rotate(-2deg); }
+  .pv-chips span:nth-child(3n) { border-color: color-mix(in srgb, var(--danger) 60%, transparent); color: #FFB0B0; transform: rotate(2deg); }
+
+  /* excel */
+  .pv-sheet { display: grid; grid-template-columns: 1.3fr 1fr 0.8fr; border: 1px solid var(--border-2); border-radius: 6px; overflow: hidden; font-size: 14px; }
+  .pv-sheet > * { padding: 7px 8px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); min-height: 30px; }
+  .pv-sheet .h { background: #1F3B24; color: #B8E6C1; font-weight: 600; }
+  .pv-sheet i { display: block; height: 8px; margin-top: 4px; border-radius: 4px; background: #33332F; }
+  .pv-sheet i.w60 { width: 60%; } .pv-sheet i.w80 { width: 80%; } .pv-sheet i.w40 { width: 40%; } .pv-sheet i.red { background: color-mix(in srgb, var(--danger) 55%, transparent); }
+  .pv-sticky { position: absolute; right: 12px; bottom: 12px; transform: rotate(4deg); background: var(--warm); color: #1A1A1A; font-size: 14px; font-weight: 600; padding: 8px 10px; border-radius: 4px; max-width: 60%; box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+
+  /* chats */
+  .pv-chats { display: grid; gap: 8px; }
+  .pv-chat { display: flex; align-items: center; gap: 10px; background: #2B2B28; border-radius: 12px; padding: 8px 10px; }
+  .pv-chat .ic { width: 26px; height: 26px; border-radius: 50%; flex: none; display: grid; place-items: center; font-size: 14px; font-weight: 700; color: #fff; }
+  .pv-chat .tx { flex: 1; font-size: 14px; color: var(--fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pv-chat .bd { flex: none; min-width: 22px; height: 22px; border-radius: 999px; background: var(--danger); color: #fff; font-size: 14px; font-weight: 700; display: grid; place-items: center; padding: 0 6px; }
+  .pains-cta { display: flex; justify-content: center; margin-top: 32px; }
+</style>
+<section class="section pains" id="pains">
+  <div class="wrap">
+    <h2 class="section-title" data-i18n="pain.title">Sound familiar?</h2>
+    <p class="section-sub" data-i18n="pain.sub">We see these situations every day. One call shows you how to fix yours.</p>
+    <div class="pain-grid count-{{COUNT}}">
+{{CARDS}}
+    </div>
+    <div class="pains-cta"><a href="#final" class="btn btn-primary"><span data-i18n="pain.cta">Request a free call</span></a></div>
+  </div>
+</section>
+
+<!--card:manager-->
+      <article class="pain-card" data-pain="manager">
+        <div class="pain-visual" aria-hidden="true">
+          <div class="pv-bubble"><small data-i18n="pain.manager.from">Ana · Sales manager</small><span data-i18n="pain.manager.msg">I'm not coming in from tomorrow. Good luck!</span></div>
+          <ul class="pv-lost">
+            <li data-i18n="pain.manager.lost1">Client base</li>
+            <li data-i18n="pain.manager.lost2">Chat history</li>
+            <li data-i18n="pain.manager.lost3">Agreed prices</li>
+          </ul>
+        </div>
+        <h3 class="pain-title" data-i18n="pain.manager.title">Your manager left. And took the clients along.</h3>
+        <p class="pain-fix"><b data-i18n="pain.fix.label">The fix:</b><span data-i18n="pain.manager.fix">In the right CRM, client history stays with the company, not on an employee's phone.</span></p>
+      </article>
+<!--/card-->
+<!--card:28-->
+      <article class="pain-card" data-pain="28">
+        <div class="pain-visual" aria-hidden="true">
+          <div class="pv-big">28%</div>
+          <div class="pv-bar"><i></i></div>
+          <div class="pv-legend"><span data-i18n="pain.28.sell">Selling</span><span data-i18n="pain.28.rest">Everything else</span></div>
+        </div>
+        <h3 class="pain-title" data-i18n="pain.28.title">Only 28% of a sales rep's time goes to selling</h3>
+        <p class="pain-body" data-i18n="pain.28.body">The rest goes to spreadsheets, calls and messaging.</p>
+        <p class="pain-fix"><b data-i18n="pain.fix.label">The fix:</b><span data-i18n="pain.28.fix">Automation takes the routine away and gives the rep back to selling.</span></p>
+        <p class="pain-source" data-i18n="pain.28.source">Source: Salesforce, State of Sales</p>
+      </article>
+<!--/card-->
+<!--card:owner-->
+      <article class="pain-card" data-pain="owner">
+        <div class="pain-visual" aria-hidden="true">
+          <div class="pv-chips">
+            <span data-i18n="pain.owner.c1">Call the client!</span>
+            <span data-i18n="pain.owner.c2">Invoice on rs.ge</span>
+            <span data-i18n="pain.owner.c3">Who replied on Instagram?</span>
+            <span data-i18n="pain.owner.c4">Did you send the price?</span>
+            <span data-i18n="pain.owner.c5">Manager is off today</span>
+            <span data-i18n="pain.owner.c6">Report tomorrow!!</span>
+          </div>
+        </div>
+        <h3 class="pain-title" data-i18n="pain.owner.title">Business owner or the manager of everything?</h3>
+        <p class="pain-body" data-i18n="pain.owner.body">Every question lands on you, every task is on your mind.</p>
+        <p class="pain-fix"><b data-i18n="pain.fix.label">The fix:</b><span data-i18n="pain.owner.fix">The system reminds the team who owes what, so you can run the business.</span></p>
+      </article>
+<!--/card-->
+<!--card:excel-->
+      <article class="pain-card" data-pain="excel">
+        <div class="pain-visual" aria-hidden="true">
+          <div class="pv-sheet">
+            <div class="h" data-i18n="pain.excel.h1">Client</div><div class="h" data-i18n="pain.excel.h2">Phone</div><div class="h" data-i18n="pain.excel.h3">Status</div>
+            <div><i class="w80"></i></div><div><i class="w60"></i></div><div><i class="w40"></i></div>
+            <div><i class="w60"></i></div><div><i class="w80 red"></i></div><div></div>
+            <div><i class="w80"></i></div><div></div><div><i class="w60 red"></i></div>
+            <div><i class="w40"></i></div><div><i class="w60"></i></div><div></div>
+          </div>
+          <div class="pv-sticky" data-i18n="pain.excel.sticky">Who deleted column C?!</div>
+        </div>
+        <h3 class="pain-title" data-i18n="pain.excel.title">Still searching Excel for who bought what?</h3>
+        <p class="pain-body" data-i18n="pain.excel.body">Clients spread across files, notebooks and phones.</p>
+        <p class="pain-fix"><b data-i18n="pain.fix.label">The fix:</b><span data-i18n="pain.excel.fix">In one system every client, sale and agreement is one search away.</span></p>
+      </article>
+<!--/card-->
+<!--card:chats-->
+      <article class="pain-card" data-pain="chats">
+        <div class="pain-visual" aria-hidden="true">
+          <div class="pv-chats">
+            <div class="pv-chat"><span class="ic" style="background:#0A7CFF">m</span><span class="tx" data-i18n="pain.chats.m1">How much is it?</span><span class="bd">3</span></div>
+            <div class="pv-chat"><span class="ic" style="background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF)">ig</span><span class="tx" data-i18n="pain.chats.m2">Do you deliver?</span><span class="bd">5</span></div>
+            <div class="pv-chat"><span class="ic" style="background:#25D366">w</span><span class="tx" data-i18n="pain.chats.m3">Hi, are you there?</span><span class="bd">2</span></div>
+            <div class="pv-chat"><span class="ic" style="background:#7360F2">v</span><span class="tx" data-i18n="pain.chats.m4">I'd like to order</span><span class="bd">4</span></div>
+          </div>
+        </div>
+        <h3 class="pain-title" data-i18n="pain.chats.title">A client messaged you. Who replied?</h3>
+        <p class="pain-body" data-i18n="pain.chats.body">While you look for the answer, the client buys elsewhere.</p>
+        <p class="pain-fix"><b data-i18n="pain.fix.label">The fix:</b><span data-i18n="pain.chats.fix">All channels in one window: you see who replied and what.</span></p>
+      </article>
+<!--/card-->

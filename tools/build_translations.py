@@ -52,10 +52,12 @@ for name in LANDINGS:
     path = ROOT / "public" / ("index.html" if name == "start" else f"{name}/index.html")
     d = dct(path)
     cfgp = ROOT / "landings" / f"{name}.json"
-    own = set(json.loads(cfgp.read_text(encoding="utf-8"))["i18n"]) if cfgp.exists() else set()
+    own = set(json.loads(cfgp.read_text(encoding="utf-8")).get("i18n", {})) if cfgp.exists() else set()
+    has_pains = bool(json.loads(cfgp.read_text(encoding="utf-8")).get("pains")) if cfgp.exists() else False
     rows = []
     for k in d["en"]:
         if k.startswith("ty."): continue
+        if k.startswith("pain.") and not has_pains: continue   # pain cards only on landings that show them
         p = prev.get(("Landing", k))
         section = p[1] if p else k.split(".")[0].capitalize()
         note = p[6] if p and name == "start" else ("Only on this landing" if k in own else (p[6] if p else ""))

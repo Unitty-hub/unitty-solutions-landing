@@ -1,10 +1,29 @@
 {
   "name": "crm",
   "description": "Unitty - CRM selection and implementation for your business. Book a free 20-minute call.",
+  "pains": [
+    "manager",
+    "excel",
+    "28",
+    "owner",
+    "chats"
+  ],
   "i18n": {
-    "nav.brand": {"ka": "Unitty CRM", "en": "Unitty CRM", "ru": "Unitty CRM"},
-    "hero.headline.line1": {"ka": "სწორი CRM-ის შერჩევა რთულია", "en": "Choosing the right CRM is hard", "ru": "Выбрать правильную CRM сложно"},
-    "hero.headline.line3.plain": {"ka": "კვლევას და ტესტირებას", "en": "of research and trials", "ru": "исследований и тестов"},
+    "nav.brand": {
+      "ka": "Unitty CRM",
+      "en": "Unitty CRM",
+      "ru": "Unitty CRM"
+    },
+    "hero.headline.line1": {
+      "ka": "სწორი CRM-ის შერჩევა რთულია",
+      "en": "Choosing the right CRM is hard",
+      "ru": "Выбрать правильную CRM сложно"
+    },
+    "hero.headline.line3.plain": {
+      "ka": "კვლევას და ტესტირებას",
+      "en": "of research and trials",
+      "ru": "исследований и тестов"
+    },
     "hero.sub": {
       "ka": "500+ წარმატებული დანერგვის გამოცდილებით, 20 წუთში მოგიყვები, რომელი CRM მოერგება შენს გაყიდვებს, რა ეღირება დანერგვა და რამდენ ხანში ამუშავდება. უფასოდ - თუ ახლავე დაჯავშნი.",
       "en": "With 500+ successful implementations behind us, in 20 minutes I'll tell you which CRM fits your sales, what implementation costs and how fast it can go live. Free if you book now.",

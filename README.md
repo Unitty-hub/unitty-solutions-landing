@@ -86,3 +86,8 @@ One Cloudflare Pages project serves every landing. `functions/_middleware.js` ma
 - After changing the start page or a `landings/*.json`, run `python3 tools/build_landings.py` to regenerate the landings.
 - The thank-you page, `/api/lead`, `tracking.js`, fonts and images are shared. Each lead carries `Landing_Version` like `crm-v27-2026-10-26`.
 - Translations workbook: `python3 tools/build_translations.py` (one sheet per landing + Thank-you).
+
+### Pain cards and hero message match (v28)
+- `landings/pains.html` holds the "Sound familiar?" cards (manager, 28, owner, excel, chats); `landings/pains.i18n.json` their KA/EN/RU texts plus the hero variants.
+- Each landing picks its cards with `"pains": [...]` in its JSON (start.json for the start page). Re-run `python3 tools/build_landings.py`.
+- Hero headline follows the ad: `?hero=excel` or any `utm_content` containing `manager`, `28`, `owner`, `excel` or `chats` as a word (e.g. `meta_excel_v1`). Works for every source. Tagged in Clarity as `hero_variant` and written to the Lead description.
