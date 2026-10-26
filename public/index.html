@@ -283,7 +283,9 @@
     object-position: center 20%;
     display: block;
   }
-  .giorgi-card .yt-poster-img { object-position: center 20%; }
+  .giorgi-card .yt-poster-img { object-position: center 35%; }
+  /* play button sits just above the name badge, so it never covers the face */
+  .giorgi-card .yt-poster { align-items: end; padding-bottom: 128px; }
   .giorgi-card .yt-poster::after {
     background:
       radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--accent) 18%, transparent) 0%, transparent 55%),
@@ -1355,10 +1357,8 @@
 
     <div class="giorgi-card yt-card" data-yt-id="l4jso17V4vs" data-yt-fit="cover" role="button" tabindex="0" aria-label="Play video: Giorgi Kordzakhia, CEO of Unitty.io">
       <div class="yt-poster">
-        <!-- the Short's own vertical frame; falls back to Giorgi's photo if YouTube has none -->
-        <img class="yt-poster-img" src="https://i.ytimg.com/vi/l4jso17V4vs/oardefault.jpg" alt="" fetchpriority="high"
-             onload="if(this.naturalWidth<=120){this.onload=null;this.src='giorgi.png';}"
-             onerror="this.onerror=null;this.src='giorgi.png';">
+        <!-- self-hosted cover frame: changes the moment it is replaced here, no YouTube cache in between -->
+        <img class="yt-poster-img" src="hero-poster.jpg" alt="" width="880" height="1565" fetchpriority="high">
         <div class="yt-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
       </div>
       <div class="giorgi-badge yt-caption">
