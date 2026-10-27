@@ -1,9 +1,9 @@
 <!-- ============ PAINS ("Sound familiar?") ============ -->
-<!-- Built by tools/build_landings.py from landings/pains.html. Each landing lists its cards in "pains". -->
+<!-- Built by tools/build_landings.py from landings/pains.html. Each landing lists its cards in "pains".
+     The visuals are realistic interface mock-ups (spreadsheet, phone chat, notifications, notes), not illustrations. -->
 <style>
   .pains .pain-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 40px; }
   .pains .pain-grid.count-1 { grid-template-columns: 1fr; max-width: 920px; margin-inline: auto; }
-  .pains .pain-grid.count-5 .pain-card:nth-child(n+4) { grid-column: span 1; }
   @media (min-width: 1000px) {
     .pains .pain-grid.count-5 { grid-template-columns: repeat(6, 1fr); }
     .pains .pain-grid.count-5 .pain-card { grid-column: span 2; }
@@ -19,15 +19,11 @@
   .pain-grid.count-1 .pain-card .pain-visual { grid-row: span 4; }
   @media (max-width: 760px) { .pain-grid.count-1 .pain-card { grid-template-columns: 1fr; } .pain-grid.count-1 .pain-card .pain-visual { grid-row: auto; } }
   .pain-visual {
-    position: relative; min-height: 170px; border-radius: 12px; padding: 16px;
-    background: radial-gradient(circle at 80% 0%, color-mix(in srgb, var(--danger) 14%, transparent), transparent 60%), var(--surface-2);
-    border: 1px solid var(--border);
-    display: flex; flex-direction: column; justify-content: center; gap: 10px;
+    position: relative; min-height: 200px; border-radius: 14px; padding: 18px;
+    background: var(--surface-2); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
   }
-  .pain-title {
-    font-family: 'LGV Big Noodle', 'Helvetica Neue Bold', 'Helvetica Neue', -apple-system, Arial, 'Noto Sans Georgian', sans-serif;
-    font-weight: 700; font-size: 26px; line-height: 1.15; color: var(--fg); margin: 0;
-  }
+  .pain-title { font-family: var(--font-head); font-weight: 900; font-size: 19px; line-height: 1.25; color: var(--fg); margin: 0; }
   .pain-body { font-size: 15px; line-height: 1.55; color: var(--fg-dim); margin: 0; }
   .pain-fix {
     margin: auto 0 0; padding: 12px 14px; border-radius: 10px; font-size: 14px; line-height: 1.5; color: var(--fg);
@@ -35,63 +31,95 @@
   }
   .pain-fix b { color: var(--accent); font-weight: 600; margin-right: 6px; }
   .pain-source { font-size: 14px; color: var(--fg-mute); margin: 0; }
-
-  /* manager */
-  .pv-bubble { align-self: flex-start; max-width: 92%; background: #2B2B28; border-radius: 14px 14px 14px 4px; padding: 10px 12px; }
-  .pv-bubble small { display: block; font-size: 14px; color: var(--fg-dim); margin-bottom: 4px; }
-  .pv-bubble span { font-size: 15px; color: var(--fg); }
-  .pv-lost { list-style: none; padding: 0; margin: 4px 0 0; display: grid; gap: 6px; }
-  .pv-lost li { font-size: 14px; color: var(--fg-mute); text-decoration: line-through; text-decoration-color: var(--danger); display: flex; gap: 8px; align-items: center; }
-  .pv-lost li::before { content: "✕"; color: var(--danger); text-decoration: none; font-size: 14px; }
-
-  /* 28% */
-  .pv-big { font-family: 'LGV Big Noodle', 'Helvetica Neue Bold', Arial, sans-serif; font-size: 72px; line-height: 1; color: var(--accent); }
-  .pv-bar { display: flex; height: 14px; border-radius: 999px; overflow: hidden; background: color-mix(in srgb, var(--danger) 55%, #3a3a36); }
-  .pv-bar i { width: 28%; background: var(--accent); }
-  .pv-legend { display: flex; justify-content: space-between; font-size: 14px; color: var(--fg-dim); }
-
-  /* owner */
-  .pv-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-  .pv-chips span { font-size: 14px; padding: 6px 10px; border-radius: 8px; background: #2B2B28; color: var(--fg); border: 1px solid var(--border-2); }
-  .pv-chips span:nth-child(odd) { transform: rotate(-2deg); }
-  .pv-chips span:nth-child(3n) { border-color: color-mix(in srgb, var(--danger) 60%, transparent); color: #FFB0B0; transform: rotate(2deg); }
-
-  /* excel */
-  .pv-sheet { display: grid; grid-template-columns: 1.3fr 1fr 0.8fr; border: 1px solid var(--border-2); border-radius: 6px; overflow: hidden; font-size: 14px; }
-  .pv-sheet > * { padding: 7px 8px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); min-height: 30px; }
-  .pv-sheet .h { background: #1F3B24; color: #B8E6C1; font-weight: 600; }
-  .pv-sheet i { display: block; height: 8px; margin-top: 4px; border-radius: 4px; background: #33332F; }
-  .pv-sheet i.w60 { width: 60%; } .pv-sheet i.w80 { width: 80%; } .pv-sheet i.w40 { width: 40%; } .pv-sheet i.red { background: color-mix(in srgb, var(--danger) 55%, transparent); }
-  .pv-sticky { position: absolute; right: 12px; bottom: 12px; transform: rotate(4deg); background: var(--warm); color: #1A1A1A; font-size: 14px; font-weight: 600; padding: 8px 10px; border-radius: 4px; max-width: 60%; box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
-
-  /* chats */
-  .pv-chats { display: grid; gap: 8px; }
-  .pv-chat { display: flex; align-items: center; gap: 10px; background: #2B2B28; border-radius: 12px; padding: 8px 10px; }
-  .pv-chat .ic { width: 26px; height: 26px; border-radius: 50%; flex: none; display: grid; place-items: center; font-size: 14px; font-weight: 700; color: #fff; }
-  .pv-chat .tx { flex: 1; font-size: 14px; color: var(--fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .pv-chat .bd { flex: none; min-width: 22px; height: 22px; border-radius: 999px; background: var(--danger); color: #fff; font-size: 14px; font-weight: 700; display: grid; place-items: center; padding: 0 6px; }
   .pains-cta { display: flex; justify-content: center; margin-top: 32px; }
+
+  /* --- phone frame (chat + notifications) --- */
+  .ui-phone { width: 210px; max-width: 100%; border-radius: 30px; padding: 9px; background: #0b0b0b; border: 1px solid #2c2c2a; box-shadow: 0 18px 40px rgba(0,0,0,.45); }
+  .ui-phone-screen { position: relative; border-radius: 22px; overflow: hidden; background: #ece5dd; min-height: 230px; display: flex; flex-direction: column; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', var(--font-body); }
+  .ui-phone-notch { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 64px; height: 16px; border-radius: 10px; background: #0b0b0b; z-index: 2; }
+  .ui-status { display: flex; justify-content: space-between; padding: 8px 16px 4px; font-size: 14px; font-weight: 600; color: #111; }
+  .ui-chat-head { display: flex; align-items: center; gap: 8px; padding: 6px 10px 8px; background: #f6f6f6; border-bottom: 1px solid #ddd; }
+  .ui-avatar { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 14px; font-weight: 700; color: #fff; background: #8b8b8b; flex: none; }
+  .ui-chat-name { font-size: 14px; font-weight: 600; color: #111; line-height: 1.2; }
+  .ui-chat-name small { display: block; font-size: 14px; font-weight: 400; color: #777; }
+  .ui-chat-body { flex: 1; padding: 10px 10px 12px; display: flex; flex-direction: column; gap: 8px; }
+  .ui-bubble { align-self: flex-start; max-width: 88%; background: #fff; color: #111; border-radius: 4px 12px 12px 12px; padding: 7px 9px 5px; font-size: 14px; line-height: 1.35; box-shadow: 0 1px 1px rgba(0,0,0,.12); }
+  .ui-bubble time { display: block; text-align: right; font-size: 14px; color: #999; margin-top: 2px; }
+  .ui-system { align-self: center; background: #e1f2fb; color: #3b5b6b; font-size: 14px; border-radius: 8px; padding: 4px 10px; text-align: center; }
+  .ui-lost { list-style: none; padding: 0; margin: 2px 0 0; display: grid; gap: 4px; }
+  .ui-lost li { font-size: 14px; color: #8a8a8a; text-decoration: line-through; }
+
+  .ui-lock { background: linear-gradient(160deg, #2b3440, #151a21); color: #fff; padding: 26px 10px 14px; gap: 8px; }
+  .ui-lock-time { text-align: center; font-size: 34px; font-weight: 300; letter-spacing: 1px; line-height: 1; margin-bottom: 6px; }
+  .ui-notif { display: flex; gap: 8px; align-items: flex-start; padding: 8px 9px; border-radius: 14px; background: rgba(255,255,255,.16); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+  .ui-app { width: 24px; height: 24px; border-radius: 7px; flex: none; display: grid; place-items: center; font-size: 14px; font-weight: 700; color: #fff; }
+  .ui-notif-text { min-width: 0; flex: 1; }
+  .ui-notif-top { display: flex; justify-content: space-between; gap: 6px; font-size: 14px; color: rgba(255,255,255,.75); }
+  .ui-notif-msg { font-size: 14px; line-height: 1.3; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ui-more { text-align: center; font-size: 14px; color: rgba(255,255,255,.7); }
+
+  /* --- spreadsheet --- */
+  .ui-sheet { width: 100%; border-radius: 10px; overflow: hidden; background: #fff; color: #222; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', var(--font-body); box-shadow: 0 14px 30px rgba(0,0,0,.35); }
+  .ui-sheet-bar { display: flex; align-items: center; gap: 8px; padding: 7px 10px; background: #1d6f42; color: #fff; font-size: 14px; }
+  .ui-sheet-bar b { width: 16px; height: 16px; border-radius: 3px; background: #fff; color: #1d6f42; display: grid; place-items: center; font-size: 14px; font-weight: 800; line-height: 1; }
+  .ui-sheet-bar span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ui-fx { display: flex; gap: 8px; padding: 4px 8px; border-bottom: 1px solid #d9d9d9; font-size: 14px; color: #555; background: #f7f7f7; }
+  .ui-fx i { font-style: italic; color: #888; }
+  .ui-grid { display: grid; grid-template-columns: 24px 1.15fr 1.2fr 0.5fr; font-size: 14px; }
+  .ui-grid > div { padding: 4px 6px; border-right: 1px solid #e3e3e3; border-bottom: 1px solid #e3e3e3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.35; }
+  .ui-grid .c { background: #f0f0f0; color: #666; text-align: center; font-size: 14px; }
+  .ui-grid .h { font-weight: 700; background: #e8f3ec; }
+  .ui-grid .dup { background: #fff2b3; }
+  .ui-grid .err { color: #b00020; font-weight: 600; }
+  .ui-grid .sel { outline: 2px solid #1d6f42; outline-offset: -2px; }
+  .ui-sticky { position: absolute; right: 14px; bottom: 14px; transform: rotate(4deg); background: #ffe27a; color: #1A1A1A; font-size: 14px; font-weight: 600; padding: 8px 10px; border-radius: 3px; max-width: 58%; box-shadow: 0 6px 16px rgba(0,0,0,0.35); }
+
+  /* --- notes app --- */
+  .ui-notes { width: 100%; max-width: 300px; border-radius: 14px; overflow: hidden; background: #fffdf6; color: #1f1f1f; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', var(--font-body); box-shadow: 0 14px 30px rgba(0,0,0,.35); }
+  .ui-notes-top { display: flex; justify-content: space-between; align-items: center; padding: 9px 12px; font-size: 14px; color: #c58f00; font-weight: 600; border-bottom: 1px solid #efe9d6; }
+  .ui-notes-top span { color: #999; font-weight: 400; }
+  .ui-notes-title { padding: 10px 12px 2px; font-size: 16px; font-weight: 700; }
+  .ui-notes ul { list-style: none; margin: 0; padding: 4px 12px 12px; display: grid; gap: 6px; }
+  .ui-notes li { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; line-height: 1.35; }
+  .ui-notes li::before { content: ""; width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid #c9c2ad; flex: none; margin-top: 2px; }
+  .ui-notes li.done { color: #a5a5a5; text-decoration: line-through; }
+  .ui-notes li.done::before { background: #c58f00; border-color: #c58f00; }
+
+  /* --- 28% --- */
+  .ui-time { width: 100%; display: flex; flex-direction: column; gap: 12px; }
+  .ui-time-big { font-family: var(--font-head); font-weight: 900; font-size: 64px; line-height: 1; color: var(--accent); }
+  .ui-time-bar { display: flex; height: 14px; border-radius: 999px; overflow: hidden; background: color-mix(in srgb, var(--fg) 14%, transparent); }
+  .ui-time-bar i { width: 28%; background: var(--accent); }
+  .ui-time-legend { display: flex; justify-content: space-between; font-size: 14px; color: var(--fg-dim); }
 </style>
 <section class="section pains" id="pains">
   <div class="wrap">
-    <h2 class="section-title" data-i18n="pain.title">Sound familiar?</h2>
+    <h2 class="section-title" data-i18n="pain.title">Do these situations sound familiar?</h2>
     <p class="section-sub" data-i18n="pain.sub">We see these situations every day. One call shows you how to fix yours.</p>
     <div class="pain-grid count-{{COUNT}}">
 {{CARDS}}
     </div>
-    <div class="pains-cta"><a href="#final" class="btn btn-primary"><span data-i18n="pain.cta">Request a free call</span></a></div>
+    <div class="pains-cta"><a href="#final" class="btn btn-primary"><span data-i18n="pain.cta">Request a free 20-minute call</span></a></div>
   </div>
 </section>
 
 <!--card:manager-->
       <article class="pain-card" data-pain="manager">
         <div class="pain-visual" aria-hidden="true">
-          <div class="pv-bubble"><small data-i18n="pain.manager.from">Ana · Sales manager</small><span data-i18n="pain.manager.msg">I'm not coming in from tomorrow. Good luck!</span></div>
-          <ul class="pv-lost">
-            <li data-i18n="pain.manager.lost1">Client base</li>
-            <li data-i18n="pain.manager.lost2">Chat history</li>
-            <li data-i18n="pain.manager.lost3">Agreed prices</li>
-          </ul>
+          <div class="ui-phone"><div class="ui-phone-screen">
+            <div class="ui-phone-notch"></div>
+            <div class="ui-status"><span>19:42</span><span>●●● 5G</span></div>
+            <div class="ui-chat-head"><span class="ui-avatar">A</span><span class="ui-chat-name" data-i18n="pain.manager.from">Ana · Sales manager</span></div>
+            <div class="ui-chat-body">
+              <div class="ui-bubble"><span data-i18n="pain.manager.msg">I'm not coming in from tomorrow. Good luck!</span><time>19:41</time></div>
+              <div class="ui-system" data-i18n="pain.manager.left">Ana left the chat</div>
+              <ul class="ui-lost">
+                <li data-i18n="pain.manager.lost1">Client base</li>
+                <li data-i18n="pain.manager.lost2">Chat history</li>
+                <li data-i18n="pain.manager.lost3">Agreed prices</li>
+              </ul>
+            </div>
+          </div></div>
         </div>
         <h3 class="pain-title" data-i18n="pain.manager.title">Your manager left. And took the clients along.</h3>
         <p class="pain-fix"><b data-i18n="pain.fix.label">The fix:</b><span data-i18n="pain.manager.fix">In the right CRM, client history stays with the company, not on an employee's phone.</span></p>
@@ -100,9 +128,11 @@
 <!--card:28-->
       <article class="pain-card" data-pain="28">
         <div class="pain-visual" aria-hidden="true">
-          <div class="pv-big">28%</div>
-          <div class="pv-bar"><i></i></div>
-          <div class="pv-legend"><span data-i18n="pain.28.sell">Selling</span><span data-i18n="pain.28.rest">Everything else</span></div>
+          <div class="ui-time">
+            <div class="ui-time-big">28%</div>
+            <div class="ui-time-bar"><i></i></div>
+            <div class="ui-time-legend"><span data-i18n="pain.28.sell">Selling</span><span data-i18n="pain.28.rest">Everything else</span></div>
+          </div>
         </div>
         <h3 class="pain-title" data-i18n="pain.28.title">Only 28% of a sales rep's time goes to selling</h3>
         <p class="pain-body" data-i18n="pain.28.body">The rest goes to spreadsheets, calls and messaging.</p>
@@ -113,13 +143,17 @@
 <!--card:owner-->
       <article class="pain-card" data-pain="owner">
         <div class="pain-visual" aria-hidden="true">
-          <div class="pv-chips">
-            <span data-i18n="pain.owner.c1">Call the client!</span>
-            <span data-i18n="pain.owner.c2">Invoice on rs.ge</span>
-            <span data-i18n="pain.owner.c3">Who replied on Instagram?</span>
-            <span data-i18n="pain.owner.c4">Did you send the price?</span>
-            <span data-i18n="pain.owner.c5">Manager is off today</span>
-            <span data-i18n="pain.owner.c6">Report tomorrow!!</span>
+          <div class="ui-notes">
+            <div class="ui-notes-top"><span>‹</span>Notes<span>⋯</span></div>
+            <div class="ui-notes-title" data-i18n="pain.owner.note">Today!!</div>
+            <ul>
+              <li data-i18n="pain.owner.c1">Call the client!</li>
+              <li class="done" data-i18n="pain.owner.c2">Invoice on rs.ge</li>
+              <li data-i18n="pain.owner.c3">Who replied on Instagram?</li>
+              <li data-i18n="pain.owner.c4">Did you send the price?</li>
+              <li data-i18n="pain.owner.c5">Manager is off today</li>
+              <li data-i18n="pain.owner.c6">Report tomorrow!!</li>
+            </ul>
           </div>
         </div>
         <h3 class="pain-title" data-i18n="pain.owner.title">Business owner or the manager of everything?</h3>
@@ -130,14 +164,20 @@
 <!--card:excel-->
       <article class="pain-card" data-pain="excel">
         <div class="pain-visual" aria-hidden="true">
-          <div class="pv-sheet">
-            <div class="h" data-i18n="pain.excel.h1">Client</div><div class="h" data-i18n="pain.excel.h2">Phone</div><div class="h" data-i18n="pain.excel.h3">Status</div>
-            <div><i class="w80"></i></div><div><i class="w60"></i></div><div><i class="w40"></i></div>
-            <div><i class="w60"></i></div><div><i class="w80 red"></i></div><div></div>
-            <div><i class="w80"></i></div><div></div><div><i class="w60 red"></i></div>
-            <div><i class="w40"></i></div><div><i class="w60"></i></div><div></div>
+          <div class="ui-sheet">
+            <div class="ui-sheet-bar"><b>X</b><span>clients_FINAL_v7 (2).xlsx</span></div>
+            <div class="ui-fx"><i>fx</i><span>=VLOOKUP(B7;Sheet2!A:D;3;FALSE)</span></div>
+            <div class="ui-grid">
+              <div class="c"></div><div class="c">A</div><div class="c">B</div><div class="c">C</div>
+              <div class="c">1</div><div class="h" data-i18n="pain.excel.h1">Client</div><div class="h" data-i18n="pain.excel.h2">Phone</div><div class="h" data-i18n="pain.excel.h3">Status</div>
+              <div class="c">2</div><div>N. Beridze</div><div>599 123 456</div><div>✓</div>
+              <div class="c">3</div><div class="dup">G. Kapanadze</div><div class="dup">555 987 654</div><div>??</div>
+              <div class="c">4</div><div class="dup">G. Kapanadze</div><div class="dup">555 987 654</div><div></div>
+              <div class="c">5</div><div>LTD "Mega"</div><div class="err">#N/A</div><div class="sel"></div>
+              <div class="c">6</div><div>T. Gelashvili</div><div>577 …</div><div>!!</div>
+            </div>
           </div>
-          <div class="pv-sticky" data-i18n="pain.excel.sticky">Who deleted column C?!</div>
+          <div class="ui-sticky" data-i18n="pain.excel.sticky">Who deleted column C?!</div>
         </div>
         <h3 class="pain-title" data-i18n="pain.excel.title">Still searching Excel for who bought what?</h3>
         <p class="pain-body" data-i18n="pain.excel.body">Clients spread across files, notebooks and phones.</p>
@@ -147,12 +187,15 @@
 <!--card:chats-->
       <article class="pain-card" data-pain="chats">
         <div class="pain-visual" aria-hidden="true">
-          <div class="pv-chats">
-            <div class="pv-chat"><span class="ic" style="background:#0A7CFF">m</span><span class="tx" data-i18n="pain.chats.m1">How much is it?</span><span class="bd">3</span></div>
-            <div class="pv-chat"><span class="ic" style="background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF)">ig</span><span class="tx" data-i18n="pain.chats.m2">Do you deliver?</span><span class="bd">5</span></div>
-            <div class="pv-chat"><span class="ic" style="background:#25D366">w</span><span class="tx" data-i18n="pain.chats.m3">Hi, are you there?</span><span class="bd">2</span></div>
-            <div class="pv-chat"><span class="ic" style="background:#7360F2">v</span><span class="tx" data-i18n="pain.chats.m4">I'd like to order</span><span class="bd">4</span></div>
-          </div>
+          <div class="ui-phone"><div class="ui-phone-screen ui-lock">
+            <div class="ui-phone-notch"></div>
+            <div class="ui-lock-time">21:14</div>
+            <div class="ui-notif"><span class="ui-app" style="background:#0a7cff">m</span><div class="ui-notif-text"><div class="ui-notif-top"><span>Messenger</span><span>3</span></div><div class="ui-notif-msg" data-i18n="pain.chats.m1">How much is it?</div></div></div>
+            <div class="ui-notif"><span class="ui-app" style="background:#c13584">ig</span><div class="ui-notif-text"><div class="ui-notif-top"><span>Instagram</span><span>5</span></div><div class="ui-notif-msg" data-i18n="pain.chats.m2">Do you deliver?</div></div></div>
+            <div class="ui-notif"><span class="ui-app" style="background:#1fa855">w</span><div class="ui-notif-text"><div class="ui-notif-top"><span>WhatsApp</span><span>2</span></div><div class="ui-notif-msg" data-i18n="pain.chats.m3">Hi, are you there?</div></div></div>
+            <div class="ui-notif"><span class="ui-app" style="background:#665cac">v</span><div class="ui-notif-text"><div class="ui-notif-top"><span>Viber</span><span>4</span></div><div class="ui-notif-msg" data-i18n="pain.chats.m4">I'd like to order</div></div></div>
+            <div class="ui-more" data-i18n="pain.chats.more">+11 unanswered</div>
+          </div></div>
         </div>
         <h3 class="pain-title" data-i18n="pain.chats.title">A client messaged you. Who replied?</h3>
         <p class="pain-body" data-i18n="pain.chats.body">While you look for the answer, the client buys elsewhere.</p>

@@ -50,14 +50,6 @@ def build(cfg, base):
     s = s[:m.start(1)] + json.dumps(d, ensure_ascii=False) + s[m.end(1):]
     log(f"--- {len(cfg.get('i18n', {}))} text keys overridden")
 
-    # optional extra block
-    if cfg.get("insert_file"):
-        extra = (LANDINGS / cfg["insert_file"]).read_text(encoding="utf-8")
-        marker = cfg["insert_before"]
-        assert s.count(marker) == 1, f"marker not found once: {marker}"
-        s = s.replace(marker, extra + marker)
-        log(f"--- inserted {cfg['insert_file']} ({len(extra)} chars)")
-
     # "Sound familiar?" pain cards (landings/pains.html), only the ones this landing lists
     pains = cfg.get("pains") or []
     if pains:
@@ -70,6 +62,14 @@ def build(cfg, base):
         assert s.count(PAINS_BEFORE) == 1, "CHAOS vs CLARITY marker missing"
         s = s.replace(PAINS_BEFORE, "<!--PAINS-->\n" + section + "<!--/PAINS-->\n" + PAINS_BEFORE)
         log(f"--- pain cards: {', '.join(pains)}")
+
+    # optional extra block (after the pain cards, so a block placed before CHAOS vs CLARITY follows them)
+    if cfg.get("insert_file"):
+        extra = (LANDINGS / cfg["insert_file"]).read_text(encoding="utf-8")
+        marker = cfg["insert_before"]
+        assert s.count(marker) == 1, f"marker not found once: {marker}"
+        s = s.replace(marker, extra + marker)
+        log(f"--- inserted {cfg['insert_file']} ({len(extra)} chars)")
 
     out = ROOT / cfg.get("output", f"public/{name}/index.html")
     out.parent.mkdir(parents=True, exist_ok=True)
