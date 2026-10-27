@@ -1234,12 +1234,7 @@
   .step-num { font-size: 12px; }
   .eyebrow, .hero-slots, .urgency-left, .urgency-right, .section-eyebrow, .vs-label, .form-label, .agenda-head { letter-spacing: 0.04em; }
 
-  /* client logos: one row, larger, calmer */
-  .logo-marquee { margin-top: 44px; }
-  .logo-track { gap: 72px; }
-  .logo-track img { height: 44px; opacity: 0.85; }
-  @keyframes logo-scroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 36px)); } }
-  @media (max-width: 640px) { .logo-track { gap: 48px; } .logo-track img { height: 34px; } }
+  /* client logos: back to the original v30 size (28px) since v35 */
 
 
   /* minimum text size 14px everywhere (labels, eyebrows, small meta) */
@@ -1370,7 +1365,7 @@
 <!-- ============ TRUST BAR ============ -->
 <section class="trust-bar">
   <div class="wrap trust-grid">
-    <div class="trust-item highlight"><strong>12+</strong> <span data-i18n="trust.years.label">Years · Market Expert</span></div>
+    <div class="trust-item"><strong>12+</strong> <span data-i18n="trust.years.label">Years · Market Expert</span></div>
     <div class="trust-divider"></div>
     <div class="trust-item"><strong>500+</strong> <span data-i18n="trust.deploy.label">Deployments</span></div>
     <div class="trust-divider"></div>
