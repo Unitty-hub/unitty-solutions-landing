@@ -2,11 +2,9 @@
   "name": "crm",
   "description": "Unitty - CRM selection and implementation for your business. Book a free 20-minute call.",
   "pains": [
-    "manager",
     "excel",
-    "28",
     "owner",
-    "chats"
+    "chatswin"
   ],
   "i18n": {
     "nav.brand": {
@@ -155,9 +153,9 @@
       "ru": "Аккаунт CRM и все данные зарегистрированы на вашу компанию и полностью принадлежат вам. Экспортировать данные можно в любой момент. Всё, что мы размещаем на своей стороне, - прозрачная ежемесячная подписка, которую можно отменить в любое время."
     },
     "process.note": {
-      "ka": "დანერგვის პაკეტები ფიქსირებული ფასით ქვემოთაა. რომელი გჭირდება, ზარზე ერთად დავაზუსტებთ.",
-      "en": "Implementation packages with fixed prices are below. We confirm the right one together on the call.",
-      "ru": "Пакеты внедрения с фиксированной ценой ниже. Какой подходит, уточним вместе на звонке."
+      "ka": "პაკეტების ფასი ფიქსირებულია. რომელი გჭირდება, ზარზე ერთად დავაზუსტებთ.",
+      "en": "Package prices are fixed. We confirm the right one together on the call.",
+      "ru": "Цены пакетов фиксированы. Какой подходит, уточним вместе на звонке."
     },
     "pk.title": {
       "ka": "აირჩიე, საიდან დაიწყო",
@@ -733,7 +731,7 @@
   "inserts": [
     {
       "file": "crm.packages.html",
-      "before": "<!-- ============ TESTIMONIALS (moved above Final CTA) ============ -->"
+      "before": "<!-- ============ PROCESS (3 steps) ============ -->"
     }
   ]
 }

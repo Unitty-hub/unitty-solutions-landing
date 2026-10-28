@@ -91,6 +91,24 @@
   .ui-time-bar { display: flex; height: 14px; border-radius: 999px; overflow: hidden; background: color-mix(in srgb, var(--fg) 14%, transparent); }
   .ui-time-bar i { width: 28%; background: var(--accent); }
   .ui-time-legend { display: flex; justify-content: space-between; font-size: 14px; color: var(--fg-dim); }
+  /* --- many open chat windows at once (CRM "chats" card, v39) --- */
+  .ui-wins { position: relative; width: 100%; max-width: 340px; height: 236px; margin: 0 auto; }
+  .ui-win { position: absolute; width: 64%; border-radius: 12px; overflow: hidden; background: #fff; color: #1d1d1f;
+    box-shadow: 0 12px 28px rgba(0,0,0,.45); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', var(--font-body); }
+  .ui-win-bar { display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: var(--c); color: #fff; font-size: 14px; font-weight: 600; line-height: 1.2; }
+  .ui-win-bar .ui-app { width: 20px; height: 20px; border-radius: 6px; background: rgba(255,255,255,.22); font-size: 14px; }
+  .ui-win-bar b { margin-left: auto; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #fff; color: var(--c); font-size: 14px; display: grid; place-items: center; }
+  .ui-win-body { padding: 8px; display: grid; gap: 5px; background: #f2f3f5; }
+  .ui-bub { margin: 0; justify-self: start; max-width: 100%; padding: 5px 9px; border-radius: 12px 12px 12px 4px; background: #fff; font-size: 14px; line-height: 1.3;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; box-shadow: 0 1px 1px rgba(0,0,0,.06); }
+  .ui-bub.dots { letter-spacing: 2px; color: #8a8a8e; }
+  .ui-win.w1 { left: 0; top: 0; transform: rotate(-4deg); z-index: 1; }
+  .ui-win.w2 { right: 0; top: 22px; transform: rotate(3deg); z-index: 2; }
+  .ui-win.w3 { left: 6%; top: 104px; transform: rotate(2deg); z-index: 3; }
+  .ui-win.w4 { right: 2%; top: 140px; transform: rotate(-3deg); z-index: 4; }
+  .ui-wins-more { position: absolute; left: 50%; bottom: -6px; transform: translateX(-50%); z-index: 5; padding: 6px 12px; border-radius: 999px;
+    background: #1d1d1f; color: #fff; font-size: 14px; white-space: nowrap; box-shadow: 0 6px 16px rgba(0,0,0,.4); border: 1px solid rgba(255,255,255,.12); }
+  .pain-card[data-pain="chatswin"] .pain-visual { min-height: 260px; padding: 16px 12px 22px; }
 </style>
 <section class="section pains" id="pains">
   <div class="wrap">
@@ -182,6 +200,22 @@
         <h3 class="pain-title" data-i18n="pain.excel.title">Still searching Excel for who bought what?</h3>
         <p class="pain-body" data-i18n="pain.excel.body">Clients spread across files, notebooks and phones.</p>
         <p class="pain-fix"><b data-i18n="pain.fix.label">The fix:</b><span data-i18n="pain.excel.fix">In one system every client, sale and agreement is one search away.</span></p>
+      </article>
+<!--/card-->
+<!--card:chatswin-->
+      <article class="pain-card" data-pain="chatswin">
+        <div class="pain-visual" aria-hidden="true">
+          <div class="ui-wins">
+            <div class="ui-win w1" style="--c:#0a7cff"><div class="ui-win-bar"><span class="ui-app">m</span>Messenger<b>3</b></div><div class="ui-win-body"><p class="ui-bub" data-i18n="pain.chats.m1">How much is it?</p><p class="ui-bub">??</p></div></div>
+            <div class="ui-win w2" style="--c:#c13584"><div class="ui-win-bar"><span class="ui-app">ig</span>Instagram<b>5</b></div><div class="ui-win-body"><p class="ui-bub" data-i18n="pain.chats.m2">Do you deliver?</p><p class="ui-bub dots">•••</p></div></div>
+            <div class="ui-win w3" style="--c:#1fa855"><div class="ui-win-bar"><span class="ui-app">w</span>WhatsApp<b>2</b></div><div class="ui-win-body"><p class="ui-bub" data-i18n="pain.chats.m3">Hi, are you there?</p><p class="ui-bub">!!</p></div></div>
+            <div class="ui-win w4" style="--c:#665cac"><div class="ui-win-bar"><span class="ui-app">v</span>Viber<b>4</b></div><div class="ui-win-body"><p class="ui-bub" data-i18n="pain.chats.m4">I'd like to order</p><p class="ui-bub dots">•••</p></div></div>
+            <div class="ui-wins-more" data-i18n="pain.chats.more">+11 unanswered</div>
+          </div>
+        </div>
+        <h3 class="pain-title" data-i18n="pain.chats.title">A client messaged you. Who replied?</h3>
+        <p class="pain-body" data-i18n="pain.chats.body">While you look for the answer, the client buys elsewhere.</p>
+        <p class="pain-fix"><b data-i18n="pain.fix.label">The fix:</b><span data-i18n="pain.chats.fix">All channels in one window: you see who replied and what.</span></p>
       </article>
 <!--/card-->
 <!--card:chats-->
