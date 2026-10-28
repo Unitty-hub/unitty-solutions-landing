@@ -9,6 +9,7 @@ landing by re-running:
 
     python3 tools/build_landings.py
 """
+import html
 import json
 import re
 from pathlib import Path
@@ -24,6 +25,97 @@ CARD_RE = re.compile(r"<!--card:([\w-]+)-->\n(.*?)<!--/card-->", re.S)
 
 def log(msg):
     print(msg, flush=True)
+
+
+# ---------------- SEO (v40) ----------------
+SEO_RE = re.compile(r"<!--SEO-->.*?<!--/SEO-->\n?", re.S)
+ORG = {
+    "@type": "Organization", "@id": "https://unitty.io/#org", "name": "Unitty", "legalName": "Unity LLC",
+    "url": "https://unitty.io", "logo": "https://start.unitty.io/unitty-logo.png",
+    "email": "digital@unitty.io", "telephone": "+995322055060",
+    "address": {"@type": "PostalAddress", "addressLocality": "Tbilisi", "addressCountry": "GE"},
+    "sameAs": ["https://www.unitty.io", "https://www.instagram.com/unitty.io/"],
+}
+TAG_RE = re.compile(r"<[^>]+>")
+
+
+def prerender(s, ka):
+    """Write the Georgian texts into the HTML, so crawlers and link previews see real content without JS."""
+    def txt(m):
+        val = ka.get(m.group(3))
+        return m.group(0) if val is None else m.group(1) + html.escape(val, quote=False) + m.group(5)
+    s, n1 = re.subn(r'(<(\w+)\b[^>]*\sdata-i18n="([^"]+)"[^>]*>)([^<]*)(</\2>)', txt, s)
+    def rich(m):
+        key = m.group(3)
+        val = ka.get(key) if key != "hero.sub.html" else ka.get("hero.sub")
+        return m.group(0) if val is None else m.group(1) + val + m.group(5)
+    s, n2 = re.subn(r'(<(\w+)\b[^>]*\sdata-i18n-html="([^"]+)"[^>]*>)(.*?)(</\2>)', rich, s, flags=re.S)
+    log(f"--- prerendered {n1} text + {n2} html elements in Georgian")
+    return s
+
+
+def seo_block(cfg, ka):
+    seo = cfg["seo"]
+    url = f"https://{seo['host']}/"
+    title, desc = seo["title"]["ka"], seo["description"]["ka"]
+    og_img = f"https://{seo['host']}/og/{cfg['name']}.jpg"
+    faq = []
+    for i in range(1, 21):
+        q, a = ka.get(f"faq.q{i}"), ka.get(f"faq.a{i}")
+        if q and a:
+            faq.append({"@type": "Question", "name": q,
+                        "acceptedAnswer": {"@type": "Answer", "text": TAG_RE.sub("", a)}})
+    graph = [ORG,
+             {"@type": "WebSite", "@id": "https://unitty.io/#website", "url": "https://unitty.io", "name": "Unitty",
+              "inLanguage": ["ka", "en", "ru"], "publisher": {"@id": "https://unitty.io/#org"}},
+             {"@type": "WebPage", "@id": url + "#webpage", "url": url, "name": title, "description": desc,
+              "inLanguage": "ka", "isPartOf": {"@id": "https://unitty.io/#website"},
+              "about": {"@id": url + "#service"}, "primaryImageOfPage": og_img},
+             {"@type": "Service", "@id": url + "#service", "name": seo["service"], "serviceType": seo["service"],
+              "provider": {"@id": "https://unitty.io/#org"}, "areaServed": {"@type": "Country", "name": "Georgia"},
+              "url": url}]
+    if cfg.get("offers"):
+        graph[-1]["offers"] = cfg["offers"]
+    if faq:
+        graph.append({"@type": "FAQPage", "@id": url + "#faq", "mainEntity": faq})
+    ld = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False).replace("</", "<\\/")
+    e = lambda v: html.escape(v, quote=True)
+    return (f'''<!--SEO-->
+<link rel="canonical" href="{url}">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Unitty">
+<meta property="og:url" content="{url}">
+<meta property="og:title" content="{e(title)}">
+<meta property="og:description" content="{e(desc)}">
+<meta property="og:image" content="{og_img}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ka_GE">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{e(title)}">
+<meta name="twitter:description" content="{e(desc)}">
+<meta name="twitter:image" content="{og_img}">
+<script type="application/ld+json">{ld}</script>
+<!--/SEO-->
+'''), len(faq)
+
+
+def apply_seo(s, cfg, ka):
+    if not cfg.get("seo"):
+        return s
+    s = SEO_RE.sub("", s)
+    s, n = re.subn(r"<title[^>]*>.*?</title>", '<title data-i18n="seo.title">' + html.escape(cfg["seo"]["title"]["ka"], quote=False) + "</title>", s, count=1, flags=re.S)
+    assert n == 1, "title tag missing"
+    block, nfaq = seo_block(cfg, ka)
+    anchor = '<meta name="viewport"'
+    assert s.count(anchor) == 1, "viewport meta missing"
+    s = s.replace(anchor, block + anchor)
+    log(f"--- SEO: title, canonical {cfg['seo']['host']}, OG, JSON-LD (FAQ {nfaq})")
+    return prerender(s, ka)
 
 
 def build(cfg, base):
@@ -74,6 +166,9 @@ def build(cfg, base):
         assert s.count(marker) == 1, f"marker not found once: {marker}"
         s = s.replace(marker, extra + marker)
         log(f"--- inserted {ins['file']} ({len(extra)} chars)")
+
+    final = json.loads(I18N_RE.search(s).group(1))["ka"]
+    s = apply_seo(s, cfg, final)
 
     out = ROOT / cfg.get("output", f"public/{name}/index.html")
     out.parent.mkdir(parents=True, exist_ok=True)

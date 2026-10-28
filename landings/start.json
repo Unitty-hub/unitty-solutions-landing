@@ -1,5 +1,27 @@
 {
   "name": "start",
   "output": "public/index.html",
-  "pains": []
+  "pains": [],
+  "seo": {
+    "host": "start.unitty.io",
+    "title": {
+      "ka": "Unitty - CRM, AI და ავტომატიზაცია ბიზნესისთვის",
+      "en": "Unitty - CRM, AI and automation for your business",
+      "ru": "Unitty - CRM, AI и автоматизация для бизнеса"
+    },
+    "description": {
+      "ka": "20-წუთიან უფასო ზარზე შეგირჩევთ 1-3 ინსტრუმენტს შენი გამოწვევისთვის: CRM, AI, ავტომატიზაცია და ანალიტიკა. 500+ დანერგვა, 12+ წლის გამოცდილება.",
+      "en": "On a free 20-minute call we pick the 1-3 tools for your challenge: CRM, AI, automation and analytics. 500+ implementations, 12+ years of experience.",
+      "ru": "На бесплатном 20-минутном звонке подберём 1-3 инструмента под вашу задачу: CRM, AI, автоматизация и аналитика. 500+ внедрений, 12+ лет опыта."
+    },
+    "service": "Digital transformation consulting: CRM, AI, automation, analytics"
+  },
+  "i18n": {
+    "seo.title": {
+      "ka": "Unitty - CRM, AI და ავტომატიზაცია ბიზნესისთვის",
+      "en": "Unitty - CRM, AI and automation for your business",
+      "ru": "Unitty - CRM, AI и автоматизация для бизнеса"
+    }
+  },
+  "description": "20-წუთიან უფასო ზარზე შეგირჩევთ 1-3 ინსტრუმენტს შენი გამოწვევისთვის: CRM, AI, ავტომატიზაცია და ანალიტიკა. 500+ დანერგვა, 12+ წლის გამოცდილება."
 }

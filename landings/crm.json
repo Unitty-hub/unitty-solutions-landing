@@ -1,6 +1,6 @@
 {
   "name": "crm",
-  "description": "Unitty - CRM selection and implementation for your business. Book a free 20-minute call.",
+  "description": "შეარჩიე სწორი CRM და დაზოგე 100+ საათი. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo: დანერგვა 5 დღიდან, ფიქსირებული ფასით. უფასო 20-წუთიანი ზარი.",
   "pains": [
     "excel",
     "owner",
@@ -53,84 +53,84 @@
       "ru": ""
     },
     "faq.q1": {
-      "ka": "რით განსხვავდებით კონკრეტული CRM-ის პარტნიორისგან?",
-      "en": "How are you different from a single-CRM partner?",
-      "ru": "Чем вы отличаетесь от партнёра одной CRM?"
+      "ka": "რა არის CRM და რატომ სჭირდება ჩემს ბიზნესს?",
+      "en": "What is a CRM and why does my business need one?",
+      "ru": "Что такое CRM и зачем она моему бизнесу?"
     },
     "faq.a1": {
-      "ka": "ვართ დამოუკიდებელი (vendor-neutral). Zoho-ს პარტნიორი გთავაზობს მხოლოდ Zoho-ს, Bitrix24-ის პარტნიორი მხოლოდ Bitrix24-ს. ჩვენ გირჩევთ იმ სისტემას, რომელიც რეალურად მოერგება შენს გაყიდვებს, და თუ საუკეთესო ვარიანტი ისეთი სისტემაა, რომელსაც ჩვენ არ ვნერგავთ, ამასაც პირდაპირ გეტყვით.",
-      "en": "We're vendor-neutral. A Zoho partner offers only Zoho, a Bitrix24 partner only Bitrix24. We recommend the system that actually fits your sales, and if the best option is one we don't implement, we tell you so.",
-      "ru": "Мы независимы (vendor-neutral). Партнёр Zoho предлагает только Zoho, партнёр Bitrix24 - только Bitrix24. Мы советуем систему, которая действительно подходит вашим продажам, а если лучший вариант - система, которую мы не внедряем, прямо скажем об этом."
+      "ka": "CRM არის სისტემა, სადაც ერთ ადგილას ინახება კლიენტები, გარიგებები, ზარები, მიმოწერა და დავალებები. ჩანს, ვინ ვის ესაუბრა, რა ეტაპზეა თითოეული გარიგება და ვის რა უნდა გააკეთოს. შედეგი: ნაკლები დაკარგული კლიენტი, ნაკლები ხელით მუშაობა და გაყიდვები, რომლებსაც რეალურ დროში ხედავ.",
+      "en": "A CRM is a system that keeps clients, deals, calls, messages and tasks in one place. You see who talked to whom, what stage each deal is at and who has to do what. The result: fewer lost clients, less manual work and sales you can see in real time.",
+      "ru": "CRM - это система, где в одном месте хранятся клиенты, сделки, звонки, переписка и задачи. Видно, кто с кем общался, на каком этапе каждая сделка и кому что нужно сделать. Результат: меньше потерянных клиентов, меньше ручной работы и продажи, которые видны в реальном времени."
     },
     "faq.q2": {
+      "ka": "რით განსხვავდება CRM Excel-ისგან ან ჩვეულებრივი კლიენტების ბაზისგან?",
+      "en": "How is a CRM different from Excel or a plain client database?",
+      "ru": "Чем CRM отличается от Excel или обычной базы клиентов?"
+    },
+    "faq.a2": {
+      "ka": "Excel და ბაზა მხოლოდ ინახავს ინფორმაციას. CRM მუშაობს: გახსენებს follow-up-ს, ანაწილებს ლიდებს, აჩვენებს გაყიდვების ძაბრს და ინახავს ყველა ზარისა და წერილის ისტორიას. მენეჯერის წასვლისას კლიენტები კომპანიაში რჩება.",
+      "en": "Excel and a database only store information. A CRM works: it reminds you about follow-ups, assigns leads, shows the sales pipeline and keeps the history of every call and message. When a manager leaves, the clients stay with the company.",
+      "ru": "Excel и база только хранят информацию. CRM работает: напоминает о follow-up, распределяет лиды, показывает воронку продаж и хранит историю всех звонков и писем. Когда менеджер уходит, клиенты остаются в компании."
+    },
+    "faq.q3": {
+      "ka": "როგორ ავირჩიო ჩემი ბიზნესისთვის შესაფერისი CRM?",
+      "en": "How do I choose the right CRM for my business?",
+      "ru": "Как выбрать подходящую CRM для моего бизнеса?"
+    },
+    "faq.a3": {
+      "ka": "სწორი CRM დამოკიდებულია შენს გაყიდვების პროცესზე, გუნდის ზომაზე, არხებზე (ზარები, ჩატები, საიტი) და ბიუჯეტზე. ჩვენ დამოუკიდებელი პარტნიორი ვართ: ჯერ ვხედავთ, როგორ მუშაობ, მერე გირჩევთ სისტემას, რომელიც ამას ერგება, და არა იმას, რისი გაყიდვაც გვინდა. ზუსტად ამას ვაკეთებთ 20-წუთიან ზარზე.",
+      "en": "The right CRM depends on your sales process, team size, channels (calls, chats, website) and budget. We are an independent partner: we look at how you work first, then recommend the system that fits it, not the one we would like to sell. That is exactly what the 20-minute call is for.",
+      "ru": "Правильная CRM зависит от вашего процесса продаж, размера команды, каналов (звонки, чаты, сайт) и бюджета. Мы независимый партнёр: сначала смотрим, как вы работаете, затем советуем систему, которая этому подходит, а не ту, которую нам выгодно продать. Именно для этого 20-минутный звонок."
+    },
+    "faq.q4": {
       "ka": "რომელ CRM-ებს ნერგავთ?",
       "en": "Which CRMs do you implement?",
       "ru": "Какие CRM вы внедряете?"
     },
-    "faq.a2": {
+    "faq.a4": {
       "ka": "ვართ Zoho-ს, Pipedrive-ის, Kommo-ს, monday.com-ის, Bitrix24-ისა და Odoo-ს სერტიფიცირებული პარტნიორი (ასევე ClickUp-ის და Manychat-ის). ზარზე გეტყვით, რომელი ერგება შენს გუნდს, პროცესებს და ბიუჯეტს.",
       "en": "We're a certified partner of Zoho, Pipedrive, Kommo, monday.com, Bitrix24 and Odoo (and also ClickUp and Manychat). On the call we tell you which one fits your team, processes and budget.",
       "ru": "Мы сертифицированный партнёр Zoho, Pipedrive, Kommo, monday.com, Bitrix24 и Odoo (а также ClickUp и Manychat). На звонке скажем, какая подходит вашей команде, процессам и бюджету."
     },
-    "faq.q3": {
-      "ka": "რა ჯდება CRM-ის დანერგვა?",
-      "en": "What does a CRM implementation cost?",
+    "faq.q5": {
+      "ka": "რა ღირს CRM-ის დანერგვა?",
+      "en": "How much does a CRM implementation cost?",
       "ru": "Сколько стоит внедрение CRM?"
     },
-    "faq.a3": {
+    "faq.a5": {
       "ka": "დანერგვის პაკეტები ფიქსირებული ფასისაა: სტარტი €990 (5 სამუშაო დღე), ოპტიმალური €2,990 (15 დღე), ზრდა €5,990 (25 დღე), დამატებები €190-დან. ფასებს ემატება დღგ (18%). CRM-ის ლიცენზიას პირდაპირ მწარმოებელს უხდი მისი ოფიციალური ფასით. 20-წუთიან ზარზე გეტყვით, რომელი პაკეტი გჭირდება და რამდენი დაჯდება ლიცენზია.",
       "en": "Implementation packages have fixed prices: Starter €990 (5 working days), Essentials €2,990 (15 days), Growth €5,990 (25 days), add-ons from €190. VAT (18%) is added. You pay the CRM licence directly to the vendor at its official price. On the 20-minute call we tell you which package you need and what the licence costs.",
       "ru": "Пакеты внедрения с фиксированной ценой: «Старт» €990 (5 рабочих дней), «Оптимальный» €2,990 (15 дней), «Рост» €5,990 (25 дней), дополнения от €190. Добавляется НДС (18%). Лицензию CRM вы оплачиваете напрямую производителю по официальной цене. На 20-минутном звонке скажем, какой пакет нужен и сколько стоит лицензия."
     },
-    "faq.q4": {
-      "ka": "რამდენ ხანს გრძელდება დანერგვა?",
-      "en": "How long does implementation take?",
-      "ru": "Сколько длится внедрение?"
+    "faq.q6": {
+      "ka": "რამდენი ხანი სჭირდება CRM-ის დანერგვას?",
+      "en": "How long does a CRM implementation take?",
+      "ru": "Сколько времени занимает внедрение CRM?"
     },
-    "faq.a4": {
-      "ka": "საბაზისო CRM (გაყიდვების ეტაპები, ველები, მონაცემების გადმოტანა, გუნდის ტრენინგი) როგორც წესი 1-2 კვირაში ეშვება. ვიწყებთ ყველაზე მნიშვნელოვანით, გუნდი ითვისებს და მერე ვამატებთ ავტომატიზაციებსა და ინტეგრაციებს. ასე რისკი მინიმალურია და შედეგს სწრაფად ხედავ.",
-      "en": "A core CRM (sales stages, fields, data migration, team training) usually goes live in 1-2 weeks. We start with what matters most, your team adopts it, then we add automations and integrations. That keeps risk low and you see results fast.",
-      "ru": "Базовая CRM (этапы продаж, поля, перенос данных, обучение команды) обычно запускается за 1-2 недели. Начинаем с самого важного, команда осваивает систему, затем добавляем автоматизации и интеграции. Так риск минимален, а результат виден быстро."
+    "faq.a6": {
+      "ka": "ფიქსირებული ვადებით: სტარტი 5 სამუშაო დღეში, ოპტიმალური 15 დღეში, ზრდა 25 დღეში. ვიწყებთ ყველაზე მნიშვნელოვანით, გუნდი ითვისებს და მერე ვამატებთ ავტომატიზაციებსა და ინტეგრაციებს. ასე რისკი მინიმალურია და შედეგს სწრაფად ხედავ.",
+      "en": "On fixed timelines: Starter in 5 working days, Essentials in 15, Growth in 25. We start with what matters most, your team adopts it, then we add automations and integrations. That keeps the risk low and you see results fast.",
+      "ru": "В фиксированные сроки: «Старт» за 5 рабочих дней, «Оптимальный» за 15, «Рост» за 25. Начинаем с самого важного, команда осваивает систему, затем добавляем автоматизации и интеграции. Так риск минимален, а результат виден быстро."
     },
-    "faq.q5": {
+    "faq.q7": {
+      "ka": "შეიძლება CRM-ის დაკავშირება სხვა სისტემებთან?",
+      "en": "Can the CRM connect to our other systems?",
+      "ru": "Можно связать CRM с другими системами?"
+    },
+    "faq.a7": {
+      "ka": "კი. CRM-ს ვაკავშირებთ ელფოსტასთან, WhatsApp-თან, Instagram-თან და Facebook-თან, საიტის ფორმებთან, Meta-სა და Google-ის რეკლამის ლიდებთან, ტელეფონიასთან (მათ შორის GEONET), ბანკებთან და ბუღალტრულ ან ERP სისტემებთან (1C, FINA). ასე მონაცემები ორჯერ აღარ შეგყავს და ყველა მომართვა ერთ ადგილას ჩანს.",
+      "en": "Yes. We connect the CRM to email, WhatsApp, Instagram and Facebook, website forms, Meta and Google ad leads, telephony (including GEONET), banks and accounting or ERP systems (1C, FINA). So nobody enters data twice and every request is in one place.",
+      "ru": "Да. Мы подключаем CRM к почте, WhatsApp, Instagram и Facebook, формам сайта, лидам из рекламы Meta и Google, телефонии (включая GEONET), банкам и бухгалтерским или ERP-системам (1C, FINA). Так данные не вводятся дважды, а все обращения видны в одном месте."
+    },
+    "faq.q8": {
       "ka": "შესაძლებელია მონაცემების Excel-იდან ან სხვა CRM-იდან გადმოტანა?",
       "en": "Can you move our data from Excel or another CRM?",
-      "ru": "Можете перенести данные из Excel или другой CRM?"
+      "ru": "Можно перенести данные из Excel или другой CRM?"
     },
-    "faq.a5": {
+    "faq.a8": {
       "ka": "კი. კლიენტებს, კონტაქტებს, გარიგებებს და ისტორიას გადმოვიტანთ Excel-იდან, Google Sheets-იდან ან სხვა CRM-იდან. გადმოტანამდე ვასუფთავებთ დუბლიკატებს და ვაწესრიგებთ ტელეფონის ნომრებს, რომ ახალი სისტემა სუფთა ბაზით დაიწყოს.",
       "en": "Yes. We move clients, contacts, deals and history from Excel, Google Sheets or another CRM. Before the move we clean duplicates and normalise phone numbers, so the new system starts with a clean database.",
       "ru": "Да. Переносим клиентов, контакты, сделки и историю из Excel, Google Sheets или другой CRM. Перед переносом чистим дубликаты и приводим номера телефонов к единому формату, чтобы новая система стартовала с чистой базой."
-    },
-    "faq.q6": {
-      "ka": "შეიძლება CRM-ს ჩატები, საიტის ფორმები და ტელეფონია მივაბა?",
-      "en": "Can the CRM connect chats, website forms and telephony?",
-      "ru": "Можно подключить к CRM чаты, формы сайта и телефонию?"
-    },
-    "faq.a6": {
-      "ka": "კი. WhatsApp, Instagram, Facebook Messenger, საიტის ფორმები, Meta-ს რეკლამის ლიდები და ტელეფონია (მათ შორის GEONET) შეგვიძლია ერთ CRM-ში შევკრიბოთ, რომ ყველა მომართვა ერთ ადგილას ჩანდეს. რა და როგორ უკავშირდება შენს არჩეულ CRM-ს, ზარზე დაგიზუსტებთ.",
-      "en": "Yes. WhatsApp, Instagram, Facebook Messenger, website forms, Meta ad leads and telephony (including GEONET) can all land in one CRM, so every request is in one place. On the call we confirm what connects to the CRM you choose and how.",
-      "ru": "Да. WhatsApp, Instagram, Facebook Messenger, формы сайта, лиды из рекламы Meta и телефонию (включая GEONET) можно собрать в одной CRM, чтобы все обращения были в одном месте. Что и как подключается к выбранной CRM, уточним на звонке."
-    },
-    "faq.q7": {
-      "ka": "მუშაობთ თუ არა ჩემს ინდუსტრიაში?",
-      "en": "Do you work with my industry?",
-      "ru": "Работаете ли вы в моей отрасли?"
-    },
-    "faq.a7": {
-      "ka": "CRM დაგვინერგავს უძრავ ქონებაში, განათლებაში, ლოგისტიკაში, HoReCa სექტორში, მედიცინაში, რითეილში, ფინანსებში, მშენებლობასა და მომსახურების სფეროში. თუ დღეს გაყიდვები Excel-ში, საერთო მეილში ან WhatsApp-ის ჩატებში იმართება, შეგვიძლია დაგეხმაროთ.",
-      "en": "We've implemented CRM in real estate, education, logistics, hospitality, healthcare, retail, finance, construction and services. If your sales run on Excel, a shared inbox or WhatsApp chats today, we can help.",
-      "ru": "Мы внедряли CRM в недвижимости, образовании, логистике, HoReCa, медицине, ритейле, финансах, строительстве и сфере услуг. Если сегодня продажи ведутся в Excel, общей почте или чатах WhatsApp, мы поможем."
-    },
-    "faq.q8": {
-      "ka": "რა ვქნა, თუ არ ვიცი, რომელი CRM მჭირდება?",
-      "en": "What if I don't know which CRM I need?",
-      "ru": "Что делать, если я не знаю, какая CRM мне нужна?"
-    },
-    "faq.a8": {
-      "ka": "20-წუთიანი ზარი სწორედ ამისთვისაა. უმეტესობა მოდის ფრაზით „CRM მჭირდება“ და ზარიდან გადის კონკრეტული რეკომენდაციით: რომელი სისტემა, რა ეღირება ლიცენზია და დანერგვა, რა ვადაში ეშვება.",
-      "en": "That is exactly what the 20-minute call is for. Most people arrive with \"I need a CRM\" and leave with a specific recommendation: which system, what the licence and implementation cost, and how long it takes.",
-      "ru": "Для этого и нужен 20-минутный звонок. Большинство приходит с фразой «мне нужна CRM» и уходит с конкретной рекомендацией: какая система, сколько стоят лицензия и внедрение, за какой срок запускается."
     },
     "faq.q9": {
       "ka": "რა ხდება დანერგვის შემდეგ?",
@@ -726,12 +726,60 @@
       "ka": "Discovery ზარის ავტომატური დაჯავშნა",
       "en": "Discovery call auto-scheduling",
       "ru": "Автозапись на discovery-звонок"
+    },
+    "seo.title": {
+      "ka": "CRM-ის შერჩევა და დანერგვა საქართველოში | Unitty",
+      "en": "CRM selection and implementation in Georgia | Unitty",
+      "ru": "Подбор и внедрение CRM в Грузии | Unitty"
     }
   },
   "inserts": [
     {
       "file": "crm.packages.html",
       "before": "<!-- ============ PROCESS (3 steps) ============ -->"
+    }
+  ],
+  "seo": {
+    "host": "crm.unitty.io",
+    "title": {
+      "ka": "CRM-ის შერჩევა და დანერგვა საქართველოში | Unitty",
+      "en": "CRM selection and implementation in Georgia | Unitty",
+      "ru": "Подбор и внедрение CRM в Грузии | Unitty"
+    },
+    "description": {
+      "ka": "შეარჩიე სწორი CRM და დაზოგე 100+ საათი. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo: დანერგვა 5 დღიდან, ფიქსირებული ფასით. უფასო 20-წუთიანი ზარი.",
+      "en": "Choose the right CRM and save 100+ hours. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo: implementation from 5 days at a fixed price. Free 20-minute call.",
+      "ru": "Выберите правильную CRM и сэкономьте 100+ часов. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo: внедрение от 5 дней по фиксированной цене. Бесплатный 20-минутный звонок."
+    },
+    "service": "CRM selection and implementation"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "CRM Starter (5 working days)",
+      "price": "990",
+      "priceCurrency": "EUR",
+      "description": "For teams moving off spreadsheets into one system.",
+      "url": "https://crm.unitty.io/#packages",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "CRM Essentials (15 working days)",
+      "price": "2990",
+      "priceCurrency": "EUR",
+      "description": "For 5-10 person sales teams tightening their pipeline.",
+      "url": "https://crm.unitty.io/#packages",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "CRM Growth (25 working days)",
+      "price": "5990",
+      "priceCurrency": "EUR",
+      "description": "For 15-25 person teams scaling without losing deals.",
+      "url": "https://crm.unitty.io/#packages",
+      "availability": "https://schema.org/InStock"
     }
   ]
 }

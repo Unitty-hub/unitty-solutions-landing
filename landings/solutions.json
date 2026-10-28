@@ -1,6 +1,6 @@
 {
   "name": "solutions",
-  "description": "Unitty Solutions - 75+ ready-made CRM, AI, data and integration solutions plus our own products. Pick, add to your request and book a free 20-minute call.",
+  "description": "აირჩიე მზა გადაწყვეტები CRM-ის, AI-ს, მონაცემების და ინტეგრაციებისთვის, დაამატე მოთხოვნაში და 20 წუთში ერთად განვიხილავთ. უფასო ზარი.",
   "i18n": {
     "nav.brand": {
       "ka": "Unitty Solutions",
@@ -71,8 +71,37 @@
       "ka": "პერსონალიზებული SMS შეხსენებები და შეტყობინებები პირდაპირ CRM-იდან - გადახდებზე, შეხვედრებზე, ჯავშნებზე.",
       "en": "Personalised SMS reminders and notifications straight from your CRM - for payments, meetings and bookings.",
       "ru": "Персональные SMS-напоминания и уведомления прямо из CRM - о платежах, встречах и бронях."
+    },
+    "faq.q8": {
+      "ka": "შემიძლია ავირჩიო 5 სხვადასხვა გადაწყვეტა და ერთად გავაერთიანო?",
+      "en": "Can I pick 5 solutions and combine them?",
+      "ru": "Можно выбрать 5 решений и объединить их?"
+    },
+    "faq.a8": {
+      "ka": "რა თქმა უნდა! ღილაკი „სიაში დამატება“ სწორედ ამისთვისაა. ზარზე ერთად განვსაზღვრავთ პრიორიტეტებს - რა უნდა გაკეთდეს პირველ ეტაპზე და რა გადანაწილდეს შემდგომ სპრინტებზე. როგორც წესი, ხუთივე ერთდროულად არ ეშვება, თუმცა ტექნიკურად ეს სრულიად შესაძლებელია.",
+      "en": "Yes, that's what the \"Add to request\" list is for. On the call we help you order them by sequence (what has to come first) and sprint capacity. You usually won't ship all 5 at once, but you can.",
+      "ru": "Да, именно для этого и существует список \"Добавить в запрос\". На звонке мы помогаем расставить их по порядку (что должно идти первым) и по ёмкости спринта. Обычно 5 сразу не внедряют, но технически это возможно."
+    },
+    "seo.title": {
+      "ka": "75+ მზა გადაწყვეტა CRM-ის, AI-ს და ანალიტიკისთვის | Unitty",
+      "en": "75+ ready-made CRM, AI and analytics solutions | Unitty",
+      "ru": "75+ готовых решений для CRM, AI и аналитики | Unitty"
     }
   },
   "insert_before": "<!-- ============ PROCESS (3 steps) ============ -->",
-  "insert_file": "solutions.extra.html"
+  "insert_file": "solutions.extra.html",
+  "seo": {
+    "host": "solutions.unitty.io",
+    "title": {
+      "ka": "75+ მზა გადაწყვეტა CRM-ის, AI-ს და ანალიტიკისთვის | Unitty",
+      "en": "75+ ready-made CRM, AI and analytics solutions | Unitty",
+      "ru": "75+ готовых решений для CRM, AI и аналитики | Unitty"
+    },
+    "description": {
+      "ka": "აირჩიე მზა გადაწყვეტები CRM-ის, AI-ს, მონაცემების და ინტეგრაციებისთვის, დაამატე მოთხოვნაში და 20 წუთში ერთად განვიხილავთ. უფასო ზარი.",
+      "en": "Pick ready-made solutions for CRM, AI, data and integrations, add them to your request and we review them together in 20 minutes. Free call.",
+      "ru": "Выберите готовые решения для CRM, AI, данных и интеграций, добавьте в запрос, и за 20 минут разберём их вместе. Бесплатный звонок."
+    },
+    "service": "Ready-made CRM, AI, data and integration solutions"
+  }
 }
