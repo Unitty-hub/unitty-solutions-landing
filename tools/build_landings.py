@@ -175,6 +175,11 @@ def build(cfg, base):
         assert n1 == 1 and n2 == 1, "hero video markup not found"
         if hv.get("position"):
             s = s.replace('<img class="yt-poster-img" src="' + hv["poster"] + '"', '<img class="yt-poster-img" style="object-position:' + hv["position"] + '" src="' + hv["poster"] + '"', 1)
+        if hv.get("brightness"):
+            # the YouTube file itself can't be edited, so the video and its poster are dimmed with a CSS filter
+            css = f'<style>.giorgi-card .yt-frame iframe, .giorgi-card .yt-poster-img {{ filter: brightness({hv["brightness"]}); }}</style>\n'
+            assert s.count("</head>") == 1, "head end missing"
+            s = s.replace("</head>", css + "</head>")
         log(f"--- hero video {hv['id']} + poster {hv['poster']}")
 
     final = json.loads(I18N_RE.search(s).group(1))["ka"]
