@@ -167,6 +167,16 @@ def build(cfg, base):
         s = s.replace(marker, extra + marker)
         log(f"--- inserted {ins['file']} ({len(extra)} chars)")
 
+    # per-landing hero video (YouTube Short id) and its poster image
+    hv = cfg.get("hero_video")
+    if hv:
+        s, n1 = re.subn(r'(class="giorgi-card yt-card" data-yt-id=")[^"]+(")', r"\g<1>" + hv["id"] + r"\g<2>", s, count=1)
+        s, n2 = re.subn(r'(<img class="yt-poster-img" src=")[^"]+(")', r"\g<1>" + hv["poster"] + r"\g<2>", s, count=1)
+        assert n1 == 1 and n2 == 1, "hero video markup not found"
+        if hv.get("position"):
+            s = s.replace('<img class="yt-poster-img" src="' + hv["poster"] + '"', '<img class="yt-poster-img" style="object-position:' + hv["position"] + '" src="' + hv["poster"] + '"', 1)
+        log(f"--- hero video {hv['id']} + poster {hv['poster']}")
+
     final = json.loads(I18N_RE.search(s).group(1))["ka"]
     s = apply_seo(s, cfg, final)
 

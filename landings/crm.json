@@ -781,5 +781,10 @@
       "url": "https://crm.unitty.io/#packages",
       "availability": "https://schema.org/InStock"
     }
-  ]
+  ],
+  "hero_video": {
+    "id": "OJ7DjcRz4EI",
+    "poster": "/crm/hero-poster.jpg",
+    "position": "50% 88%"
+  }
 }
