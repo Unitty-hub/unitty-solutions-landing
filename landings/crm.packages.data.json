@@ -1,105 +1,739 @@
 {
  "packages": [
-  {"id":"starter","price":990,"days":5,
-   "name":{"ka":"სტარტი","en":"Starter","ru":"Старт"},
-   "title":{"ka":"CRM 5 დღეში","en":"CRM in 5 days","ru":"CRM за 5 дней"},
-   "for":{"ka":"გუნდებისთვის, რომლებიც Excel-იდან ერთ სისტემაზე გადადიან.","en":"For teams moving off spreadsheets into one system.","ru":"Для команд, которые переходят с таблиц на одну систему."},
-   "items":[
-    {"ka":"4 ძირითადი მოდული: ლიდები, კონტაქტები, კომპანიები, გარიგებები","en":"4 core modules: Leads, Contacts, Accounts, Deals","ru":"4 базовых модуля: лиды, контакты, компании, сделки"},
-    {"ka":"ელფოსტის ორმხრივი სინქრონიზაცია (Google ან Microsoft 365)","en":"2-way email sync (Google or Microsoft 365)","ru":"Двусторонняя синхронизация почты (Google или Microsoft 365)"},
-    {"ka":"Facebook-ის შეტყობინებები პირდაპირ CRM-ში","en":"Facebook messages right inside the CRM","ru":"Сообщения Facebook прямо в CRM"},
-    {"ka":"1 ვებფორმა ლიდების მისაღებად","en":"1 web form to capture leads","ru":"1 веб-форма для приёма лидов"},
-    {"ka":"გაყიდვების ძაბრის KPI დაფა","en":"1 sales-pipeline KPI dashboard","ru":"Дашборд KPI воронки продаж"},
-    {"ka":"ჩაწერილი ვიდეო ინსტრუქციები გუნდისთვის","en":"Recorded video instructions for the team","ru":"Видеоинструкции для команды"}
-   ]},
-  {"id":"essentials","price":2990,"days":15,"popular":true,
-   "name":{"ka":"ოპტიმალური","en":"Essentials","ru":"Оптимальный"},
-   "title":{"ka":"შენზე მორგებული CRM 15 დღეში","en":"Custom CRM in 15 days","ru":"CRM под вас за 15 дней"},
-   "for":{"ka":"5-10 კაციანი გაყიდვების გუნდებისთვის, რომლებსაც ძაბრის მოწესრიგება უნდათ.","en":"For 5-10 person sales teams tightening their pipeline.","ru":"Для отделов продаж из 5-10 человек, которым нужен порядок в воронке."},
-   "base":{"ka":"სტარტის ყველაფერი, პლუს:","en":"Everything in Starter, plus:","ru":"Всё из «Старта», плюс:"},
-   "items":[
-    {"ka":"15-მდე დამატებითი ველი","en":"Up to 15 custom fields","ru":"До 15 дополнительных полей"},
-    {"ka":"პროდუქტები და ინვოისები, შენი ინვოისის შაბლონით","en":"Products and invoices, with your invoice template","ru":"Товары и счета с вашим шаблоном счёта"},
-    {"ka":"გაყიდვის ეტაპები წესებით: ეტაპს ვერ გამოტოვებ","en":"Sales stages with rules: no skipped steps","ru":"Этапы продаж с правилами: этап не пропустить"},
-    {"ka":"ნომრების ვალიდაცია (+995) და დუბლიკატების მოშორება","en":"Phone validation (+995) and deduplication","ru":"Проверка номеров (+995) и удаление дублей"},
-    {"ka":"Meta-სა და Google Ads-ის ლიდები ავტომატურად CRM-ში","en":"Meta and Google Ads leads synced automatically","ru":"Лиды из Meta и Google Ads автоматически в CRM"},
-    {"ka":"ლიდების ავტომატური განაწილება მენეჯერებზე","en":"Automatic lead assignment across managers","ru":"Автоматическое распределение лидов по менеджерам"},
-    {"ka":"follow-up შეხსენებები","en":"Follow-up reminders","ru":"Напоминания о follow-up"},
-    {"ka":"კონტაქტებისა და პროდუქტების გადმოტანა","en":"Contacts and products migration","ru":"Перенос контактов и товаров"},
-    {"ka":"30-წუთიანი ტრენინგი, ჩაწერილი","en":"30-minute training, recorded","ru":"30-минутное обучение с записью"}
-   ]},
-  {"id":"growth","price":5990,"days":25,
-   "name":{"ka":"ზრდა","en":"Growth","ru":"Рост"},
-   "title":{"ka":"გაყიდვების სრული სისტემა 25 დღეში","en":"Full sales system in 25 days","ru":"Полная система продаж за 25 дней"},
-   "for":{"ka":"15-25 კაციანი გუნდებისთვის, რომლებიც იზრდებიან და გარიგებებს არ კარგავენ.","en":"For 15-25 person teams scaling without losing deals.","ru":"Для команд из 15-25 человек, которые растут и не теряют сделки."},
-   "base":{"ka":"ოპტიმალურის ყველაფერი, პლუს:","en":"Everything in Essentials, plus:","ru":"Всё из «Оптимального», плюс:"},
-   "items":[
-    {"ka":"3-მდე დამატებითი მოდული","en":"Up to 3 additional modules","ru":"До 3 дополнительных модулей"},
-    {"ka":"5-მდე ავტომატიზაცია","en":"Up to 5 no-code automations","ru":"До 5 автоматизаций"},
-    {"ka":"3-მდე ავტომატიზაცია custom ფუნქციებით","en":"Up to 3 automations with custom functions","ru":"До 3 автоматизаций с custom-функциями"},
-    {"ka":"ტელეფონია: GEONET ან სხვა cloud PBX","en":"Telephony: GEONET or another cloud PBX","ru":"Телефония: GEONET или другая облачная АТС"},
-    {"ka":"ზარების დამუშავება CRM-ში","en":"Call processing workflow in the CRM","ru":"Обработка звонков в CRM"},
-    {"ka":"საიტის ფორმა + დაცული webhook","en":"Website form + secure webhook","ru":"Форма сайта + защищённый webhook"},
-    {"ka":"10-მდე რეპორტი","en":"Up to 10 reports","ru":"До 10 отчётов"},
-    {"ka":"AI: Claude დაკავშირებული შენს CRM-თან","en":"AI: Claude connected to your CRM","ru":"AI: Claude, подключённый к вашей CRM"},
-    {"ka":"60-წუთიანი ტრენინგი, ჩაწერილი","en":"60-minute training, recorded","ru":"60-минутное обучение с записью"}
-   ]}
+  {
+   "id": "starter",
+   "price": 990,
+   "days": 5,
+   "name": {
+    "ka": "სტარტი",
+    "en": "Starter",
+    "ru": "Старт"
+   },
+   "title": {
+    "ka": "CRM 5 დღეში",
+    "en": "CRM in 5 days",
+    "ru": "CRM за 5 дней"
+   },
+   "for": {
+    "ka": "გუნდებისთვის, რომლებიც Excel-იდან ერთ სისტემაზე გადადიან.",
+    "en": "For teams moving off spreadsheets into one system.",
+    "ru": "Для команд, которые переходят с таблиц на одну систему."
+   },
+   "items": [
+    {
+     "ka": "4 ძირითადი მოდული: ლიდები, კონტაქტები, კომპანიები, გარიგებები",
+     "en": "4 core modules: Leads, Contacts, Accounts, Deals",
+     "ru": "4 базовых модуля: лиды, контакты, компании, сделки"
+    },
+    {
+     "ka": "ელფოსტის ორმხრივი სინქრონიზაცია (Google ან Microsoft 365)",
+     "en": "2-way email sync (Google or Microsoft 365)",
+     "ru": "Двусторонняя синхронизация почты (Google или Microsoft 365)"
+    },
+    {
+     "ka": "Facebook-ის შეტყობინებები პირდაპირ CRM-ში",
+     "en": "Facebook messages right inside the CRM",
+     "ru": "Сообщения Facebook прямо в CRM"
+    },
+    {
+     "ka": "1 ვებფორმა ლიდების მისაღებად",
+     "en": "1 web form to capture leads",
+     "ru": "1 веб-форма для приёма лидов"
+    },
+    {
+     "ka": "გაყიდვების ძაბრის KPI დაფა",
+     "en": "1 sales-pipeline KPI dashboard",
+     "ru": "Дашборд KPI воронки продаж"
+    },
+    {
+     "ka": "ჩაწერილი ვიდეო ინსტრუქციები გუნდისთვის",
+     "en": "Recorded video instructions for the team",
+     "ru": "Видеоинструкции для команды"
+    }
+   ],
+   "short": {
+    "ka": "Excel-იდან CRM-ზე გადასასვლელად",
+    "en": "To move from Excel into a CRM",
+    "ru": "Чтобы перейти с Excel на CRM"
+   },
+   "highlights": [
+    {
+     "ka": "4 ძირითადი მოდული",
+     "en": "4 core modules",
+     "ru": "4 базовых модуля"
+    },
+    {
+     "ka": "ელფოსტა და Facebook CRM-ში",
+     "en": "Email and Facebook inside the CRM",
+     "ru": "Почта и Facebook внутри CRM"
+    },
+    {
+     "ka": "ლიდების ფორმა და KPI დაფა",
+     "en": "Lead form and KPI dashboard",
+     "ru": "Форма лидов и дашборд KPI"
+    }
+   ]
+  },
+  {
+   "id": "essentials",
+   "price": 2990,
+   "days": 15,
+   "popular": true,
+   "name": {
+    "ka": "ოპტიმალური",
+    "en": "Essentials",
+    "ru": "Оптимальный"
+   },
+   "title": {
+    "ka": "შენზე მორგებული CRM 15 დღეში",
+    "en": "Custom CRM in 15 days",
+    "ru": "CRM под вас за 15 дней"
+   },
+   "for": {
+    "ka": "5-10 კაციანი გაყიდვების გუნდებისთვის, რომლებსაც ძაბრის მოწესრიგება უნდათ.",
+    "en": "For 5-10 person sales teams tightening their pipeline.",
+    "ru": "Для отделов продаж из 5-10 человек, которым нужен порядок в воронке."
+   },
+   "base": {
+    "ka": "სტარტის ყველაფერი, პლუს:",
+    "en": "Everything in Starter, plus:",
+    "ru": "Всё из «Старта», плюс:"
+   },
+   "items": [
+    {
+     "ka": "15-მდე დამატებითი ველი",
+     "en": "Up to 15 custom fields",
+     "ru": "До 15 дополнительных полей"
+    },
+    {
+     "ka": "პროდუქტები და ინვოისები, შენი ინვოისის შაბლონით",
+     "en": "Products and invoices, with your invoice template",
+     "ru": "Товары и счета с вашим шаблоном счёта"
+    },
+    {
+     "ka": "გაყიდვის ეტაპები წესებით: ეტაპს ვერ გამოტოვებ",
+     "en": "Sales stages with rules: no skipped steps",
+     "ru": "Этапы продаж с правилами: этап не пропустить"
+    },
+    {
+     "ka": "ნომრების ვალიდაცია (+995) და დუბლიკატების მოშორება",
+     "en": "Phone validation (+995) and deduplication",
+     "ru": "Проверка номеров (+995) и удаление дублей"
+    },
+    {
+     "ka": "Meta-სა და Google Ads-ის ლიდები ავტომატურად CRM-ში",
+     "en": "Meta and Google Ads leads synced automatically",
+     "ru": "Лиды из Meta и Google Ads автоматически в CRM"
+    },
+    {
+     "ka": "ლიდების ავტომატური განაწილება მენეჯერებზე",
+     "en": "Automatic lead assignment across managers",
+     "ru": "Автоматическое распределение лидов по менеджерам"
+    },
+    {
+     "ka": "follow-up შეხსენებები",
+     "en": "Follow-up reminders",
+     "ru": "Напоминания о follow-up"
+    },
+    {
+     "ka": "კონტაქტებისა და პროდუქტების გადმოტანა",
+     "en": "Contacts and products migration",
+     "ru": "Перенос контактов и товаров"
+    },
+    {
+     "ka": "30-წუთიანი ტრენინგი, ჩაწერილი",
+     "en": "30-minute training, recorded",
+     "ru": "30-минутное обучение с записью"
+    }
+   ],
+   "short": {
+    "ka": "5-10 კაციანი გაყიდვების გუნდისთვის",
+    "en": "For a 5-10 person sales team",
+    "ru": "Для отдела продаж из 5-10 человек"
+   },
+   "highlights": [
+    {
+     "ka": "სტარტის ყველაფერი",
+     "en": "Everything in Starter",
+     "ru": "Всё из «Старта»"
+    },
+    {
+     "ka": "Meta და Google Ads-ის ლიდები ავტომატურად",
+     "en": "Meta and Google Ads leads, automatically",
+     "ru": "Лиды из Meta и Google Ads автоматически"
+    },
+    {
+     "ka": "ეტაპები წესებით და ლიდების განაწილება",
+     "en": "Stage rules and lead assignment",
+     "ru": "Правила этапов и распределение лидов"
+    }
+   ]
+  },
+  {
+   "id": "growth",
+   "price": 5990,
+   "days": 25,
+   "name": {
+    "ka": "ზრდა",
+    "en": "Growth",
+    "ru": "Рост"
+   },
+   "title": {
+    "ka": "გაყიდვების სრული სისტემა 25 დღეში",
+    "en": "Full sales system in 25 days",
+    "ru": "Полная система продаж за 25 дней"
+   },
+   "for": {
+    "ka": "15-25 კაციანი გუნდებისთვის, რომლებიც იზრდებიან და გარიგებებს არ კარგავენ.",
+    "en": "For 15-25 person teams scaling without losing deals.",
+    "ru": "Для команд из 15-25 человек, которые растут и не теряют сделки."
+   },
+   "base": {
+    "ka": "ოპტიმალურის ყველაფერი, პლუს:",
+    "en": "Everything in Essentials, plus:",
+    "ru": "Всё из «Оптимального», плюс:"
+   },
+   "items": [
+    {
+     "ka": "3-მდე დამატებითი მოდული",
+     "en": "Up to 3 additional modules",
+     "ru": "До 3 дополнительных модулей"
+    },
+    {
+     "ka": "5-მდე ავტომატიზაცია",
+     "en": "Up to 5 no-code automations",
+     "ru": "До 5 автоматизаций"
+    },
+    {
+     "ka": "3-მდე ავტომატიზაცია custom ფუნქციებით",
+     "en": "Up to 3 automations with custom functions",
+     "ru": "До 3 автоматизаций с custom-функциями"
+    },
+    {
+     "ka": "ტელეფონია: GEONET ან სხვა cloud PBX",
+     "en": "Telephony: GEONET or another cloud PBX",
+     "ru": "Телефония: GEONET или другая облачная АТС"
+    },
+    {
+     "ka": "ზარების დამუშავება CRM-ში",
+     "en": "Call processing workflow in the CRM",
+     "ru": "Обработка звонков в CRM"
+    },
+    {
+     "ka": "საიტის ფორმა + დაცული webhook",
+     "en": "Website form + secure webhook",
+     "ru": "Форма сайта + защищённый webhook"
+    },
+    {
+     "ka": "10-მდე რეპორტი",
+     "en": "Up to 10 reports",
+     "ru": "До 10 отчётов"
+    },
+    {
+     "ka": "AI: Claude დაკავშირებული შენს CRM-თან",
+     "en": "AI: Claude connected to your CRM",
+     "ru": "AI: Claude, подключённый к вашей CRM"
+    },
+    {
+     "ka": "60-წუთიანი ტრენინგი, ჩაწერილი",
+     "en": "60-minute training, recorded",
+     "ru": "60-минутное обучение с записью"
+    }
+   ],
+   "short": {
+    "ka": "15-25 კაციანი, მზარდი გუნდისთვის",
+    "en": "For a growing 15-25 person team",
+    "ru": "Для растущей команды из 15-25 человек"
+   },
+   "highlights": [
+    {
+     "ka": "ოპტიმალურის ყველაფერი",
+     "en": "Everything in Essentials",
+     "ru": "Всё из «Оптимального»"
+    },
+    {
+     "ka": "ტელეფონია და ზარების დამუშავება",
+     "en": "Telephony and call processing",
+     "ru": "Телефония и обработка звонков"
+    },
+    {
+     "ka": "ავტომატიზაციები და AI (Claude)",
+     "en": "Automations and AI (Claude)",
+     "ru": "Автоматизации и AI (Claude)"
+    }
+   ]
+  }
  ],
  "categories": [
-  {"id":"data","name":{"ka":"მონაცემები","en":"Data foundation","ru":"Данные"}},
-  {"id":"sales","name":{"ka":"გაყიდვების ავტომატიზაცია","en":"Sales automation","ru":"Автоматизация продаж"}},
-  {"id":"comms","name":{"ka":"კომუნიკაცია","en":"Communication","ru":"Коммуникации"}},
-  {"id":"mkt","name":{"ka":"მარკეტინგი","en":"Marketing & growth","ru":"Маркетинг"}},
-  {"id":"fin","name":{"ka":"ფინანსები და ბანკები","en":"Fintech & accounting","ru":"Финансы и банки"}},
-  {"id":"cx","name":{"ka":"მომხმარებლის მომსახურება","en":"Customer experience","ru":"Клиентский сервис"}},
-  {"id":"ai","name":{"ka":"AI","en":"AI & automation","ru":"AI"}},
-  {"id":"ind","name":{"ka":"დარგობრივი","en":"Industry solutions","ru":"Отраслевые"}},
-  {"id":"ops","name":{"ka":"ოპერაციები და ERP","en":"Operations & ERP","ru":"Операции и ERP"}}
+  {
+   "id": "data",
+   "name": {
+    "ka": "მონაცემები",
+    "en": "Data foundation",
+    "ru": "Данные"
+   }
+  },
+  {
+   "id": "sales",
+   "name": {
+    "ka": "გაყიდვების ავტომატიზაცია",
+    "en": "Sales automation",
+    "ru": "Автоматизация продаж"
+   }
+  },
+  {
+   "id": "comms",
+   "name": {
+    "ka": "კომუნიკაცია",
+    "en": "Communication",
+    "ru": "Коммуникации"
+   }
+  },
+  {
+   "id": "mkt",
+   "name": {
+    "ka": "მარკეტინგი",
+    "en": "Marketing & growth",
+    "ru": "Маркетинг"
+   }
+  },
+  {
+   "id": "fin",
+   "name": {
+    "ka": "ფინანსები და ბანკები",
+    "en": "Fintech & accounting",
+    "ru": "Финансы и банки"
+   }
+  },
+  {
+   "id": "cx",
+   "name": {
+    "ka": "მომხმარებლის მომსახურება",
+    "en": "Customer experience",
+    "ru": "Клиентский сервис"
+   }
+  },
+  {
+   "id": "ai",
+   "name": {
+    "ka": "AI",
+    "en": "AI & automation",
+    "ru": "AI"
+   }
+  },
+  {
+   "id": "ind",
+   "name": {
+    "ka": "დარგობრივი",
+    "en": "Industry solutions",
+    "ru": "Отраслевые"
+   }
+  },
+  {
+   "id": "ops",
+   "name": {
+    "ka": "ოპერაციები და ERP",
+    "en": "Operations & ERP",
+    "ru": "Операции и ERP"
+   }
+  }
  ],
  "addons": [
-  ["data",590,5,0,"ნომრების ვალიდაცია (+995) და დუბლიკატები","Georgian phone validation & deduplication (+995)","Проверка номеров (+995) и дубли"],
-  ["data",490,7,0,"Excel-ის ცხრილების გადმოტანა CRM-ში","Legacy spreadsheet → CRM migration","Перенос таблиц Excel в CRM"],
-  ["data",190,5,0,"ქონების/ობიექტების ბაზის გადმოტანა","Property stock database migration","Перенос базы объектов недвижимости"],
-  ["sales",190,5,1,"ლიდების ავტომატური განაწილება (round-robin)","Automated lead routing (round-robin)","Автораспределение лидов (round-robin)"],
-  ["sales",490,7,1,"გაყიდვის ეტაპები წესებით (Blueprint)","Enforced sales stage blueprint","Этапы продаж с правилами (Blueprint)"],
-  ["sales",290,5,0,"follow-up შეხსენებები და შეტყობინებები","Follow-up reminders & alerts","Напоминания и уведомления о follow-up"],
-  ["sales",990,10,0,"ხელშეკრულების PDF ერთი დაჭერით","One-click agreement PDF generator","PDF договора в один клик"],
-  ["sales",290,5,0,"პირველი პასუხის დროის (SLA) კონტროლი","First-response SLA tracker","Контроль времени первого ответа (SLA)"],
-  ["sales",490,10,0,"ბროკერების საკომისიოს აღრიცხვა","Broker commission tracking","Учёт комиссий брокеров"],
-  ["comms",490,7,1,"ტელეფონიის ინტეგრაცია (GEONET)","Cloud telephony integration (GEONET)","Интеграция телефонии (GEONET)"],
-  ["comms",190,7,1,"WhatsApp Business-ის ინტეგრაცია","WhatsApp Business integration","Интеграция WhatsApp Business"],
-  ["comms",190,5,0,"ელფოსტისა და კალენდრის ორმხრივი სინქრონიზაცია","Email + calendar 2-way sync","Двусторонняя синхронизация почты и календаря"],
-  ["comms",290,5,0,"გამოტოვებული ზარის აღდგენა და SMS","Missed-call recovery & SMS callback","Возврат пропущенных звонков и SMS"],
-  ["comms",390,5,0,"ჩატბოტის ლიდები პირდაპირ CRM-ში","Messaging bot lead capture webhook","Лиды из чат-бота сразу в CRM"],
-  ["mkt",190,5,0,"საიტის ფორმა + webhook","Website lead form + webhook","Форма сайта + webhook"],
-  ["mkt",490,7,0,"ლიდის წყაროს ROI და კამპანიების ატრიბუცია","Lead source ROI & campaign attribution","ROI источников и атрибуция кампаний"],
-  ["mkt",390,7,0,"იმეილ კამპანიები: ანგარიში და კონტაქტების სინქრონი","Email campaigns: account setup & contact sync","Email-рассылки: настройка и синхронизация контактов"],
-  ["fin",990,10,1,"TBC/BOG გადარიცხვების ავტომატური შეჯერება","TBC/BOG bank wire deposit matching","Автосверка переводов TBC/BOG"],
-  ["fin",490,10,0,"მრავალვალუტიანი შეჯერება (GEL/USD/EUR)","Multi-currency reconciliation (GEL/USD/EUR)","Мультивалютная сверка (GEL/USD/EUR)"],
-  ["fin",290,5,0,"ეროვნული ბანკის კურსის ყოველდღიური სინქრონი","NBG daily exchange rate sync","Ежедневный курс НБГ"],
-  ["fin",290,5,0,"გაურკვეველი გადარიცხვების რიგი","Ambiguous payment reference fallback queue","Очередь неопознанных платежей"],
-  ["fin",690,7,0,"განვადების გრაფიკი","Dynamic installment payment schedule","График рассрочки"],
-  ["fin",490,5,0,"ვადაგადაცილებული დავალიანების SMS გაფრთხილება","Overdue debt alert & SMS warning","SMS о просроченной задолженности"],
-  ["fin",290,7,0,"SMS გეითვეი და OTP ვერიფიკაცია","SMS gateway & OTP verification","SMS-шлюз и OTP-верификация"],
-  ["cx",990,7,0,"ომნიჩენელ ტიკეტები (Zoho Desk)","Omnichannel support ticketing (Zoho Desk)","Омниканальные тикеты (Zoho Desk)"],
-  ["cx",390,7,0,"SLA-ს ესკალაციის მატრიცა","Multi-tier SLA escalation matrix","Матрица эскалации SLA"],
-  ["cx",690,7,0,"NPS/CSAT შეფასება ტიკეტის შემდეგ","Post-ticket NPS/CSAT feedback loop","Оценка NPS/CSAT после тикета"],
-  ["cx",290,5,0,"KYC-ის ჭკვიანი ფორმა","Dynamic KYC intake smart form","Умная KYC-форма"],
-  ["cx",290,5,0,"გარანტიის ვადის შეხსენებები","Warranty expiration alerts","Напоминания об окончании гарантии"],
-  ["ai",190,10,1,"AI ჩატ-ასისტენტი საიტზე (Unitty AI)","Autonomous web chat assistant (Unitty AI)","AI чат-ассистент на сайте (Unitty AI)"],
-  ["ai",190,10,0,"ქართული შეხვედრების ტრანსკრიფცია","Georgian voice meeting transcription","Транскрипция встреч на грузинском"],
-  ["ai",590,7,0,"ზარის განწყობის ანალიზი","Audio call sentiment extractor","Анализ тональности звонков"],
-  ["ind",690,10,0,"უძრავი ქონება: ბინების ინვენტარი, ორმაგი ჯავშნის გარეშე","Real estate unit inventory & anti-double-booking","Недвижимость: учёт квартир без двойной брони"],
-  ["ind",690,10,0,"კლიენტის სურვილების ავტომატური მატჩი","Client preference proactive matcher","Автоподбор по пожеланиям клиента"],
-  ["ind",390,7,0,"ჯავშნის ვადის ტაიმერი","Reservation expiration timer","Таймер истечения брони"],
-  ["ind",290,10,0,"გეგმარებისა და შეთავაზების PDF","Floor plan & proposal PDF generator","PDF планировки и предложения"],
-  ["ind",390,10,0,"საველე ვიზიტების აღრიცხვა და დადასტურება","Field service visit tracking + approval","Учёт выездов и подтверждение"],
-  ["ops",1490,15,1,"ERP სინქრონიზაცია (1C / FINA / SAP)","Enterprise ERP sync (1C / FINA / SAP)","Синхронизация с ERP (1C / FINA / SAP)"],
-  ["ops",2990,15,0,"სამაცივრე საწყობის WMS და ბილინგი","Cold storage WMS & automated billing","WMS холодного склада и биллинг"],
-  ["ops",1490,10,0,"მშენებლობის ოპერაციები და ბიუჯეტი","Construction operations & budget tracker","Стройка: операции и бюджет"],
-  ["ops",2290,10,0,"მოვალეების ზარების ჭკვიანი რიგი","Predictive debtor call queue","Умная очередь звонков должникам"],
-  ["ops",790,7,0,"აგენტების დასწრების აღრიცხვა","Agent attendance tracker","Учёт посещаемости агентов"],
-  ["ops",690,7,0,"შეხვედრების თანაბარი განაწილება","Round-robin appointment balancing","Равномерное распределение встреч"],
-  ["ops",490,5,0,"Discovery ზარის ავტომატური დაჯავშნა","Discovery call auto-scheduling","Автозапись на discovery-звонок"]
+  [
+   "data",
+   590,
+   5,
+   0,
+   "ნომრების ვალიდაცია (+995) და დუბლიკატები",
+   "Georgian phone validation & deduplication (+995)",
+   "Проверка номеров (+995) и дубли"
+  ],
+  [
+   "data",
+   490,
+   7,
+   0,
+   "Excel-ის ცხრილების გადმოტანა CRM-ში",
+   "Legacy spreadsheet → CRM migration",
+   "Перенос таблиц Excel в CRM"
+  ],
+  [
+   "data",
+   190,
+   5,
+   0,
+   "ქონების/ობიექტების ბაზის გადმოტანა",
+   "Property stock database migration",
+   "Перенос базы объектов недвижимости"
+  ],
+  [
+   "sales",
+   190,
+   5,
+   1,
+   "ლიდების ავტომატური განაწილება (round-robin)",
+   "Automated lead routing (round-robin)",
+   "Автораспределение лидов (round-robin)"
+  ],
+  [
+   "sales",
+   490,
+   7,
+   1,
+   "გაყიდვის ეტაპები წესებით (Blueprint)",
+   "Enforced sales stage blueprint",
+   "Этапы продаж с правилами (Blueprint)"
+  ],
+  [
+   "sales",
+   290,
+   5,
+   0,
+   "follow-up შეხსენებები და შეტყობინებები",
+   "Follow-up reminders & alerts",
+   "Напоминания и уведомления о follow-up"
+  ],
+  [
+   "sales",
+   990,
+   10,
+   0,
+   "ხელშეკრულების PDF ერთი დაჭერით",
+   "One-click agreement PDF generator",
+   "PDF договора в один клик"
+  ],
+  [
+   "sales",
+   290,
+   5,
+   0,
+   "პირველი პასუხის დროის (SLA) კონტროლი",
+   "First-response SLA tracker",
+   "Контроль времени первого ответа (SLA)"
+  ],
+  [
+   "sales",
+   490,
+   10,
+   0,
+   "ბროკერების საკომისიოს აღრიცხვა",
+   "Broker commission tracking",
+   "Учёт комиссий брокеров"
+  ],
+  [
+   "comms",
+   490,
+   7,
+   1,
+   "ტელეფონიის ინტეგრაცია (GEONET)",
+   "Cloud telephony integration (GEONET)",
+   "Интеграция телефонии (GEONET)"
+  ],
+  [
+   "comms",
+   190,
+   7,
+   1,
+   "WhatsApp Business-ის ინტეგრაცია",
+   "WhatsApp Business integration",
+   "Интеграция WhatsApp Business"
+  ],
+  [
+   "comms",
+   190,
+   5,
+   0,
+   "ელფოსტისა და კალენდრის ორმხრივი სინქრონიზაცია",
+   "Email + calendar 2-way sync",
+   "Двусторонняя синхронизация почты и календаря"
+  ],
+  [
+   "comms",
+   290,
+   5,
+   0,
+   "გამოტოვებული ზარის აღდგენა და SMS",
+   "Missed-call recovery & SMS callback",
+   "Возврат пропущенных звонков и SMS"
+  ],
+  [
+   "comms",
+   390,
+   5,
+   0,
+   "ჩატბოტის ლიდები პირდაპირ CRM-ში",
+   "Messaging bot lead capture webhook",
+   "Лиды из чат-бота сразу в CRM"
+  ],
+  [
+   "mkt",
+   190,
+   5,
+   0,
+   "საიტის ფორმა + webhook",
+   "Website lead form + webhook",
+   "Форма сайта + webhook"
+  ],
+  [
+   "mkt",
+   490,
+   7,
+   0,
+   "ლიდის წყაროს ROI და კამპანიების ატრიბუცია",
+   "Lead source ROI & campaign attribution",
+   "ROI источников и атрибуция кампаний"
+  ],
+  [
+   "mkt",
+   390,
+   7,
+   0,
+   "იმეილ კამპანიები: ანგარიში და კონტაქტების სინქრონი",
+   "Email campaigns: account setup & contact sync",
+   "Email-рассылки: настройка и синхронизация контактов"
+  ],
+  [
+   "fin",
+   990,
+   10,
+   1,
+   "TBC/BOG გადარიცხვების ავტომატური შეჯერება",
+   "TBC/BOG bank wire deposit matching",
+   "Автосверка переводов TBC/BOG"
+  ],
+  [
+   "fin",
+   490,
+   10,
+   0,
+   "მრავალვალუტიანი შეჯერება (GEL/USD/EUR)",
+   "Multi-currency reconciliation (GEL/USD/EUR)",
+   "Мультивалютная сверка (GEL/USD/EUR)"
+  ],
+  [
+   "fin",
+   290,
+   5,
+   0,
+   "ეროვნული ბანკის კურსის ყოველდღიური სინქრონი",
+   "NBG daily exchange rate sync",
+   "Ежедневный курс НБГ"
+  ],
+  [
+   "fin",
+   290,
+   5,
+   0,
+   "გაურკვეველი გადარიცხვების რიგი",
+   "Ambiguous payment reference fallback queue",
+   "Очередь неопознанных платежей"
+  ],
+  [
+   "fin",
+   690,
+   7,
+   0,
+   "განვადების გრაფიკი",
+   "Dynamic installment payment schedule",
+   "График рассрочки"
+  ],
+  [
+   "fin",
+   490,
+   5,
+   0,
+   "ვადაგადაცილებული დავალიანების SMS გაფრთხილება",
+   "Overdue debt alert & SMS warning",
+   "SMS о просроченной задолженности"
+  ],
+  [
+   "fin",
+   290,
+   7,
+   0,
+   "SMS გეითვეი და OTP ვერიფიკაცია",
+   "SMS gateway & OTP verification",
+   "SMS-шлюз и OTP-верификация"
+  ],
+  [
+   "cx",
+   990,
+   7,
+   0,
+   "ომნიჩენელ ტიკეტები (Zoho Desk)",
+   "Omnichannel support ticketing (Zoho Desk)",
+   "Омниканальные тикеты (Zoho Desk)"
+  ],
+  [
+   "cx",
+   390,
+   7,
+   0,
+   "SLA-ს ესკალაციის მატრიცა",
+   "Multi-tier SLA escalation matrix",
+   "Матрица эскалации SLA"
+  ],
+  [
+   "cx",
+   690,
+   7,
+   0,
+   "NPS/CSAT შეფასება ტიკეტის შემდეგ",
+   "Post-ticket NPS/CSAT feedback loop",
+   "Оценка NPS/CSAT после тикета"
+  ],
+  [
+   "cx",
+   290,
+   5,
+   0,
+   "KYC-ის ჭკვიანი ფორმა",
+   "Dynamic KYC intake smart form",
+   "Умная KYC-форма"
+  ],
+  [
+   "cx",
+   290,
+   5,
+   0,
+   "გარანტიის ვადის შეხსენებები",
+   "Warranty expiration alerts",
+   "Напоминания об окончании гарантии"
+  ],
+  [
+   "ai",
+   190,
+   10,
+   1,
+   "AI ჩატ-ასისტენტი საიტზე (Unitty AI)",
+   "Autonomous web chat assistant (Unitty AI)",
+   "AI чат-ассистент на сайте (Unitty AI)"
+  ],
+  [
+   "ai",
+   190,
+   10,
+   0,
+   "ქართული შეხვედრების ტრანსკრიფცია",
+   "Georgian voice meeting transcription",
+   "Транскрипция встреч на грузинском"
+  ],
+  [
+   "ai",
+   590,
+   7,
+   0,
+   "ზარის განწყობის ანალიზი",
+   "Audio call sentiment extractor",
+   "Анализ тональности звонков"
+  ],
+  [
+   "ind",
+   690,
+   10,
+   0,
+   "უძრავი ქონება: ბინების ინვენტარი, ორმაგი ჯავშნის გარეშე",
+   "Real estate unit inventory & anti-double-booking",
+   "Недвижимость: учёт квартир без двойной брони"
+  ],
+  [
+   "ind",
+   690,
+   10,
+   0,
+   "კლიენტის სურვილების ავტომატური მატჩი",
+   "Client preference proactive matcher",
+   "Автоподбор по пожеланиям клиента"
+  ],
+  [
+   "ind",
+   390,
+   7,
+   0,
+   "ჯავშნის ვადის ტაიმერი",
+   "Reservation expiration timer",
+   "Таймер истечения брони"
+  ],
+  [
+   "ind",
+   290,
+   10,
+   0,
+   "გეგმარებისა და შეთავაზების PDF",
+   "Floor plan & proposal PDF generator",
+   "PDF планировки и предложения"
+  ],
+  [
+   "ind",
+   390,
+   10,
+   0,
+   "საველე ვიზიტების აღრიცხვა და დადასტურება",
+   "Field service visit tracking + approval",
+   "Учёт выездов и подтверждение"
+  ],
+  [
+   "ops",
+   1490,
+   15,
+   1,
+   "ERP სინქრონიზაცია (1C / FINA / SAP)",
+   "Enterprise ERP sync (1C / FINA / SAP)",
+   "Синхронизация с ERP (1C / FINA / SAP)"
+  ],
+  [
+   "ops",
+   2990,
+   15,
+   0,
+   "სამაცივრე საწყობის WMS და ბილინგი",
+   "Cold storage WMS & automated billing",
+   "WMS холодного склада и биллинг"
+  ],
+  [
+   "ops",
+   1490,
+   10,
+   0,
+   "მშენებლობის ოპერაციები და ბიუჯეტი",
+   "Construction operations & budget tracker",
+   "Стройка: операции и бюджет"
+  ],
+  [
+   "ops",
+   2290,
+   10,
+   0,
+   "მოვალეების ზარების ჭკვიანი რიგი",
+   "Predictive debtor call queue",
+   "Умная очередь звонков должникам"
+  ],
+  [
+   "ops",
+   790,
+   7,
+   0,
+   "აგენტების დასწრების აღრიცხვა",
+   "Agent attendance tracker",
+   "Учёт посещаемости агентов"
+  ],
+  [
+   "ops",
+   690,
+   7,
+   0,
+   "შეხვედრების თანაბარი განაწილება",
+   "Round-robin appointment balancing",
+   "Равномерное распределение встреч"
+  ],
+  [
+   "ops",
+   490,
+   5,
+   0,
+   "Discovery ზარის ავტომატური დაჯავშნა",
+   "Discovery call auto-scheduling",
+   "Автозапись на discovery-звонок"
+  ]
  ]
 }

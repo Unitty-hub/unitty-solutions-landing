@@ -54,151 +54,6 @@
       "en": "",
       "ru": ""
     },
-    "fit.title": {
-      "ka": "რომელი CRM გერგება?",
-      "en": "Which CRM fits you?",
-      "ru": "Какая CRM вам подходит?"
-    },
-    "fit.sub": {
-      "ka": "ვართ დამოუკიდებელი პარტნიორი: გირჩევთ იმას, რაც შენს გაყიდვებს ერგება, და არა იმას, რისი გაყიდვაც გვინდა.",
-      "en": "We're an independent partner: we recommend what fits your sales, not what we'd like to sell.",
-      "ru": "Мы независимый партнёр: советуем то, что подходит вашим продажам, а не то, что нам выгодно продать."
-    },
-    "fit.zoho.when": {
-      "ka": "როცა პროცესები რთულია და გინდა ღრმა მორგება, ავტომატიზაციები და ანალიტიკა ერთ ეკოსისტემაში.",
-      "en": "When your processes are complex and you want deep customisation, automations and analytics in one ecosystem.",
-      "ru": "Когда процессы сложные и нужна глубокая настройка, автоматизации и аналитика в одной экосистеме."
-    },
-    "fit.zoho.t1": {
-      "ka": "მორგება",
-      "en": "Customisation",
-      "ru": "Настройка"
-    },
-    "fit.zoho.t2": {
-      "ka": "ავტომატიზაცია",
-      "en": "Automation",
-      "ru": "Автоматизация"
-    },
-    "fit.zoho.t3": {
-      "ka": "ანალიტიკა",
-      "en": "Analytics",
-      "ru": "Аналитика"
-    },
-    "fit.pipedrive.when": {
-      "ka": "როცა გაყიდვების გუნდს მარტივი, ვიზუალური გაყიდვების ძაბრი და სწრაფი სტარტი სჭირდება.",
-      "en": "When your sales team needs a simple, visual pipeline and a fast start.",
-      "ru": "Когда отделу продаж нужна простая наглядная воронка и быстрый старт."
-    },
-    "fit.pipedrive.t1": {
-      "ka": "მარტივი",
-      "en": "Simple",
-      "ru": "Просто"
-    },
-    "fit.pipedrive.t2": {
-      "ka": "ვიზუალური ძაბრი",
-      "en": "Visual pipeline",
-      "ru": "Наглядная воронка"
-    },
-    "fit.pipedrive.t3": {
-      "ka": "სწრაფი სტარტი",
-      "en": "Fast start",
-      "ru": "Быстрый старт"
-    },
-    "fit.kommo.when": {
-      "ka": "როცა გაყიდვები ძირითადად ჩატებში მიდის: WhatsApp, Instagram, Facebook.",
-      "en": "When most of your sales happen in chats: WhatsApp, Instagram, Facebook.",
-      "ru": "Когда продажи идут в основном в чатах: WhatsApp, Instagram, Facebook."
-    },
-    "fit.kommo.t1": {
-      "ka": "ჩატები",
-      "en": "Chats",
-      "ru": "Чаты"
-    },
-    "fit.kommo.t2": {
-      "ka": "მესენჯერები",
-      "en": "Messengers",
-      "ru": "Мессенджеры"
-    },
-    "fit.kommo.t3": {
-      "ka": "ჩატბოტები",
-      "en": "Chatbots",
-      "ru": "Чат-боты"
-    },
-    "fit.monday.when": {
-      "ka": "როცა გაყიდვები და პროექტები ერთ, მოქნილ დაფებზე გინდა მართო.",
-      "en": "When you want to run sales and projects on the same flexible boards.",
-      "ru": "Когда хотите вести продажи и проекты на одних гибких досках."
-    },
-    "fit.monday.t1": {
-      "ka": "მოქნილი დაფები",
-      "en": "Flexible boards",
-      "ru": "Гибкие доски"
-    },
-    "fit.monday.t2": {
-      "ka": "პროექტები",
-      "en": "Projects",
-      "ru": "Проекты"
-    },
-    "fit.monday.t3": {
-      "ka": "გუნდური მუშაობა",
-      "en": "Teamwork",
-      "ru": "Командная работа"
-    },
-    "fit.bitrix.when": {
-      "ka": "როცა CRM-თან ერთად შიდა ჩატი, დავალებები და ტელეფონია ერთ სივრცეში გჭირდება.",
-      "en": "When you need internal chat, tasks and telephony in the same place as your CRM.",
-      "ru": "Когда рядом с CRM нужны внутренний чат, задачи и телефония в одном месте."
-    },
-    "fit.bitrix.t1": {
-      "ka": "დავალებები",
-      "en": "Tasks",
-      "ru": "Задачи"
-    },
-    "fit.bitrix.t2": {
-      "ka": "შიდა ჩატი",
-      "en": "Internal chat",
-      "ru": "Внутренний чат"
-    },
-    "fit.bitrix.t3": {
-      "ka": "ტელეფონია",
-      "en": "Telephony",
-      "ru": "Телефония"
-    },
-    "fit.odoo.when": {
-      "ka": "როცა გაყიდვებთან ერთად საწყობი, ინვოისები და ბუღალტერია ერთ სისტემაში გინდა.",
-      "en": "When you want inventory, invoicing and accounting in the same system as sales.",
-      "ru": "Когда вместе с продажами нужны склад, счета и бухгалтерия в одной системе."
-    },
-    "fit.odoo.t1": {
-      "ka": "CRM + ERP",
-      "en": "CRM + ERP",
-      "ru": "CRM + ERP"
-    },
-    "fit.odoo.t2": {
-      "ka": "საწყობი",
-      "en": "Inventory",
-      "ru": "Склад"
-    },
-    "fit.odoo.t3": {
-      "ka": "ინვოისები",
-      "en": "Invoicing",
-      "ru": "Счета"
-    },
-    "fit.foot.title": {
-      "ka": "არ იცი, რომელი?",
-      "en": "Not sure which one?",
-      "ru": "Не знаете, какую выбрать?"
-    },
-    "fit.foot.note": {
-      "ka": "20 წუთში ერთად შევარჩევთ. ვართ ამ პლატფორმების სერტიფიცირებული პარტნიორები; ლიცენზიას პირდაპირ მწარმოებელს უხდი.",
-      "en": "We'll choose together in 20 minutes. We're a certified partner of these platforms; you pay the licence directly to the vendor.",
-      "ru": "Выберем вместе за 20 минут. Мы сертифицированный партнёр этих платформ; лицензию вы оплачиваете напрямую производителю."
-    },
-    "fit.cta": {
-      "ka": "მოითხოვე 20-წუთიანი უფასო ზარი",
-      "en": "Request a free 20-minute call",
-      "ru": "Запросить бесплатный 20-минутный звонок"
-    },
     "faq.q1": {
       "ka": "რით განსხვავდებით კონკრეტული CRM-ის პარტნიორისგან?",
       "en": "How are you different from a single-CRM partner?",
@@ -310,9 +165,9 @@
       "ru": "Выберите, с чего начать"
     },
     "pk.sub": {
-      "ka": "ფიქსირებული ფასი და ვადა. იწყებ პატარა პაკეტით და ამატებ მხოლოდ იმას, რაც ნამდვილად გჭირდება.",
-      "en": "Fixed price, fixed timeline. Start with a small package and add only what you actually need.",
-      "ru": "Фиксированная цена и срок. Начинаете с небольшого пакета и добавляете только то, что действительно нужно."
+      "ka": "ფიქსირებული ფასი და ვადა. დაიწყე პატარა პაკეტით, დანარჩენს მერე დაამატებ.",
+      "en": "Fixed price, fixed timeline. Start small and add the rest later.",
+      "ru": "Фиксированная цена и срок. Начните с малого, остальное добавите потом."
     },
     "pk.popular": {
       "ka": "ყველაზე ხშირად ირჩევენ",
@@ -320,24 +175,19 @@
       "ru": "Выбирают чаще всего"
     },
     "pk.once": {
-      "ka": "ერთჯერადად · ფიქსირებული ფასი",
-      "en": "One-time · fixed price",
-      "ru": "Разово · фиксированная цена"
+      "ka": "ერთჯერადად, + დღგ",
+      "en": "one-time, + VAT",
+      "ru": "разово, + НДС"
     },
     "pk.days": {
       "ka": "სამუშაო დღე",
       "en": "working days",
       "ru": "рабочих дней"
     },
-    "pk.more": {
-      "ka": "ყველა პუნქტის ნახვა",
-      "en": "Show everything included",
-      "ru": "Показать всё, что входит"
-    },
-    "pk.less": {
-      "ka": "დაკეცვა",
-      "en": "Show less",
-      "ru": "Свернуть"
+    "pk.full": {
+      "ka": "სრული ჩამონათვალი",
+      "en": "Everything included",
+      "ru": "Всё, что входит"
     },
     "pk.choose": {
       "ka": "ამ პაკეტის არჩევა",
@@ -349,65 +199,35 @@
       "en": "Selected",
       "ru": "Выбран"
     },
-    "pk.trust.1": {
-      "ka": "ფასი ფიქსირებულია, დამატებითი ხარჯების გარეშე",
-      "en": "Fixed price, no change orders inside the scope",
-      "ru": "Цена фиксирована, без доплат внутри объёма"
-    },
-    "pk.trust.2": {
-      "ka": "3 დღე ჩასაბარებლად, ხარვეზებს უფასოდ ვასწორებთ",
-      "en": "3 days to review, defects fixed at no cost",
-      "ru": "3 дня на приёмку, недочёты исправляем бесплатно"
-    },
-    "pk.trust.3": {
-      "ka": "CRM, ანგარიში და მონაცემები შენია",
-      "en": "The CRM, the account and the data are yours",
-      "ru": "CRM, аккаунт и данные принадлежат вам"
-    },
-    "pk.trust.4": {
-      "ka": "ტრენინგი და დოკუმენტაცია ყველა პაკეტში",
-      "en": "Training and documentation in every package",
-      "ru": "Обучение и документация в каждом пакете"
-    },
     "pk.note": {
-      "ka": "ფასები ევროშია, დღგ-ს (18%) და CRM-ის ლიცენზიის გარეშე. ლიცენზიას პირდაპირ მწარმოებელს უხდი.",
-      "en": "Prices are in EUR, excluding 18% VAT and the CRM licence. You pay the licence directly to the vendor.",
-      "ru": "Цены в евро, без НДС (18%) и лицензии CRM. Лицензию вы оплачиваете напрямую производителю."
+      "ka": "ფასს ემატება დღგ (18%). CRM-ის ლიცენზიას ცალკე, პირდაპირ მწარმოებელს უხდი.",
+      "en": "VAT (18%) is added. The CRM licence is paid separately, directly to the vendor.",
+      "ru": "Добавляется НДС (18%). Лицензия CRM оплачивается отдельно, напрямую производителю."
+    },
+    "pk.cur": {
+      "ka": "ვალუტა",
+      "en": "Currency",
+      "ru": "Валюта"
     },
     "ao.title": {
-      "ka": "დამატებები",
-      "en": "Add-ons",
-      "ru": "Дополнения"
+      "ka": "დამატებითი ფუნქციები",
+      "en": "Extra features",
+      "ru": "Дополнительные функции"
     },
     "ao.sub": {
-      "ka": "დაამატე ნებისმიერ პაკეტს ან შეუკვეთე ცალკე სპრინტად. თითოეულს ფიქსირებული ფასი და ვადა აქვს.",
-      "en": "Add to any package or order as a standalone sprint. Each has a fixed price and timeline.",
-      "ru": "Добавьте к любому пакету или закажите отдельным спринтом. У каждого фиксированная цена и срок."
+      "ka": "არასავალდებულო. დაამატე, თუ გჭირდება",
+      "en": "Optional. Add only if you need them",
+      "ru": "Необязательно. Добавьте, если нужно"
     },
-    "ao.rec": {
-      "ka": "რეკომენდებული",
-      "en": "Recommended",
-      "ru": "Рекомендуем"
+    "ao.popular": {
+      "ka": "ხშირად ამატებენ",
+      "en": "Often added",
+      "ru": "Часто добавляют"
     },
-    "ao.all": {
-      "ka": "ყველა",
-      "en": "All",
-      "ru": "Все"
-    },
-    "ao.days": {
-      "ka": "დღე",
-      "en": "days",
-      "ru": "дн."
-    },
-    "ao.add": {
-      "ka": "დამატება",
-      "en": "Add",
-      "ru": "Добавить"
-    },
-    "ao.remove": {
-      "ka": "მოშორება",
-      "en": "Remove",
-      "ru": "Убрать"
+    "ao.more": {
+      "ka": "ყველა დამატება კატეგორიებით",
+      "en": "All add-ons by category",
+      "ru": "Все дополнения по категориям"
     },
     "ao.catalog": {
       "ka": "სრულ კატალოგს (75+ გადაწყვეტა) ზარზე გაჩვენებთ.",
@@ -415,39 +235,24 @@
       "ru": "Полный каталог (75+ решений) покажем на звонке."
     },
     "sum.empty": {
-      "ka": "აირჩიე პაკეტი ან დამატება",
-      "en": "Pick a package or an add-on",
-      "ru": "Выберите пакет или дополнение"
+      "ka": "აირჩიე პაკეტი",
+      "en": "Choose a package",
+      "ru": "Выберите пакет"
     },
     "sum.addons": {
-      "ka": "დამატება",
-      "en": "add-ons",
-      "ru": "доп."
+      "ka": "ფუნქცია",
+      "en": "features",
+      "ru": "функц."
     },
     "sum.vat": {
       "ka": "+ დღგ",
       "en": "+ VAT",
       "ru": "+ НДС"
     },
-    "sum.days": {
-      "ka": "დღე",
-      "en": "days",
-      "ru": "дн."
-    },
-    "sum.from": {
-      "ka": "პაკეტები €990-დან",
-      "en": "Packages from €990",
-      "ru": "Пакеты от €990"
-    },
     "sum.cta": {
       "ka": "მოითხოვე ზარი",
       "en": "Request a call",
       "ru": "Запросить звонок"
-    },
-    "sum.clear": {
-      "ka": "გასუფთავება",
-      "en": "Clear",
-      "ru": "Сбросить"
     },
     "sum.picked": {
       "ka": "შენი არჩევანი:",
@@ -459,15 +264,25 @@
       "en": "Starter",
       "ru": "Старт"
     },
-    "pk.starter.title": {
-      "ka": "CRM 5 დღეში",
-      "en": "CRM in 5 days",
-      "ru": "CRM за 5 дней"
+    "pk.starter.short": {
+      "ka": "Excel-იდან CRM-ზე გადასასვლელად",
+      "en": "To move from Excel into a CRM",
+      "ru": "Чтобы перейти с Excel на CRM"
     },
-    "pk.starter.for": {
-      "ka": "გუნდებისთვის, რომლებიც Excel-იდან ერთ სისტემაზე გადადიან.",
-      "en": "For teams moving off spreadsheets into one system.",
-      "ru": "Для команд, которые переходят с таблиц на одну систему."
+    "pk.starter.h1": {
+      "ka": "4 ძირითადი მოდული",
+      "en": "4 core modules",
+      "ru": "4 базовых модуля"
+    },
+    "pk.starter.h2": {
+      "ka": "ელფოსტა და Facebook CRM-ში",
+      "en": "Email and Facebook inside the CRM",
+      "ru": "Почта и Facebook внутри CRM"
+    },
+    "pk.starter.h3": {
+      "ka": "ლიდების ფორმა და KPI დაფა",
+      "en": "Lead form and KPI dashboard",
+      "ru": "Форма лидов и дашборд KPI"
     },
     "pk.starter.i1": {
       "ka": "4 ძირითადი მოდული: ლიდები, კონტაქტები, კომპანიები, გარიგებები",
@@ -504,20 +319,30 @@
       "en": "Essentials",
       "ru": "Оптимальный"
     },
-    "pk.essentials.title": {
-      "ka": "შენზე მორგებული CRM 15 დღეში",
-      "en": "Custom CRM in 15 days",
-      "ru": "CRM под вас за 15 дней"
-    },
-    "pk.essentials.for": {
-      "ka": "5-10 კაციანი გაყიდვების გუნდებისთვის, რომლებსაც ძაბრის მოწესრიგება უნდათ.",
-      "en": "For 5-10 person sales teams tightening their pipeline.",
-      "ru": "Для отделов продаж из 5-10 человек, которым нужен порядок в воронке."
+    "pk.essentials.short": {
+      "ka": "5-10 კაციანი გაყიდვების გუნდისთვის",
+      "en": "For a 5-10 person sales team",
+      "ru": "Для отдела продаж из 5-10 человек"
     },
     "pk.essentials.base": {
       "ka": "სტარტის ყველაფერი, პლუს:",
       "en": "Everything in Starter, plus:",
       "ru": "Всё из «Старта», плюс:"
+    },
+    "pk.essentials.h1": {
+      "ka": "სტარტის ყველაფერი",
+      "en": "Everything in Starter",
+      "ru": "Всё из «Старта»"
+    },
+    "pk.essentials.h2": {
+      "ka": "Meta და Google Ads-ის ლიდები ავტომატურად",
+      "en": "Meta and Google Ads leads, automatically",
+      "ru": "Лиды из Meta и Google Ads автоматически"
+    },
+    "pk.essentials.h3": {
+      "ka": "ეტაპები წესებით და ლიდების განაწილება",
+      "en": "Stage rules and lead assignment",
+      "ru": "Правила этапов и распределение лидов"
     },
     "pk.essentials.i1": {
       "ka": "15-მდე დამატებითი ველი",
@@ -569,20 +394,30 @@
       "en": "Growth",
       "ru": "Рост"
     },
-    "pk.growth.title": {
-      "ka": "გაყიდვების სრული სისტემა 25 დღეში",
-      "en": "Full sales system in 25 days",
-      "ru": "Полная система продаж за 25 дней"
-    },
-    "pk.growth.for": {
-      "ka": "15-25 კაციანი გუნდებისთვის, რომლებიც იზრდებიან და გარიგებებს არ კარგავენ.",
-      "en": "For 15-25 person teams scaling without losing deals.",
-      "ru": "Для команд из 15-25 человек, которые растут и не теряют сделки."
+    "pk.growth.short": {
+      "ka": "15-25 კაციანი, მზარდი გუნდისთვის",
+      "en": "For a growing 15-25 person team",
+      "ru": "Для растущей команды из 15-25 человек"
     },
     "pk.growth.base": {
       "ka": "ოპტიმალურის ყველაფერი, პლუს:",
       "en": "Everything in Essentials, plus:",
       "ru": "Всё из «Оптимального», плюс:"
+    },
+    "pk.growth.h1": {
+      "ka": "ოპტიმალურის ყველაფერი",
+      "en": "Everything in Essentials",
+      "ru": "Всё из «Оптимального»"
+    },
+    "pk.growth.h2": {
+      "ka": "ტელეფონია და ზარების დამუშავება",
+      "en": "Telephony and call processing",
+      "ru": "Телефония и обработка звонков"
+    },
+    "pk.growth.h3": {
+      "ka": "ავტომატიზაციები და AI (Claude)",
+      "en": "Automations and AI (Claude)",
+      "ru": "Автоматизации и AI (Claude)"
     },
     "pk.growth.i1": {
       "ka": "3-მდე დამატებითი მოდული",
@@ -629,50 +464,45 @@
       "en": "60-minute training, recorded",
       "ru": "60-минутное обучение с записью"
     },
+    "ao.4": {
+      "ka": "ლიდების ავტომატური განაწილება (round-robin)",
+      "en": "Automated lead routing (round-robin)",
+      "ru": "Автораспределение лидов (round-robin)"
+    },
+    "ao.5": {
+      "ka": "გაყიდვის ეტაპები წესებით (Blueprint)",
+      "en": "Enforced sales stage blueprint",
+      "ru": "Этапы продаж с правилами (Blueprint)"
+    },
+    "ao.10": {
+      "ka": "ტელეფონიის ინტეგრაცია (GEONET)",
+      "en": "Cloud telephony integration (GEONET)",
+      "ru": "Интеграция телефонии (GEONET)"
+    },
+    "ao.11": {
+      "ka": "WhatsApp Business-ის ინტეგრაცია",
+      "en": "WhatsApp Business integration",
+      "ru": "Интеграция WhatsApp Business"
+    },
+    "ao.18": {
+      "ka": "TBC/BOG გადარიცხვების ავტომატური შეჯერება",
+      "en": "TBC/BOG bank wire deposit matching",
+      "ru": "Автосверка переводов TBC/BOG"
+    },
+    "ao.30": {
+      "ka": "AI ჩატ-ასისტენტი საიტზე (Unitty AI)",
+      "en": "Autonomous web chat assistant (Unitty AI)",
+      "ru": "AI чат-ассистент на сайте (Unitty AI)"
+    },
+    "ao.38": {
+      "ka": "ERP სინქრონიზაცია (1C / FINA / SAP)",
+      "en": "Enterprise ERP sync (1C / FINA / SAP)",
+      "ru": "Синхронизация с ERP (1C / FINA / SAP)"
+    },
     "ao.cat.data": {
       "ka": "მონაცემები",
       "en": "Data foundation",
       "ru": "Данные"
-    },
-    "ao.cat.sales": {
-      "ka": "გაყიდვების ავტომატიზაცია",
-      "en": "Sales automation",
-      "ru": "Автоматизация продаж"
-    },
-    "ao.cat.comms": {
-      "ka": "კომუნიკაცია",
-      "en": "Communication",
-      "ru": "Коммуникации"
-    },
-    "ao.cat.mkt": {
-      "ka": "მარკეტინგი",
-      "en": "Marketing & growth",
-      "ru": "Маркетинг"
-    },
-    "ao.cat.fin": {
-      "ka": "ფინანსები და ბანკები",
-      "en": "Fintech & accounting",
-      "ru": "Финансы и банки"
-    },
-    "ao.cat.cx": {
-      "ka": "მომხმარებლის მომსახურება",
-      "en": "Customer experience",
-      "ru": "Клиентский сервис"
-    },
-    "ao.cat.ai": {
-      "ka": "AI",
-      "en": "AI & automation",
-      "ru": "AI"
-    },
-    "ao.cat.ind": {
-      "ka": "დარგობრივი",
-      "en": "Industry solutions",
-      "ru": "Отраслевые"
-    },
-    "ao.cat.ops": {
-      "ka": "ოპერაციები და ERP",
-      "en": "Operations & ERP",
-      "ru": "Операции и ERP"
     },
     "ao.1": {
       "ka": "ნომრების ვალიდაცია (+995) და დუბლიკატები",
@@ -689,15 +519,10 @@
       "en": "Property stock database migration",
       "ru": "Перенос базы объектов недвижимости"
     },
-    "ao.4": {
-      "ka": "ლიდების ავტომატური განაწილება (round-robin)",
-      "en": "Automated lead routing (round-robin)",
-      "ru": "Автораспределение лидов (round-robin)"
-    },
-    "ao.5": {
-      "ka": "გაყიდვის ეტაპები წესებით (Blueprint)",
-      "en": "Enforced sales stage blueprint",
-      "ru": "Этапы продаж с правилами (Blueprint)"
+    "ao.cat.sales": {
+      "ka": "გაყიდვების ავტომატიზაცია",
+      "en": "Sales automation",
+      "ru": "Автоматизация продаж"
     },
     "ao.6": {
       "ka": "follow-up შეხსენებები და შეტყობინებები",
@@ -719,15 +544,10 @@
       "en": "Broker commission tracking",
       "ru": "Учёт комиссий брокеров"
     },
-    "ao.10": {
-      "ka": "ტელეფონიის ინტეგრაცია (GEONET)",
-      "en": "Cloud telephony integration (GEONET)",
-      "ru": "Интеграция телефонии (GEONET)"
-    },
-    "ao.11": {
-      "ka": "WhatsApp Business-ის ინტეგრაცია",
-      "en": "WhatsApp Business integration",
-      "ru": "Интеграция WhatsApp Business"
+    "ao.cat.comms": {
+      "ka": "კომუნიკაცია",
+      "en": "Communication",
+      "ru": "Коммуникации"
     },
     "ao.12": {
       "ka": "ელფოსტისა და კალენდრის ორმხრივი სინქრონიზაცია",
@@ -744,6 +564,11 @@
       "en": "Messaging bot lead capture webhook",
       "ru": "Лиды из чат-бота сразу в CRM"
     },
+    "ao.cat.mkt": {
+      "ka": "მარკეტინგი",
+      "en": "Marketing & growth",
+      "ru": "Маркетинг"
+    },
     "ao.15": {
       "ka": "საიტის ფორმა + webhook",
       "en": "Website lead form + webhook",
@@ -759,10 +584,10 @@
       "en": "Email campaigns: account setup & contact sync",
       "ru": "Email-рассылки: настройка и синхронизация контактов"
     },
-    "ao.18": {
-      "ka": "TBC/BOG გადარიცხვების ავტომატური შეჯერება",
-      "en": "TBC/BOG bank wire deposit matching",
-      "ru": "Автосверка переводов TBC/BOG"
+    "ao.cat.fin": {
+      "ka": "ფინანსები და ბანკები",
+      "en": "Fintech & accounting",
+      "ru": "Финансы и банки"
     },
     "ao.19": {
       "ka": "მრავალვალუტიანი შეჯერება (GEL/USD/EUR)",
@@ -794,6 +619,11 @@
       "en": "SMS gateway & OTP verification",
       "ru": "SMS-шлюз и OTP-верификация"
     },
+    "ao.cat.cx": {
+      "ka": "მომხმარებლის მომსახურება",
+      "en": "Customer experience",
+      "ru": "Клиентский сервис"
+    },
     "ao.25": {
       "ka": "ომნიჩენელ ტიკეტები (Zoho Desk)",
       "en": "Omnichannel support ticketing (Zoho Desk)",
@@ -819,10 +649,10 @@
       "en": "Warranty expiration alerts",
       "ru": "Напоминания об окончании гарантии"
     },
-    "ao.30": {
-      "ka": "AI ჩატ-ასისტენტი საიტზე (Unitty AI)",
-      "en": "Autonomous web chat assistant (Unitty AI)",
-      "ru": "AI чат-ассистент на сайте (Unitty AI)"
+    "ao.cat.ai": {
+      "ka": "AI",
+      "en": "AI & automation",
+      "ru": "AI"
     },
     "ao.31": {
       "ka": "ქართული შეხვედრების ტრანსკრიფცია",
@@ -833,6 +663,11 @@
       "ka": "ზარის განწყობის ანალიზი",
       "en": "Audio call sentiment extractor",
       "ru": "Анализ тональности звонков"
+    },
+    "ao.cat.ind": {
+      "ka": "დარგობრივი",
+      "en": "Industry solutions",
+      "ru": "Отраслевые"
     },
     "ao.33": {
       "ka": "უძრავი ქონება: ბინების ინვენტარი, ორმაგი ჯავშნის გარეშე",
@@ -859,10 +694,10 @@
       "en": "Field service visit tracking + approval",
       "ru": "Учёт выездов и подтверждение"
     },
-    "ao.38": {
-      "ka": "ERP სინქრონიზაცია (1C / FINA / SAP)",
-      "en": "Enterprise ERP sync (1C / FINA / SAP)",
-      "ru": "Синхронизация с ERP (1C / FINA / SAP)"
+    "ao.cat.ops": {
+      "ka": "ოპერაციები და ERP",
+      "en": "Operations & ERP",
+      "ru": "Операции и ERP"
     },
     "ao.39": {
       "ka": "სამაცივრე საწყობის WMS და ბილინგი",
@@ -896,10 +731,6 @@
     }
   },
   "inserts": [
-    {
-      "file": "crm.extra.html",
-      "before": "<!-- ============ CHAOS vs CLARITY ============ -->"
-    },
     {
       "file": "crm.packages.html",
       "before": "<!-- ============ TESTIMONIALS (moved above Final CTA) ============ -->"
