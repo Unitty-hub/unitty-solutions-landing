@@ -63,13 +63,17 @@ def build(cfg, base):
         s = s.replace(PAINS_BEFORE, "<!--PAINS-->\n" + section + "<!--/PAINS-->\n" + PAINS_BEFORE)
         log(f"--- pain cards: {', '.join(pains)}")
 
-    # optional extra block (after the pain cards, so a block placed before CHAOS vs CLARITY follows them)
+    # optional extra blocks (after the pain cards, so a block placed before CHAOS vs CLARITY follows them).
+    # "inserts": [{"file": ..., "before": ...}] or the older single "insert_file" + "insert_before".
+    inserts = list(cfg.get("inserts", []))
     if cfg.get("insert_file"):
-        extra = (LANDINGS / cfg["insert_file"]).read_text(encoding="utf-8")
-        marker = cfg["insert_before"]
+        inserts.append({"file": cfg["insert_file"], "before": cfg["insert_before"]})
+    for ins in inserts:
+        extra = (LANDINGS / ins["file"]).read_text(encoding="utf-8")
+        marker = ins["before"]
         assert s.count(marker) == 1, f"marker not found once: {marker}"
         s = s.replace(marker, extra + marker)
-        log(f"--- inserted {cfg['insert_file']} ({len(extra)} chars)")
+        log(f"--- inserted {ins['file']} ({len(extra)} chars)")
 
     out = ROOT / cfg.get("output", f"public/{name}/index.html")
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -80,7 +84,7 @@ def build(cfg, base):
 def main():
     # the start page is the template; its own pain block is removed first and re-added from start.json
     base = PAINS_RE.sub("", TEMPLATE.read_text(encoding="utf-8"))
-    for cfg_path in sorted(p for p in LANDINGS.glob("*.json") if not p.name.endswith(".i18n.json")):
+    for cfg_path in sorted(p for p in LANDINGS.glob("*.json") if not p.name.endswith((".i18n.json", ".data.json"))):
         build(json.loads(cfg_path.read_text(encoding="utf-8")), base)
     log("*** done")
 
