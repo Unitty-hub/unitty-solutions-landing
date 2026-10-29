@@ -194,12 +194,15 @@ img,svg{max-width:100%}
 .ptrack img{height:20px;width:auto;flex:none;filter:brightness(0) invert(1);opacity:.6}
 .ptrack img[src*="zoho"]{height:30px}
 .partners.clients{border-top:0;padding-top:0}
+.ptrack .logo-dup{display:contents}
 .partners.clients .ptrack{animation-duration:48s;animation-direction:reverse}
+.partners.clients .ptrack{gap:80px;--pg:80px}
 .partners.clients .ptrack img{height:22px;filter:none;opacity:.7}
+@media(max-width:640px){.partners.clients .ptrack{gap:56px;--pg:56px}}
 .partners .lbl{min-width:110px}
-@keyframes pscroll{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 22px))}}
+@keyframes pscroll{from{transform:translateX(0)}to{transform:translateX(calc(-50% - var(--pg,44px)/2))}}
 .pmarq:hover .ptrack{animation-play-state:paused}
-@media(max-width:640px){.partners{flex-direction:column;align-items:flex-start;gap:12px}.pmarq{width:100%}.ptrack img{height:18px}.ptrack{gap:36px}}
+@media(max-width:640px){.partners{flex-direction:column;align-items:flex-start;gap:12px}.pmarq{width:100%}.ptrack img{height:18px}.ptrack{gap:36px;--pg:36px}}
 @media(prefers-reduced-motion:reduce){.ptrack{animation:none}}
 
 /* sections */
@@ -492,6 +495,14 @@ img,svg{max-width:100%}
 @media(min-width:1024px){.final-grid{grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:64px;align-items:center}}
 .final .display{font-size:clamp(34px,5vw,72px)}
 .final-copy{display:flex;flex-direction:column;gap:24px;min-width:0}
+.host{display:flex;gap:16px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line);border-radius:16px;background:var(--surface);max-width:520px}
+.host img{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:none;background:var(--lime)}
+.host-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+.host-txt small{font:500 11.5px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--lime)}
+.host-txt b{font-size:17px;color:var(--fg)}
+.host-txt>span{font:500 13px var(--f-mono);color:var(--dim)}
+.host-tags{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.host-tags li{font-size:12.5px;line-height:1.35;color:var(--dim);padding:4px 10px;border:1px solid var(--line-2);border-radius:999px}
 .contact-alt{display:flex;flex-direction:column;gap:6px;padding:18px 20px;border:1px solid var(--line);border-radius:16px;width:fit-content;max-width:100%}
 .contact-alt small{color:var(--mute);font:500 12px var(--f-mono);letter-spacing:.06em;text-transform:uppercase}
 .contact-alt .ph{font:700 20px var(--f-mono);user-select:all}
@@ -685,6 +696,8 @@ dialog p{color:var(--dim)}
 .story .sticky-in{display:grid!important;grid-auto-flow:column;grid-auto-columns:minmax(272px,86%);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .story .sticky-in::-webkit-scrollbar{display:none}
 .story .chap{scroll-snap-align:start;grid-template-columns:1fr!important;align-content:start;padding:22px 18px!important;opacity:1!important;visibility:visible!important;transform:none!important;position:static!important}
+.story .seg,.story .s-good,.story .l-good{display:none!important}
+.story .chap .s-bad,.story .chap .l-bad{opacity:1!important;transform:none!important;filter:none!important;pointer-events:auto!important}
 .story .rail,.story .story-progress{display:none!important}
 .story .chap{grid-template-rows:1fr auto}
 .story .stage{aspect-ratio:auto!important;height:330px!important;max-height:none!important}
@@ -715,7 +728,7 @@ dialog p{color:var(--dim)}
       <span class="ln">შეგირჩევთ და დაგინერგავთ</span>
       <span class="ln"><span class="mark">CRM სისტემას<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path id="uline" d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></span>
     </h1>
-    <p class="lead" data-hero>მოითხოვე 20-წუთიანი უფასო კონსულტაცია და გეტყვი, კონკრეტულად რომელი CRM გჭირდება. AI სერვისები და სრული პროცესის მართვა: შერჩევა → დანერგვა → სწავლება → მხარდაჭერის ჩათვლით.</p>
+    <p class="lead" data-hero>მოითხოვე 20-წუთიანი უფასო კონსულტაცია, გეტყვი, რომელი CRM გჭირდება და დაგიგეგმავ სრულ პროცესს.</p>
     <div class="timer" data-hero>
       <span class="timer-lbl">უფასო კონსულტაციის შეთავაზება იწურება</span>
       <div class="timer-digits" role="timer" aria-label="დარჩენილი დრო" id="timer">
@@ -753,7 +766,7 @@ dialog p{color:var(--dim)}
     <div class="story-intro">
       <div class="sec-head rv">
         <span class="kicker">ნაცნობია?</span>
-        <h2 class="display h2" id="storyH">Excel-ი და ჩატები ზრდას ვეღარ უძლებს</h2>
+        <h2 class="display h2" id="storyH">როგორ მიხვდე, რომ CRM გჭირდება?</h2>
       </div>
     </div>
     <div class="chapters" id="chapters">
@@ -998,6 +1011,7 @@ dialog p{color:var(--dim)}
       <h2 class="display" id="leadH">20 წუთში გეტყვით, <span class="accent">რომელი CRM გჭირდება</span></h2>
       <p class="lead">მოგვიყევი, როგორ ყიდი. ერთად შევარჩევთ სისტემას და გეტყვით ზუსტ ფასსა და ვადას.</p>
       <ul class="micro"><li>ზარი უფასოა</li><li>ვალდებულების გარეშე</li><li>500+ დანერგვის გამოცდილება</li></ul>
+      <div class="host"><img src="/crm/media/giorgi-avatar.jpg" alt="გიორგი კორძახია" width="64" height="64" loading="lazy" decoding="async"><div class="host-txt"><small>ზარზე გესაუბრება</small><b>გიორგი კორძახია</b><span>Unitty-ს CEO</span><ul class="host-tags"><li>12+ წელი CRM-ებში</li><li>500+ დანერგვა</li><li>Zoho · Pipedrive · Kommo · monday.com · Bitrix24 · Odoo სერტიფიცირებული პარტნიორი</li></ul></div></div>
       <div class="contact-alt"><small>ან დაგვირეკე</small><span class="ph">+995 32 205 50 60</span></div>
     </div>
     <form class="form rv" id="leadForm" novalidate aria-labelledby="formH">
@@ -1192,7 +1206,7 @@ chaps.forEach((c,i)=>{
   $('.b-good',c).addEventListener('click',()=>{ if(pinned) goChap(i,true); else c.classList.add('solved'); });
 });
 /* mobile/reduced: auto-solve once a chapter is mostly in view */
-const mo=new IntersectionObserver(es=>es.forEach(e=>{ if(pinned||!e.isIntersecting) return; const c=e.target; if(c.dataset.auto) return; c.dataset.auto=1; setTimeout(()=>c.classList.add('solved'), RM.matches?0:1100); }),{threshold:.65});
+const mo=new IntersectionObserver(es=>es.forEach(e=>{ if(pinned||!e.isIntersecting) return; const c=e.target; if(c.dataset.auto) return; c.dataset.auto=1; 0&&setTimeout(()=>c.classList.add('solved'), RM.matches?0:1100); }),{threshold:.65});
 chaps.forEach(c=>mo.observe(c));
 
 /* KINETIC */

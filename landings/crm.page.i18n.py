@@ -359,4 +359,14 @@ T = {
    ("Request a free 20-minute consultation and I'll tell you exactly which CRM you need. AI services and full process management: selection → implementation → training → support included.",
     "Запросите бесплатную 20-минутную консультацию, и я скажу, какая именно CRM вам нужна. AI-сервисы и управление всем процессом: подбор → внедрение → обучение → поддержка включительно."),
  "პარტნიორები": ("Partners", "Партнёры"),
+ # crm-v67
+ "მოითხოვე 20-წუთიანი უფასო კონსულტაცია, გეტყვი, რომელი CRM გჭირდება და დაგიგეგმავ სრულ პროცესს.":
+   ("Request a free 20-minute consultation: I'll tell you which CRM you need and plan the whole process for you.",
+    "Запросите бесплатную 20-минутную консультацию: скажу, какая CRM вам нужна, и спланирую весь процесс."),
+ "როგორ მიხვდე, რომ CRM გჭირდება?": ("How do you know you need a CRM?", "Как понять, что вам нужна CRM?"),
+ "ზარზე გესაუბრება": ("You'll talk to", "На звонке с вами"),
+ "Unitty-ს CEO": ("CEO of Unitty", "CEO Unitty"),
+ "12+ წელი CRM-ებში": ("12+ years in CRM", "12+ лет в CRM"),
+ "500+ დანერგვა": ("500+ implementations", "500+ внедрений"),
+ "Zoho · Pipedrive · Kommo · monday.com · Bitrix24 · Odoo სერტიფიცირებული პარტნიორი": ("Certified partner: Zoho · Pipedrive · Kommo · monday.com · Bitrix24 · Odoo", "Сертифицированный партнёр: Zoho · Pipedrive · Kommo · monday.com · Bitrix24 · Odoo"),
 }
