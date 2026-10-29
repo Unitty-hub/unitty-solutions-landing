@@ -369,4 +369,8 @@ T = {
  "12+ წელი CRM-ებში": ("12+ years in CRM", "12+ лет в CRM"),
  "500+ დანერგვა": ("500+ implementations", "500+ внедрений"),
  "Zoho · Pipedrive · Kommo · monday.com · Bitrix24 · Odoo სერტიფიცირებული პარტნიორი": ("Certified partner: Zoho · Pipedrive · Kommo · monday.com · Bitrix24 · Odoo", "Сертифицированный партнёр: Zoho · Pipedrive · Kommo · monday.com · Bitrix24 · Odoo"),
+ # crm-v69
+ "მოითხოვე 20-წუთიანი უფასო კონსულტაცია და გეტყვი რომელი CRM გჭირდება.":
+   ("Request a free 20-minute consultation and I'll tell you which CRM you need.",
+    "Запросите бесплатную 20-минутную консультацию, и я скажу, какая CRM вам нужна."),
 }
