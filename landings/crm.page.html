@@ -439,7 +439,8 @@ img,svg{max-width:100%}
 @media(max-width:1023px){.qnav{flex-direction:row;overflow-x:auto}.qnav button{flex:1 0 auto}.qnav button small{display:none}}
 
 /* pricing */
-.price-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;margin-bottom:36px}
+.price-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;margin-bottom:56px}
+@media(min-width:1024px){.price-top{margin-bottom:80px}}
 .cur{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-pill);padding:4px}
 .cur button{border:0;background:none;color:var(--dim);font:600 14px var(--f-mono);padding:9px 16px;border-radius:var(--r-pill);cursor:pointer}
 .cur button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
@@ -452,7 +453,9 @@ img,svg{max-width:100%}
 .badge{position:absolute;top:-13px;left:24px;background:var(--lime);color:var(--lime-ink);font:700 12px var(--f-mono);letter-spacing:.04em;padding:6px 12px;border-radius:var(--r-pill)}
 .plan-name{font-family:var(--f-display);font-weight:900;font-stretch:78%;text-transform:uppercase;font-size:28px;line-height:1;margin:0}
 .plan-for{color:var(--dim);font-size:14.5px;margin:0}
-.price{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px}
+.price{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.price .pl{display:flex;align-items:baseline;gap:2px;white-space:nowrap}
+.price .from{font:700 clamp(18px,1.6vw,22px)/1 var(--f-body);color:var(--dim)}
 .price .amt{font:700 clamp(38px,3.6vw,48px)/1 var(--f-mono);letter-spacing:-.03em}
 .price .once{color:var(--mute);font-size:14px}
 .was{display:flex;align-items:center;gap:8px;font:500 14px var(--f-mono)}
@@ -470,10 +473,12 @@ img,svg{max-width:100%}
 .plan details .ticks{margin-top:14px}
 .plan details .ticks li{font-size:14px}
 .plan .plus{font:500 12.5px var(--f-mono);color:var(--lime);margin:14px 0 0}
-.price-foot{margin-top:28px;color:var(--dim);font-size:14.5px}
+.price-foot{margin:48px auto 0;max-width:760px;color:var(--fg);font-size:16px;line-height:1.5;display:flex;justify-content:center}
+.price-foot ul.notes{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-card);padding:22px 26px;gap:12px}
+@media(min-width:1024px){.price-foot{font-size:17px}}
 .price-foot .notes{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-.price-foot .notes li{position:relative;padding-left:18px}
-.price-foot .notes li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--lime)}
+.price-foot .notes li{position:relative;padding-left:22px}
+.price-foot .notes li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--lime)}
 
 /* faq */
 .faq-grid{display:grid;gap:32px}
@@ -646,6 +651,13 @@ dialog p{color:var(--dim)}
   .vp-x{width:24px;height:24px;font-size:15px}.vp-live{font-size:9px;padding:3px 6px}
   .vbubble{bottom:calc(16px + env(safe-area-inset-bottom,0px));right:max(12px,env(safe-area-inset-right,0px));transition:bottom .4s var(--ease)}
 }
+
+/* crm-v81: replay next to sound */
+.vp-ctrls{position:absolute;left:10px;right:10px;bottom:64px;display:flex;justify-content:center;align-items:center;gap:8px}
+.vp-ctrls:has(.vp-sound[aria-pressed="true"]){justify-content:flex-end}
+.vp-ctrls .vp-sound,.vp-ctrls .vp-sound[aria-pressed="true"]{position:static;transform:none;left:auto;right:auto;bottom:auto}
+.vp-replay{width:32px;height:32px;flex:none;border:0;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;display:grid;place-items:center;cursor:pointer}
+@media(max-width:899px){.vp-ctrls{bottom:50px;left:6px;right:6px;gap:6px}.vp-replay{width:28px;height:28px}.vp-replay svg{width:13px;height:13px}}
 
 /* ===== v2: calmer, compact story ===== */
 .story-intro{padding-block:72px 8px}
@@ -911,43 +923,43 @@ dialog p{color:var(--dim)}
   <div class="wrap">
     <div class="price-top">
       <div class="sec-head rv" style="margin-bottom:0">
-        <h2 class="display h2" id="priceH">ფიქსირებული ფასი. მკაფიო ვადა.</h2>
+        <h2 class="display h2" id="priceH">მზა პაკეტები, ეფექტური სტარტისთვის</h2>
         
       </div>
       <div class="cur rv" role="group" aria-label="ვალუტა"><button type="button" data-cur="eur" aria-pressed="true">EUR €</button><button type="button" data-cur="gel" aria-pressed="false">GEL ₾</button></div>
     </div>
     <div class="plans">
-      <article class="plan rv" data-plan="სტარტი">
-        <h3 class="plan-name">სტარტი</h3>
+      <article class="plan rv" data-plan="საბაზისო">
+        <h3 class="plan-name">საბაზისო</h3>
         <p class="plan-for">Excel-იდან CRM-ზე გადასასვლელად</p>
-        <div class="price"><span class="amt tnum" data-eur="€990" data-gel="2,970 ₾">€990</span><span class="once">ერთჯერადად</span></div>
+        <div class="price"><div class="pl"><span class="amt tnum" data-eur="€990" data-gel="2,970 ₾">€990</span><span class="from">-დან</span></div><span class="once">ერთჯერადად</span></div>
         <div class="plan-meta"><span>5 სამუშაო დღე</span></div>
         <p class="plan-out">ყველა კლიენტი და ლიდი ერთ სისტემაში.</p>
-        <button class="btn btn-ghost pick" type="button">ამ პაკეტით დაწყება</button>
+        <button class="btn btn-ghost pick" type="button">დაწყება</button>
         <details><summary>რა შედის</summary>
           <ul class="ticks"><li>4 ძირითადი მოდული: ლიდები, კონტაქტები, კომპანიები, გარიგებები</li><li>ელფოსტის ორმხრივი სინქრონიზაცია (Google ან Microsoft 365)</li><li>Facebook-ის შეტყობინებები პირდაპირ CRM-ში</li><li>1 ვებფორმა ლიდების მისაღებად</li><li>გაყიდვების ძაბრის KPI დაფა</li><li>ჩაწერილი ვიდეო ინსტრუქციები გუნდისთვის</li></ul></details>
       </article>
       <article class="plan pop rv" data-plan="ოპტიმალური">
         <span class="badge">ყველაზე ხშირად ირჩევენ</span>
         <h3 class="plan-name">ოპტიმალური</h3>
-        <p class="plan-for">5–10-წევრიანი გაყიდვების გუნდისთვის</p>
+        <p class="plan-for">ყველაზე მოთხოვნადი კონფიგურაციები</p>
         <div class="was"><s class="tnum" data-eur="€2,499" data-gel="7,497 ₾">€2,499</s><span class="off">−20%</span></div>
-        <div class="price"><span class="amt tnum" data-eur="€1,999" data-gel="5,997 ₾">€1,999</span><span class="once">ერთჯერადად</span></div>
-        <p class="deal-note">ფასდაკლება მოქმედებს შეთავაზების მიღებიდან 1 კვირა.</p>
+        <div class="price"><div class="pl"><span class="amt tnum" data-eur="€1,999" data-gel="5,997 ₾">€1,999</span><span class="from">-დან</span></div><span class="once">ერთჯერადად</span></div>
+        <p class="deal-note">ფასდაკლება ძალაშია შეთავაზების მიღებიდან 7 დღის განმავლობაში.</p>
         <div class="plan-meta"><span>15 სამუშაო დღე</span></div>
         <p class="plan-out">ლიდები ავტომატურად შემოდის და გუნდზე სწორად ნაწილდება.</p>
-        <button class="btn btn-primary pick" type="button">ამ პაკეტით დაწყება</button>
+        <button class="btn btn-primary pick" type="button">დაწყება</button>
         <details><summary>რა შედის</summary>
-          <p class="plus">სტარტის ყველაფერი, პლუს:</p>
+          <p class="plus">საბაზისოს ყველაფერი, პლუს:</p>
           <ul class="ticks"><li>Meta-სა და Google Ads-ის ლიდები ავტომატურად CRM-ში</li><li>გაყიდვის ეტაპები მკაფიო წესებით</li><li>ლიდების ავტომატური განაწილება მენეჯერებზე</li><li>follow-up შეხსენებები</li><li>პროდუქტები და ინვოისები, შენი ინვოისის შაბლონით</li><li>15-მდე დამატებითი ველი</li><li>ნომრების ვალიდაცია (+995) და დუბლიკატების გასუფთავება</li><li>კონტაქტებისა და პროდუქტების გადმოტანა</li><li>30-წუთიანი ტრენინგი (ჩანაწერით)</li></ul></details>
       </article>
-      <article class="plan rv" data-plan="ზრდა">
-        <h3 class="plan-name">ზრდა</h3>
-        <p class="plan-for">15–25-წევრიანი მზარდი გუნდისთვის</p>
-        <div class="price"><span class="amt tnum" data-eur="€5,990" data-gel="17,970 ₾">€5,990</span><span class="once">ერთჯერადად</span></div>
+      <article class="plan rv" data-plan="ამბიციური">
+        <h3 class="plan-name">ამბიციური</h3>
+        <p class="plan-for">ყველა საკომუნიკაციო არხი და პროცესი ერთ გარემოში</p>
+        <div class="price"><div class="pl"><span class="amt tnum" data-eur="€5,990" data-gel="17,970 ₾">€5,990</span><span class="from">-დან</span></div><span class="once">ერთჯერადად</span></div>
         <div class="plan-meta"><span>25 სამუშაო დღე</span></div>
         <p class="plan-out">ზარები, ავტომატიზაციები და AI ერთ სივრცეში.</p>
-        <button class="btn btn-ghost pick" type="button">ამ პაკეტით დაწყება</button>
+        <button class="btn btn-ghost pick" type="button">დაწყება</button>
         <details><summary>რა შედის</summary>
           <p class="plus">ოპტიმალურის ყველაფერი, პლუს:</p>
           <ul class="ticks"><li>ტელეფონია: GEONET ან სხვა cloud PBX</li><li>ზარების დამუშავება CRM-ში</li><li>5-მდე ავტომატიზაცია, მათ შორის 3 custom ფუნქციით</li><li>3-მდე დამატებითი მოდული</li><li>საიტის ფორმა + დაცული webhook</li><li>10-მდე რეპორტი</li><li>AI: Claude, დაკავშირებული შენს CRM-თან</li><li>60-წუთიანი ტრენინგი (ჩანაწერით)</li></ul></details>
@@ -957,7 +969,7 @@ dialog p{color:var(--dim)}
       <ul class="notes">
         <li>ფასებს ემატება დღგ (18%).</li>
         <li>CRM-ის ლიცენზიას პირდაპირ მწარმოებელს უხდი, მისი ოფიციალური ფასით.</li>
-        <li>დამატებითი ფუნქციები <span class="tnum" data-eur="€190-დან" data-gel="570 ₾-დან">€190-დან</span>.</li>
+        <li>პაკეტებში მოცემულია ყველაზე მოთხოვნადი საჭიროებები. ნებისმიერი სხვა დავალება ცალკეულად ფასდება.</li>
       </ul>
     </div>
   </div>
@@ -994,8 +1006,8 @@ dialog p{color:var(--dim)}
       <details><summary>რა არის CRM სისტემა და რატომ სჭირდება ჩემს ბიზნესს?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>CRM არის სისტემა, სადაც ერთ ადგილას ინახება კლიენტები, გარიგებები, ზარები, მიმოწერა და დავალებები. ხედავ, ვინ ვის ესაუბრა, რა ეტაპზეა თითოეული გარიგება და ვის რა უნდა გააკეთოს. შედეგად ნაკლები კლიენტი იკარგება და ნაკლებს მუშაობ ხელით.</p></div></details>
       <details><summary>რით განსხვავდება CRM Excel-ისგან?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Excel მხოლოდ ინახავს ინფორმაციას. CRM მუშაობს: გახსენებს follow-up-ს, ანაწილებს ლიდებს, აჩვენებს გაყიდვების ძაბრს და ინახავს ყველა ზარისა და წერილის ისტორიას. მენეჯერი რომც წავიდეს, კლიენტები კომპანიაში რჩება.</p></div></details>
       <details><summary>რომელ CRM პროგრამებს ნერგავთ?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>ვართ Zoho-ს, Pipedrive-ის, Kommo-ს, monday.com-ის, Bitrix24-ისა და Odoo-ს სერტიფიცირებული პარტნიორი, ასევე ვმუშაობთ ClickUp-სა და Manychat-ზე. დამოუკიდებელი პარტნიორი ვართ, ამიტომ ჯერ ვნახავთ, როგორ მუშაობ, და მერე გირჩევთ შესაფერის სისტემას.</p></div></details>
-      <details><summary>რა ღირს CRM-ის დანერგვა?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>პაკეტები ფიქსირებული ფასისაა: სტარტი €990, ოპტიმალური €1,999 (ნაცვლად €2,499-ისა), ზრდა €5,990. დამატებები €190-დან. ფასებს ემატება დღგ (18%). CRM-ის ლიცენზიას პირდაპირ მწარმოებელს უხდი. ზარზე გეტყვით, რომელი პაკეტი გჭირდება და რა დაჯდება ლიცენზია.</p></div></details>
-      <details><summary>რამდენ ხანს გრძელდება CRM-ის დანერგვა?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>სტარტი 5 სამუშაო დღეში, ოპტიმალური 15 დღეში, ზრდა 25 დღეში. ვიწყებთ ყველაზე მნიშვნელოვანით, გუნდი ითვისებს და მერე ვამატებთ ავტომატიზაციებსა და ინტეგრაციებს. ასე რისკი მინიმალურია, შედეგს კი სწრაფად ხედავ.</p></div></details>
+      <details><summary>რა ღირს CRM-ის დანერგვა?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>პაკეტები ფიქსირებული ფასისაა: საბაზისო €990, ოპტიმალური €1,999 (ნაცვლად €2,499-ისა), ამბიციური €5,990. დამატებები €190-დან. ფასებს ემატება დღგ (18%). CRM-ის ლიცენზიას პირდაპირ მწარმოებელს უხდი. ზარზე გეტყვით, რომელი პაკეტი გჭირდება და რა დაჯდება ლიცენზია.</p></div></details>
+      <details><summary>რამდენ ხანს გრძელდება CRM-ის დანერგვა?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>საბაზისო 5 სამუშაო დღეში, ოპტიმალური 15 დღეში, ამბიციური 25 დღეში. ვიწყებთ ყველაზე მნიშვნელოვანით, გუნდი ითვისებს და მერე ვამატებთ ავტომატიზაციებსა და ინტეგრაციებს. ასე რისკი მინიმალურია, შედეგს კი სწრაფად ხედავ.</p></div></details>
       <details><summary>შეიძლება CRM-ის დაკავშირება სხვა სისტემებთან?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>კი. ვაკავშირებთ ელფოსტასთან, WhatsApp-თან, Instagram-თან, Facebook-თან, საიტის ფორმებთან, Meta-სა და Google-ის რეკლამის ლიდებთან, ტელეფონიასთან (მათ შორის GEONET), ბანკებთან და ბუღალტრულ ან ERP სისტემებთან (1C, FINA).</p></div></details>
       <details><summary>შესაძლებელია მონაცემების Excel-იდან ან სხვა CRM-იდან გადმოტანა?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>კი. კლიენტებს, კონტაქტებს, გარიგებებს და ისტორიას გადმოვიტანთ Excel-იდან, Google Sheets-იდან ან სხვა CRM-იდან. მანამდე ვასუფთავებთ დუბლიკატებს და ვაწესრიგებთ ნომრებს, რომ სისტემა სუფთა ბაზით დაიწყოს.</p></div></details>
       <details><summary>რა ხდება დანერგვის შემდეგ?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>3 სამუშაო დღე გაქვს სისტემის შესამოწმებლად და ჩასაბარებლად, მერე გუნდი უკვე CRM-ში მუშაობს. ტექნიკური მხარდაჭერა ხელმისაწვდომია საჭიროებისამებრ, ხოლო ვისაც სისტემის მუდმივი განვითარება სურს, ვთავაზობთ ყოველთვიურ მხარდაჭერას.</p></div></details>
@@ -1044,10 +1056,13 @@ dialog p{color:var(--dim)}
     <div class="vp-shade" aria-hidden="true"></div>
     <button class="vp-play" id="vpPlay" type="button" aria-label="ვიდეოს ჩართვა" hidden><svg width="22" height="22" viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 1.2l6 3.8-6 3.8z" fill="currentColor"/></svg></button>
     <div class="vp-top"><span class="vp-live" id="vpTime">1:02</span><button class="vp-x" id="vpClose" type="button" aria-label="ვიდეოს დამალვა">×</button></div>
+    <div class="vp-ctrls">
+    <button class="vp-replay" id="vpReplay" type="button" aria-label="ვიდეოს თავიდან დაწყება" title="თავიდან"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
     <button class="vp-sound" id="vpSound" type="button" aria-pressed="false" aria-label="ხმის ჩართვა">
       <svg class="off" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
       <svg class="on" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>
       <span>ჩართე ხმა</span></button>
+    </div>
     <div class="vp-cap"><b>გიორგი კორძახია</b><span>CEO · 500+ დანერგვა</span></div>
     <div class="vp-prog" aria-hidden="true"><i id="vpProg"></i></div>
   </div>
@@ -1062,12 +1077,12 @@ dialog p{color:var(--dim)}
 {"@context":"https://schema.org","@graph":[
 {"@type":"Organization","name":"Unitty","url":"https://www.unitty.io","telephone":"+995322055060","email":"digital@unitty.io","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","bestRating":"5"}},
 {"@type":"Service","name":"CRM სისტემის შერჩევა და დანერგვა","serviceType":"CRM დანერგვა","areaServed":"GE","provider":{"@type":"Organization","name":"Unitty"},
- "offers":[{"@type":"Offer","name":"სტარტი","price":"990","priceCurrency":"EUR"},{"@type":"Offer","name":"ოპტიმალური","price":"1999","priceCurrency":"EUR"},{"@type":"Offer","name":"ზრდა","price":"5990","priceCurrency":"EUR"}]},
+ "offers":[{"@type":"Offer","name":"საბაზისო","price":"990","priceCurrency":"EUR"},{"@type":"Offer","name":"ოპტიმალური","price":"1999","priceCurrency":"EUR"},{"@type":"Offer","name":"ამბიციური","price":"5990","priceCurrency":"EUR"}]},
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"რა არის CRM სისტემა და რატომ სჭირდება ჩემს ბიზნესს?","acceptedAnswer":{"@type":"Answer","text":"CRM არის სისტემა, სადაც ერთ ადგილას ინახება კლიენტები, გარიგებები, ზარები, მიმოწერა და დავალებები."}},
 {"@type":"Question","name":"რომელ CRM პროგრამებს ნერგავთ?","acceptedAnswer":{"@type":"Answer","text":"Zoho, Pipedrive, Kommo, monday.com, Bitrix24, Odoo, ასევე ClickUp და Manychat."}},
-{"@type":"Question","name":"რა ღირს CRM-ის დანერგვა?","acceptedAnswer":{"@type":"Answer","text":"სტარტი €990, ოპტიმალური €1,999, ზრდა €5,990, დამატებები €190-დან. ფასებს ემატება დღგ (18%)."}},
-{"@type":"Question","name":"რამდენ ხანს გრძელდება CRM-ის დანერგვა?","acceptedAnswer":{"@type":"Answer","text":"სტარტი 5 სამუშაო დღეში, ოპტიმალური 15 დღეში, ზრდა 25 დღეში."}}]}
+{"@type":"Question","name":"რა ღირს CRM-ის დანერგვა?","acceptedAnswer":{"@type":"Answer","text":"საბაზისო €990, ოპტიმალური €1,999, ამბიციური €5,990, დამატებები €190-დან. ფასებს ემატება დღგ (18%)."}},
+{"@type":"Question","name":"რამდენ ხანს გრძელდება CRM-ის დანერგვა?","acceptedAnswer":{"@type":"Answer","text":"საბაზისო 5 სამუშაო დღეში, ოპტიმალური 15 დღეში, ამბიციური 25 დღეში."}}]}
 ]}
 </script>
 
@@ -1154,6 +1169,7 @@ const dropGest=()=>GEST.forEach(t=>removeEventListener(t,firstGesture,true));
 function firstGesture(e){ if(e.target.closest && e.target.closest('#vpop,#vbubble')) return; if(vpop.hidden) return; setSound(true); dropGest(); }
 /* crm-v68: no global unmute on the first touch/scroll; sound only from the video's own controls */
 vSound.addEventListener('click',e=>{ e.stopPropagation(); dropGest(); setSound(!soundOn); });
+$('#vpReplay').addEventListener('click',e=>{ e.stopPropagation(); dropGest(); vid.currentTime=0; vid.play(); setSound(true); try{ window.UnittyTracking&&UnittyTracking.event&&UnittyTracking.event('video_replay'); }catch(_){} });
 $('#vpMedia').addEventListener('click',e=>{ if(e.target.closest('button')) return; dropGest(); if(vid.paused){ vid.play(); setSound(true); } else setSound(!soundOn); });
 $('#vpClose').addEventListener('click',e=>{ e.stopPropagation(); dropGest(); vid.pause(); setSound(false); vpop.hidden=true; vbub.hidden=false; });
 vbub.addEventListener('click',()=>{ vbub.hidden=true; vpop.hidden=false; vpop.classList.remove('enter'); void vpop.offsetWidth; vpop.classList.add('enter'); vid.currentTime=0; vid.play(); setSound(true); });
@@ -1271,7 +1287,7 @@ form.addEventListener('submit',async e=>{ e.preventDefault(); let first=null; Ob
     location.href='/thank-you?'+qs.toString();
   }catch(err){ console.error('*** lead submit failed', err); btn.disabled=false; btn.innerHTML=btnTxt; form.classList.add('err'); if(Tr) Tr.event('form_submit_failed',{}); }
 });
-const PKG_EN={'სტარტი':'Start','ოპტიმალური':'Optimal','ზრდა':'Growth'};
+const PKG_EN={'საბაზისო':'Basic','ოპტიმალური':'Optimal','ამბიციური':'Ambitious'};
 
 /* CTA clicks -> Clarity/Meta via tracking.js */
 document.addEventListener('click',e=>{ const a=e.target.closest&&e.target.closest('[data-cta], a[href^="tel:"], a[href="#lead"], a[href="#pricing"], .pick'); const Tr=window.UnittyTracking; if(!a||!Tr) return;
