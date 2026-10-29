@@ -9,7 +9,8 @@
  *  4. Tags every Clarity session with the site version, page, language and campaign, so funnels can be split
  *     by landing version and traffic source.
  *
- * Bump SITE_VERSION on every published change - it is written to each Lead (Landing_Version) and to Clarity.
+ * Bump "version" in landings/<name>.json on every published change of that landing - it is written to each Lead
+ * (Landing_Version) and to Clarity. BUILD below is only bumped by the shared chat when shared files change.
  */
 (function () {
   'use strict';
@@ -23,7 +24,15 @@
     try { var v = new URLSearchParams(location.search).get('v') || ''; if (v.indexOf('-v') > 0) return v.split('-v')[0]; } catch (e) {}
     return 'start';
   })();
-  var SITE_VERSION = LANDING + '-' + BUILD;          // e.g. "crm-v27-2026-10-26" -> Lead.Landing_Version
+  // Per-landing version (since v55): each landing carries <meta name="unitty-version" content="v55-2026-10-29">,
+  // set from "version" in landings/<name>.json, so one landing's release never changes another's number.
+  // The thank-you page takes the full value from ?v=. BUILD is only the fallback (shared files / old pages).
+  var SITE_VERSION = (function () {
+    var m = document.querySelector('meta[name="unitty-version"]');
+    if (m && m.content) return LANDING + '-' + m.content;          // e.g. "crm-v55-2026-10-29" -> Lead.Landing_Version
+    try { var v = new URLSearchParams(location.search).get('v') || ''; if (v.indexOf('-v') > 0) return v; } catch (e) {}
+    return LANDING + '-' + BUILD;
+  })();
   var CLARITY_ID = 'yczxtdyn7h';
   var META_PIXEL_ID = '1468998947504136';
 

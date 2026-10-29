@@ -11,6 +11,7 @@ landing by re-running:
 """
 import html
 import json
+import sys
 import re
 from pathlib import Path
 
@@ -147,6 +148,11 @@ def build(cfg, base):
     # landing identity (tracking.js reads it -> Landing_Version "crm-v27-...")
     s, n = re.subn(r'<meta name="unitty-landing" content="[^"]*">', f'<meta name="unitty-landing" content="{name}">', s, count=1)
     assert n == 1, "unitty-landing meta missing in template"
+    # per-landing version (landings/<name>.json "version") -> <meta name="unitty-version">, read by tracking.js
+    s = re.sub(r'\n<meta name="unitty-version" content="[^"]*">', "", s)
+    if cfg.get("version"):
+        s = s.replace(f'<meta name="unitty-landing" content="{name}">', f'<meta name="unitty-landing" content="{name}">\n<meta name="unitty-version" content="{cfg["version"]}">', 1)
+        log(f"--- version {name}-{cfg['version']}")
 
     if cfg.get("description"):
         s, n = re.subn(r'<meta name="description" content="[^"]*">', '<meta name="description" content="%s">' % cfg["description"].replace('"', "&quot;"), s, count=1)
@@ -228,7 +234,11 @@ def build(cfg, base):
 def main():
     # the start page is the template; its own pain block is removed first and re-added from start.json
     base = PAINS_RE.sub("", TEMPLATE.read_text(encoding="utf-8"))
+    # --only crm [ai ...]: rebuild just those landings (each landing chat touches only its own output)
+    only = sys.argv[sys.argv.index("--only") + 1:] if "--only" in sys.argv else []
     for cfg_path in sorted(p for p in LANDINGS.glob("*.json") if not p.name.endswith((".i18n.json", ".data.json"))):
+        if only and cfg_path.stem not in only:
+            continue
         build(json.loads(cfg_path.read_text(encoding="utf-8")), base)
     log("*** done")
 

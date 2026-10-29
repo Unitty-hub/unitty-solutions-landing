@@ -1,5 +1,6 @@
 {
   "name": "start",
+  "version": "v54-2026-10-29",
   "output": "public/index.html",
   "pains": [],
   "seo": {
