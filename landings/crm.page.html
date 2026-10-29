@@ -719,7 +719,6 @@ dialog p{color:var(--dim)}
     <div class="nav-right">
       <a class="nav-ico" id="navCall" hidden href="tel:+995322055060" data-cta="nav-phone" aria-label="დარეკე: +995 32 205 50 60" title="დარეკე: +995 32 205 50 60"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M15 3h6v6M21 3l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a class="nav-ico pri" href="#lead" data-cta="nav" aria-label="მოითხოვე უფასო ზარი" title="მოითხოვე უფასო ზარი"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M15 3v6h6M21 3l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <div class="lang" role="group" aria-label="ენა"><button type="button" data-lang="ka" aria-pressed="true">KA</button><button type="button" data-lang="en" aria-pressed="false">EN</button><button type="button" data-lang="ru" aria-pressed="false">RU</button></div>
     </div>
   </div>
 </header>
@@ -1081,7 +1080,8 @@ dialog p{color:var(--dim)}
 <script>
 /* KA / EN / RU for crm.unitty.io. Georgian is the page source; EN/RU replace text nodes and attributes by their Georgian text. */
 var I18N = {{I18N}};
-var LANG = (function(){ try{ var q=new URLSearchParams(location.search).get('lang'); if(q&&/^(ka|en|ru)$/.test(q)) return q; return localStorage.getItem('unitty-lang')||'ka'; }catch(e){ return 'ka'; } })();
+/* v62: Georgian only (switcher removed, ?lang= ignored); EN/RU strings kept in case it comes back. */
+var LANG = 'ka'; try{ localStorage.removeItem('unitty-lang'); }catch(e){}
 if(!/^(ka|en|ru)$/.test(LANG)) LANG='ka';
 function T(ka){ if(LANG==='ka') return ka; var e=I18N[ka]; return e ? e[LANG==='en'?0:1] : ka; }
 (function(){
