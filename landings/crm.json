@@ -157,6 +157,91 @@
       "en": "A business needs a system people actually work in. Then you can analyse your data and automate your processes.",
       "ru": "Бизнесу нужна система, в которой работают люди. Тогда вы сможете анализировать данные и автоматизировать процессы."
     },
+    "hero.sub.free": {
+      "ka": "უფასოა, თუ ახლავე დაჯავშნი.",
+      "en": "free if you book now.",
+      "ru": "бесплатный, если забронируете сейчас."
+    },
+    "process.0.desc": {
+      "ka": "ქაოსი: ცხრილები, მიმოფანტული ჩატები, დავიწყებული ზარები და დაკარგული კლიენტები.",
+      "en": "Chaos: spreadsheets, scattered chats, forgotten calls and lost clients.",
+      "ru": "Хаос: таблицы, разрозненные чаты, забытые звонки и потерянные клиенты."
+    },
+    "process.0.name": {
+      "ka": "დღევანდელი რეალობა",
+      "en": "Where you are today",
+      "ru": "Где вы сейчас"
+    },
+    "process.0.time": {
+      "ka": "საწყისი წერტილი",
+      "en": "Starting point",
+      "ru": "Отправная точка"
+    },
+    "process.1.desc": {
+      "ka": "ქაოსის ნაცვლად — ზუსტი გეგმა: რა ინსტრუმენტი, რა ვადაში და რა ბიუჯეტით.",
+      "en": "Instead of chaos, an exact plan: which tools, what timeline, what budget.",
+      "ru": "Вместо хаоса — точный план: какие инструменты, сроки и бюджет."
+    },
+    "process.1.name": {
+      "ka": "კონსულტაცია",
+      "en": "Consultation",
+      "ru": "Консультация"
+    },
+    "process.1.time": {
+      "ka": "პირველი ზარი · 20 წთ · უფასო",
+      "en": "First call · 20 min · free",
+      "ru": "Первый звонок · 20 мин · бесплатно"
+    },
+    "process.2.desc": {
+      "ka": "სისტემას მოკლე სპრინტებით ვაწყობთ და ბიზნესი ძლიერდება. პირველ შედეგს 1-2 კვირაში ხედავ.",
+      "en": "We build the system in short sprints and the business gets stronger. You see first results in 1-2 weeks.",
+      "ru": "Мы строим систему короткими спринтами, и бизнес становится сильнее. Первый результат — через 1-2 недели."
+    },
+    "process.2.name": {
+      "ka": "დანერგვა",
+      "en": "Implementation",
+      "ru": "Внедрение"
+    },
+    "process.2.time": {
+      "ka": "სპრინტი · 1-2 კვირა",
+      "en": "Sprint · 1-2 weeks",
+      "ru": "Спринт · 1-2 недели"
+    },
+    "process.3.desc": {
+      "ka": "სისტემა ბიზნესთან ერთად იზრდება და ზრდას ზღვარი არ აქვს.",
+      "en": "The system grows with your business, and growth has no ceiling.",
+      "ru": "Система растёт вместе с бизнесом, и у роста нет потолка."
+    },
+    "process.3.name": {
+      "ka": "მხარდაჭერა",
+      "en": "Support",
+      "ru": "Поддержка"
+    },
+    "process.3.time": {
+      "ka": "მუდმივად · საჭიროებისამებრ",
+      "en": "Ongoing · as needed",
+      "ru": "Постоянно · по необходимости"
+    },
+    "process.eyebrow": {
+      "ka": "როგორ ვმუშაობთ",
+      "en": "How we work",
+      "ru": "Как мы работаем"
+    },
+    "process.go": {
+      "ka": "მოითხოვე ახლავე",
+      "en": "Request now",
+      "ru": "Запросить сейчас"
+    },
+    "process.sub": {
+      "ka": "ქაოსიდან სტაბილურ ზრდამდე: ნახე, რა გზას გაივლი ჩვენთან ერთად.",
+      "en": "From chaos to steady growth: see the path you'll take with us.",
+      "ru": "От хаоса к стабильному росту: посмотрите, какой путь вы пройдёте с нами."
+    },
+    "process.title": {
+      "ka": "სამი ნაბიჯი შედეგამდე",
+      "en": "Three steps to results",
+      "ru": "Три шага к результату"
+    },
     "pk.title": {
       "ka": "აირჩიე, საიდან დაიწყო",
       "en": "Choose where to start",
@@ -731,11 +816,6 @@
       "ka": "Discovery ზარის ავტომატური დაჯავშნა",
       "en": "Discovery call auto-scheduling",
       "ru": "Автозапись на discovery-звонок"
-    },
-    "hero.sub.free": {
-      "ka": "უფასოა, თუ ახლავე დაჯავშნი.",
-      "en": "free if you book now.",
-      "ru": "бесплатный, если забронируете сейчас."
     }
   },
   "inserts": [
@@ -793,5 +873,12 @@
     "position": "50% 88%",
     "brightness": 0.8
   },
-  "pains_ba": true
+  "pains_ba": true,
+  "replace": [
+    {
+      "from": "<!-- ============ CHAOS vs CLARITY ============ -->",
+      "to": "<!-- ============ TESTIMONIALS (moved above Final CTA) ============ -->",
+      "file": "crm.process.html"
+    }
+  ]
 }

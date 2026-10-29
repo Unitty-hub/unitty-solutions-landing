@@ -19,7 +19,7 @@ TEMPLATE = ROOT / "public" / "index.html"
 LANDINGS = ROOT / "landings"
 I18N_RE = re.compile(r"const I18N = (\{.*?\});\n")
 PAINS_RE = re.compile(r"<!--PAINS-->.*?<!--/PAINS-->\n?", re.S)
-PAINS_BEFORE = "<!-- ============ PROCESS (3 steps) ============ -->"
+PAINS_BEFORE = "<!-- ============ CHAOS vs CLARITY ============ -->"
 CARD_RE = re.compile(r"<!--card:([\w-]+)-->\n(.*?)<!--/card-->", re.S)
 
 
@@ -163,6 +163,14 @@ def build(cfg, base):
     s = s[:m.start(1)] + json.dumps(d, ensure_ascii=False) + s[m.end(1):]
     log(f"--- {len(cfg.get('i18n', {}))} text keys overridden")
 
+    # landing-only section swaps: "replace": [{"from": marker, "to": marker, "file": ...}] replaces template[from:to]
+    # (e.g. crm.unitty.io has its own step-0..3 process instead of the shared "result of one call" + 3-step process)
+    for r in cfg.get("replace", []):
+        i, j = s.find(r["from"]), s.find(r["to"])
+        assert 0 <= i < j, f"replace markers not found: {r['from']} .. {r['to']}"
+        s = s[:i] + (LANDINGS / r["file"]).read_text(encoding="utf-8") + s[j:]
+        log(f"--- replaced section with {r['file']}")
+
     # "Sound familiar?" pain cards (landings/pains.html), only the ones this landing lists
     pains = cfg.get("pains") or []
     if pains:
@@ -177,7 +185,7 @@ def build(cfg, base):
             section = section.replace("{{BA_CLASS}}", " has-ba").replace("{{BA_ATTR}}", ' data-ba="before"').replace("{{BA_SWITCH}}", BA_SWITCH)
         else:
             section = section.replace("{{BA_CLASS}}", "").replace("{{BA_ATTR}}", "").replace("{{BA_SWITCH}}", "")
-        assert s.count(PAINS_BEFORE) == 1, "PROCESS marker missing"
+        assert s.count(PAINS_BEFORE) == 1, "CHAOS vs CLARITY marker missing"
         s = s.replace(PAINS_BEFORE, "<!--PAINS-->\n" + section + "<!--/PAINS-->\n" + PAINS_BEFORE)
         log(f"--- pain cards: {', '.join(pains)}")
 

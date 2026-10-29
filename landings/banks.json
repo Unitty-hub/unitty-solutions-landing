@@ -22,6 +22,11 @@
       "en": "With 500+ successful implementations behind us, in 20 minutes I'll show you how transactions from TBC, Bank of Georgia and other banks can flow straight into your CRM - with automatic payment matching and in-house installment schedules. Free if you book now.",
       "ru": "Опираясь на 500+ успешных внедрений, за 20 минут покажу, как транзакции TBC, Банка Грузии и других банков могут сразу попадать в вашу CRM - с автоматической привязкой платежей и графиком внутренней рассрочки. Бесплатно - если бронируете сейчас."
     },
+    "vs.sub": {
+      "ka": "ყოველდღე ვიღაც ამოწმებს საბანკო ამონაწერებს, ეძებს გადამხდელს და ხელით ავსებს ცხრილებს. ერთი ზარი გაჩვენებს, როგორ გააკეთოს ეს ყველაფერი სისტემამ ავტომატურად.",
+      "en": "Every day someone checks bank statements, looks for who paid and fills in a spreadsheet by hand. One call shows you how a system can do it for you.",
+      "ru": "Каждый день кто-то проверяет выписки, ищет, кто оплатил, и вручную заполняет таблицу. Один звонок покажет, как система сделает это за вас."
+    },
     "final.sub": {
       "ka": "გვითხარი, რომელ ბანკებთან და რა სისტემებში მუშაობ — დანარჩენ პროცესებზე ჩვენ ვიზრუნებთ.",
       "en": "Tell us which banks and which system you work with - we'll take care of the rest.",

@@ -93,7 +93,7 @@
       "ru": "Бесплатно - если бронируете сейчас."
     }
   },
-  "insert_before": "<!-- ============ TESTIMONIALS (moved above Final CTA) ============ -->",
+  "insert_before": "<!-- ============ PROCESS (3 steps) ============ -->",
   "insert_file": "solutions.extra.html",
   "seo": {
     "host": "solutions.unitty.io",
