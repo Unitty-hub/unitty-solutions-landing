@@ -117,32 +117,32 @@
     box-shadow: 0 10px 30px rgba(0,0,0,.45); }
   .ba-switch::before { content: ""; position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc(50% - 4px); border-radius: 999px;
     background: #3a3a38; transition: transform .35s cubic-bezier(.3,.7,.2,1), background .35s; }
-  .pains[data-ba="after"] .ba-switch::before { transform: translateX(100%); background: var(--accent); }
+  .pains[data-ba="after"] .ba-switch::before { transform: translateX(100%); background: color-mix(in srgb, var(--accent) 16%, rgba(255,255,255,.06)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent); }
   .ba-btn { position: relative; z-index: 1; min-height: 48px; padding: 8px 10px; border: 0; border-radius: 999px; background: none; cursor: pointer;
     font: 700 15px/1.2 var(--font-body); color: var(--fg-dim); display: flex; align-items: center; justify-content: center; gap: 8px; transition: color .3s; }
   .ba-btn[aria-pressed="true"] { color: var(--fg); }
-  .pains[data-ba="after"] .ba-btn[aria-pressed="true"] { color: var(--accent-ink); }
+  .pains[data-ba="after"] .ba-btn[aria-pressed="true"] { color: var(--accent); }
   .ba-btn i { width: 8px; height: 8px; border-radius: 50%; background: currentColor; opacity: .7; flex: none; }
   .ba-btn.ba-to-after:not([aria-pressed="true"]) i { background: var(--accent); opacity: 1; animation: baPulse 1.6s ease-out infinite; }
   @keyframes baPulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 70%, transparent); } 100% { box-shadow: 0 0 0 10px transparent; } }
-  .ba-hint { margin: 0; font-size: 14px; color: var(--fg-mute); text-align: center; }
-  .pains[data-ba="after"] .ba-hint { visibility: hidden; }
-  .pains.has-ba .pain-grid { margin-top: 24px; }
+  .pains.has-ba .pain-grid { margin-top: 20px; }
   .pain-side { display: contents; }
-  .pain-after, .ba-peek, .ba-tag { display: none; }
+  .pain-after { display: none; }
   .pains.has-ba .pain-card { display: grid; grid-template-columns: minmax(0, 1fr); padding: 0; gap: 0; transition: border-color .35s, box-shadow .35s; }
   .pains.has-ba .pain-side { display: flex; flex-direction: column; gap: 14px; padding: 22px; grid-area: 1 / 1; min-width: 0; transition: opacity .35s ease; }
   .pains.has-ba .pain-before .pain-fix { display: none; }
-  .pains.has-ba .ba-peek { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; align-self: flex-start; min-height: 44px; padding: 0; border: 0; background: none;
-    color: var(--accent); font: 600 15px/1.3 var(--font-body); cursor: pointer; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
-  .pains.has-ba .ba-tag { display: inline-flex; align-self: flex-start; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 14px; font-weight: 600; }
-  .pain-before .ba-tag { background: #2a2a28; color: var(--fg-dim); border: 1px solid var(--border); }
-  .pain-after .ba-tag { background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
   .pains.has-ba .pain-before .pain-visual > * { filter: saturate(.75); }
-  .pains.has-ba .pain-after .pain-visual { background: radial-gradient(120% 90% at 50% 0%, color-mix(in srgb, var(--accent) 12%, var(--surface-2)), var(--surface-2)); }
+  .pains.has-ba .pain-after .pain-visual { background: linear-gradient(160deg, rgba(255,255,255,.07), rgba(255,255,255,.02)); border-color: rgba(255,255,255,.10); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+  .pains.has-ba .pain-after .ui-z { box-shadow: 0 10px 28px rgba(0,0,0,.35); }
+  .pains.has-ba .pain-before .pain-body { display: none; }
+  .pain-stat { display: none; }
+  .pains.has-ba .pain-stat { display: block; margin: 0; padding: 14px 16px; border-radius: 12px; background: rgba(255,255,255,.04); border: 1px solid var(--border); }
+  .pain-stat b { display: block; font-family: var(--font-head); font-weight: 900; font-size: 30px; line-height: 1.1; color: var(--fg); margin-bottom: 4px; }
+  .pain-stat span { display: block; font-size: 15px; line-height: 1.45; color: var(--fg-dim); }
+  .pain-stat small { display: block; margin-top: 6px; font-size: 14px; color: var(--fg-mute); }
   .pains.has-ba .pain-after .pain-body { color: var(--fg); }
   .pains[data-ba="before"] .pain-after, .pains[data-ba="after"] .pain-before { opacity: 0; visibility: hidden; pointer-events: none; }
-  .pains[data-ba="after"] .pain-card { border-color: color-mix(in srgb, var(--accent) 45%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 12%, transparent), 0 18px 50px -20px color-mix(in srgb, var(--accent) 35%, transparent); }
+  .pains[data-ba="after"] .pain-card { background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015)), var(--surface); border-color: rgba(255,255,255,.16); }
   .pains.has-ba .pain-visual { min-height: 270px; }
   @media (prefers-reduced-motion: reduce) { .pains.has-ba .pain-side, .ba-switch::before { transition: none; } .ba-btn i { animation: none !important; } }
   @media (min-width: 900px) { .ba-bar { top: 88px; } }
@@ -238,7 +238,6 @@
 <!--card:owner-->
       <article class="pain-card" data-pain="owner">
         <div class="pain-side pain-before">
-          <span class="ba-tag" data-i18n="pain.ba.before">Without CRM</span>
           <div class="pain-visual" aria-hidden="true">
             <div class="ui-notes">
               <div class="ui-notes-top"><span>‹</span>Notes<span>⋯</span></div>
@@ -255,17 +254,16 @@
           </div>
           <h3 class="pain-title" data-i18n="pain.owner.title">Business owner or the manager of everything?</h3>
           <p class="pain-body" data-i18n="pain.owner.body">Every question lands on you, every task is on your mind.</p>
+          <p class="pain-stat"><b data-i18n="pain.owner.statn">…</b><span data-i18n="pain.owner.stat">…</span><small data-i18n="pain.owner.src">…</small></p>
           <p class="pain-fix"><b data-i18n="pain.fix.label">The fix:</b><span data-i18n="pain.owner.fix">The system reminds the team who owes what, so you can run the business.</span></p>
-          <button type="button" class="ba-peek" data-ba-go="after"><span data-i18n="pain.ba.peek">See the result with CRM</span> →</button>
         </div>
         <div class="pain-side pain-after" aria-live="polite">
-          <span class="ba-tag" data-i18n="pain.ba.after">With Zoho CRM</span>
           <div class="pain-visual" aria-hidden="true">
           <div class="ui-z">
             <div class="ui-z-top"><span class="ui-z-logo">CRM</span><span data-i18n="pain.z.tasks">Team tasks</span><em data-i18n="pain.z.ontrack">On track</em></div>
             <ul class="ui-z-list">
-              <li class="done"><span class="ui-z-av" style="background:#0ea5e9">N</span><div class="ui-z-t"><b data-i18n="pain.z.t1">Call the client</b><small data-i18n="pain.z.n1">Nika</small></div><span class="ui-z-st done" data-i18n="pain.z.done">Done</span></li>
-              <li class="done"><span class="ui-z-av" style="background:#f59e0b">A</span><div class="ui-z-t"><b data-i18n="pain.z.t2">Invoice on rs.ge</b><small data-i18n="pain.z.n2">Ana</small></div><span class="ui-z-st done" data-i18n="pain.z.done">Done</span></li>
+              <li class="done"><span class="ui-z-av" style="background:#0ea5e9">N</span><div class="ui-z-t"><b data-i18n="pain.z.t1">Call the client</b><small data-i18n="pain.z.n1">Nika</small></div><span class="ui-z-st done" aria-label="Done">✓</span></li>
+              <li class="done"><span class="ui-z-av" style="background:#f59e0b">A</span><div class="ui-z-t"><b data-i18n="pain.z.t2">Invoice on rs.ge</b><small data-i18n="pain.z.n2">Ana</small></div><span class="ui-z-st done" aria-label="Done">✓</span></li>
               <li><span class="ui-z-av" style="background:#8b5cf6">L</span><div class="ui-z-t"><b data-i18n="pain.z.t3">Send the price</b><small data-i18n="pain.z.n3">Luka</small></div><span class="ui-z-st soon">15:00</span></li>
               <li><span class="ui-z-av" style="background:#64748b">⚙</span><div class="ui-z-t"><b data-i18n="pain.z.t4">Weekly report</b><small data-i18n="pain.z.everymon">Every Monday</small></div><span class="ui-z-st auto" data-i18n="pain.z.auto">Auto</span></li>
             </ul>
@@ -280,7 +278,6 @@
 <!--card:excel-->
       <article class="pain-card" data-pain="excel">
         <div class="pain-side pain-before">
-          <span class="ba-tag" data-i18n="pain.ba.before">Without CRM</span>
           <div class="pain-visual" aria-hidden="true">
             <div class="ui-sheet">
               <div class="ui-sheet-bar"><b>X</b><span>clients_FINAL_v7 (2).xlsx</span></div>
@@ -299,11 +296,10 @@
           </div>
           <h3 class="pain-title" data-i18n="pain.excel.title">Still searching Excel for who bought what?</h3>
           <p class="pain-body" data-i18n="pain.excel.body">Clients spread across files, notebooks and phones.</p>
+          <p class="pain-stat"><b data-i18n="pain.excel.statn">…</b><span data-i18n="pain.excel.stat">…</span><small data-i18n="pain.excel.src">…</small></p>
           <p class="pain-fix"><b data-i18n="pain.fix.label">The fix:</b><span data-i18n="pain.excel.fix">In one system every client, sale and agreement is one search away.</span></p>
-          <button type="button" class="ba-peek" data-ba-go="after"><span data-i18n="pain.ba.peek">See the result with CRM</span> →</button>
         </div>
         <div class="pain-side pain-after" aria-live="polite">
-          <span class="ba-tag" data-i18n="pain.ba.after">With Zoho CRM</span>
           <div class="pain-visual" aria-hidden="true">
           <div class="ui-z">
             <div class="ui-z-top"><span class="ui-z-logo">CRM</span><span data-i18n="pain.z.contacts">Contacts</span></div>
@@ -324,7 +320,6 @@
 <!--card:chatswin-->
       <article class="pain-card" data-pain="chatswin">
         <div class="pain-side pain-before">
-          <span class="ba-tag" data-i18n="pain.ba.before">Without CRM</span>
           <div class="pain-visual" aria-hidden="true">
             <div class="ui-wins">
               <div class="ui-win w1" style="--c:#0a7cff"><div class="ui-win-bar"><span class="ui-app">m</span>Messenger<b>3</b></div><div class="ui-win-body"><p class="ui-bub" data-i18n="pain.chats.m1">How much is it?</p><p class="ui-bub">??</p></div></div>
@@ -336,11 +331,10 @@
           </div>
           <h3 class="pain-title" data-i18n="pain.chats.title">A client messaged you. Who replied?</h3>
           <p class="pain-body" data-i18n="pain.chats.body">While you look for the answer, the client buys elsewhere.</p>
+          <p class="pain-stat"><b data-i18n="pain.chats.statn">…</b><span data-i18n="pain.chats.stat">…</span><small data-i18n="pain.chats.src">…</small></p>
           <p class="pain-fix"><b data-i18n="pain.fix.label">The fix:</b><span data-i18n="pain.chats.fix">All channels in one window: you see who replied and what.</span></p>
-          <button type="button" class="ba-peek" data-ba-go="after"><span data-i18n="pain.ba.peek">See the result with CRM</span> →</button>
         </div>
         <div class="pain-side pain-after" aria-live="polite">
-          <span class="ba-tag" data-i18n="pain.ba.after">With Zoho CRM</span>
           <div class="pain-visual" aria-hidden="true">
           <div class="ui-z">
             <div class="ui-z-top"><span class="ui-z-logo">CRM</span><span data-i18n="pain.z.inbox">All messages</span><em data-i18n="pain.z.zero">0 unanswered</em></div>

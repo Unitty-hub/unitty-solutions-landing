@@ -265,24 +265,14 @@
   "ru": "+11 без ответа"
  },
  "pain.ba.before": {
-  "ka": "CRM-ის გარეშე",
-  "en": "Without CRM",
-  "ru": "Без CRM"
+  "ka": "დანერგვამდე",
+  "en": "Before",
+  "ru": "До внедрения"
  },
  "pain.ba.after": {
-  "ka": "Zoho CRM-ით",
-  "en": "With Zoho CRM",
-  "ru": "С Zoho CRM"
- },
- "pain.ba.hint": {
-  "ka": "გადართე და ნახე, როგორ გამოიყურება იგივე CRM-ით",
-  "en": "Switch to see the same situation with a CRM",
-  "ru": "Переключите и посмотрите то же самое с CRM"
- },
- "pain.ba.peek": {
-  "ka": "ნახე შედეგი CRM-ით",
-  "en": "See the result with CRM",
-  "ru": "Посмотреть результат с CRM"
+  "ka": "შედეგად",
+  "en": "After",
+  "ru": "Результат"
  },
  "pain.excel.atitle": {
   "ka": "კლიენტის მთელი ისტორია — ერთ ძებნაში",
@@ -374,11 +364,6 @@
   "en": "Luka",
   "ru": "Лука"
  },
- "pain.z.done": {
-  "ka": "შესრულდა",
-  "en": "Done",
-  "ru": "Готово"
- },
  "pain.z.auto": {
   "ka": "ავტომატური",
   "en": "Auto",
@@ -408,5 +393,50 @@
   "ka": "წთ",
   "en": "min",
   "ru": "мин"
+ },
+ "pain.excel.statn": {
+  "ka": "1.8 სთ",
+  "en": "1.8 h",
+  "ru": "1,8 ч"
+ },
+ "pain.excel.stat": {
+  "ka": "დღეში ხარჯავს საშუალოდ თანამშრომელი საჭირო ინფორმაციის ძებნაში",
+  "en": "a day: the average time an employee spends searching for information",
+  "ru": "в день в среднем тратит сотрудник на поиск нужной информации"
+ },
+ "pain.excel.src": {
+  "ka": "წყარო: McKinsey Global Institute",
+  "en": "Source: McKinsey Global Institute",
+  "ru": "Источник: McKinsey Global Institute"
+ },
+ "pain.owner.statn": {
+  "ka": "55%",
+  "en": "55%",
+  "ru": "55%"
+ },
+ "pain.owner.stat": {
+  "ka": "მეწარმეების სამუშაო დროის 40%-ზე მეტს ადმინისტრაციულ საქმეებს ახმარს",
+  "en": "of business owners spend over 40% of their time on admin",
+  "ru": "предпринимателей тратят на администрирование больше 40% времени"
+ },
+ "pain.owner.src": {
+  "ka": "წყარო: Visma & Kantar, 2 000 მეწარმე, 2024",
+  "en": "Source: Visma & Kantar, 2,000 business owners, 2024",
+  "ru": "Источник: Visma & Kantar, 2 000 предпринимателей, 2024"
+ },
+ "pain.chats.statn": {
+  "ka": "7x",
+  "en": "7x",
+  "ru": "7x"
+ },
+ "pain.chats.stat": {
+  "ka": "მეტია ლიდის დაკვალიფიცირების შანსი, თუ 1 საათში უპასუხებ და არა მოგვიანებით",
+  "en": "higher chance to qualify a lead when you reply within an hour rather than later",
+  "ru": "выше шанс квалифицировать лид, если ответить в течение часа, а не позже"
+ },
+ "pain.chats.src": {
+  "ka": "წყარო: Harvard Business Review",
+  "en": "Source: Harvard Business Review",
+  "ru": "Источник: Harvard Business Review"
  }
 }

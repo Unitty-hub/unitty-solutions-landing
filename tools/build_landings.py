@@ -26,22 +26,20 @@ CARD_RE = re.compile(r"<!--card:([\w-]+)-->\n(.*?)<!--/card-->", re.S)
 
 BA_SWITCH = """    <div class="ba-bar">
       <div class="ba-switch" role="group" aria-label="Before / After">
-        <button type="button" class="ba-btn" data-ba-go="before" aria-pressed="true"><i></i><span data-i18n="pain.ba.before">Without CRM</span></button>
-        <button type="button" class="ba-btn ba-to-after" data-ba-go="after" aria-pressed="false"><i></i><span data-i18n="pain.ba.after">With Zoho CRM</span></button>
+        <button type="button" class="ba-btn" data-ba-go="before" aria-pressed="true"><i></i><span data-i18n="pain.ba.before">Before</span></button>
+        <button type="button" class="ba-btn ba-to-after" data-ba-go="after" aria-pressed="false"><i></i><span data-i18n="pain.ba.after">After</span></button>
       </div>
-      <p class="ba-hint" data-i18n="pain.ba.hint">Switch to see the same situation with a CRM</p>
     </div>
     <script>
     (function () {
       var sec = document.getElementById('pains'); if (!sec) return;
       var seen = false;
-      function go(state, src) {
+      function go(state) {
         sec.setAttribute('data-ba', state);
         sec.querySelectorAll('.ba-btn').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-ba-go') === state ? 'true' : 'false'); });
-        if (src === 'peek') { var bar = sec.querySelector('.ba-bar'); var r = sec.querySelector('.pain-grid').getBoundingClientRect(); if (r.top < 0) window.scrollBy({ top: r.top - 150, behavior: 'smooth' }); }
         if (state === 'after' && !seen) { seen = true; try { window.clarity && window.clarity('event', 'pains_after'); } catch (e) {} }
       }
-      sec.addEventListener('click', function (e) { var b = e.target.closest('[data-ba-go]'); if (b) go(b.getAttribute('data-ba-go'), b.classList.contains('ba-peek') ? 'peek' : 'switch'); });
+      sec.addEventListener('click', function (e) { var b = e.target.closest('[data-ba-go]'); if (b) go(b.getAttribute('data-ba-go')); });
     })();
     </script>
 """
