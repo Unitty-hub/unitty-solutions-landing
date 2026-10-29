@@ -471,11 +471,10 @@ img,svg{max-width:100%}
 .plan details .ticks{margin-top:14px}
 .plan details .ticks li{font-size:14px}
 .plan .plus{font:500 12.5px var(--f-mono);color:var(--lime);margin:14px 0 0}
-.price-foot{margin-top:28px;display:grid;gap:12px;color:var(--dim);font-size:14.5px}
-@media(min-width:900px){.price-foot{grid-template-columns:1fr auto;align-items:center}}
-.price-foot p{margin:0}
-.help{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-pill);padding:8px 8px 8px 20px}
-.help span{font-weight:600;color:var(--fg)}
+.price-foot{margin-top:28px;color:var(--dim);font-size:14.5px}
+.price-foot .notes{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.price-foot .notes li{position:relative;padding-left:18px}
+.price-foot .notes li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--lime)}
 
 /* faq */
 .faq-grid{display:grid;gap:32px}
@@ -896,7 +895,7 @@ dialog p{color:var(--dim)}
     <div class="sec-head rv">
       <span class="kicker">როგორ ვმუშაობთ</span>
       <h2 class="display h2" id="howH">CRM დანერგვა სამ ნაბიჯად</h2>
-      <p class="lead">ვადა და ფასი თავიდანვე ცნობილია.</p>
+      
     </div>
     <div class="steps" id="steps">
       <div class="steps-line" aria-hidden="true"><i></i></div>
@@ -904,7 +903,7 @@ dialog p{color:var(--dim)}
       <div class="step" style="--i:1"><span class="num">2</span><span class="when">5–25 სამუშაო დღე</span><h3 class="h3">დანერგვა</h3><p>ვაწყობთ სისტემას და ვატრენინგებთ გუნდს.</p></div>
       <div class="step" style="--i:2"><span class="num">3</span><span class="when">მუდმივად</span><h3 class="h3">მხარდაჭერა</h3><p>3 დღე შესამოწმებლად, შემდეგ მუდმივი მხარდაჭერა.</p></div>
     </div>
-    <div class="steps-cta rv"><a href="#lead" class="btn btn-primary" data-cta="steps">მოითხოვე უფასო ზარი <span class="arr" aria-hidden="true">→</span></a><p>პირველი ნაბიჯი უფასოა და ვალდებულებას არ გიქმნის.</p></div>
+    <div class="steps-cta rv"><a href="#lead" class="btn btn-primary" data-cta="steps">მოითხოვე უფასო ზარი <span class="arr" aria-hidden="true">→</span></a></div>
   </div>
 </section>
 
@@ -917,7 +916,7 @@ dialog p{color:var(--dim)}
       <div class="sec-head rv" style="margin-bottom:0">
         <span class="kicker">ფასები</span>
         <h2 class="display h2" id="priceH">ფიქსირებული ფასი. მკაფიო ვადა.</h2>
-        <p class="lead">დაიწყე იმით, რაც ახლა გჭირდება. დანარჩენს მოგვიანებით დაამატებ.</p>
+        
       </div>
       <div class="cur rv" role="group" aria-label="ვალუტა"><button type="button" data-cur="eur" aria-pressed="true">EUR €</button><button type="button" data-cur="gel" aria-pressed="false">GEL ₾</button></div>
     </div>
@@ -959,8 +958,11 @@ dialog p{color:var(--dim)}
       </article>
     </div>
     <div class="price-foot rv">
-      <p>ფასებს ემატება დღგ (18%). CRM-ის ლიცენზიას პირდაპირ მწარმოებელს უხდი, მისი ოფიციალური ფასით. დამატებითი ფუნქციები <span class="tnum" data-eur="€190-დან" data-gel="570 ₾-დან">€190-დან</span>.</p>
-      <div class="help"><span>არ იცი, რომელი აირჩიო?</span><a href="#lead" class="btn btn-primary btn-sm" data-cta="pricing-help">ზარზე გეტყვით</a></div>
+      <ul class="notes">
+        <li>ფასებს ემატება დღგ (18%).</li>
+        <li>CRM-ის ლიცენზიას პირდაპირ მწარმოებელს უხდი, მისი ოფიციალური ფასით.</li>
+        <li>დამატებითი ფუნქციები <span class="tnum" data-eur="€190-დან" data-gel="570 ₾-დან">€190-დან</span>.</li>
+      </ul>
     </div>
   </div>
 </section>
