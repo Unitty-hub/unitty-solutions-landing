@@ -1,6 +1,6 @@
 {
   "name": "crm",
-  "version": "v79-2026-10-30",
+  "version": "v80-2026-10-30",
   "standalone": "crm.page.html",
   "standalone_i18n": "crm.page.i18n.py",
   "_note": "crm-v63+: crm.unitty.io is the designer page (landings/crm.page.html). The template-based keys below are kept for reference/translations only.",
