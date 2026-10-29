@@ -607,48 +607,23 @@
     <h2 class="selfbook-title" data-i18n="ty.bookings.title">Choose a slot that works for you</h2>
     <p class="selfbook-note" data-i18n="ty.bookings.note">Confirmation and the Google Meet link land in your inbox immediately.</p>
     <div class="bookings-card">
-      <div id="inline-container">
-        <div class="bookings-fallback">
-          <a href="https://meet.unitty.io/#/251936000000059094" target="_blank" rel="noopener"
-             class="btn btn-primary" data-i18n="ty.bookings.fallback">Calendar not loading? Open it in a new tab</a>
-        </div>
-      </div>
+      <div id="inline-container"></div>
     </div>
    </div>
   </div>
 </section>
 
-<script src="https://bookings.nimbuspop.com/assets/embed.js" defer></script>
+<!-- v63: Zoho Bookings embed exactly as supplied by Giorgi (2026-10-29), no UTM parameters -->
+<script src="https://bookings.nimbuspop.com/assets/embed.js"></script>
 <script>
-  // Inline Zoho Bookings. The script is deferred, so wait for it rather than
-  // assuming it has loaded. If it never does, the fallback link above stays
-  // visible - the visitor can always still reach the calendar.
-  (function () {
-    var BOOKING_URL = "https://meet.unitty.io/portal-embed#/251936000000059094";
-    var KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
-    // same parameters as the unitty.io embed: page, language and the five UTM values of the last touch
-    function bookingUrl() {
-      var last = {}, lang = "ka";
-      try { last = (JSON.parse(localStorage.getItem("unitty_attr_last") || "null") || {}).params || {}; } catch (e) {}
-      // v62: Georgian only
-      var params = { page_url_bookings: location.pathname, language_version: lang.charAt(0).toUpperCase() + lang.slice(1) };
-      KEYS.forEach(function (k) { if (last[k]) params[k] = last[k]; });
-      if (!params.utm_source) { params.utm_source = "direct"; params.utm_medium = "none"; }
-      var qs = Object.keys(params).map(function (k) { return encodeURIComponent(k) + "=" + encodeURIComponent(params[k]); }).join("&");
-      console.info("[bookings] >>> embed", qs);
-      return BOOKING_URL + "?" + qs;
-    }
-    var tries = 0;
-    function start() {
-      if (!window.Bookings || !Bookings.inlineEmbed) {
-        if (++tries > 50) return;              // ~10s, then give up and leave the fallback
-        return setTimeout(start, 200);
-      }
-      document.querySelector('#inline-container .bookings-fallback').style.display = 'none';
-      Bookings.inlineEmbed({ url: bookingUrl(), parent: "#inline-container", height: "600px" });
-    }
-    start();
-  })();
+	// Initialize inline embed after script loads
+	window.onload = function() {
+		Bookings.inlineEmbed({
+			url: "https://meet.unitty.io/portal-embed#/251936000000059094",
+			parent: "#inline-container",
+			height: "600px"
+		});
+	};
 </script>
 
 <!-- ============ PREPARE FOR THE CALL ============ -->
