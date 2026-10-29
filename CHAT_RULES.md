@@ -22,6 +22,17 @@ Landing-only variants of a shared section go into the landing's own file via `"i
 Note: `public/index.html` is both the template and the start landing. The start chat changes start through
 `landings/start.json`; the template's shared parts belong to the shared chat.
 
+## Design standard (since v61, Giorgi 2026-10-29)
+
+- The designer system in `public/unitty-v2.css` is the standard for every landing, the thank-you page and any new design:
+  navy background (#060616), surfaces #12121F/#1A1A29, hairlines rgba(255,255,255,.08), lime #C1FD3A, pill buttons,
+  card radius 20px, JetBrains Mono for labels/kickers/numbers, uppercase TBC Contractica headings, SVG logo,
+  nav = logo + phone + "უფასო ზარი" + KA/EN/RU, CTA wording "მოითხოვე უფასო ზარი", designer font sizes (the old 14px floor is dropped).
+- Landing-only CSS uses the same tokens (`var(--surface)`, `var(--line)`, `var(--lime)`, `var(--r-card)`, `var(--font-mono)`)
+  instead of new colours. Mobile first (390px), then desktop.
+- Changes to the shared style layer go through the shared chat; if a landing chat finds that the shared rules need a
+  correction, it proposes it to Giorgi and, once he agrees, the change is made in `unitty-v2.css` for everyone.
+
 ## Build
 
 - One landing: `python3 tools/build_landings.py --only crm` (CRM also: `python3 tools/build_crm_packages.py` first).
