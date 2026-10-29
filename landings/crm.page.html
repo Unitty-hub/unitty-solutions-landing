@@ -193,6 +193,10 @@ img,svg{max-width:100%}
 .ptrack{display:flex;align-items:center;gap:44px;width:max-content;animation:pscroll 36s linear infinite}
 .ptrack img{height:20px;width:auto;flex:none;filter:brightness(0) invert(1);opacity:.6}
 .ptrack img[src*="zoho"]{height:30px}
+.partners.clients{border-top:0;padding-top:0}
+.partners.clients .ptrack{animation-duration:48s;animation-direction:reverse}
+.partners.clients .ptrack img{height:22px;filter:none;opacity:.7}
+.partners .lbl{min-width:110px}
 @keyframes pscroll{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 22px))}}
 .pmarq:hover .ptrack{animation-play-state:paused}
 @media(max-width:640px){.partners{flex-direction:column;align-items:flex-start;gap:12px}.pmarq{width:100%}.ptrack img{height:18px}.ptrack{gap:36px}}
@@ -587,6 +591,7 @@ dialog p{color:var(--dim)}
 .vp-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 22%,transparent 62%,rgba(0,0,0,.75) 100%);pointer-events:none}
 .vp-play{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;border:0;background:var(--lime);color:var(--lime-ink);display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.5)}
 @media(max-width:899px){.vp-play{width:38px;height:38px}}
+.vp-play[hidden]{display:none}
 .vp-face{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);width:46%;aspect-ratio:1;border-radius:50%;background:linear-gradient(160deg,#3a3a52,#1d1d2b);display:grid;place-items:center;font:800 clamp(18px,2vw,26px) var(--f-body);color:var(--dim);box-shadow:0 0 0 6px rgba(193,253,58,.08)}
 .vp-wave{position:absolute;left:50%;top:62%;transform:translateX(-50%);display:flex;gap:4px;align-items:center;height:26px}
 .vp-wave i{width:4px;border-radius:4px;background:var(--lime);height:30%;animation:wave 1s ease-in-out infinite;animation-delay:calc(var(--k) * -.17s)}
@@ -673,6 +678,17 @@ dialog p{color:var(--dim)}
 .input.sel select option{color:#111;background:#fff}
 .input.sel::after{content:"";position:absolute;right:16px;top:50%;width:8px;height:8px;border-right:2px solid var(--dim);border-bottom:2px solid var(--dim);transform:translateY(-70%) rotate(45deg);pointer-events:none}
 #fPhone.intl .pre-ph{display:none}
+
+/* crm-v66: "ნაცნობია?" = three horizontal cards (swipe on phones, 3 columns on desktop) */
+.story .chapters{height:auto!important;padding-bottom:88px}
+.story .sticky,.story .sticky-in{position:static!important;height:auto!important}
+.story .sticky-in{display:grid!important;grid-auto-flow:column;grid-auto-columns:minmax(272px,86%);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.story .sticky-in::-webkit-scrollbar{display:none}
+.story .chap{scroll-snap-align:start;grid-template-columns:1fr!important;align-content:start;padding:22px 18px!important;opacity:1!important;visibility:visible!important;transform:none!important;position:static!important}
+.story .rail,.story .story-progress{display:none!important}
+.story .chap{grid-template-rows:1fr auto}
+.story .stage{aspect-ratio:auto!important;height:330px!important;max-height:none!important}
+@media(min-width:1024px){.story .sticky-in{grid-auto-flow:row;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible}}
 </style>
 
 <!-- NAV: no outbound links; logo, phone, single CTA -->
@@ -696,10 +712,10 @@ dialog p{color:var(--dim)}
 <section class="hero" aria-labelledby="h1">
   <div class="wrap hero-c">
     <h1 class="display h1" id="h1" data-hero>
-      <span class="ln">CRM სისტემა, სადაც კლიენტი</span>
-      <span class="ln"><span class="mark">აღარ იკარგება<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path id="uline" d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></span>
+      <span class="ln">შეგირჩევთ და დაგინერგავთ</span>
+      <span class="ln"><span class="mark">CRM სისტემას<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path id="uline" d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></span>
     </h1>
-    <p class="lead" data-hero>შეგირჩევთ და დაგინერგავთ CRM-ს 5 სამუშაო დღიდან. ფიქსირებული ფასით, ტრენინგით და მხარდაჭერით.</p>
+    <p class="lead" data-hero>მოითხოვე 20-წუთიანი უფასო კონსულტაცია და გეტყვი, კონკრეტულად რომელი CRM გჭირდება. AI სერვისები და სრული პროცესის მართვა: შერჩევა → დანერგვა → სწავლება → მხარდაჭერის ჩათვლით.</p>
     <div class="timer" data-hero>
       <span class="timer-lbl">უფასო კონსულტაციის შეთავაზება იწურება</span>
       <div class="timer-digits" role="timer" aria-label="დარჩენილი დრო" id="timer">
@@ -726,7 +742,8 @@ dialog p{color:var(--dim)}
       <div class="stat"><span class="n"><span class="cnt" data-to="100">100</span><em>+</em></span><span class="l">ინსტრუმენტი და ინტეგრაცია</span></div>
       <div class="stat"><span class="n"><span class="cnt" data-to="4.9" data-dec="1">4.9</span><em>★</em></span><span class="l">LinkedIn, Google, G2</span></div>
     </div>
-    <div class="partners"><span class="lbl">სერტიფიცირებული პარტნიორი</span><div class="pmarq"><div class="ptrack"><img src="/logos/platforms/zoho-crm.svg" alt="Zoho CRM" loading="lazy" decoding="async"><img src="/logos/platforms/pipedrive.svg" alt="Pipedrive" loading="lazy" decoding="async"><img src="/logos/platforms/kommo.svg" alt="Kommo" loading="lazy" decoding="async"><img src="/logos/platforms/monday-crm.svg" alt="monday.com" loading="lazy" decoding="async"><img src="/logos/platforms/bitrix24.svg" alt="Bitrix24" loading="lazy" decoding="async"><img src="/logos/platforms/odoo.svg" alt="Odoo" loading="lazy" decoding="async"><img src="/logos/platforms/zoho-crm.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/pipedrive.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/kommo.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/monday-crm.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/bitrix24.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/odoo.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/zoho-crm.svg" alt="Zoho CRM" loading="lazy" decoding="async"><img src="/logos/platforms/pipedrive.svg" alt="Pipedrive" loading="lazy" decoding="async"><img src="/logos/platforms/kommo.svg" alt="Kommo" loading="lazy" decoding="async"><img src="/logos/platforms/monday-crm.svg" alt="monday.com" loading="lazy" decoding="async"><img src="/logos/platforms/bitrix24.svg" alt="Bitrix24" loading="lazy" decoding="async"><img src="/logos/platforms/odoo.svg" alt="Odoo" loading="lazy" decoding="async"><img src="/logos/platforms/zoho-crm.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/pipedrive.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/kommo.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/monday-crm.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/bitrix24.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/odoo.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"></div></div></div>
+    <div class="partners"><span class="lbl">პარტნიორები</span><div class="pmarq"><div class="ptrack"><img src="/logos/platforms/zoho-crm.svg" alt="Zoho CRM" loading="lazy" decoding="async"><img src="/logos/platforms/pipedrive.svg" alt="Pipedrive" loading="lazy" decoding="async"><img src="/logos/platforms/kommo.svg" alt="Kommo" loading="lazy" decoding="async"><img src="/logos/platforms/monday-crm.svg" alt="monday.com" loading="lazy" decoding="async"><img src="/logos/platforms/bitrix24.svg" alt="Bitrix24" loading="lazy" decoding="async"><img src="/logos/platforms/odoo.svg" alt="Odoo" loading="lazy" decoding="async"><img src="/logos/platforms/zoho-crm.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/pipedrive.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/kommo.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/monday-crm.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/bitrix24.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/odoo.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/zoho-crm.svg" alt="Zoho CRM" loading="lazy" decoding="async"><img src="/logos/platforms/pipedrive.svg" alt="Pipedrive" loading="lazy" decoding="async"><img src="/logos/platforms/kommo.svg" alt="Kommo" loading="lazy" decoding="async"><img src="/logos/platforms/monday-crm.svg" alt="monday.com" loading="lazy" decoding="async"><img src="/logos/platforms/bitrix24.svg" alt="Bitrix24" loading="lazy" decoding="async"><img src="/logos/platforms/odoo.svg" alt="Odoo" loading="lazy" decoding="async"><img src="/logos/platforms/zoho-crm.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/pipedrive.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/kommo.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/monday-crm.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/bitrix24.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/odoo.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"></div></div></div>
+    <div class="partners clients"><span class="lbl">კლიენტები</span><div class="pmarq"><div class="ptrack"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586eec41d9c8a49a1297b_Mask%20group%20(10).svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586ee7f4e6f91828a5d09_Mask%20group%20(11).svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586ed0c586a46cd1de4a8_Frame.svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586ed2f4f9d447ea4d4bf_Mask%20group%20(12).svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586ed31ac530b1e475a29_image%20450.svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586ed0a2a327c5b8e5050_Mask%20group%20(13).svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586ed3f09e6a52aad8642_Mask%20group%20(15).svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586edb280f199b82d6955_kalo-logo-ka%202.svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586edde698c53b4ae6cbc_Mask%20group%20(16).svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586edcb3e84841c13b35f_image%20452.svg" alt="" loading="lazy" decoding="async"><span aria-hidden="true" class="logo-dup"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586eec41d9c8a49a1297b_Mask%20group%20(10).svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586ee7f4e6f91828a5d09_Mask%20group%20(11).svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586ed0c586a46cd1de4a8_Frame.svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586ed2f4f9d447ea4d4bf_Mask%20group%20(12).svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586ed31ac530b1e475a29_image%20450.svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586ed0a2a327c5b8e5050_Mask%20group%20(13).svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586ed3f09e6a52aad8642_Mask%20group%20(15).svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586edb280f199b82d6955_kalo-logo-ka%202.svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586edde698c53b4ae6cbc_Mask%20group%20(16).svg" alt="" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/6a71acc2bc666ab2f31ee206/6a7586edcb3e84841c13b35f_image%20452.svg" alt="" loading="lazy" decoding="async"></span></div></div></div>
   </div>
 </section>
 
@@ -851,101 +868,9 @@ dialog p{color:var(--dim)}
   </div></div>
 </section>
 
-<!-- 4. FEATURES (visual-first, 3 short tags per tab) -->
-<section class="sec" id="features" aria-labelledby="featH">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker">რას მიიღებ</span>
-      <h2 class="display h2" id="featH">გაყიდვების მართვა და ავტომატიზაცია ერთ სისტემაში</h2>
-    </div>
-    <div class="feat rv">
-      <div class="tablist" role="tablist" aria-label="CRM-ის შესაძლებლობები">
-        <button class="tab" role="tab" id="t0" aria-controls="p0" aria-selected="true"><span class="ti">01</span>ლიდები</button>
-        <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1"><span class="ti">02</span>პროცესი</button>
-        <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1"><span class="ti">03</span>ზარები და AI</button>
-        <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1"><span class="ti">04</span>ანალიტიკა</button>
-        <button class="tab" role="tab" id="t4" aria-controls="p4" aria-selected="false" tabindex="-1"><span class="ti">05</span>ინტეგრაციები</button>
-      </div>
-      <div>
-        <div class="tabpanel" role="tabpanel" id="p0" aria-labelledby="t0">
-          <div class="tp-copy"><h3 class="h3">ყველა მომართვა ერთ სივრცეში</h3><ul class="tags"><li>Meta და Google Ads</li><li>Instagram · Facebook · WhatsApp</li><li>საიტის ფორმა და ელფოსტა</li></ul></div>
-          <div class="tp-vis" aria-hidden="true">
-            <div class="row" style="--i:0"><span class="src hot">ADS</span><span class="tx">ნინო ბ. · Facebook Ads</span><span class="tm">ახლა</span></div>
-            <div class="row" style="--i:1"><span class="src">IG</span><span class="tx">„ფასი რა არის?“</span><span class="tm">2 წთ</span></div>
-            <div class="row" style="--i:2"><span class="src">WA</span><span class="tx">გიორგი კ. · WhatsApp</span><span class="tm">6 წთ</span></div>
-            <div class="row" style="--i:3"><span class="src">WEB</span><span class="tx">LTD „ალფა“ · საიტი</span><span class="tm">14 წთ</span></div>
-          </div>
-        </div>
-        <div class="tabpanel" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
-          <div class="tp-copy"><h3 class="h3">ეტაპები, რომლებსაც ვერავინ გამოტოვებს</h3><ul class="tags"><li>ლიდების ავტო-განაწილება</li><li>Follow-up შეხსენებები</li><li>ინვოისები შენი შაბლონით</li></ul></div>
-          <div class="tp-vis" aria-hidden="true">
-            <div class="row" style="--i:0"><span class="src hot">AUTO</span><span class="tx">ახალი ლიდი → ანა</span><span class="tm">0 წმ</span></div>
-            <div class="row lock" style="--i:1"><span class="src">წესი</span><span class="tx">ბიუჯეტი სავალდებულოა</span></div>
-            <div class="row" style="--i:2"><span class="src">⏰</span><span class="tx">დაურეკე LTD „მეგას“</span><span class="tm">15:00</span></div>
-            <div class="row" style="--i:3"><span class="src">INV</span><span class="tx">ინვოისი #0142 · 4 800 ₾</span><span class="tm">✓</span></div>
-          </div>
-        </div>
-        <div class="tabpanel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
-          <div class="tp-copy"><h3 class="h3">ზარი, ავტომატიზაცია და AI ერთად</h3><ul class="tags"><li>GEONET / cloud PBX</li><li>ავტომატიზაციები</li><li>Claude AI</li></ul></div>
-          <div class="tp-vis" aria-hidden="true">
-            <div class="row" style="--i:0"><span class="src hot">CALL</span><span class="tx">შემომავალი ზარი · GEONET</span><span class="tm">ახლა</span></div>
-            <div class="row" style="--i:1"><span class="src">CRM</span><span class="tx">გაიხსნა ბარათი: LTD „მეგა“</span></div>
-            <div class="row" style="--i:2"><span class="src">AI</span><span class="tx">შეჯამება: სურს შეთავაზება</span></div>
-            <div class="row" style="--i:3"><span class="src">AUTO</span><span class="tx">დავალება ანასთვის · ხვალ</span><span class="tm">✓</span></div>
-          </div>
-        </div>
-        <div class="tabpanel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
-          <div class="tp-copy"><h3 class="h3">გადაწყვეტილება ციფრებით</h3><ul class="tags"><li>KPI დაფა</li><li>10-მდე რეპორტი</li><li>გუნდის შედეგები</li></ul></div>
-          <div class="tp-vis" aria-hidden="true">
-            <div class="dash" style="height:100%">
-              <div class="kpi"><small>ახალი ლიდები</small><b>184</b><span class="up">▲ 12%</span></div>
-              <div class="kpi"><small>მოგებული</small><b>44</b><span class="up">▲ 9%</span></div>
-              <div class="chart"><small>ძაბრი</small><div class="bars"><i style="--h:95%"></i><i style="--h:70%"></i><i style="--h:46%"></i><i style="--h:30%"></i></div><div class="bars-x"><span>ლიდი</span><span>კვალიფ.</span><span>შეთავ.</span><span>მოგება</span></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="tabpanel" role="tabpanel" id="p4" aria-labelledby="t4" hidden>
-          <div class="tp-copy"><h3 class="h3">CRM, რომელიც შენს სისტემებთან მუშაობს</h3><ul class="tags"><li>1C · FINA · ბანკები</li><li>Excel-იდან გადმოტანა</li><li>დუბლიკატების წმენდა</li></ul></div>
-          <div class="tp-vis" aria-hidden="true">
-            <div class="hub" id="hub">
-              <svg><line x1="50%" y1="50%" x2="20%" y2="18%"/><line x1="50%" y1="50%" x2="80%" y2="18%"/><line x1="50%" y1="50%" x2="17%" y2="56%"/><line x1="50%" y1="50%" x2="83%" y2="56%"/><line x1="50%" y1="50%" x2="30%" y2="88%"/><line x1="50%" y1="50%" x2="70%" y2="88%"/></svg>
-              <span class="node core" style="left:50%;top:50%">CRM</span>
-              <span class="node" style="left:20%;top:18%">1C</span><span class="node" style="left:80%;top:18%">FINA</span>
-              <span class="node" style="left:17%;top:56%">ბანკი</span><span class="node" style="left:83%;top:56%">საიტი</span>
-              <span class="node" style="left:30%;top:88%">Excel</span><span class="node" style="left:70%;top:88%">Sheets</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="marquee rv" aria-label="ინდუსტრიები"><div class="mq-track"><span>უძრავი ქონება</span><span>ავტოინდუსტრია</span><span>წარმოება</span><span>IT</span><span>განათლება</span><span>ფინანსები</span><span>ტურიზმი</span><span>ელექტრონული კომერცია</span><span>ლოიალობის სისტემა</span><span aria-hidden="true">უძრავი ქონება</span><span aria-hidden="true">ავტოინდუსტრია</span><span aria-hidden="true">წარმოება</span><span aria-hidden="true">IT</span><span aria-hidden="true">განათლება</span><span aria-hidden="true">ფინანსები</span><span aria-hidden="true">ტურიზმი</span><span aria-hidden="true">ელექტრონული კომერცია</span><span aria-hidden="true">ლოიალობის სისტემა</span></div></div>
-    <p class="indep-line rv"><b>დამოუკიდებელი პარტნიორი ვართ:</b> გირჩევთ CRM-ს, რომელიც შენს ბიზნესს ერგება.</p>
-  </div>
-</section>
 
-<!-- 5. RESULTS -->
-<section class="sec" id="results" style="padding-top:0" aria-labelledby="resH">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker">შედეგი</span>
-      <h2 class="display h2" id="resH">რა იცვლება CRM-ის დანერგვის შემდეგ</h2>
-    </div>
-    <div class="results-grid">
-      <div class="compare rv" id="compare">
-        <div class="cmp-h"><span></span><span>ადრე</span><span class="g">Unitty CRM-ით</span></div>
-        <div class="cmp-r" style="--i:0"><span class="k">ახალი ლიდი</span><span class="b">ხელით ნაწილდება</span><span class="a">ავტომატურად, სწორ მენეჯერზე</span></div>
-        <div class="cmp-r" style="--i:1"><span class="k">Follow-up</span><span class="b">მეხსიერების იმედად</span><span class="a">CRM დროზე შეგახსენებს</span></div>
-        <div class="cmp-r" style="--i:2"><span class="k">ანგარიში</span><span class="b">Excel-ში, ხელით</span><span class="a">დეშბორდზე, რეალურ დროში</span></div>
-        <div class="cmp-r" style="--i:3"><span class="k">მენეჯერი წავიდა</span><span class="b">კლიენტებიც მიჰყვება</span><span class="a">კლიენტები და ისტორია კომპანიაში რჩება</span></div>
-      </div>
-      <div class="rating rv">
-        <div><div class="big tnum">4.9</div><div class="stars" aria-label="5-დან 4.9">★★★★★</div></div>
-        <p>კლიენტების შეფასება LinkedIn-ზე, Google-სა და G2-ზე</p>
-        <small>500+ დანერგვა · 12+ წელი</small>
-      </div>
-    </div>
-  </div>
-</section>
+
+
 
 <!-- 6. HOW IT WORKS -->
 <section class="sec" id="how" style="background:var(--bg-2);border-block:1px solid var(--line)" aria-labelledby="howH">
@@ -965,26 +890,7 @@ dialog p{color:var(--dim)}
   </div>
 </section>
 
-<!-- 7. SOCIAL PROOF -->
-<section class="sec" id="reviews" aria-labelledby="revH">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker">კლიენტები</span>
-      <h2 class="display h2" id="revH">რას ამბობენ ჩვენზე</h2>
-    </div>
-    <div class="tgrid">
-      <figure class="tq rv"><span class="qmark" aria-hidden="true">“</span>
-        <blockquote>„Unitty-სთან უკვე 5 წელია ვთანამშრომლობთ. კომპანიის ზრდის თითოეულ ეტაპზე, სწორედ ისინი ქმნიან და ავითარებენ ჩვენი გაყიდვების მთელ ინფრასტრუქტურას.“</blockquote>
-        <figcaption class="who"><img class="av" src="/client-nino.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"><span><b>ნინო აბსანძე</b><span>CEO · GREA</span></span></figcaption></figure>
-      <figure class="tq rv"><span class="qmark" aria-hidden="true">“</span>
-        <blockquote>„საიმედო CRM ჩვენი საოპერაციო პროცესების საფუძველია. Unitty-მ ყველაფერი ზედმეტი სირთულეების გარეშე გაგვიმართა - ახლა სისტემა გუნდების საქმიანობის სრულ და გამჭვირვალე სურათს გვაძლევს.“</blockquote>
-        <figcaption class="who"><img class="av" src="/client-zurab.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"><span><b>რეზი ჩიკვილაძე</b><span>CEO · Syniotec</span></span></figcaption></figure>
-      <figure class="tq rv"><span class="qmark" aria-hidden="true">“</span>
-        <blockquote>„ხარისხიანი CRM ნებისმიერი მზარდი კომპანიის საყრდენია. Unitty-მ ეს საყრდენი ბევრად უფრო ძლიერი, სწრაფი და Identomat-ის გუნდისთვის მაქსიმალურად მარტივი გახადა.“</blockquote>
-        <figcaption class="who"><img class="av" src="/client-rezi.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"><span><b>ზურაბ კოტარია</b><span>COO · Identomat</span></span></figcaption></figure>
-    </div>
-  </div>
-</section>
+
 
 <!-- 8. PRICING -->
 <section class="sec" id="pricing" style="background:var(--bg-2);border-block:1px solid var(--line)" aria-labelledby="priceH">
@@ -1037,6 +943,27 @@ dialog p{color:var(--dim)}
     <div class="price-foot rv">
       <p>ფასებს ემატება დღგ (18%). CRM-ის ლიცენზიას პირდაპირ მწარმოებელს უხდი, მისი ოფიციალური ფასით. დამატებითი ფუნქციები <span class="tnum" data-eur="€190-დან" data-gel="570 ₾-დან">€190-დან</span>.</p>
       <div class="help"><span>არ იცი, რომელი აირჩიო?</span><a href="#lead" class="btn btn-primary btn-sm" data-cta="pricing-help">ზარზე გეტყვით</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. SOCIAL PROOF (below pricing since crm-v66) -->
+<section class="sec" id="reviews" aria-labelledby="revH">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker">კლიენტები</span>
+      <h2 class="display h2" id="revH">რას ამბობენ ჩვენზე</h2>
+    </div>
+    <div class="tgrid">
+      <figure class="tq rv"><span class="qmark" aria-hidden="true">“</span>
+        <blockquote>„Unitty-სთან უკვე 5 წელია ვთანამშრომლობთ. კომპანიის ზრდის თითოეულ ეტაპზე, სწორედ ისინი ქმნიან და ავითარებენ ჩვენი გაყიდვების მთელ ინფრასტრუქტურას.“</blockquote>
+        <figcaption class="who"><img class="av" src="/client-nino.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"><span><b>ნინო აბსანძე</b><span>CEO · GREA</span></span></figcaption></figure>
+      <figure class="tq rv"><span class="qmark" aria-hidden="true">“</span>
+        <blockquote>„საიმედო CRM ჩვენი საოპერაციო პროცესების საფუძველია. Unitty-მ ყველაფერი ზედმეტი სირთულეების გარეშე გაგვიმართა - ახლა სისტემა გუნდების საქმიანობის სრულ და გამჭვირვალე სურათს გვაძლევს.“</blockquote>
+        <figcaption class="who"><img class="av" src="/client-zurab.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"><span><b>რეზი ჩიკვილაძე</b><span>CEO · Syniotec</span></span></figcaption></figure>
+      <figure class="tq rv"><span class="qmark" aria-hidden="true">“</span>
+        <blockquote>„ხარისხიანი CRM ნებისმიერი მზარდი კომპანიის საყრდენია. Unitty-მ ეს საყრდენი ბევრად უფრო ძლიერი, სწრაფი და Identomat-ის გუნდისთვის მაქსიმალურად მარტივი გახადა.“</blockquote>
+        <figcaption class="who"><img class="av" src="/client-rezi.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"><span><b>ზურაბ კოტარია</b><span>COO · Identomat</span></span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -1242,7 +1169,7 @@ const story=$('#story'), chapsWrap=$('#chapters'), chaps=$$('.chap'), railBtns=$
 const DESK=matchMedia('(min-width:1024px)');
 let pinned=false;
 function setMode(){
-  pinned = DESK.matches && !RM.matches;
+  pinned = false; /* crm-v66: three horizontal cards instead of the pinned scroll story */
   story.classList.toggle('pinned',pinned);
   if(pinned){ onStory(); } else chaps.forEach(c=>c.classList.remove('active','past'));
 }
@@ -1290,7 +1217,7 @@ tabs.forEach((t,i)=>{ t.addEventListener('click',()=>selTab(t)); t.addEventListe
 
 /* compare + steps */
 const once=(el,cls,th=.35)=>{ if(RM.matches){el.classList.add(cls);return;} new IntersectionObserver((es,o)=>es.forEach(e=>{ if(e.isIntersecting){ el.classList.add(cls); o.disconnect(); } }),{threshold:th}).observe(el); };
-once($('#compare'),'in'); once($('#steps'),'in',.4);
+if($('#compare')) once($('#compare'),'in'); if($('#steps')) once($('#steps'),'in',.4);
 
 /* CURRENCY */
 $$('.cur button').forEach(b=>b.addEventListener('click',()=>{ const c=b.dataset.cur; $$('.cur button').forEach(x=>x.setAttribute('aria-pressed',x===b)); $$('[data-eur]').forEach(el=>{ el.textContent=el.dataset[c]; if(!RM.matches) el.animate([{opacity:.2,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:350,easing:'ease-out'}); }); }));
