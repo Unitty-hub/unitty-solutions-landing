@@ -2,9 +2,9 @@
   "name": "crm",
   "description": "შეარჩიე სწორი CRM და დაზოგე 100+ საათი. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo: დანერგვა 5 დღიდან, ფიქსირებული ფასით. უფასო 20-წუთიანი ზარი.",
   "pains": [
-    "excel",
-    "owner",
-    "chatswin"
+    "crmexcel",
+    "crmchaos",
+    "crmdata"
   ],
   "i18n": {
     "nav.brand": {
@@ -151,6 +151,11 @@
       "ka": "CRM-ის შერჩევა და დანერგვა საქართველოში | Unitty",
       "en": "CRM selection and implementation in Georgia | Unitty",
       "ru": "Подбор и внедрение CRM в Грузии | Unitty"
+    },
+    "pain.sub": {
+      "ka": "ბიზნესს სჭირდება სისტემა, რომელშიც ადამიანები იმუშავებენ. შედეგად, შეძლებ მონაცემების ანალიზს და პროცესების ავტომატიზაციას.",
+      "en": "A business needs a system people actually work in. Then you can analyse your data and automate your processes.",
+      "ru": "Бизнесу нужна система, в которой работают люди. Тогда вы сможете анализировать данные и автоматизировать процессы."
     },
     "pk.title": {
       "ka": "აირჩიე, საიდან დაიწყო",

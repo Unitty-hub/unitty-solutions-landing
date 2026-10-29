@@ -186,6 +186,54 @@
   .ui-z-who > div { flex: 1; min-width: 0; }
   .ui-z-who b, .ui-z-who small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .ui-z-chip { font-size: 14px; }
+
+  /* --- v52: scattered numbers (before) + Zoho-style animated mock-ups: pipeline, Blueprint, analytics (after) --- */
+  .ui-scatter { position: relative; width: 100%; max-width: 320px; height: 210px; }
+  .ui-rep { position: absolute; width: 58%; padding: 10px 12px; border-radius: 10px; background: #fff; color: #1f2937; box-shadow: 0 10px 24px rgba(0,0,0,.4);
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', var(--font-body); font-size: 14px; line-height: 1.3; }
+  .ui-rep small { display: block; font-size: 14px; color: #6b7280; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ui-rep b { display: block; font-size: 20px; margin-top: 2px; }
+  .ui-rep.r1 { left: 0; top: 0; transform: rotate(-4deg); } .ui-rep.r1 b { color: #15803d; }
+  .ui-rep.r2 { right: 0; top: 52px; transform: rotate(3deg); background: #fffdf6; } .ui-rep.r2 b { color: #b45309; }
+  .ui-rep.r3 { left: 8%; bottom: 0; transform: rotate(-1deg); } .ui-rep.r3 b { color: #b91c1c; }
+  .ui-q { position: absolute; right: 6%; bottom: 10px; z-index: 3; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+    background: #1d1d1f; color: #fff; font: 900 24px/1 var(--font-head); border: 1px solid rgba(255,255,255,.2); box-shadow: 0 6px 16px rgba(0,0,0,.4); }
+
+  .ui-z-body { padding: 10px; background: #f5f7fa; }
+  /* pipeline (kanban) */
+  .ui-kb { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; position: relative; }
+  .ui-kb-col { min-width: 0; border-radius: 8px; background: #eef1f6; padding: 6px; display: grid; gap: 6px; align-content: start; min-height: 150px; }
+  .ui-kb-col > span { font-size: 14px; font-weight: 700; color: #374151; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-bottom: 4px; border-bottom: 3px solid var(--c); }
+  .ui-kb-card { border-radius: 6px; background: #fff; padding: 6px; box-shadow: 0 1px 2px rgba(0,0,0,.08); font-size: 14px; line-height: 1.25; }
+  .ui-kb-card b { display: block; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ui-kb-card small { display: block; color: #15803d; font-weight: 700; font-size: 14px; }
+  .ui-kb-card.mv { position: relative; z-index: 2; border: 1.5px solid #1a73e8; }
+  .pains[data-ba="after"] .ui-kb-card.mv { animation: kbMove 5s ease-in-out infinite; }
+  @keyframes kbMove { 0%, 18% { transform: translateX(0); } 42%, 58% { transform: translateX(calc(100% + 18px)); } 82%, 100% { transform: translateX(calc(200% + 36px)); box-shadow: 0 0 0 3px rgba(21,128,61,.35); } }
+  /* blueprint */
+  .ui-bp { display: grid; gap: 0; padding: 4px 2px; }
+  .ui-bp-st { position: relative; display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 8px; background: #fff; border: 1.5px solid #d6dbe4; font-size: 14px; font-weight: 600; color: #6b7280; }
+  .ui-bp-st i { width: 20px; height: 20px; border-radius: 50%; flex: none; border: 2px solid #c3cad6; background: #fff; display: grid; place-items: center; font-style: normal; font-size: 14px; color: #fff; }
+  .ui-bp-st em { margin-left: auto; font-style: normal; font-size: 14px; font-weight: 600; color: #1a56c8; white-space: nowrap; }
+  .ui-bp-ln { width: 2px; height: 12px; margin-left: 20px; background: #c3cad6; }
+  .pains[data-ba="after"] .ui-bp-st { animation: bpStep 6s infinite; }
+  .pains[data-ba="after"] .ui-bp-st i { animation: bpDot 6s infinite; }
+  .ui-bp-st.s2, .ui-bp-st.s2 i { animation-delay: 1.4s !important; } .ui-bp-st.s3, .ui-bp-st.s3 i { animation-delay: 2.8s !important; } .ui-bp-st.s4, .ui-bp-st.s4 i { animation-delay: 4.2s !important; }
+  @keyframes bpStep { 0% { border-color: #d6dbe4; color: #6b7280; } 4%, 85% { border-color: #1a73e8; color: #111827; box-shadow: 0 0 0 3px rgba(26,115,232,.15); } 20%, 85% { box-shadow: none; } 100% { border-color: #d6dbe4; color: #6b7280; } }
+  @keyframes bpDot { 0% { background: #fff; border-color: #c3cad6; } 4%, 85% { background: #15803d; border-color: #15803d; } 100% { background: #fff; border-color: #c3cad6; } }
+  /* analytics */
+  .ui-an-kpi { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-bottom: 8px; }
+  .ui-an-kpi div { border-radius: 8px; background: #fff; padding: 6px 8px; font-size: 14px; color: #6b7280; box-shadow: 0 1px 2px rgba(0,0,0,.06); min-width: 0; }
+  .ui-an-kpi b { display: block; font-size: 18px; color: #111827; }
+  .ui-an-kpi b small { font-size: 14px; color: #15803d; font-weight: 700; }
+  .ui-an-ch { display: flex; align-items: flex-end; gap: 6px; height: 92px; padding: 8px 8px 0; border-radius: 8px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+  .ui-an-ch span { flex: 1; height: var(--h); border-radius: 4px 4px 0 0; background: linear-gradient(180deg, #4f8ef7, #1a73e8); transform-origin: bottom; }
+  .ui-an-ch span:last-child { background: linear-gradient(180deg, #34c759, #15803d); }
+  .pains[data-ba="after"] .ui-an-ch span { animation: anGrow 4s ease-out infinite; }
+  .ui-an-ch span:nth-child(2) { animation-delay: .1s !important; } .ui-an-ch span:nth-child(3) { animation-delay: .2s !important; } .ui-an-ch span:nth-child(4) { animation-delay: .3s !important; }
+  .ui-an-ch span:nth-child(5) { animation-delay: .4s !important; } .ui-an-ch span:nth-child(6) { animation-delay: .5s !important; }
+  @keyframes anGrow { 0% { transform: scaleY(.05); } 30%, 100% { transform: scaleY(1); } }
+  @media (prefers-reduced-motion: reduce) { .pains[data-ba="after"] .ui-kb-card.mv, .pains[data-ba="after"] .ui-bp-st, .pains[data-ba="after"] .ui-bp-st i, .pains[data-ba="after"] .ui-an-ch span { animation: none !important; } }
 </style>
 <section class="section pains{{BA_CLASS}}" id="pains"{{BA_ATTR}}>
   <div class="wrap">
@@ -367,5 +415,115 @@
         <h3 class="pain-title" data-i18n="pain.chats.title">A client messaged you. Who replied?</h3>
         <p class="pain-body" data-i18n="pain.chats.body">While you look for the answer, the client buys elsewhere.</p>
         <p class="pain-fix"><b data-i18n="pain.fix.label">The fix:</b><span data-i18n="pain.chats.fix">All channels in one window: you see who replied and what.</span></p>
+      </article>
+<!--/card-->
+<!--card:crmexcel-->
+      <article class="pain-card" data-pain="crmexcel">
+        <div class="pain-side pain-before">
+          <div class="pain-visual" aria-hidden="true">
+            <div class="ui-sheet">
+              <div class="ui-sheet-bar"><b>X</b><span>clients_FINAL_v7 (2).xlsx</span></div>
+              <div class="ui-fx"><i>fx</i><span>=VLOOKUP(B7;Sheet2!A:D;3;FALSE)</span></div>
+              <div class="ui-grid">
+                <div class="c"></div><div class="c">A</div><div class="c">B</div><div class="c">C</div>
+                <div class="c">1</div><div class="h" data-i18n="pain.excel.h1">Client</div><div class="h" data-i18n="pain.excel.h2">Phone</div><div class="h" data-i18n="pain.excel.h3">Status</div>
+                <div class="c">2</div><div>N. Beridze</div><div>599 123 456</div><div>✓</div>
+                <div class="c">3</div><div class="dup">G. Kapanadze</div><div class="dup">555 987 654</div><div>??</div>
+                <div class="c">4</div><div class="dup">G. Kapanadze</div><div class="dup">555 987 654</div><div></div>
+                <div class="c">5</div><div>LTD "Mega"</div><div class="err">#N/A</div><div class="sel"></div>
+                <div class="c">6</div><div>T. Gelashvili</div><div>577 …</div><div>!!</div>
+              </div>
+            </div>
+            <div class="ui-sticky" data-i18n="pain.excel.sticky">Who deleted column C?!</div>
+          </div>
+          <h3 class="pain-title" data-i18n="pain.cx.title">…</h3>
+          <p class="pain-body" data-i18n="pain.cx.body">…</p>
+          <p class="pain-stat"><b data-i18n="pain.cx.statn">…</b><span data-i18n="pain.cx.stat">…</span><small data-i18n="pain.cx.src">…</small></p>
+          <p class="pain-fix"><b data-i18n="pain.fix.label">The fix:</b><span data-i18n="pain.cx.fix">…</span></p>
+        </div>
+        <div class="pain-side pain-after" aria-live="polite">
+          <div class="pain-visual" aria-hidden="true">
+            <div class="ui-z">
+              <div class="ui-z-top"><span class="ui-z-logo">CRM</span><span data-i18n="pain.z.deals">…</span></div>
+              <div class="ui-z-body"><div class="ui-kb">
+                <div class="ui-kb-col" style="--c:#f59e0b"><span data-i18n="pain.z.k1">New</span><div class="ui-kb-card mv"><b>LTD "Mega"</b><small>4 800 ₾</small></div><div class="ui-kb-card"><b>N. Beridze</b><small>1 200 ₾</small></div></div>
+                <div class="ui-kb-col" style="--c:#1a73e8"><span data-i18n="pain.z.k2">Proposal</span><div class="ui-kb-card"><b>G. Kapanadze</b><small>2 400 ₾</small></div></div>
+                <div class="ui-kb-col" style="--c:#15803d"><span data-i18n="pain.z.k3">Won</span><div class="ui-kb-card"><b>T. Gelashvili</b><small>3 100 ₾</small></div></div>
+              </div></div>
+            </div>
+          </div>
+          <h3 class="pain-title" data-i18n="pain.cx.atitle">…</h3>
+          <p class="pain-body" data-i18n="pain.cx.fix">…</p>
+        </div>
+      </article>
+<!--/card-->
+<!--card:crmchaos-->
+      <article class="pain-card" data-pain="crmchaos">
+        <div class="pain-side pain-before">
+          <div class="pain-visual" aria-hidden="true">
+            <div class="ui-notes">
+              <div class="ui-notes-top"><span>‹</span>Notes<span>⋯</span></div>
+              <div class="ui-notes-title" data-i18n="pain.owner.note">Today!!</div>
+              <ul>
+                <li data-i18n="pain.owner.c1">Call the client!</li>
+                <li class="done" data-i18n="pain.owner.c2">Invoice on rs.ge</li>
+                <li data-i18n="pain.owner.c3">Who replied on Instagram?</li>
+                <li data-i18n="pain.owner.c4">Did you send the price?</li>
+                <li data-i18n="pain.owner.c5">Manager is off today</li>
+                <li data-i18n="pain.owner.c6">Report tomorrow!!</li>
+              </ul>
+            </div>
+          </div>
+          <h3 class="pain-title" data-i18n="pain.cc.title">…</h3>
+          <p class="pain-body" data-i18n="pain.cc.body">…</p>
+          <p class="pain-stat"><b data-i18n="pain.cc.statn">…</b><span data-i18n="pain.cc.stat">…</span><small data-i18n="pain.cc.src">…</small></p>
+          <p class="pain-fix"><b data-i18n="pain.fix.label">The fix:</b><span data-i18n="pain.cc.fix">…</span></p>
+        </div>
+        <div class="pain-side pain-after" aria-live="polite">
+          <div class="pain-visual" aria-hidden="true">
+            <div class="ui-z">
+              <div class="ui-z-top"><span class="ui-z-logo">CRM</span><span data-i18n="pain.z.bp">…</span></div>
+              <div class="ui-z-body"><div class="ui-bp">
+                <div class="ui-bp-st s1"><i>✓</i><span data-i18n="pain.z.b1">New lead</span><em data-i18n="pain.z.n1">Nika</em></div><div class="ui-bp-ln"></div>
+                <div class="ui-bp-st s2"><i>✓</i><span data-i18n="pain.z.b2">Qualified</span><em data-i18n="pain.z.n1">Nika</em></div><div class="ui-bp-ln"></div>
+                <div class="ui-bp-st s3"><i>✓</i><span data-i18n="pain.z.b3">Offer sent</span><em data-i18n="pain.z.n2">Ana</em></div><div class="ui-bp-ln"></div>
+                <div class="ui-bp-st s4"><i>✓</i><span data-i18n="pain.z.b4">Contract</span><em data-i18n="pain.z.n3">Luka</em></div>
+              </div></div>
+            </div>
+          </div>
+          <h3 class="pain-title" data-i18n="pain.cc.atitle">…</h3>
+          <p class="pain-body" data-i18n="pain.cc.fix">…</p>
+        </div>
+      </article>
+<!--/card-->
+<!--card:crmdata-->
+      <article class="pain-card" data-pain="crmdata">
+        <div class="pain-side pain-before">
+          <div class="pain-visual" aria-hidden="true">
+            <div class="ui-scatter">
+              <div class="ui-rep r1"><small data-i18n="pain.data.s1">Excel · October sales</small><b>38 400 ₾</b></div>
+              <div class="ui-rep r2"><small data-i18n="pain.data.s2">Manager · "about"</small><b>~45 000 ₾</b></div>
+              <div class="ui-rep r3"><small data-i18n="pain.data.s3">Accounting</small><b>41 250 ₾</b></div>
+              <div class="ui-q">?</div>
+            </div>
+          </div>
+          <h3 class="pain-title" data-i18n="pain.cd.title">…</h3>
+          <p class="pain-body" data-i18n="pain.cd.body">…</p>
+          <p class="pain-stat"><b data-i18n="pain.cd.statn">…</b><span data-i18n="pain.cd.stat">…</span><small data-i18n="pain.cd.src">…</small></p>
+          <p class="pain-fix"><b data-i18n="pain.fix.label">The fix:</b><span data-i18n="pain.cd.fix">…</span></p>
+        </div>
+        <div class="pain-side pain-after" aria-live="polite">
+          <div class="pain-visual" aria-hidden="true">
+            <div class="ui-z">
+              <div class="ui-z-top"><span class="ui-z-logo">CRM</span><span data-i18n="pain.z.an">…</span></div>
+              <div class="ui-z-body">
+                <div class="ui-an-kpi"><div><span data-i18n="pain.z.kp1">Revenue</span><b>41 250 ₾ <small>+18%</small></b></div><div><span data-i18n="pain.z.kp2">Conversion</span><b>24% <small>+5%</small></b></div></div>
+                <div class="ui-an-ch"><span style="--h:34%"></span><span style="--h:46%"></span><span style="--h:41%"></span><span style="--h:60%"></span><span style="--h:72%"></span><span style="--h:94%"></span></div>
+              </div>
+            </div>
+          </div>
+          <h3 class="pain-title" data-i18n="pain.cd.atitle">…</h3>
+          <p class="pain-body" data-i18n="pain.cd.fix">…</p>
+        </div>
       </article>
 <!--/card-->

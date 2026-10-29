@@ -438,5 +438,180 @@
   "ka": "წყარო: Harvard Business Review",
   "en": "Source: Harvard Business Review",
   "ru": "Источник: Harvard Business Review"
+ },
+ "pain.cx.title": {
+  "ka": "Excel ანელებს პროცესებს, ქმნის რისკებს და აფერხებს ზრდას",
+  "en": "Excel slows processes, creates risks and holds back growth",
+  "ru": "Excel замедляет процессы, создаёт риски и тормозит рост"
+ },
+ "pain.cx.body": {
+  "ka": "კლიენტები ფაილებში, რვეულებსა და ტელეფონში.",
+  "en": "Clients spread across files, notebooks and phones.",
+  "ru": "Клиенты разбросаны по файлам, блокнотам и телефонам."
+ },
+ "pain.cx.statn": {
+  "ka": "88%",
+  "en": "88%",
+  "ru": "88%"
+ },
+ "pain.cx.stat": {
+  "ka": "ცხრილებში შეცდომებია",
+  "en": "of spreadsheets contain errors",
+  "ru": "таблиц содержат ошибки"
+ },
+ "pain.cx.src": {
+  "ka": "წყარო: Raymond Panko, ჰავაის უნივერსიტეტი (2008)",
+  "en": "Source: Raymond Panko, University of Hawaii (2008)",
+  "ru": "Источник: Raymond Panko, Гавайский университет (2008)"
+ },
+ "pain.cx.fix": {
+  "ka": "Zoho CRM-ში ყველა კლიენტი და გარიგება ერთ სისტემაშია: ჩანს, ვინ რა ეტაპზეა და რამდენი შემოდის.",
+  "en": "In Zoho CRM every client and deal lives in one system: you see who is at which stage and what is coming in.",
+  "ru": "В Zoho CRM все клиенты и сделки в одной системе: видно, кто на каком этапе и сколько поступает."
+ },
+ "pain.cx.atitle": {
+  "ka": "ყველა გარიგება — ერთ სისტემაში",
+  "en": "Every deal in one system",
+  "ru": "Все сделки — в одной системе"
+ },
+ "pain.cc.title": {
+  "ka": "არასისტემური მუშაობა ქმნის ქაოსს და უმართავ პროცესებს",
+  "en": "Unsystematic work creates chaos and unmanageable processes",
+  "ru": "Работа без системы создаёт хаос и неуправляемые процессы"
+ },
+ "pain.cc.body": {
+  "ka": "ყველა კითხვა შენთან მოდის, ყველა დავალება შენ გახსოვს.",
+  "en": "Every question lands on you, every task is on your mind.",
+  "ru": "Все вопросы идут к вам, все задачи держите в голове."
+ },
+ "pain.cc.statn": {
+  "ka": "58%",
+  "en": "58%",
+  "ru": "58%"
+ },
+ "pain.cc.stat": {
+  "ka": "სამუშაო დროისა იხარჯება „სამუშაოზე სამუშაოზე“: სტატუსების ძებნა, დაზუსტება, დუბლირება",
+  "en": "of the workday goes on “work about work”: chasing status, clarifying, duplicating",
+  "ru": "рабочего дня уходит на «работу о работе»: поиск статусов, уточнения, дублирование"
+ },
+ "pain.cc.src": {
+  "ka": "წყარო: Asana Anatomy of Work, 9 615 თანამშრომელი, 2023",
+  "en": "Source: Asana Anatomy of Work, 9,615 workers, 2023",
+  "ru": "Источник: Asana Anatomy of Work, 9 615 сотрудников, 2023"
+ },
+ "pain.cc.fix": {
+  "ka": "Blueprint გუნდს ნაბიჯ-ნაბიჯ მიჰყავს: ვინ, რა და როდის აკეთებს. ვერცერთი ეტაპი ვერ გამოგრჩება.",
+  "en": "Blueprint walks the team step by step: who does what and when. No stage gets skipped.",
+  "ru": "Blueprint ведёт команду шаг за шагом: кто, что и когда делает. Ни один этап не пропускается."
+ },
+ "pain.cc.atitle": {
+  "ka": "ყველა ნაბიჯი — წესით და თანმიმდევრობით",
+  "en": "Every step follows the rules, in order",
+  "ru": "Каждый шаг — по правилам и по порядку"
+ },
+ "pain.cd.title": {
+  "ka": "გაფანტული მონაცემებით არასწორ გადაწყვეტილებებს იღებ",
+  "en": "Scattered data leads to wrong decisions",
+  "ru": "Разрозненные данные ведут к неверным решениям"
+ },
+ "pain.cd.body": {
+  "ka": "ერთსა და იმავე კითხვაზე სამი განსხვავებული ციფრი.",
+  "en": "Three different numbers for the same question.",
+  "ru": "Три разные цифры на один и тот же вопрос."
+ },
+ "pain.cd.statn": {
+  "ka": "$12.9 მლნ",
+  "en": "$12.9M",
+  "ru": "$12,9 млн"
+ },
+ "pain.cd.stat": {
+  "ka": "ყოველწლიურად კარგავს საშუალოდ ორგანიზაცია ცუდი ხარისხის მონაცემების გამო",
+  "en": "a year: the average cost of poor data quality to an organisation",
+  "ru": "в год в среднем теряет организация из-за некачественных данных"
+ },
+ "pain.cd.src": {
+  "ka": "წყარო: Gartner",
+  "en": "Source: Gartner",
+  "ru": "Источник: Gartner"
+ },
+ "pain.cd.fix": {
+  "ka": "ყველა მონაცემი ერთ დეშბორდზე, რეალურ დროში: გადაწყვეტილებას ფაქტებზე დაყრდნობით იღებ.",
+  "en": "All data on one dashboard in real time: you decide based on facts.",
+  "ru": "Все данные на одном дашборде в реальном времени: решения на основе фактов."
+ },
+ "pain.cd.atitle": {
+  "ka": "ზუსტი ციფრები — ერთ დეშბორდზე",
+  "en": "Exact numbers on one dashboard",
+  "ru": "Точные цифры — на одном дашборде"
+ },
+ "pain.data.s1": {
+  "ka": "Excel · ოქტომბრის გაყიდვები",
+  "en": "Excel · October sales",
+  "ru": "Excel · продажи за октябрь"
+ },
+ "pain.data.s2": {
+  "ka": "მენეჯერი · „დაახლოებით“",
+  "en": "Manager · “roughly”",
+  "ru": "Менеджер · «примерно»"
+ },
+ "pain.data.s3": {
+  "ka": "ბუღალტერია",
+  "en": "Accounting",
+  "ru": "Бухгалтерия"
+ },
+ "pain.z.k1": {
+  "ka": "ახალი",
+  "en": "New",
+  "ru": "Новые"
+ },
+ "pain.z.k2": {
+  "ka": "შეთავაზება",
+  "en": "Proposal",
+  "ru": "Предложение"
+ },
+ "pain.z.k3": {
+  "ka": "მოგებული",
+  "en": "Won",
+  "ru": "Выиграно"
+ },
+ "pain.z.bp": {
+  "ka": "Blueprint · გაყიდვის პროცესი",
+  "en": "Blueprint · sales process",
+  "ru": "Blueprint · процесс продаж"
+ },
+ "pain.z.b1": {
+  "ka": "ახალი ლიდი",
+  "en": "New lead",
+  "ru": "Новый лид"
+ },
+ "pain.z.b2": {
+  "ka": "კვალიფიკაცია",
+  "en": "Qualified",
+  "ru": "Квалификация"
+ },
+ "pain.z.b3": {
+  "ka": "შეთავაზება გაიგზავნა",
+  "en": "Offer sent",
+  "ru": "Предложение отправлено"
+ },
+ "pain.z.b4": {
+  "ka": "ხელშეკრულება",
+  "en": "Contract",
+  "ru": "Договор"
+ },
+ "pain.z.an": {
+  "ka": "ანალიტიკა · ოქტომბერი",
+  "en": "Analytics · October",
+  "ru": "Аналитика · октябрь"
+ },
+ "pain.z.kp1": {
+  "ka": "შემოსავალი",
+  "en": "Revenue",
+  "ru": "Выручка"
+ },
+ "pain.z.kp2": {
+  "ka": "კონვერსია",
+  "en": "Conversion",
+  "ru": "Конверсия"
  }
 }
