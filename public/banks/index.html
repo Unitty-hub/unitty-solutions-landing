@@ -1221,10 +1221,15 @@
   .process-grid.pm-in .m1 svg { transition-delay: .2s; } .process-grid.pm-in .m2 svg { transition-delay: .4s; } .process-grid.pm-in .m3 svg { transition-delay: .6s; }
   @media (prefers-reduced-motion: reduce) { .process-grid .process-mini svg { clip-path: none; } }
 
-  .process-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .process-grid { display: grid; grid-template-columns: 1fr; gap: 34px; }
+  /* v51: emoji per stage + arrows between cards, so it reads as a sequence, not a choice */
+  .process-step:not(:last-child)::after { content: ""; position: absolute; z-index: 2; left: 50%; bottom: -29px; transform: translateX(-50%);
+    width: 24px; height: 24px; border-radius: 50%; background: #1c1c1b no-repeat center / 14px 14px; border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C1FD3A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v16M5 13l7 7 7-7'/%3E%3C/svg%3E"); }
+  .process-step.is-zero:not(:last-child)::after { border-color: rgba(255,255,255,.25); }
   .process-step { position: relative; display: flex; flex-direction: column; gap: 10px;
     background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
-  .process-num { flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+  .process-num { flex: none; font-size: 24px !important; line-height: 1; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
     font: 900 17px/1 var(--font-head); background: #1c1c1b; color: var(--accent); border: 1.5px solid color-mix(in srgb, var(--accent) 70%, transparent); }
   .process-step.is-zero { background: transparent; border-style: dashed; }
   .process-step.is-zero .process-num { color: var(--fg-dim); border: 1.5px dashed rgba(255,255,255,.3); }
@@ -1238,7 +1243,8 @@
   .process-time { align-self: flex-start; margin-top: 4px; font-size: 14px; color: var(--fg-dim);
     padding: 5px 10px; border-radius: 8px; background: var(--surface-2); border: 1px solid var(--border); }
   @media (min-width: 900px) {
-    .process-grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .process-grid { grid-template-columns: repeat(4, 1fr); gap: 34px; }
+    .process-step:not(:last-child)::after { left: auto; right: -29px; bottom: auto; top: 50%; transform: translateY(-50%) rotate(-90deg); }
     .process-step { padding: 20px; }
     .process-mini { height: 64px; }
     .process-time { margin-top: auto; align-self: flex-start; }
@@ -1419,26 +1425,26 @@
 
     <div class="process-grid">
       <article class="process-step is-zero">
-        <div class="process-top"><div class="process-num">0</div><div class="process-mini m0"><svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path class="pm-line pm-grey" d="M0,30 L8,48 L16,14 L24,44 L32,20 L40,52 L48,10 L56,40 L64,24 L72,50 L80,16 L88,46 L96,28 L104,54 L112,12 L120,42 L128,22 L136,50 L144,18 L152,44 L160,26 L168,52 L176,14 L184,40 L192,24 L200,34" vector-effect="non-scaling-stroke"/></svg></div></div>
+        <div class="process-top"><div class="process-num" aria-hidden="true">😩</div><div class="process-mini m0"><svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path class="pm-line pm-grey" d="M0,30 L8,48 L16,14 L24,44 L32,20 L40,52 L48,10 L56,40 L64,24 L72,50 L80,16 L88,46 L96,28 L104,54 L112,12 L120,42 L128,22 L136,50 L144,18 L152,44 L160,26 L168,52 L176,14 L184,40 L192,24 L200,34" vector-effect="non-scaling-stroke"/></svg></div></div>
         <h3 class="process-name" data-i18n="process.0.name">დღევანდელი რეალობა</h3>
         <p class="process-desc" data-i18n="process.0.desc">ქაოსი: ცხრილები, მიმოფანტული ჩატები, დავიწყებული ზარები და დაკარგული კლიენტები.</p>
         <span class="process-time" data-i18n="process.0.time">საწყისი წერტილი</span>
       </article>
       <article class="process-step is-top">
-        <div class="process-top"><div class="process-num">1</div><div class="process-mini m1"><svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="pmG1" x1="0" x2="1"><stop offset="0" stop-color="#6f6f6b"/><stop offset=".38" stop-color="#6f6f6b"/><stop offset=".62" stop-color="#C1FD3A"/><stop offset="1" stop-color="#C1FD3A"/></linearGradient></defs><path class="pm-line" stroke="url(#pmG1)" d="M0,40 L9,52 L18,30 L27,50 L36,34 L45,48 L54,38 C80,40 100,38 120,34 C150,29 175,24 200,16" vector-effect="non-scaling-stroke"/><circle class="pm-end" cx="196" cy="17" r="4"/></svg></div></div>
+        <div class="process-top"><div class="process-num" aria-hidden="true">💡</div><div class="process-mini m1"><svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="pmG1" x1="0" x2="1"><stop offset="0" stop-color="#6f6f6b"/><stop offset=".38" stop-color="#6f6f6b"/><stop offset=".62" stop-color="#C1FD3A"/><stop offset="1" stop-color="#C1FD3A"/></linearGradient></defs><path class="pm-line" stroke="url(#pmG1)" d="M0,40 L9,52 L18,30 L27,50 L36,34 L45,48 L54,38 C80,40 100,38 120,34 C150,29 175,24 200,16" vector-effect="non-scaling-stroke"/><circle class="pm-end" cx="196" cy="17" r="4"/></svg></div></div>
         <h3 class="process-name" data-i18n="process.1.name">კონსულტაცია</h3>
         <p class="process-desc" data-i18n="process.1.desc">ქაოსის ნაცვლად — ზუსტი გეგმა: რა ინსტრუმენტი, რა ვადაში და რა ბიუჯეტით.</p>
         <span class="process-time" data-i18n="process.1.time">პირველი ზარი · 20 წთ · უფასო</span>
         <a href="#final" class="btn btn-primary process-go"><span data-i18n="process.go">მოითხოვე ახლავე</span></a>
       </article>
       <article class="process-step">
-        <div class="process-top"><div class="process-num">2</div><div class="process-mini m2"><svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path class="pm-area" d="M0,54 L14,44 L22,50 L36,36 L46,43 L60,30 L70,38 L86,24 L96,33 L112,20 L122,29 L138,16 L150,25 L166,12 L176,19 L200,6 L200,60 L0,60 Z"/><path class="pm-line pm-lime" d="M0,54 L14,44 L22,50 L36,36 L46,43 L60,30 L70,38 L86,24 L96,33 L112,20 L122,29 L138,16 L150,25 L166,12 L176,19 L200,6" vector-effect="non-scaling-stroke"/></svg></div></div>
+        <div class="process-top"><div class="process-num" aria-hidden="true">💪</div><div class="process-mini m2"><svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path class="pm-area" d="M0,54 L14,44 L22,50 L36,36 L46,43 L60,30 L70,38 L86,24 L96,33 L112,20 L122,29 L138,16 L150,25 L166,12 L176,19 L200,6 L200,60 L0,60 Z"/><path class="pm-line pm-lime" d="M0,54 L14,44 L22,50 L36,36 L46,43 L60,30 L70,38 L86,24 L96,33 L112,20 L122,29 L138,16 L150,25 L166,12 L176,19 L200,6" vector-effect="non-scaling-stroke"/></svg></div></div>
         <h3 class="process-name" data-i18n="process.2.name">დანერგვა</h3>
         <p class="process-desc" data-i18n="process.2.desc">სისტემას მოკლე სპრინტებით ვაწყობთ და ბიზნესი ძლიერდება. პირველ შედეგს 1-2 კვირაში ხედავ.</p>
         <span class="process-time" data-i18n="process.2.time">სპრინტი · 1-2 კვირა</span>
       </article>
       <article class="process-step">
-        <div class="process-top"><div class="process-num">3</div><div class="process-mini m3"><svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path class="pm-area" d="M0,54 C60,52 110,46 150,30 C172,21 188,11 200,2 L200,60 L0,60 Z"/><path class="pm-line pm-lime" d="M0,54 C60,52 110,46 150,30 C172,21 188,11 200,2" vector-effect="non-scaling-stroke"/></svg></div></div>
+        <div class="process-top"><div class="process-num" aria-hidden="true">🤝</div><div class="process-mini m3"><svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path class="pm-area" d="M0,54 C60,52 110,46 150,30 C172,21 188,11 200,2 L200,60 L0,60 Z"/><path class="pm-line pm-lime" d="M0,54 C60,52 110,46 150,30 C172,21 188,11 200,2" vector-effect="non-scaling-stroke"/></svg></div></div>
         <h3 class="process-name" data-i18n="process.3.name">მხარდაჭერა</h3>
         <p class="process-desc" data-i18n="process.3.desc">სისტემა ბიზნესთან ერთად იზრდება და ზრდას ზღვარი არ აქვს.</p>
         <span class="process-time" data-i18n="process.3.time">მუდმივად · საჭიროებისამებრ</span>
