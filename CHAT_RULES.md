@@ -69,6 +69,8 @@ reaches CRM only if the CRM chat ports it, or the shared chat edits `crm.page.ht
 - City / Country from Cloudflare geo; Mobile normalised to +995XXXXXXXXX; Lead_Source in Zoho spelling
   (Linkedin, Youtube, …). "Email" is not in the Zoho Lead_Source picklist yet → retried as "Other" until it is added.
 - A single rejected field (INVALID_DATA) is retried without it (max 3); the adjustment is noted in the Description.
+- v65: Zoho picklist `Language` = Georgian for leads from the Georgian site (lang "ka" or none), English for "en".
+- Legal name in footers/consent texts is **Unity LLC** (one t) on every page; the brand stays Unitty.
 
 ## Build
 

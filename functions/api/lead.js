@@ -33,10 +33,13 @@
 //   - Mobile normalised to +995XXXXXXXXX (international numbers kept as +<digits>).
 //   - If Zoho rejects one field (INVALID_DATA), the lead is retried without that field (max 3 retries),
 //     so one bad value never loses the whole lead. Dropped fields are listed in the Description.
+//
+// v65 (2026-10-29, shared chat): Zoho picklist "Language" = Georgian for leads from the Georgian site
+//   (lang "ka", or no lang - all landings are Georgian only since v62), English for "en".
 
 const ZOHO_API_VERSION = "v6";
 const META_GRAPH_VERSION = "v21.0";
-const LEAD_JS_VERSION = "v64-2026-10-29";
+const LEAD_JS_VERSION = "v65-2026-10-29";
 const MAX_FIELD_RETRIES = 3;
 
 // landing -> Zoho Leads.Service (multi-select picklist values, confirmed 2026-10-29)
@@ -138,6 +141,7 @@ export async function onRequestPost(context) {
     utm_term: utm.utm_term,
     page_url: clip(attr.submission_url, 450),
     language_version: mapLanguageVersion(body.lang),
+    Language: mapLanguage(body.lang),         // Zoho picklist: Georgian / English
     first_touch: clip(JSON.stringify(attr.first_touch || {}), 2000),
 
     // landing version + full landing URL (fields created 2026-10-26)
@@ -359,6 +363,15 @@ function mapLanguageVersion(lang) {
   // the page stores en/ka/ru; the Zoho picklist expects En/Ka/Ru
   const map = { en: "En", ka: "Ka", ru: "Ru" };
   return map[String(lang || "").toLowerCase()] || "";
+}
+
+// Zoho Leads.Language picklist (Georgian / English). The landings are Georgian only (v62), so a missing
+// lang also means Georgian. Russian has no picklist value -> left empty.
+function mapLanguage(lang) {
+  const l = String(lang || "ka").toLowerCase();
+  if (l.startsWith("ka")) return "Georgian";
+  if (l.startsWith("en")) return "English";
+  return "";
 }
 
 function buildDescription(body, attr, server, meta = {}) {
