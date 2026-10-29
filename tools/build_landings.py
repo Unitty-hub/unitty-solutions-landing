@@ -19,7 +19,7 @@ TEMPLATE = ROOT / "public" / "index.html"
 LANDINGS = ROOT / "landings"
 I18N_RE = re.compile(r"const I18N = (\{.*?\});\n")
 PAINS_RE = re.compile(r"<!--PAINS-->.*?<!--/PAINS-->\n?", re.S)
-PAINS_BEFORE = "<!-- ============ CHAOS vs CLARITY ============ -->"
+PAINS_BEFORE = "<!-- ============ PROCESS (3 steps) ============ -->"
 CARD_RE = re.compile(r"<!--card:([\w-]+)-->\n(.*?)<!--/card-->", re.S)
 
 
@@ -177,7 +177,7 @@ def build(cfg, base):
             section = section.replace("{{BA_CLASS}}", " has-ba").replace("{{BA_ATTR}}", ' data-ba="before"').replace("{{BA_SWITCH}}", BA_SWITCH)
         else:
             section = section.replace("{{BA_CLASS}}", "").replace("{{BA_ATTR}}", "").replace("{{BA_SWITCH}}", "")
-        assert s.count(PAINS_BEFORE) == 1, "CHAOS vs CLARITY marker missing"
+        assert s.count(PAINS_BEFORE) == 1, "PROCESS marker missing"
         s = s.replace(PAINS_BEFORE, "<!--PAINS-->\n" + section + "<!--/PAINS-->\n" + PAINS_BEFORE)
         log(f"--- pain cards: {', '.join(pains)}")
 

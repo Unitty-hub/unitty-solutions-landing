@@ -22,11 +22,6 @@
       "en": "With 500+ implementations behind us, in 20 minutes we tell you which CRM fits your sales and what implementation costs. Free if you book now.",
       "ru": "Опираясь на 500+ внедрений, за 20 минут скажем, какая CRM подойдёт вашим продажам и сколько стоит внедрение. Бесплатно - если бронируете сейчас."
     },
-    "vs.sub": {
-      "ka": "შენ უკვე იხდი Excel-ის, მიმოფანტული ჩატების და დავიწყებული ზარების საფასურს. ერთი ზარი გაჩვენებს, როგორ გადავიდეს ყველაფერი ერთ სისტემაში.",
-      "en": "You're already paying for spreadsheets, scattered chats and forgotten follow-ups. One call shows you how to move everything into one system.",
-      "ru": "Вы уже платите за таблицы, разбросанные чаты и забытые перезвоны. Один звонок покажет, как собрать всё в одной системе."
-    },
     "final.sub": {
       "ka": "მოგვიყევი შენი გაყიდვების პროცესზე - ერთად შევარჩევთ CRM-ს, რომელიც მას მოერგება.",
       "en": "Tell us about your sales process - together we'll pick the CRM that fits it.",
@@ -736,7 +731,7 @@
   "inserts": [
     {
       "file": "crm.packages.html",
-      "before": "<!-- ============ PROCESS (3 steps) ============ -->"
+      "before": "<!-- ============ TESTIMONIALS (moved above Final CTA) ============ -->"
     }
   ],
   "seo": {
