@@ -1,6 +1,6 @@
 # Unitty landings: one chat per landing + one shared chat
 
-Updated 2026-10-29 (after the v61-v63 round). The project file `Landing Pages/chat-rules.md` is a copy of this file.
+Updated 2026-10-29 (after the v61-v64 round). The project file `Landing Pages/chat-rules.md` is a copy of this file.
 
 All landing chats live in the project **Unitty Sales Funnel** (folder "Landing Pages").
 Each chat starts by reading this file and `claude/landings-and-funnel-dashboards-handover.md`.
@@ -56,9 +56,19 @@ reaches CRM only if the CRM chat ports it, or the shared chat edits `crm.page.ht
 
 ## Thank-you page
 
-- Zoho Bookings embed is Giorgi's snippet 1:1 (v63): `bookings.nimbuspop.com/assets/embed.js` +
-  `Bookings.inlineEmbed` with `meet.unitty.io/portal-embed#/251936000000059094`, height 600px, no UTM parameters.
-  Do not change it without asking (bookings currently carry no source/UTM).
+- Zoho Bookings embed = Giorgi's snippet (v63) with approved changes (v64, 2026-10-29): laid out like unitty.io "Book a
+  call" — centred heading on navy, then a full-width grey band (#222228) with the calendar edge to edge (max 1280px) so
+  Zoho shows its 3 columns (info | date | time) on desktop; height 820px desktop / 1280px under 960px (Zoho stacks).
+  The URL carries source again (last-touch utm_*, page_url_bookings, language_version=Ka, landing_version) via
+  `bookingsUrl()`. Do not change it without asking. (A narrow 720px card was rejected: it forces Zoho's stacked layout.)
+
+## Lead API (`functions/api/lead.js`, v64)
+
+- Service (multi-select) by landing: crm → CRM, ai → AI, banks/solutions → Process Automation, start → Consulting
+  (landing read from `Landing_Version` prefix, then host/path).
+- City / Country from Cloudflare geo; Mobile normalised to +995XXXXXXXXX; Lead_Source in Zoho spelling
+  (Linkedin, Youtube, …). "Email" is not in the Zoho Lead_Source picklist yet → retried as "Other" until it is added.
+- A single rejected field (INVALID_DATA) is retried without it (max 3); the adjustment is noted in the Description.
 
 ## Build
 

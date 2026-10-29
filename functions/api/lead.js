@@ -23,9 +23,47 @@
 //   5. Sends a server-side "Lead" event to Meta with the same event_id as the browser Pixel
 //      (Meta deduplicates the pair), without delaying the response.
 //   6. Returns { ok: true, lead_id } or { ok: false, error }.
+//
+// v64 (2026-10-29, shared chat):
+//   - Service (multi-select) from the landing: crm -> CRM, ai -> AI, banks/solutions -> Process Automation,
+//     start -> Consulting.
+//   - City / Country from Cloudflare geo (request.cf), Country as an English name ("Georgia").
+//   - Lead_Source mapped to the Zoho picklist spelling (LinkedIn -> Linkedin, YouTube -> Youtube, ...).
+//     "Email" is not in the Zoho picklist yet: it is sent as "Email" and, if Zoho rejects it, retried as "Other".
+//   - Mobile normalised to +995XXXXXXXXX (international numbers kept as +<digits>).
+//   - If Zoho rejects one field (INVALID_DATA), the lead is retried without that field (max 3 retries),
+//     so one bad value never loses the whole lead. Dropped fields are listed in the Description.
 
 const ZOHO_API_VERSION = "v6";
 const META_GRAPH_VERSION = "v21.0";
+const LEAD_JS_VERSION = "v64-2026-10-29";
+const MAX_FIELD_RETRIES = 3;
+
+// landing -> Zoho Leads.Service (multi-select picklist values, confirmed 2026-10-29)
+const SERVICE_BY_LANDING = {
+  crm: "CRM",
+  ai: "AI",
+  banks: "Process Automation",
+  solutions: "Process Automation",
+  start: "Consulting",
+};
+
+// form "heardFrom" value -> Zoho Leads.Lead_Source picklist value (exact Zoho spelling)
+const LEAD_SOURCE_MAP = {
+  linkedin: "Linkedin",
+  facebook: "Facebook",
+  instagram: "Instagram",
+  youtube: "Youtube",
+  google: "Google",
+  ai: "AI",
+  email: "Email",            // not in the Zoho picklist yet -> falls back to "Other" on rejection
+  recommendation: "Recommendation",
+  tiktok: "Tiktok",
+  other: "Other",
+};
+const LEAD_SOURCE_FALLBACK = "Other";
+// never dropped on retry (Zoho mandatory / identity fields)
+const PROTECTED_FIELDS = ["Last_Name", "Email", "Mobile"];
 
 export async function onRequestPost(context) {
   const { request, env } = context;
@@ -53,7 +91,15 @@ export async function onRequestPost(context) {
     country: (request.cf && request.cf.country) || "",
     city: (request.cf && request.cf.city) || "",
   };
-  console.log(">>> lead received", JSON.stringify({ version: attr.landing_version, utm, fbclid: !!attr.fbclid, eid: body.event_id }));
+  const landing = detectLanding(body, attr);
+  const service = SERVICE_BY_LANDING[landing] || SERVICE_BY_LANDING.start;
+  const leadSource = mapLeadSource(body.heardFrom);
+  const mobile = normalizeMobile(body.phone);
+  console.log(">>> lead received", JSON.stringify({
+    lead_js: LEAD_JS_VERSION, landing, service, version: attr.landing_version, utm,
+    heardFrom: body.heardFrom, leadSource, fbclid: !!attr.fbclid, eid: body.event_id,
+    geo: `${server.country}/${server.city}`,
+  }));
 
   // 2. Refresh Zoho access token
   let accessToken;
@@ -76,10 +122,13 @@ export async function onRequestPost(context) {
     First_Name: firstName,
     Last_Name: lastName,
     Email: body.email,
-    Mobile: body.phone,
+    Mobile: mobile,
     Company: body.company,
-    Lead_Source: body.heardFrom,              // the "where did you hear about us" answer (self-reported)
-    Description: buildDescription(body, attr, server),
+    Lead_Source: leadSource,                  // the "where did you hear about us" answer, Zoho spelling
+    Service: [service],                       // multi-select picklist -> array
+    City: clip(server.city, 100),
+    Country: clip(countryName(server.country), 100),
+    Description: buildDescription(body, attr, server, { landing, service, leadSource }),
 
     // attribution - last-touch campaign (lowercase API names, as created on the Unitty org)
     utm_source: utm.utm_source,
@@ -111,23 +160,32 @@ export async function onRequestPost(context) {
     }
   }
 
-  // 4. POST to Zoho
-  const zohoRes = await fetch(
-    `${env.ZOHO_API_DOMAIN}/crm/${ZOHO_API_VERSION}/Leads`,
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Zoho-oauthtoken ${accessToken}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        data: [lead],
-        trigger: ["approval", "workflow", "blueprint"],
-      }),
-    }
-  );
+  // 4. POST to Zoho - on a single rejected field, retry without it (or with the fallback value)
+  let zohoRes, zohoBody;
+  const dropped = [];
+  const baseDescription = lead.Description || "";
+  for (let attempt = 0; attempt <= MAX_FIELD_RETRIES; attempt++) {
+    zohoRes = await postZohoLead(env, accessToken, lead);
+    zohoBody = await zohoRes.json().catch(() => ({}));
+    const rec = zohoBody?.data?.[0] || {};
+    if (zohoRes.ok && rec.status === "success") break;
 
-  const zohoBody = await zohoRes.json().catch(() => ({}));
+    const field = rec?.details?.api_name;
+    console.log("--- zoho rejected", JSON.stringify({ attempt, code: rec.code, field, message: rec.message }));
+    if (attempt === MAX_FIELD_RETRIES || !field || !(field in lead)) break;
+
+    if (field === "Lead_Source" && lead.Lead_Source !== LEAD_SOURCE_FALLBACK) {
+      dropped.push(`Lead_Source=${lead.Lead_Source} -> ${LEAD_SOURCE_FALLBACK}`);
+      lead.Lead_Source = LEAD_SOURCE_FALLBACK;
+    } else if (PROTECTED_FIELDS.includes(field)) {
+      break;                                   // cannot create a useful lead without it
+    } else {
+      dropped.push(`${field}=${clip(JSON.stringify(lead[field]), 120)}`);
+      delete lead[field];
+    }
+    lead.Description = baseDescription + `\n\n— ZOHO RETRY —\nRejected and adjusted: ${dropped.join("; ")}`;
+    console.log("*** retrying lead", JSON.stringify({ attempt: attempt + 1, dropped }));
+  }
 
   if (!zohoRes.ok || zohoBody?.data?.[0]?.status !== "success") {
     console.error("*** Zoho error:", JSON.stringify(zohoBody));
@@ -139,12 +197,12 @@ export async function onRequestPost(context) {
   }
 
   const leadId = zohoBody.data[0].details.id;
-  console.log("+++ zoho lead created", leadId);
+  console.log("+++ zoho lead created", leadId, dropped.length ? JSON.stringify({ dropped }) : "");
 
   // 5. Meta Conversions API - runs after the response, never blocks or fails the lead
   if (env.META_CAPI_TOKEN && body.event_id) {
     context.waitUntil(
-      sendMetaLead(env, body, attr, server, leadId).catch((e) => console.log("*** meta capi failed", e.message))
+      sendMetaLead(env, body, attr, server, leadId, leadSource).catch((e) => console.log("*** meta capi failed", e.message))
     );
   }
 
@@ -168,7 +226,65 @@ async function refreshZohoToken(env) {
   return data.access_token;
 }
 
-async function sendMetaLead(env, body, attr, server, leadId) {
+async function postZohoLead(env, accessToken, lead) {
+  return fetch(`${env.ZOHO_API_DOMAIN}/crm/${ZOHO_API_VERSION}/Leads`, {
+    method: "POST",
+    headers: {
+      Authorization: `Zoho-oauthtoken ${accessToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      data: [lead],
+      trigger: ["approval", "workflow", "blueprint"],
+    }),
+  });
+}
+
+// Which landing sent the lead: "crm-v75-2026-10-29" -> crm; else the host (crm.unitty.io) or path (/crm/).
+function detectLanding(body, attr) {
+  const known = Object.keys(SERVICE_BY_LANDING);
+  const fromVersion = String(attr.landing_version || "").toLowerCase().split("-v")[0];
+  if (known.includes(fromVersion)) return fromVersion;
+  const fromBody = String(body.landing || "").toLowerCase();
+  if (known.includes(fromBody)) return fromBody;
+  try {
+    const u = new URL(attr.submission_url || attr.landing_url || "");
+    const sub = u.hostname.split(".")[0];
+    if (known.includes(sub)) return sub;
+    const seg = u.pathname.split("/").filter(Boolean)[0];
+    if (known.includes(seg)) return seg;
+  } catch (e) {}
+  return "start";
+}
+
+function mapLeadSource(heardFrom) {
+  const key = String(heardFrom || "").trim().toLowerCase();
+  if (!key) return "";
+  return LEAD_SOURCE_MAP[key] || LEAD_SOURCE_FALLBACK;
+}
+
+// Zoho Mobile: +995XXXXXXXXX for Georgian numbers, +<digits> for international ones.
+function normalizeMobile(phone) {
+  const raw = String(phone || "").trim();
+  let d = raw.replace(/\D/g, "");
+  if (!d) return raw;
+  if (d.startsWith("00")) d = d.slice(2);
+  if (d.length === 9 && /^[235]/.test(d)) return "+995" + d;   // 5XX XXX XXX mobile, 32/2X landline
+  if (d.length === 12 && d.startsWith("995")) return "+" + d;
+  return "+" + d;
+}
+
+// "GE" -> "Georgia" (falls back to the code if Intl.DisplayNames is unavailable)
+function countryName(code) {
+  if (!code || code === "XX" || code === "T1") return "";
+  try {
+    return new Intl.DisplayNames(["en"], { type: "region" }).of(code) || code;
+  } catch (e) {
+    return code;
+  }
+}
+
+async function sendMetaLead(env, body, attr, server, leadId, leadSource) {
   const pixelId = env.META_PIXEL_ID || "1468998947504136";
   const { firstName, lastName } = splitFullName(body.fullName);
   const userData = {
@@ -177,6 +293,7 @@ async function sendMetaLead(env, body, attr, server, leadId) {
     fn: firstName ? [await sha256(firstName.trim().toLowerCase())] : undefined,
     ln: lastName ? [await sha256(lastName.trim().toLowerCase())] : undefined,
     country: server.country ? [await sha256(server.country.toLowerCase())] : undefined,
+    ct: server.city ? [await sha256(server.city.toLowerCase().replace(/[^a-z]/g, ""))] : undefined,
     external_id: [await sha256(String(leadId))],   // the Zoho Lead ID - lets later CRM events match this lead
     client_ip_address: server.ip || undefined,
     client_user_agent: server.userAgent || undefined,
@@ -191,7 +308,7 @@ async function sendMetaLead(env, body, attr, server, leadId) {
     event_source_url: attr.submission_url || undefined,
     user_data: userData,
     custom_data: {
-      lead_source: body.heardFrom || undefined,
+      lead_source: leadSource || body.heardFrom || undefined,
       landing_version: attr.landing_version || undefined,
       utm_campaign: (attr.utm || {}).utm_campaign || undefined,
     },
@@ -244,11 +361,12 @@ function mapLanguageVersion(lang) {
   return map[String(lang || "").toLowerCase()] || "";
 }
 
-function buildDescription(body, attr, server) {
+function buildDescription(body, attr, server, meta = {}) {
   const utm = attr.utm || {};
   const fu = attr.first_utm || {};
   const first = attr.first_touch || {};
   const lines = [
+    `Landing: ${meta.landing || "?"} | Service: ${meta.service || "?"} | lead.js ${LEAD_JS_VERSION}`,
     `Landing version: ${attr.landing_version || "?"}`,
     `Language: ${body.lang || "?"}`,
     `Hero headline: ${body.hero_variant || "default"}`,
@@ -263,7 +381,7 @@ function buildDescription(body, attr, server) {
     `Click IDs: ${JSON.stringify(attr.click_ids || {})}`,
     `First referrer: ${attr.first_referrer || "-"} | Last referrer: ${attr.referrer || "-"}`,
     `First touch time: ${first.ts || "-"}`,
-    `Heard from (self-reported): ${body.heardFrom || "-"}`,
+    `Heard from (self-reported): ${body.heardFrom || "-"} -> Lead_Source ${meta.leadSource || "-"}`,
     `Visitor: ${server.country || "-"} ${server.city || ""} | tz ${attr.tz || "-"} | screen ${attr.screen || "-"}`,
     `Meta event_id: ${body.event_id || "-"}`,
     "",

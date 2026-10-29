@@ -287,8 +287,17 @@
   .book-cta .selfbook-note { margin-inline: auto; justify-content: center; }
   .book-cta .selfbook-title { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; letter-spacing: 0; font-weight: 900; margin-bottom: 12px; }
   .book-cta .selfbook-note { font-size: 16px; margin-bottom: 40px; }
-  .bookings-card { text-align: left; }
-  #inline-container { min-height: 600px; }
+  /* v64: same structure as unitty.io "Book a call": centred heading on navy, then a full-bleed band in the
+     calendar's own grey, the calendar edge to edge so Zoho shows its 3-column layout (info | date | time)
+     on desktop; on phones Zoho stacks the columns and the embed gets more height. */
+  #bookings { padding-bottom: 0; }
+  .bookings-band {
+    background: #222228; border-block: 1px solid var(--line, rgba(255,255,255,.08));
+    margin-top: 8px;
+  }
+  .bookings-card { text-align: left; max-width: 1280px; margin-inline: auto; }
+  #inline-container { min-height: 820px; }
+  @media (max-width: 960px) { #inline-container { min-height: 1280px; } }
   #inline-container iframe { width: 100%; border: 0; display: block; }
   .bookings-fallback {
     padding: 28px; text-align: center;
@@ -606,22 +615,45 @@
     <div class="selfbook-eyebrow" data-i18n="ty.bookings.eyebrow">Pick a time now</div>
     <h2 class="selfbook-title" data-i18n="ty.bookings.title">Choose a slot that works for you</h2>
     <p class="selfbook-note" data-i18n="ty.bookings.note">Confirmation and the Google Meet link land in your inbox immediately.</p>
+   </div>
+  </div>
+  <div class="bookings-band">
     <div class="bookings-card">
       <div id="inline-container"></div>
     </div>
-   </div>
   </div>
 </section>
 
-<!-- v63: Zoho Bookings embed exactly as supplied by Giorgi (2026-10-29), no UTM parameters -->
+<!-- v64: Giorgi's Zoho Bookings snippet (v63), laid out like unitty.io (full-bleed band), height 820px desktop /
+     1280px phones (stacked), + source/UTM parameters back on the URL
+     (approved by Giorgi 2026-10-29): last-touch utm_*, page_url_bookings, language_version. -->
 <script src="https://bookings.nimbuspop.com/assets/embed.js"></script>
 <script>
+	function bookingsUrl() {
+		var base = "https://meet.unitty.io/portal-embed#/251936000000059094";
+		var q = new URLSearchParams();
+		try {
+			var here = new URLSearchParams(location.search);
+			var attr = window.UnittyTracking ? window.UnittyTracking.getAttribution() : {};
+			var utm = attr.utm || {};
+			['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+				var v = here.get(k) || utm[k];
+				if (v) q.set(k, v);
+			});
+			q.set('page_url_bookings', location.href);
+			q.set('language_version', 'Ka');
+			if (attr.landing_version || here.get('v')) q.set('landing_version', here.get('v') || attr.landing_version);
+		} catch (e) { console.info('*** bookings utm skipped', e); }
+		var s = q.toString();
+		console.info('>>> bookings url params', s);
+		return s ? base + '?' + s : base;
+	}
 	// Initialize inline embed after script loads
 	window.onload = function() {
 		Bookings.inlineEmbed({
-			url: "https://meet.unitty.io/portal-embed#/251936000000059094",
+			url: bookingsUrl(),
 			parent: "#inline-container",
-			height: "600px"
+			height: window.innerWidth > 960 ? "820px" : "1280px"
 		});
 	};
 </script>
