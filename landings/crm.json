@@ -1,6 +1,6 @@
 {
   "name": "crm",
-  "description": "შეარჩიე სწორი CRM და დაზოგე 100+ საათი. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo: დანერგვა 5 დღიდან, ფიქსირებული ფასით. უფასო 20-წუთიანი ზარი.",
+  "description": "CRM-ის შერჩევა და დანერგვა 5 დღიდან: ყველა კლიენტი ერთ სისტემაში. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo, ფიქსირებული ფასით. უფასო 20-წუთიანი ზარი.",
   "pains": [
     "crmexcel",
     "crmchaos",
@@ -13,14 +13,14 @@
       "ru": "Unitty CRM"
     },
     "hero.headline.line1": {
-      "ka": "შეარჩიე სწორი CRM",
-      "en": "Choose the right CRM",
-      "ru": "Выберите правильную CRM"
+      "ka": "CRM-ის შერჩევა და დანერგვა",
+      "en": "CRM selection and implementation",
+      "ru": "Подбор и внедрение CRM"
     },
     "hero.sub": {
-      "ka": "500+ დანერგვის გამოცდილებით, 20 წუთში გეტყვი, რომელი CRM მოერგება შენს გაყიდვებს და რა დაჯდება დანერგვა. უფასოდ - თუ ახლავე დაჯავშნი.",
-      "en": "With 500+ implementations behind us, in 20 minutes we tell you which CRM fits your sales and what implementation costs. Free if you book now.",
-      "ru": "Опираясь на 500+ внедрений, за 20 минут скажем, какая CRM подойдёт вашим продажам и сколько стоит внедрение. Бесплатно - если бронируете сейчас."
+      "ka": "ვარჩევთ შენს გაყიდვებზე მორგებულ CRM-ს, ვაწყობთ, გადმოგვაქვს მონაცემები, ვატრენინგებთ გუნდს და ვრჩებით მხარდაჭერისთვის. 500+ დანერგვა, ფიქსირებული ფასი და ვადა. 20-წუთიანი ზარი უფასოა, თუ ახლავე დაჯავშნი.",
+      "en": "We pick the CRM that fits your sales, set it up, move your data, train your team and stay on for support. 500+ implementations, fixed price and timeline. The 20-minute call is free if you book now.",
+      "ru": "Подберём CRM под ваши продажи, настроим, перенесём данные, обучим команду и останемся на поддержке. 500+ внедрений, фиксированные цена и сроки. 20-минутный звонок бесплатный, если забронируете сейчас."
     },
     "final.sub": {
       "ka": "მოგვიყევი შენი გაყიდვების პროცესზე - ერთად შევარჩევთ CRM-ს, რომელიც მას მოერგება.",
@@ -28,19 +28,19 @@
       "ru": "Расскажите о вашем процессе продаж - вместе подберём CRM, которая ему подойдёт."
     },
     "hero.headline.line2.accent": {
-      "ka": "და დაზოგე",
-      "en": "and save",
-      "ru": "и сэкономьте"
+      "ka": "5 დღიდან:",
+      "en": "from 5 days:",
+      "ru": "от 5 дней:"
     },
     "hero.headline.line2.plain": {
-      "ka": "",
-      "en": "",
-      "ru": ""
+      "ka": "ყველა კლიენტი",
+      "en": "every client",
+      "ru": "все клиенты"
     },
     "hero.headline.line3.underline": {
-      "ka": "100+ საათი",
-      "en": "100+ hours",
-      "ru": "100+ часов"
+      "ka": "ერთ სისტემაში",
+      "en": "in one system",
+      "ru": "в одной системе"
     },
     "hero.headline.line3.plain": {
       "ka": "",
@@ -731,6 +731,11 @@
       "ka": "Discovery ზარის ავტომატური დაჯავშნა",
       "en": "Discovery call auto-scheduling",
       "ru": "Автозапись на discovery-звонок"
+    },
+    "hero.sub.free": {
+      "ka": "უფასოა, თუ ახლავე დაჯავშნი.",
+      "en": "free if you book now.",
+      "ru": "бесплатный, если забронируете сейчас."
     }
   },
   "inserts": [
@@ -747,9 +752,9 @@
       "ru": "Подбор и внедрение CRM в Грузии | Unitty"
     },
     "description": {
-      "ka": "შეარჩიე სწორი CRM და დაზოგე 100+ საათი. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo: დანერგვა 5 დღიდან, ფიქსირებული ფასით. უფასო 20-წუთიანი ზარი.",
-      "en": "Choose the right CRM and save 100+ hours. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo: implementation from 5 days at a fixed price. Free 20-minute call.",
-      "ru": "Выберите правильную CRM и сэкономьте 100+ часов. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo: внедрение от 5 дней по фиксированной цене. Бесплатный 20-минутный звонок."
+      "ka": "CRM-ის შერჩევა და დანერგვა 5 დღიდან: ყველა კლიენტი ერთ სისტემაში. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo, ფიქსირებული ფასით. უფასო 20-წუთიანი ზარი.",
+      "en": "CRM selection and implementation from 5 days: every client in one system. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo at a fixed price. Free 20-minute call.",
+      "ru": "Подбор и внедрение CRM от 5 дней: все клиенты в одной системе. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo по фиксированной цене. Бесплатный 20-минутный звонок."
     },
     "service": "CRM selection and implementation"
   },
