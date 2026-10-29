@@ -1,6 +1,6 @@
 {
   "name": "crm",
-  "version": "v56-2026-10-29",
+  "version": "v57-2026-10-29",
   "description": "CRM-ის შერჩევა და დანერგვა 5 დღიდან: ყველა კლიენტი ერთ სისტემაში. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo, ფიქსირებული ფასით. უფასო 20-წუთიანი ზარი.",
   "pains": [
     "crmexcel",
@@ -19,9 +19,9 @@
       "ru": "Подберём и внедрим"
     },
     "hero.sub": {
-      "ka": "დაგინერგავთ სწორ CRM სისტემას, დავატრეინინგებთ შენს გუნდს და გაგიწევთ ტექნიკურ მხარდაჭერას. მოითხოვე 20-წუთიანი უფასო კონსულტაცია და გეტყვი, კონკრეტულად რომელი CRM გჭირდება. სრული სერვისი: შერჩევა → დანერგვა → სწავლება → მხარდაჭერა.",
-      "en": "We implement the right CRM, train your team and provide technical support. Request a free 20-minute consultation and I'll tell you exactly which CRM you need. Full service: selection → implementation → training → support.",
-      "ru": "Внедрим правильную CRM, обучим вашу команду и обеспечим техническую поддержку. Запросите бесплатную 20-минутную консультацию, и я скажу, какая именно CRM вам нужна. Полный сервис: подбор → внедрение → обучение → поддержка."
+      "ka": "მოითხოვე 20-წუთიანი უფასო კონსულტაცია და გეტყვი, კონკრეტულად რომელი CRM გჭირდება. AI სერვისები და სრული პროცესის მართვა: შერჩევა → დანერგვა → სწავლება → მხარდაჭერის ჩათვლით.",
+      "en": "Request a free 20-minute consultation and I'll tell you exactly which CRM you need. AI services and full process management: selection → implementation → training → support included.",
+      "ru": "Запросите бесплатную 20-минутную консультацию, и я скажу, какая именно CRM вам нужна. AI-сервисы и управление всем процессом: подбор → внедрение → обучение → поддержка включительно."
     },
     "final.sub": {
       "ka": "მოგვიყევი შენი გაყიდვების პროცესზე - ერთად შევარჩევთ CRM-ს, რომელიც მას მოერგება.",
