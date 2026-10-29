@@ -1,2 +1,6 @@
-<!-- crm.unitty.io only: the CRM headline uses two lines, so the empty third-line spans are hidden (no gap under the headline). -->
-<style>.hero-headline .underline:empty, .hero-headline span:empty { display: none; }</style>
+<!-- crm.unitty.io only: the CRM headline uses two lines, so the empty third-line spans are hidden (no gap under the headline);
+     the "only 3 slots left" eyebrow is not shown on CRM (crm-v59). -->
+<style>
+  .hero-headline .underline:empty, .hero-headline span:empty { display: none; }
+  .eyebrow:has([data-i18n="hero.eyebrow"]) { display: none; }
+</style>

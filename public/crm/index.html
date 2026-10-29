@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="unitty-landing" content="crm">
-<meta name="unitty-version" content="v58-2026-10-29">
+<meta name="unitty-version" content="v59-2026-10-29">
 <title data-i18n="seo.title">CRM-ის შერჩევა და დანერგვა საქართველოში | Unitty</title>
 <meta name="description" content="CRM-ის შერჩევა და დანერგვა 5 დღიდან: ყველა კლიენტი ერთ სისტემაში. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo, ფიქსირებული ფასით. უფასო 20-წუთიანი ზარი.">
 <!--SEO-->
@@ -1390,8 +1390,12 @@
   </div>
 </header>
 
-<!-- crm.unitty.io only: the CRM headline uses two lines, so the empty third-line spans are hidden (no gap under the headline). -->
-<style>.hero-headline .underline:empty, .hero-headline span:empty { display: none; }</style>
+<!-- crm.unitty.io only: the CRM headline uses two lines, so the empty third-line spans are hidden (no gap under the headline);
+     the "only 3 slots left" eyebrow is not shown on CRM (crm-v59). -->
+<style>
+  .hero-headline .underline:empty, .hero-headline span:empty { display: none; }
+  .eyebrow:has([data-i18n="hero.eyebrow"]) { display: none; }
+</style>
 <!-- ============ TRUST BAR ============ -->
 <section class="trust-bar">
   <div class="wrap trust-grid">

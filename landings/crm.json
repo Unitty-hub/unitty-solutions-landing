@@ -1,6 +1,6 @@
 {
   "name": "crm",
-  "version": "v58-2026-10-29",
+  "version": "v59-2026-10-29",
   "description": "CRM-ის შერჩევა და დანერგვა 5 დღიდან: ყველა კლიენტი ერთ სისტემაში. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo, ფიქსირებული ფასით. უფასო 20-წუთიანი ზარი.",
   "pains": [],
   "i18n": {
