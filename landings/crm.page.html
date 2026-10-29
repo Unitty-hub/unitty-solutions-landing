@@ -706,6 +706,9 @@ dialog p{color:var(--dim)}
 .story .rail,.story .story-progress{display:none!important}
 .story .chap{grid-template-rows:1fr auto}
 .story .stage{aspect-ratio:auto!important;height:330px!important;max-height:none!important}
+.story .lose{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px}
+.story .lose li{position:relative;padding-left:30px;color:var(--fg);font-size:16px;line-height:1.4}
+.story .lose li::before{content:"";position:absolute;left:0;top:.05em;width:20px;height:20px;border-radius:50%;background:rgba(255,77,77,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.5 6.5l7 7M13.5 6.5l-7 7' stroke='%23ff4d4d' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") center/20px no-repeat}
 .story .story-intro{padding-bottom:40px}
 @media(min-width:1024px){.story .story-intro{padding-bottom:56px}}
 @media(min-width:1024px){.story .sticky-in{grid-auto-flow:row;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible}}
@@ -779,7 +782,7 @@ dialog p{color:var(--dim)}
         <article class="chap" data-chap="0">
           <div class="chap-text">
             <div class="state-txt">
-              <div class="s-bad"><span class="tag">პრობლემა</span><h3>Excel</h3><p>ანელებს პროცესებს, ქმნის უსაფრთხოების რისკებს და აფერხებს ზრდას.</p></div>
+              <div class="s-bad"><span class="tag">პრობლემა</span><h3>Excel</h3><ul class="lose"><li>ანელებს პროცესებს</li><li>ქმნის უსაფრთხოების რისკებს</li><li>აფერხებს ზრდას</li></ul></div>
               <div class="s-good"><span class="tag">Unitty-სთან</span><h3>ყველა გარიგება ერთ სისტემაში</h3><p>ყოველი კლიენტი ეტაპით, თანხით და პასუხისმგებლით.</p></div>
             </div>
             <div class="seg" role="group" aria-label="მდგომარეობა"><button class="b-bad" type="button">ადრე</button><button class="b-good" type="button">CRM-ით</button></div>
@@ -816,7 +819,7 @@ dialog p{color:var(--dim)}
         <article class="chap" data-chap="1">
           <div class="chap-text">
             <div class="state-txt">
-              <div class="s-bad"><span class="tag">პრობლემა</span><h3>არასისტემური მუშაობა</h3><p>ქმნის ქაოსს და უმართავ პროცესებს.</p></div>
+              <div class="s-bad"><span class="tag">პრობლემა</span><h3>არასისტემური მუშაობა</h3><ul class="lose"><li>ქმნის ქაოსს</li><li>ქმნის უმართავ პროცესებს</li></ul></div>
               <div class="s-good"><span class="tag">Unitty-სთან</span><h3>ყველა ნაბიჯი წესით და დროზე</h3><p>CRM ლიდს ანაწილებს და follow-up-ს დროზე გახსენებს.</p></div>
             </div>
             <div class="seg" role="group" aria-label="მდგომარეობა"><button class="b-bad" type="button">ადრე</button><button class="b-good" type="button">CRM-ით</button></div>
@@ -844,7 +847,7 @@ dialog p{color:var(--dim)}
         <article class="chap" data-chap="2">
           <div class="chap-text">
             <div class="state-txt">
-              <div class="s-bad"><span class="tag">პრობლემა</span><h3>გაფანტული მონაცემებით</h3><p>ვიღებთ არასწორ გადაწყვეტილებებს.</p></div>
+              <div class="s-bad"><span class="tag">პრობლემა</span><h3>გაფანტული მონაცემებით</h3><ul class="lose"><li>ვიღებთ არასწორ გადაწყვეტილებებს</li></ul></div>
               <div class="s-good"><span class="tag">Unitty-სთან</span><h3>ზუსტი ციფრები ერთ დეშბორდზე</h3><p>შემოსავალი და კონვერსია რეალურ დროში.</p></div>
             </div>
             <div class="seg" role="group" aria-label="მდგომარეობა"><button class="b-bad" type="button">ადრე</button><button class="b-good" type="button">CRM-ით</button></div>
