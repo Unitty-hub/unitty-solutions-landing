@@ -147,11 +147,6 @@
       "en": "The CRM account and all data are registered to your company and stay fully yours. You can export your data at any time. Anything we host on our side is a transparent monthly subscription you can cancel at any time.",
       "ru": "Аккаунт CRM и все данные зарегистрированы на вашу компанию и полностью принадлежат вам. Экспортировать данные можно в любой момент. Всё, что мы размещаем на своей стороне, - прозрачная ежемесячная подписка, которую можно отменить в любое время."
     },
-    "process.note": {
-      "ka": "პაკეტების ფასი ფიქსირებულია. რომელი გჭირდება, ზარზე ერთად დავაზუსტებთ.",
-      "en": "Package prices are fixed. We confirm the right one together on the call.",
-      "ru": "Цены пакетов фиксированы. Какой подходит, уточним вместе на звонке."
-    },
     "seo.title": {
       "ka": "CRM-ის შერჩევა და დანერგვა საქართველოში | Unitty",
       "en": "CRM selection and implementation in Georgia | Unitty",
@@ -178,9 +173,9 @@
       "ru": "Скидка действует 1 неделю с момента отправки предложения."
     },
     "pk.once": {
-      "ka": "ერთჯერადად, + დღგ",
-      "en": "one-time, + VAT",
-      "ru": "разово, + НДС"
+      "ka": "ერთჯერადად",
+      "en": "one-time",
+      "ru": "разово"
     },
     "pk.days": {
       "ka": "სამუშაო დღე",

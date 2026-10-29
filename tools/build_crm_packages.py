@@ -40,7 +40,7 @@ UI = {
     "pk.deal": T("ფასდაკლება მოქმედებს ოფერის გაგზავნიდან 1 კვირის განმავლობაში.",
                   "Discount valid for 1 week from the day the offer is sent.",
                   "Скидка действует 1 неделю с момента отправки предложения."),
-    "pk.once": T("ერთჯერადად, + დღგ", "one-time, + VAT", "разово, + НДС"),
+    "pk.once": T("ერთჯერადად", "one-time", "разово"),
     "pk.days": T("სამუშაო დღე", "working days", "рабочих дней"),
     "pk.full": T("სრული ჩამონათვალი", "Everything included", "Всё, что входит"),
     "pk.choose": T("ამ პაკეტის არჩევა", "Choose this package", "Выбрать этот пакет"),
@@ -115,7 +115,7 @@ def main():
         {badge}
         <h3 class="pk-name" data-i18n="pk.{pid}.name">{esc(p["name"]["en"])}</h3>
         <p class="pk-for" data-i18n="pk.{pid}.short">{esc(p["short"]["en"])}</p>
-        <p class="pk-price">{was_html(p)}{price_span(p["price"], "pk-amount")}<span class="pk-once" data-i18n="pk.once">one-time, + VAT</span></p>{deal_html(p)}
+        <p class="pk-price">{was_html(p)}{price_span(p["price"], "pk-amount")}<span class="pk-once" data-i18n="pk.once">one-time</span></p>{deal_html(p)}
         <p class="pk-time"><b>{p["days"]}</b> <span data-i18n="pk.days">working days</span></p>
         <ul class="pk-hl">{"".join(hl)}</ul>
         <button type="button" class="btn pk-choose" data-pk="{pid}" aria-pressed="false"><span class="pk-choose-off" data-i18n="pk.choose">Choose this package</span><span class="pk-choose-on" data-i18n="pk.chosen">Selected</span></button>
@@ -193,7 +193,7 @@ def main():
   .pk-full ul {{ list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 10px; }}
   .pk-full li.pk-base {{ padding-left: 0; color: var(--fg-dim); font-weight: 600; }}
   .pk-full li.pk-base::before {{ display: none; }}
-  .pk-note {{ margin: 14px 0 0; font-size: 14px; line-height: 1.5; color: var(--fg-dim); }}
+  .pk-note {{ margin: 18px auto 0; max-width: 640px; text-align: center; font-size: 14px; line-height: 1.5; color: var(--fg-dim); }}
 
   .ao {{ margin-top: 24px; border-radius: 20px; background: var(--surface); border: 1px solid var(--border); }}
   .ao > summary {{ list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr 32px; align-items: center; gap: 4px 12px; padding: 18px 20px; min-height: 64px; }}

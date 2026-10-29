@@ -48,7 +48,7 @@
   .pk-full ul { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 10px; }
   .pk-full li.pk-base { padding-left: 0; color: var(--fg-dim); font-weight: 600; }
   .pk-full li.pk-base::before { display: none; }
-  .pk-note { margin: 14px 0 0; font-size: 14px; line-height: 1.5; color: var(--fg-dim); }
+  .pk-note { margin: 18px auto 0; max-width: 640px; text-align: center; font-size: 14px; line-height: 1.5; color: var(--fg-dim); }
 
   .ao { margin-top: 24px; border-radius: 20px; background: var(--surface); border: 1px solid var(--border); }
   .ao > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr 32px; align-items: center; gap: 4px 12px; padding: 18px 20px; min-height: 64px; }
@@ -128,7 +128,7 @@
         
         <h3 class="pk-name" data-i18n="pk.starter.name">Starter</h3>
         <p class="pk-for" data-i18n="pk.starter.short">To move from Excel into a CRM</p>
-        <p class="pk-price"><span class="pk-amount" data-eur="990">€990</span><span class="pk-once" data-i18n="pk.once">one-time, + VAT</span></p>
+        <p class="pk-price"><span class="pk-amount" data-eur="990">€990</span><span class="pk-once" data-i18n="pk.once">one-time</span></p>
         <p class="pk-time"><b>5</b> <span data-i18n="pk.days">working days</span></p>
         <ul class="pk-hl"><li data-i18n="pk.starter.h1">4 core modules</li><li data-i18n="pk.starter.h2">Email and Facebook inside the CRM</li><li data-i18n="pk.starter.h3">Lead form and KPI dashboard</li></ul>
         <button type="button" class="btn pk-choose" data-pk="starter" aria-pressed="false"><span class="pk-choose-off" data-i18n="pk.choose">Choose this package</span><span class="pk-choose-on" data-i18n="pk.chosen">Selected</span></button>
@@ -141,7 +141,7 @@
         <span class="pk-badge" data-i18n="pk.popular">Most popular</span>
         <h3 class="pk-name" data-i18n="pk.essentials.name">Essentials</h3>
         <p class="pk-for" data-i18n="pk.essentials.short">For a 5-10 person sales team</p>
-        <p class="pk-price"><span class="pk-was-row"><s class="pk-was" data-eur="2499">€2,499</s><span class="pk-off">-20%</span></span><span class="pk-amount" data-eur="1999">€1,999</span><span class="pk-once" data-i18n="pk.once">one-time, + VAT</span></p>
+        <p class="pk-price"><span class="pk-was-row"><s class="pk-was" data-eur="2499">€2,499</s><span class="pk-off">-20%</span></span><span class="pk-amount" data-eur="1999">€1,999</span><span class="pk-once" data-i18n="pk.once">one-time</span></p>
         <p class="pk-deal" data-i18n="pk.deal">Discount valid for 1 week from the day the offer is sent.</p>
         <p class="pk-time"><b>15</b> <span data-i18n="pk.days">working days</span></p>
         <ul class="pk-hl"><li data-i18n="pk.essentials.h1">Everything in Starter</li><li data-i18n="pk.essentials.h2">Meta and Google Ads leads, automatically</li><li data-i18n="pk.essentials.h3">Stage rules and lead assignment</li></ul>
@@ -155,7 +155,7 @@
         
         <h3 class="pk-name" data-i18n="pk.growth.name">Growth</h3>
         <p class="pk-for" data-i18n="pk.growth.short">For a growing 15-25 person team</p>
-        <p class="pk-price"><span class="pk-amount" data-eur="5990">€5,990</span><span class="pk-once" data-i18n="pk.once">one-time, + VAT</span></p>
+        <p class="pk-price"><span class="pk-amount" data-eur="5990">€5,990</span><span class="pk-once" data-i18n="pk.once">one-time</span></p>
         <p class="pk-time"><b>25</b> <span data-i18n="pk.days">working days</span></p>
         <ul class="pk-hl"><li data-i18n="pk.growth.h1">Everything in Essentials</li><li data-i18n="pk.growth.h2">Telephony and call processing</li><li data-i18n="pk.growth.h3">Automations and AI (Claude)</li></ul>
         <button type="button" class="btn pk-choose" data-pk="growth" aria-pressed="false"><span class="pk-choose-off" data-i18n="pk.choose">Choose this package</span><span class="pk-choose-on" data-i18n="pk.chosen">Selected</span></button>
