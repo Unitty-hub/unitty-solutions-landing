@@ -187,6 +187,16 @@ img,svg{max-width:100%}
 .partners{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;padding-block:22px;border-top:1px solid var(--line)}
 .partners .lbl{font:500 12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-right:6px}
 .partners .p{font-weight:700;font-size:15px;color:var(--dim);letter-spacing:-.01em}
+/* crm-v65: moving partner logos (like the previous version's logo strip, smaller) */
+.partners{flex-wrap:nowrap}
+.pmarq{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.ptrack{display:flex;align-items:center;gap:44px;width:max-content;animation:pscroll 36s linear infinite}
+.ptrack img{height:20px;width:auto;flex:none;filter:brightness(0) invert(1);opacity:.6}
+.ptrack img[src*="zoho"]{height:30px}
+@keyframes pscroll{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 22px))}}
+.pmarq:hover .ptrack{animation-play-state:paused}
+@media(max-width:640px){.partners{flex-direction:column;align-items:flex-start;gap:12px}.pmarq{width:100%}.ptrack img{height:18px}.ptrack{gap:36px}}
+@media(prefers-reduced-motion:reduce){.ptrack{animation:none}}
 
 /* sections */
 .sec{padding-block:88px}
@@ -387,6 +397,14 @@ img,svg{max-width:100%}
 
 /* testimonials */
 .testi{display:grid;gap:24px}
+/* crm-v65: all three testimonials visible at once, with client photos */
+.tgrid{display:grid;gap:16px}
+@media(min-width:900px){.tgrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}}
+.tq{margin:0;display:flex;flex-direction:column;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:24px 22px}
+.tq .qmark{font-size:96px;height:42px;margin-bottom:0}
+.tq blockquote{margin:0;flex:1;font-size:16px;line-height:1.6;font-weight:500;color:var(--fg);text-wrap:pretty}
+.tq .who{padding-top:16px;border-top:1px solid var(--line)}
+.tq .who img.av{object-fit:cover;background:var(--surface-3)}
 @media(min-width:1024px){.testi{grid-template-columns:minmax(0,.55fr) minmax(0,1.45fr);gap:56px;align-items:start}}
 .qwrap{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:28px 22px 24px;min-height:340px;display:grid;overflow:hidden}
 @media(min-width:768px){.qwrap{padding:48px 48px 36px}}
@@ -708,7 +726,7 @@ dialog p{color:var(--dim)}
       <div class="stat"><span class="n"><span class="cnt" data-to="100">100</span><em>+</em></span><span class="l">ინსტრუმენტი და ინტეგრაცია</span></div>
       <div class="stat"><span class="n"><span class="cnt" data-to="4.9" data-dec="1">4.9</span><em>★</em></span><span class="l">LinkedIn, Google, G2</span></div>
     </div>
-    <div class="partners"><span class="lbl">სერტიფიცირებული პარტნიორი</span><span class="p">Zoho</span><span class="p">Pipedrive</span><span class="p">Kommo</span><span class="p">monday.com</span><span class="p">Bitrix24</span><span class="p">Odoo</span></div>
+    <div class="partners"><span class="lbl">სერტიფიცირებული პარტნიორი</span><div class="pmarq"><div class="ptrack"><img src="/logos/platforms/zoho-crm.svg" alt="Zoho CRM" loading="lazy" decoding="async"><img src="/logos/platforms/pipedrive.svg" alt="Pipedrive" loading="lazy" decoding="async"><img src="/logos/platforms/kommo.svg" alt="Kommo" loading="lazy" decoding="async"><img src="/logos/platforms/monday-crm.svg" alt="monday.com" loading="lazy" decoding="async"><img src="/logos/platforms/bitrix24.svg" alt="Bitrix24" loading="lazy" decoding="async"><img src="/logos/platforms/odoo.svg" alt="Odoo" loading="lazy" decoding="async"><img src="/logos/platforms/zoho-crm.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/pipedrive.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/kommo.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/monday-crm.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/bitrix24.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/odoo.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/zoho-crm.svg" alt="Zoho CRM" loading="lazy" decoding="async"><img src="/logos/platforms/pipedrive.svg" alt="Pipedrive" loading="lazy" decoding="async"><img src="/logos/platforms/kommo.svg" alt="Kommo" loading="lazy" decoding="async"><img src="/logos/platforms/monday-crm.svg" alt="monday.com" loading="lazy" decoding="async"><img src="/logos/platforms/bitrix24.svg" alt="Bitrix24" loading="lazy" decoding="async"><img src="/logos/platforms/odoo.svg" alt="Odoo" loading="lazy" decoding="async"><img src="/logos/platforms/zoho-crm.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/pipedrive.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/kommo.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/monday-crm.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/bitrix24.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img src="/logos/platforms/odoo.svg" alt="" aria-hidden="true" loading="lazy" decoding="async"></div></div></div>
   </div>
 </section>
 
@@ -949,26 +967,21 @@ dialog p{color:var(--dim)}
 
 <!-- 7. SOCIAL PROOF -->
 <section class="sec" id="reviews" aria-labelledby="revH">
-  <div class="wrap testi" id="testi">
-    <div class="sec-head rv" style="margin-bottom:0">
+  <div class="wrap">
+    <div class="sec-head rv">
       <span class="kicker">კლიენტები</span>
       <h2 class="display h2" id="revH">რას ამბობენ ჩვენზე</h2>
-      <div class="qnav" role="tablist" aria-label="შეფასებები" id="qnav">
-        <button role="tab" aria-selected="true" aria-controls="q0" id="qt0">GREA <small>5 წლის პარტნიორი</small><span class="bar"></span></button>
-        <button role="tab" aria-selected="false" aria-controls="q1" id="qt1" tabindex="-1">Syniotec <small>CRM ოპერაციებისთვის</small><span class="bar"></span></button>
-        <button role="tab" aria-selected="false" aria-controls="q2" id="qt2" tabindex="-1">Identomat <small>გაყიდვები და კლიენტები</small><span class="bar"></span></button>
-      </div>
     </div>
-    <div class="qwrap rv">
-      <div class="quote cur" id="q0" role="tabpanel" aria-labelledby="qt0"><span class="qmark" aria-hidden="true">“</span>
+    <div class="tgrid">
+      <figure class="tq rv"><span class="qmark" aria-hidden="true">“</span>
         <blockquote>„Unitty-სთან უკვე 5 წელია ვთანამშრომლობთ. კომპანიის ზრდის თითოეულ ეტაპზე, სწორედ ისინი ქმნიან და ავითარებენ ჩვენი გაყიდვების მთელ ინფრასტრუქტურას.“</blockquote>
-        <div class="who"><span class="av" aria-hidden="true">ნა</span><span><b>ნინო აბსანძე</b><span>CEO · GREA</span></span></div></div>
-      <div class="quote" id="q1" role="tabpanel" aria-labelledby="qt1"><span class="qmark" aria-hidden="true">“</span>
+        <figcaption class="who"><img class="av" src="/client-nino.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"><span><b>ნინო აბსანძე</b><span>CEO · GREA</span></span></figcaption></figure>
+      <figure class="tq rv"><span class="qmark" aria-hidden="true">“</span>
         <blockquote>„საიმედო CRM ჩვენი საოპერაციო პროცესების საფუძველია. Unitty-მ ყველაფერი ზედმეტი სირთულეების გარეშე გაგვიმართა - ახლა სისტემა გუნდების საქმიანობის სრულ და გამჭვირვალე სურათს გვაძლევს.“</blockquote>
-        <div class="who"><span class="av" aria-hidden="true">რჩ</span><span><b>რეზი ჩიკვილაძე</b><span>CEO · Syniotec</span></span></div></div>
-      <div class="quote" id="q2" role="tabpanel" aria-labelledby="qt2"><span class="qmark" aria-hidden="true">“</span>
+        <figcaption class="who"><img class="av" src="/client-zurab.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"><span><b>რეზი ჩიკვილაძე</b><span>CEO · Syniotec</span></span></figcaption></figure>
+      <figure class="tq rv"><span class="qmark" aria-hidden="true">“</span>
         <blockquote>„ხარისხიანი CRM ნებისმიერი მზარდი კომპანიის საყრდენია. Unitty-მ ეს საყრდენი ბევრად უფრო ძლიერი, სწრაფი და Identomat-ის გუნდისთვის მაქსიმალურად მარტივი გახადა.“</blockquote>
-        <div class="who"><span class="av" aria-hidden="true">ზკ</span><span><b>ზურაბ კოტარია</b><span>COO · Identomat</span></span></div></div>
+        <figcaption class="who"><img class="av" src="/client-rezi.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"><span><b>ზურაბ კოტარია</b><span>COO · Identomat</span></span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -1064,18 +1077,11 @@ dialog p{color:var(--dim)}
       <div class="fbody" style="display:flex;flex-direction:column;gap:16px">
         <h3 class="h3" id="formH">მოითხოვე უფასო ზარი</h3>
         <div class="pkg-pill" id="pkgPill"><span>არჩეული პაკეტი: <b id="pkgName"></b></span><button type="button" id="pkgClear">გაუქმება</button></div>
-        <div class="field" id="fName"><label for="name">სახელი და გვარი <i>*</i></label><div class="input"><input id="name" name="name" autocomplete="name" placeholder="მაგ. ნინო ბერიძე" required></div><span class="err-msg">შეიყვანე სახელი, რომ ვიცოდეთ, ვის ვურეკავთ.</span></div>
+        <div class="field" id="fName"><label for="name">სახელი და გვარი <i>*</i></label><div class="input"><input id="name" name="name" autocomplete="name" placeholder="სახელი და გვარი" required></div><span class="err-msg">შეიყვანე სახელი, რომ ვიცოდეთ, ვის ვურეკავთ.</span></div>
         <div class="f2">
           <div class="field" id="fPhone"><label for="phone">ტელეფონი <i>*</i></label><div class="input"><span class="pre-ph">+995</span><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="5XX XX XX XX" required></div><span class="err-msg">შეიყვანე 9-ნიშნა ნომერი, მაგ. 599 12 34 56.</span></div>
           <div class="field" id="fCompany"><label for="company">კომპანია <i>*</i></label><div class="input"><input id="company" name="company" autocomplete="organization" placeholder="კომპანიის სახელი" required></div><span class="err-msg">შეიყვანე კომპანიის სახელი.</span></div>
         </div>
-        <div class="field"><span class="lbl" id="teamLbl">გაყიდვების გუნდის ზომა</span>
-          <div class="team" role="radiogroup" aria-labelledby="teamLbl">
-            <input type="radio" name="team" id="tm1" value="1-4"><label for="tm1">1–4</label>
-            <input type="radio" name="team" id="tm2" value="5-10"><label for="tm2">5–10</label>
-            <input type="radio" name="team" id="tm3" value="11-25"><label for="tm3">11–25</label>
-            <input type="radio" name="team" id="tm4" value="25+"><label for="tm4">25+</label>
-          </div></div>
         <div class="field" id="fEmail"><label for="email">ელფოსტა <i>*</i></label><div class="input"><input id="email" name="email" type="email" autocomplete="email" placeholder="name@company.ge" required></div><span class="err-msg">შეიყვანე სწორი ელფოსტა.</span></div>
         <div class="field" id="fHeard"><label for="heardFrom">საიდან გაიგე ჩვენ შესახებ? <i>*</i></label><div class="input sel"><select id="heardFrom" name="heardFrom" required><option value="" disabled selected>აირჩიე ვარიანტი</option><option value="LinkedIn">LinkedIn</option><option value="Facebook">Facebook</option><option value="YouTube">YouTube</option><option value="Google">Google</option><option value="AI">AI</option><option value="Email">ელ.ფოსტა</option><option value="Recommendation">რეკომენდაცია</option><option value="Other">სხვა</option></select></div><span class="err-msg">აირჩიე ვარიანტი.</span></div>
         <input type="hidden" name="package" id="package"><input type="hidden" name="utm_source" id="utm">
@@ -1286,17 +1292,6 @@ tabs.forEach((t,i)=>{ t.addEventListener('click',()=>selTab(t)); t.addEventListe
 const once=(el,cls,th=.35)=>{ if(RM.matches){el.classList.add(cls);return;} new IntersectionObserver((es,o)=>es.forEach(e=>{ if(e.isIntersecting){ el.classList.add(cls); o.disconnect(); } }),{threshold:th}).observe(el); };
 once($('#compare'),'in'); once($('#steps'),'in',.4);
 
-/* TESTIMONIALS */
-const qtabs=$$('#qnav button'), quotes=$$('.quote'), testi=$('#testi');
-let qi=0, qTimer=null;
-function showQ(i,focus){ qi=i; qtabs.forEach((b,j)=>{b.setAttribute('aria-selected',j===i); b.tabIndex=j===i?0:-1; const bar=$('.bar',b); bar.style.animation='none'; void bar.offsetWidth; bar.style.animation='';}); quotes.forEach((q,j)=>q.classList.toggle('cur',j===i)); if(focus) qtabs[i].focus(); }
-const qAuto=()=>{ clearInterval(qTimer); if(RM.matches) return; qTimer=setInterval(()=>{ if(!testi.classList.contains('paused')) showQ((qi+1)%quotes.length); },7000); };
-qtabs.forEach((b,i)=>{ b.addEventListener('click',()=>{showQ(i);qAuto();}); b.addEventListener('keydown',e=>{ if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();showQ((i+1)%3,true);} if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();showQ((i+2)%3,true);} }); });
-testi.addEventListener('mouseenter',()=>testi.classList.add('paused')); testi.addEventListener('mouseleave',()=>testi.classList.remove('paused'));
-testi.addEventListener('focusin',()=>testi.classList.add('paused')); testi.addEventListener('focusout',()=>testi.classList.remove('paused'));
-if(RM.matches) $$('.qnav .bar').forEach(b=>b.style.display='none');
-qAuto();
-
 /* CURRENCY */
 $$('.cur button').forEach(b=>b.addEventListener('click',()=>{ const c=b.dataset.cur; $$('.cur button').forEach(x=>x.setAttribute('aria-pressed',x===b)); $$('[data-eur]').forEach(el=>{ el.textContent=el.dataset[c]; if(!RM.matches) el.animate([{opacity:.2,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:350,easing:'ease-out'}); }); }));
 
@@ -1318,19 +1313,19 @@ Object.keys(rules).forEach(id=>{ const f=$('#'+id); const inp=$('input,select',f
 form.addEventListener('submit',async e=>{ e.preventDefault(); let first=null; Object.keys(rules).forEach(id=>{ const ok=rules[id](); $('#'+id).classList.toggle('bad',!ok); if(!ok&&!first) first=$('#'+id+' input, #'+id+' select'); }); if(first){ first.focus(); if(window.UnittyTracking) window.UnittyTracking.event('form_invalid',{}); return; }
   /* real submission (crm.unitty.io): same /api/lead endpoint, attribution and thank-you flow as every Unitty landing */
   const btn=$('button[type=submit]',form), btnTxt=btn.innerHTML; btn.disabled=true; btn.textContent=T('იგზავნება…'); form.classList.remove('err');
-  const Tr=window.UnittyTracking, team=($('input[name=team]:checked',form)||{}).value||'', pkg=pkgIn.value;
+  const Tr=window.UnittyTracking, pkg=pkgIn.value;
   const attribution=Tr?Tr.getAttribution():{landing_version:'crm',submission_url:location.href};
   const event_id=Tr?Tr.newEventId():String(Date.now());
-  const sel=[]; if(pkg) sel.push('Package: '+PKG_EN[pkg]+(pkg==='ოპტიმალური'?' (€1999, -20% from €2499, valid 1 week from offer)':'')); if(team) sel.push('Sales team size: '+team);
+  const sel=[]; if(pkg) sel.push('Package: '+PKG_EN[pkg]+(pkg==='ოპტიმალური'?' (€1999, -20% from €2499, valid 1 week from offer)':''));
   const heardFrom=$('#heardFrom').value;
   const payload={ fullName:$('#name').value.trim(), phone:phoneFull(), email:$('#email').value.trim(), company:$('#company').value.trim(), heardFrom,
-    team_size:team, package:pkg, lang:LANG, selected_solutions:sel.join(' | '), event_id, hero_variant:'designer-v4', attribution };
-  console.info('>>> lead submit', { pkg, team, lang:LANG, eid:event_id });
+    package:pkg, lang:LANG, selected_solutions:sel.join(' | '), event_id, hero_variant:'designer-v4', attribution };
+  console.info('>>> lead submit', { pkg, lang:LANG, eid:event_id });
   try{
     const res=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
     if(!res.ok) throw new Error('HTTP '+res.status);
     console.info('<<< lead ok');
-    if(Tr) Tr.event('form_submitted',{lead_source:heardFrom,package:pkg||'',team:team});
+    if(Tr) Tr.event('form_submitted',{lead_source:heardFrom,package:pkg||''});
     const qs=new URLSearchParams({name:payload.fullName.split(/\s+/)[0]||'', v:(Tr&&Tr.version)||'crm', eid:event_id});
     location.href='/thank-you?'+qs.toString();
   }catch(err){ console.error('*** lead submit failed', err); btn.disabled=false; btn.innerHTML=btnTxt; form.classList.add('err'); if(Tr) Tr.event('form_submit_failed',{}); }
