@@ -1,6 +1,6 @@
 {
   "name": "crm",
-  "version": "v55-2026-10-29",
+  "version": "v56-2026-10-29",
   "description": "CRM-ის შერჩევა და დანერგვა 5 დღიდან: ყველა კლიენტი ერთ სისტემაში. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo, ფიქსირებული ფასით. უფასო 20-წუთიანი ზარი.",
   "pains": [
     "crmexcel",
@@ -14,14 +14,14 @@
       "ru": "Unitty CRM"
     },
     "hero.headline.line1": {
-      "ka": "CRM-ის შერჩევა და დანერგვა",
-      "en": "CRM selection and implementation",
-      "ru": "Подбор и внедрение CRM"
+      "ka": "შეგირჩევთ და დაგინერგავთ",
+      "en": "We'll choose and implement",
+      "ru": "Подберём и внедрим"
     },
     "hero.sub": {
-      "ka": "ვარჩევთ შენს გაყიდვებზე მორგებულ CRM-ს, ვაწყობთ, გადმოგვაქვს მონაცემები, ვატრენინგებთ გუნდს და ვრჩებით მხარდაჭერისთვის. 500+ დანერგვა, ფიქსირებული ფასი და ვადა. 20-წუთიანი ზარი უფასოა, თუ ახლავე დაჯავშნი.",
-      "en": "We pick the CRM that fits your sales, set it up, move your data, train your team and stay on for support. 500+ implementations, fixed price and timeline. The 20-minute call is free if you book now.",
-      "ru": "Подберём CRM под ваши продажи, настроим, перенесём данные, обучим команду и останемся на поддержке. 500+ внедрений, фиксированные цена и сроки. 20-минутный звонок бесплатный, если забронируете сейчас."
+      "ka": "დაგინერგავთ სწორ CRM სისტემას, დავატრეინინგებთ შენს გუნდს და გაგიწევთ ტექნიკურ მხარდაჭერას. მოითხოვე 20-წუთიანი უფასო კონსულტაცია და გეტყვი, კონკრეტულად რომელი CRM გჭირდება. სრული სერვისი: შერჩევა → დანერგვა → სწავლება → მხარდაჭერა.",
+      "en": "We implement the right CRM, train your team and provide technical support. Request a free 20-minute consultation and I'll tell you exactly which CRM you need. Full service: selection → implementation → training → support.",
+      "ru": "Внедрим правильную CRM, обучим вашу команду и обеспечим техническую поддержку. Запросите бесплатную 20-минутную консультацию, и я скажу, какая именно CRM вам нужна. Полный сервис: подбор → внедрение → обучение → поддержка."
     },
     "final.sub": {
       "ka": "მოგვიყევი შენი გაყიდვების პროცესზე - ერთად შევარჩევთ CRM-ს, რომელიც მას მოერგება.",
@@ -29,19 +29,19 @@
       "ru": "Расскажите о вашем процессе продаж - вместе подберём CRM, которая ему подойдёт."
     },
     "hero.headline.line2.accent": {
-      "ka": "5 დღიდან:",
-      "en": "from 5 days:",
-      "ru": "от 5 дней:"
+      "ka": "CRM სისტემას",
+      "en": "your CRM system",
+      "ru": "вашу CRM-систему"
     },
     "hero.headline.line2.plain": {
-      "ka": "ყველა კლიენტი",
-      "en": "every client",
-      "ru": "все клиенты"
+      "ka": "",
+      "en": "",
+      "ru": ""
     },
     "hero.headline.line3.underline": {
-      "ka": "ერთ სისტემაში",
-      "en": "in one system",
-      "ru": "в одной системе"
+      "ka": "",
+      "en": "",
+      "ru": ""
     },
     "hero.headline.line3.plain": {
       "ka": "",
@@ -159,9 +159,9 @@
       "ru": "Бизнесу нужна система, в которой работают люди. Тогда вы сможете анализировать данные и автоматизировать процессы."
     },
     "hero.sub.free": {
-      "ka": "უფასოა, თუ ახლავე დაჯავშნი.",
-      "en": "free if you book now.",
-      "ru": "бесплатный, если забронируете сейчас."
+      "ka": "20-წუთიანი უფასო კონსულტაცია",
+      "en": "free 20-minute consultation",
+      "ru": "бесплатную 20-минутную консультацию"
     },
     "process.0.desc": {
       "ka": "ქაოსი: ცხრილები, მიმოფანტული ჩატები, დავიწყებული ზარები და დაკარგული კლიენტები.",
@@ -820,6 +820,10 @@
     }
   },
   "inserts": [
+    {
+      "file": "crm.hero.html",
+      "before": "<!-- ============ TRUST BAR ============ -->"
+    },
     {
       "file": "crm.packages.html",
       "before": "<!-- ============ TESTIMONIALS (moved above Final CTA) ============ -->"
