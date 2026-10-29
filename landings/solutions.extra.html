@@ -1,0 +1,114 @@
+<!-- ============ OUR PRODUCTS (solutions landing only) ============ -->
+<style>
+  .prod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 32px; }
+  .prod-card { display: flex; flex-direction: column; gap: 10px; padding: 24px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); }
+  .prod-card:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--border)); }
+  .prod-tag { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--accent); letter-spacing: 0.06em; }
+  .prod-name { margin: 0; font-size: 20px; color: var(--fg); }
+  .prod-desc { margin: 0; flex: 1; font-size: 14px; line-height: 1.6; color: var(--fg-dim); }
+  .prod-cta { align-self: flex-start; margin-top: 6px; font-size: 14px; font-weight: 600; color: var(--accent); text-decoration: none; }
+</style>
+<section class="section" id="products">
+  <div class="wrap">
+    <h2 class="section-title" data-i18n="prod.title">Our own products</h2>
+    <p class="section-sub" data-i18n="prod.sub">Ready-made services we built ourselves, quick to plug into your system.</p>
+    <div class="prod-grid">
+      <article class="prod-card">
+        <span class="prod-tag">TBC · BOG · Zoho CRM</span>
+        <h3 class="prod-name">Payments Automation</h3>
+        <p class="prod-desc" data-i18n="prod.1.desc">Bank transactions (TBC, Bank of Georgia) flow into your CRM automatically - with payment matching and in-house installment schedules.</p>
+        <a href="#final" class="prod-cta" data-prod="Payments Automation" data-i18n="prod.cta">Request →</a>
+      </article>
+      <article class="prod-card">
+        <span class="prod-tag">AI · Website</span>
+        <h3 class="prod-name">AI Live Chat</h3>
+        <p class="prod-desc" data-i18n="prod.2.desc">An AI chat assistant on your website: answers questions 24/7 and writes leads straight into your CRM.</p>
+        <a href="#final" class="prod-cta" data-prod="AI Live Chat" data-i18n="prod.cta">Request →</a>
+      </article>
+      <article class="prod-card">
+        <span class="prod-tag">AI · ქართული / Georgian</span>
+        <h3 class="prod-name">AI Meeting Transcription</h3>
+        <p class="prod-desc" data-i18n="prod.3.desc">Transcription of Georgian-language meetings, a short summary and next steps - automatically.</p>
+        <a href="#final" class="prod-cta" data-prod="AI Meeting Transcription" data-i18n="prod.cta">Request →</a>
+      </article>
+      <article class="prod-card">
+        <span class="prod-tag">Claude · Database</span>
+        <h3 class="prod-name">AI Data Assistant</h3>
+        <p class="prod-desc" data-i18n="prod.4.desc">Claude connected to your data: ask in plain language and get answers in numbers.</p>
+        <a href="#final" class="prod-cta" data-prod="AI Data Assistant" data-i18n="prod.cta">Request →</a>
+      </article>
+      <article class="prod-card">
+        <span class="prod-tag">Zoho CRM · Geonet</span>
+        <h3 class="prod-name">Telephony & Click-to-Call</h3>
+        <p class="prod-desc" data-i18n="prod.5.desc">Calls, recordings and click-to-call right inside your CRM - with routing to the right manager.</p>
+        <a href="#final" class="prod-cta" data-prod="Telephony & Click-to-Call" data-i18n="prod.cta">Request →</a>
+      </article>
+      <article class="prod-card">
+        <span class="prod-tag">Zoho CRM</span>
+        <h3 class="prod-name">Lead Processing Workflow</h3>
+        <p class="prod-desc" data-i18n="prod.6.desc">Every new lead is processed automatically: contact created, duplicates found, owner assigned.</p>
+        <a href="#final" class="prod-cta" data-prod="Lead Processing Workflow" data-i18n="prod.cta">Request →</a>
+      </article>
+      <article class="prod-card">
+        <span class="prod-tag">Zoho CRM</span>
+        <h3 class="prod-name">Partner Portal</h3>
+        <p class="prod-desc" data-i18n="prod.7.desc">Partners submit leads in one place and see their status, while you get the full history of every referral.</p>
+        <a href="#final" class="prod-cta" data-prod="Partner Portal" data-i18n="prod.cta">Request →</a>
+      </article>
+      <article class="prod-card">
+        <span class="prod-tag">Zoho CRM · SMS</span>
+        <h3 class="prod-name">SMS Scheduling System</h3>
+        <p class="prod-desc" data-i18n="prod.8.desc">Personalised SMS reminders and notifications straight from your CRM - for payments, meetings and bookings.</p>
+        <a href="#final" class="prod-cta" data-prod="SMS Scheduling System" data-i18n="prod.cta">Request →</a>
+      </article>
+    </div>
+  </div>
+</section>
+<script>
+  // a product's "Request" adds it to the selected solutions that go with the lead
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('.prod-cta');
+    if (!a || typeof state === 'undefined' || !state.selected) return;
+    state.selected.add('Product: ' + a.getAttribute('data-prod'));
+    if (typeof updateRequestBar === 'function') updateRequestBar();
+    if (window.UnittyTracking) window.UnittyTracking.event('product_request', { product: a.getAttribute('data-prod') });
+  });
+</script>
+
+<!-- ============ CATEGORY CHOICE + HORIZONTAL SOLUTIONS ============ -->
+<section class="section" id="solutions">
+  <div class="wrap">
+    <h2 class="section-title" data-i18n="solutions.title">What are you trying to fix?</h2>
+    <p class="section-sub" data-i18n-html="solutions.sub.html">Pick a direction. The exact problems we solve in that area appear below - swipe through them, add the ones that match yours. <strong style="color:var(--accent);">75 packaged solutions · 10 platforms.</strong></p>
+
+    <div class="cat-tabs" id="catTabs">
+      <!-- Rendered by JS -->
+    </div>
+
+    <!-- Sub-filter + horizontal rail -->
+    <div id="solutionsPanel">
+      <div class="sub-filter" id="subFilter"></div>
+
+      <div class="rail-container">
+        <div class="rail-controls">
+          <h3 class="rail-title" id="railTitle" data-i18n="rail.title">Which solutions would you like to discuss?</h3>
+          <div class="rail-arrows">
+            <button class="rail-arrow" onclick="scrollRail(-1)" aria-label="Previous" id="railPrev">←</button>
+            <button class="rail-arrow" onclick="scrollRail(1)" aria-label="Next" id="railNext">→</button>
+          </div>
+        </div>
+        <div class="sol-rail" id="solutionsGrid"></div>
+      </div>
+
+      <div class="request-bar hidden" id="requestBar">
+        <div class="request-bar-text">
+          <strong id="selectedCount">0</strong> <span data-i18n="request.text">solutions in your request</span>
+        </div>
+        <a href="#final" class="request-bar-btn" data-i18n="request.btn">
+          Discuss these →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+

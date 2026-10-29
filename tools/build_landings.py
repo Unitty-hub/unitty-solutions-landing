@@ -18,6 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE = ROOT / "public" / "index.html"
 LANDINGS = ROOT / "landings"
+PUBLIC = ROOT / "public"
 I18N_RE = re.compile(r"const I18N = (\{.*?\});\n")
 PAINS_RE = re.compile(r"<!--PAINS-->.*?<!--/PAINS-->\n?", re.S)
 PAINS_BEFORE = "<!-- ============ CHAOS vs CLARITY ============ -->"
@@ -140,8 +141,26 @@ def apply_seo(s, cfg, ka):
     return prerender(s, ka)
 
 
+def build_standalone(cfg):
+    """A landing with its own page (not the shared template), e.g. crm.unitty.io = the designer page.
+    "standalone": "crm.page.html", "standalone_i18n": "crm.page.i18n.py" (dict T = {georgian: (en, ru)})."""
+    name = cfg["name"]
+    s = (LANDINGS / cfg["standalone"]).read_text(encoding="utf-8")
+    ns = {}
+    exec((LANDINGS / cfg["standalone_i18n"]).read_text(encoding="utf-8"), ns)
+    i18n = {k: list(v) for k, v in ns["T"].items()}
+    s = s.replace("{{VERSION}}", cfg["version"]).replace("{{I18N}}", json.dumps(i18n, ensure_ascii=False))
+    assert "{{" not in s.split("<script")[0], "unreplaced placeholder"
+    out = PUBLIC / name / "index.html"
+    out.write_text(s, encoding="utf-8")
+    log(f"--- standalone page {cfg['standalone']} + {len(i18n)} EN/RU strings, version {name}-{cfg['version']}")
+    log(f"<<< wrote {out.relative_to(ROOT)} ({len(s)} chars)")
+
+
 def build(cfg, base):
     name = cfg["name"]
+    if cfg.get("standalone"):
+        return build_standalone(cfg)
     s = base
     log(f">>> building {name}")
 
@@ -236,7 +255,7 @@ def main():
     base = PAINS_RE.sub("", TEMPLATE.read_text(encoding="utf-8"))
     # --only crm [ai ...]: rebuild just those landings (each landing chat touches only its own output)
     only = sys.argv[sys.argv.index("--only") + 1:] if "--only" in sys.argv else []
-    for cfg_path in sorted(p for p in LANDINGS.glob("*.json") if not p.name.endswith((".i18n.json", ".data.json"))):
+    for cfg_path in sorted(p for p in LANDINGS.glob("*.json") if not p.name.endswith((".i18n.json", ".data.json")) and p.suffix == ".json"):
         if only and cfg_path.stem not in only:
             continue
         build(json.loads(cfg_path.read_text(encoding="utf-8")), base)
