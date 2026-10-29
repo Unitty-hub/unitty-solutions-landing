@@ -23,6 +23,29 @@ PAINS_BEFORE = "<!-- ============ CHAOS vs CLARITY ============ -->"
 CARD_RE = re.compile(r"<!--card:([\w-]+)-->\n(.*?)<!--/card-->", re.S)
 
 
+
+BA_SWITCH = """    <div class="ba-bar">
+      <div class="ba-switch" role="group" aria-label="Before / After">
+        <button type="button" class="ba-btn" data-ba-go="before" aria-pressed="true"><i></i><span data-i18n="pain.ba.before">Without CRM</span></button>
+        <button type="button" class="ba-btn ba-to-after" data-ba-go="after" aria-pressed="false"><i></i><span data-i18n="pain.ba.after">With Zoho CRM</span></button>
+      </div>
+      <p class="ba-hint" data-i18n="pain.ba.hint">Switch to see the same situation with a CRM</p>
+    </div>
+    <script>
+    (function () {
+      var sec = document.getElementById('pains'); if (!sec) return;
+      var seen = false;
+      function go(state, src) {
+        sec.setAttribute('data-ba', state);
+        sec.querySelectorAll('.ba-btn').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-ba-go') === state ? 'true' : 'false'); });
+        if (src === 'peek') { var bar = sec.querySelector('.ba-bar'); var r = sec.querySelector('.pain-grid').getBoundingClientRect(); if (r.top < 0) window.scrollBy({ top: r.top - 150, behavior: 'smooth' }); }
+        if (state === 'after' && !seen) { seen = true; try { window.clarity && window.clarity('event', 'pains_after'); } catch (e) {} }
+      }
+      sec.addEventListener('click', function (e) { var b = e.target.closest('[data-ba-go]'); if (b) go(b.getAttribute('data-ba-go'), b.classList.contains('ba-peek') ? 'peek' : 'switch'); });
+    })();
+    </script>
+"""
+
 def log(msg):
     print(msg, flush=True)
 
@@ -151,6 +174,11 @@ def build(cfg, base):
         missing = [p for p in pains if p not in cards]
         assert not missing, f"unknown pain cards: {missing}"
         section = section.replace("{{COUNT}}", str(len(pains))).replace("{{CARDS}}", "".join(cards[p] for p in pains).rstrip())
+        # optional Before / After switch ("pains_ba": true): one toggle for all cards, CRM mock-ups on the "after" side
+        if cfg.get("pains_ba"):
+            section = section.replace("{{BA_CLASS}}", " has-ba").replace("{{BA_ATTR}}", ' data-ba="before"').replace("{{BA_SWITCH}}", BA_SWITCH)
+        else:
+            section = section.replace("{{BA_CLASS}}", "").replace("{{BA_ATTR}}", "").replace("{{BA_SWITCH}}", "")
         assert s.count(PAINS_BEFORE) == 1, "CHAOS vs CLARITY marker missing"
         s = s.replace(PAINS_BEFORE, "<!--PAINS-->\n" + section + "<!--/PAINS-->\n" + PAINS_BEFORE)
         log(f"--- pain cards: {', '.join(pains)}")

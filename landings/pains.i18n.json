@@ -263,5 +263,150 @@
   "ka": "+11 უპასუხო",
   "en": "+11 unanswered",
   "ru": "+11 без ответа"
+ },
+ "pain.ba.before": {
+  "ka": "CRM-ის გარეშე",
+  "en": "Without CRM",
+  "ru": "Без CRM"
+ },
+ "pain.ba.after": {
+  "ka": "Zoho CRM-ით",
+  "en": "With Zoho CRM",
+  "ru": "С Zoho CRM"
+ },
+ "pain.ba.hint": {
+  "ka": "გადართე და ნახე, როგორ გამოიყურება იგივე CRM-ით",
+  "en": "Switch to see the same situation with a CRM",
+  "ru": "Переключите и посмотрите то же самое с CRM"
+ },
+ "pain.ba.peek": {
+  "ka": "ნახე შედეგი CRM-ით",
+  "en": "See the result with CRM",
+  "ru": "Посмотреть результат с CRM"
+ },
+ "pain.excel.atitle": {
+  "ka": "კლიენტის მთელი ისტორია — ერთ ძებნაში",
+  "en": "The client's full history in one search",
+  "ru": "Вся история клиента — в одном поиске"
+ },
+ "pain.owner.atitle": {
+  "ka": "გუნდმა იცის, ვინ რას აკეთებს",
+  "en": "The team knows who does what",
+  "ru": "Команда знает, кто что делает"
+ },
+ "pain.chats.atitle": {
+  "ka": "ყველა შეტყობინება — ერთ ფანჯარაში",
+  "en": "Every message in one window",
+  "ru": "Все сообщения — в одном окне"
+ },
+ "pain.z.contacts": {
+  "ka": "კონტაქტები",
+  "en": "Contacts",
+  "ru": "Контакты"
+ },
+ "pain.z.found": {
+  "ka": "1 შედეგი",
+  "en": "1 result",
+  "ru": "1 результат"
+ },
+ "pain.z.stage": {
+  "ka": "შეთავაზება",
+  "en": "Proposal",
+  "ru": "Предложение"
+ },
+ "pain.z.last": {
+  "ka": "ბოლო შეძენა",
+  "en": "Last purchase",
+  "ru": "Последняя покупка"
+ },
+ "pain.z.deals": {
+  "ka": "გარიგებები",
+  "en": "Deals",
+  "ru": "Сделки"
+ },
+ "pain.z.merged": {
+  "ka": "დუბლიკატი გაერთიანდა",
+  "en": "Duplicate merged",
+  "ru": "Дубликат объединён"
+ },
+ "pain.z.tasks": {
+  "ka": "დავალებები",
+  "en": "Tasks",
+  "ru": "Задачи"
+ },
+ "pain.z.ontrack": {
+  "ka": "გეგმაშია",
+  "en": "On track",
+  "ru": "По плану"
+ },
+ "pain.z.t1": {
+  "ka": "კლიენტთან ზარი",
+  "en": "Call the client",
+  "ru": "Звонок клиенту"
+ },
+ "pain.z.t2": {
+  "ka": "ინვოისი rs.ge-ზე",
+  "en": "Invoice on rs.ge",
+  "ru": "Счёт на rs.ge"
+ },
+ "pain.z.t3": {
+  "ka": "ფასის გაგზავნა",
+  "en": "Send the price",
+  "ru": "Отправить цену"
+ },
+ "pain.z.t4": {
+  "ka": "კვირის რეპორტი",
+  "en": "Weekly report",
+  "ru": "Недельный отчёт"
+ },
+ "pain.z.n1": {
+  "ka": "ნიკა",
+  "en": "Nika",
+  "ru": "Ника"
+ },
+ "pain.z.n2": {
+  "ka": "ანა",
+  "en": "Ana",
+  "ru": "Анна"
+ },
+ "pain.z.n3": {
+  "ka": "ლუკა",
+  "en": "Luka",
+  "ru": "Лука"
+ },
+ "pain.z.done": {
+  "ka": "შესრულდა",
+  "en": "Done",
+  "ru": "Готово"
+ },
+ "pain.z.auto": {
+  "ka": "ავტომატური",
+  "en": "Auto",
+  "ru": "Авто"
+ },
+ "pain.z.everymon": {
+  "ka": "ყოველ ორშაბათს",
+  "en": "Every Monday",
+  "ru": "Каждый понедельник"
+ },
+ "pain.z.reminder": {
+  "ka": "ლუკას შეხსენება გაეგზავნა",
+  "en": "Reminder sent to Luka",
+  "ru": "Луке отправлено напоминание"
+ },
+ "pain.z.inbox": {
+  "ka": "შეტყობინებები",
+  "en": "Inbox",
+  "ru": "Сообщения"
+ },
+ "pain.z.zero": {
+  "ka": "0 უპასუხო",
+  "en": "0 unanswered",
+  "ru": "0 без ответа"
+ },
+ "pain.z.min": {
+  "ka": "წთ",
+  "en": "min",
+  "ru": "мин"
  }
 }

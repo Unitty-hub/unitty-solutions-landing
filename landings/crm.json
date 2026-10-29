@@ -787,5 +787,6 @@
     "poster": "/crm/hero-poster.jpg",
     "position": "50% 88%",
     "brightness": 0.8
-  }
+  },
+  "pains_ba": true
 }
