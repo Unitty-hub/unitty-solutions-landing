@@ -1,0 +1,80 @@
+<!-- ============ CRM FIT ("Which CRM fits you?") ============ -->
+<!-- crm.unitty.io only (landings/crm.json "insert_file"). Official platform logos (public/logos/platforms/, taken from each vendor's own website) on a white plate. -->
+<style>
+  .crm-fit .fit-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 40px; }
+  @media (max-width: 980px) { .crm-fit .fit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 640px) { .crm-fit .fit-grid { grid-template-columns: 1fr; } }
+  .fit-card {
+    display: flex; flex-direction: column; gap: 12px; padding: 22px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .fit-card:hover { border-color: color-mix(in srgb, var(--accent) 40%, transparent); transform: translateY(-2px); }
+  /* official platform logos on a white plate, so their own colours stay untouched */
+  .fit-logo {
+    margin: 0; height: 60px; border-radius: 12px; background: #fff;
+    display: flex; align-items: center; padding: 0 18px;
+  }
+  .fit-logo img { display: block; height: 26px; width: auto; max-width: 160px; object-fit: contain; object-position: left center; }
+  .fit-logo img.tall { height: 44px; }
+  .fit-when { font-size: 15px; line-height: 1.55; color: var(--fg-dim); margin: 0; }
+  .fit-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 4px; }
+  .fit-tags span {
+    font-size: 14px; line-height: 1; padding: 7px 10px; border-radius: 999px; color: var(--fg);
+    background: var(--surface-2); border: 1px solid var(--border);
+  }
+  .fit-foot {
+    display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    margin-top: 24px; padding: 20px 24px; border-radius: 18px;
+    background: color-mix(in srgb, var(--accent) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  }
+  .fit-foot strong { display: block; font-family: var(--font-head); font-weight: 900; font-size: 20px; line-height: 1.25; color: var(--fg); }
+  .fit-foot p { margin: 4px 0 0; font-size: 14px; line-height: 1.5; color: var(--fg-dim); }
+  @media (max-width: 640px) { .fit-foot .btn { width: 100%; justify-content: center; } }
+</style>
+<section class="section crm-fit" id="crm-fit">
+  <div class="wrap">
+    <h2 class="section-title" data-i18n="fit.title">Which CRM fits you?</h2>
+    <p class="section-sub" data-i18n="fit.sub">We're an independent partner: we recommend what fits your sales, not what we'd like to sell.</p>
+    <div class="fit-grid">
+      <article class="fit-card">
+        <h3 class="fit-logo"><img class="tall" src="/logos/platforms/zoho-crm.svg" alt="Zoho CRM" width="150" height="28" loading="lazy" decoding="async"></h3>
+        <p class="fit-when" data-i18n="fit.zoho.when"></p>
+        <div class="fit-tags"><span data-i18n="fit.zoho.t1"></span><span data-i18n="fit.zoho.t2"></span><span data-i18n="fit.zoho.t3"></span></div>
+      </article>
+      <article class="fit-card">
+        <h3 class="fit-logo"><img src="/logos/platforms/pipedrive.svg" alt="Pipedrive" width="150" height="28" loading="lazy" decoding="async"></h3>
+        <p class="fit-when" data-i18n="fit.pipedrive.when"></p>
+        <div class="fit-tags"><span data-i18n="fit.pipedrive.t1"></span><span data-i18n="fit.pipedrive.t2"></span><span data-i18n="fit.pipedrive.t3"></span></div>
+      </article>
+      <article class="fit-card">
+        <h3 class="fit-logo"><img src="/logos/platforms/kommo.svg" alt="Kommo" width="150" height="28" loading="lazy" decoding="async"></h3>
+        <p class="fit-when" data-i18n="fit.kommo.when"></p>
+        <div class="fit-tags"><span data-i18n="fit.kommo.t1"></span><span data-i18n="fit.kommo.t2"></span><span data-i18n="fit.kommo.t3"></span></div>
+      </article>
+      <article class="fit-card">
+        <h3 class="fit-logo"><img src="/logos/platforms/monday-crm.svg" alt="monday CRM" width="150" height="28" loading="lazy" decoding="async"></h3>
+        <p class="fit-when" data-i18n="fit.monday.when"></p>
+        <div class="fit-tags"><span data-i18n="fit.monday.t1"></span><span data-i18n="fit.monday.t2"></span><span data-i18n="fit.monday.t3"></span></div>
+      </article>
+      <article class="fit-card">
+        <h3 class="fit-logo"><img src="/logos/platforms/bitrix24.svg" alt="Bitrix24" width="150" height="28" loading="lazy" decoding="async"></h3>
+        <p class="fit-when" data-i18n="fit.bitrix.when"></p>
+        <div class="fit-tags"><span data-i18n="fit.bitrix.t1"></span><span data-i18n="fit.bitrix.t2"></span><span data-i18n="fit.bitrix.t3"></span></div>
+      </article>
+      <article class="fit-card">
+        <h3 class="fit-logo"><img src="/logos/platforms/odoo.svg" alt="Odoo" width="150" height="28" loading="lazy" decoding="async"></h3>
+        <p class="fit-when" data-i18n="fit.odoo.when"></p>
+        <div class="fit-tags"><span data-i18n="fit.odoo.t1"></span><span data-i18n="fit.odoo.t2"></span><span data-i18n="fit.odoo.t3"></span></div>
+      </article>
+    </div>
+    <div class="fit-foot">
+      <div>
+        <strong data-i18n="fit.foot.title">Not sure which one?</strong>
+        <p data-i18n="fit.foot.note"></p>
+      </div>
+      <a href="#final" class="btn btn-primary"><span data-i18n="fit.cta">Request a free 20-minute call</span></a>
+    </div>
+  </div>
+</section>
+
