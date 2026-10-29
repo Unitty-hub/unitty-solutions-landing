@@ -97,6 +97,7 @@ def main():
         keys[f"pk.{pid}.short"] = p["short"]
         if "base" in p:
             keys[f"pk.{pid}.base"] = p["base"]
+        keys[f"pk.{pid}.out"] = p["outcome"]
         hl = []
         for i, h in enumerate(p["highlights"], 1):
             keys[f"pk.{pid}.h{i}"] = h
@@ -104,6 +105,7 @@ def main():
         full = []
         if "base" in p:
             full.append(f'<li class="pk-base" data-i18n="pk.{pid}.base">{esc(p["base"]["en"])}</li>')
+        full += hl
         for i, it in enumerate(p["items"], 1):
             keys[f"pk.{pid}.i{i}"] = it
             full.append(f'<li data-i18n="pk.{pid}.i{i}">{esc(it["en"])}</li>')
@@ -117,7 +119,7 @@ def main():
         <p class="pk-for" data-i18n="pk.{pid}.short">{esc(p["short"]["en"])}</p>
         <p class="pk-price">{was_html(p)}{price_span(p["price"], "pk-amount")}<span class="pk-once" data-i18n="pk.once">one-time</span></p>{deal_html(p)}
         <p class="pk-time"><b>{p["days"]}</b> <span data-i18n="pk.days">working days</span></p>
-        <ul class="pk-hl">{"".join(hl)}</ul>
+        <p class="pk-out" data-i18n="pk.{pid}.out">{esc(p["outcome"]["en"])}</p>
         <button type="button" class="btn pk-choose" data-pk="{pid}" aria-pressed="false"><span class="pk-choose-off" data-i18n="pk.choose">Choose this package</span><span class="pk-choose-on" data-i18n="pk.chosen">Selected</span></button>
         <details class="pk-full">
           <summary data-i18n="pk.full">Everything included</summary>
@@ -176,6 +178,7 @@ def main():
   .pk-off {{ font-size: 14px; font-weight: 700; line-height: 1; padding: 5px 8px; border-radius: 6px; color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }}
   .pk-deal {{ margin: -2px 0 0; font-size: 14px; line-height: 1.45; color: var(--fg-dim); }}
   .pk-time {{ margin: 0; font-size: 15px; color: var(--fg-dim); }}
+  .pk-out {{ margin: 4px 0 2px; font-size: 16px; line-height: 1.5; color: var(--fg); }}
   .pk-time b {{ color: var(--accent); }}
   .pk-hl {{ list-style: none; margin: 6px 0 4px; padding: 0; display: grid; gap: 10px; }}
   .pk-hl li, .pk-full li {{ position: relative; padding-left: 26px; font-size: 15px; line-height: 1.45; color: var(--fg); }}
@@ -273,27 +276,8 @@ def main():
     </div>
     <p class="pk-note" data-i18n="pk.note"></p>
 
-    <details class="ao" id="addons">
-      <summary><span class="ao-title" data-i18n="ao.title">Extra features</span><span class="ao-sub"><span data-i18n="ao.sub">Optional</span> · {len(d["addons"])}</span><span class="ao-plus" aria-hidden="true"></span></summary>
-      <div class="ao-body">
-        <p class="ao-head" data-i18n="ao.popular">Often added</p>
-        <ul class="ao-list">{"".join(popular)}</ul>
-        <p class="ao-more" data-i18n="ao.more">All add-ons by category</p>
-        <div class="ao-cats">{"".join(groups)}</div>
-        <p class="ao-catalog" data-i18n="ao.catalog"></p>
-      </div>
-    </details>
   </div>
 </section>
-<div class="pk-bar" id="pkBar" aria-live="polite">
-  <div class="pk-bar-in">
-    <div class="pk-bar-sum">
-      <span class="pk-bar-what" id="pkBarWhat"></span>
-      <span class="pk-bar-total" id="pkBarTotal"></span>
-    </div>
-    <a href="#final" class="btn btn-primary" id="pkBarCta"><span data-i18n="sum.cta">Request a call</span></a>
-  </div>
-</div>
 <script>
   // CRM packages: one package + optional add-ons, EUR/GEL switch, live total, sent with the lead.
   (function () {{
@@ -301,7 +285,6 @@ def main():
     var GEL_RATE = {GEL_RATE};
     var sec = document.getElementById('packages');
     if (!sec) return;
-    var bar = document.getElementById('pkBar');
     var chosen = null;
     var cur = 'eur';
     try {{ cur = localStorage.getItem('unitty-cur') === 'gel' ? 'gel' : 'eur'; }} catch (e) {{}}
@@ -311,7 +294,6 @@ def main():
     function track(name, data) {{ try {{ if (window.UnittyTracking) window.UnittyTracking.event(name, data); }} catch (e) {{}} }}
     var cards = [].slice.call(sec.querySelectorAll('.pk-card'));
     var tabs = [].slice.call(sec.querySelectorAll('.pk-tab'));
-    var boxes = [].slice.call(sec.querySelectorAll('.ao-cb'));
 
     // phones: one card at a time, switched by the tabs (desktop shows all three, tabs hidden)
     function show(id) {{
@@ -330,8 +312,6 @@ def main():
         render();
       }});
     }});
-    boxes.forEach(function (cb) {{ cb.addEventListener('change', function () {{ if (cb.checked) track('addon_selected', {{ addon: cb.dataset.en }}); render(); }}); }});
-    sec.querySelector('#addons').addEventListener('toggle', function (e) {{ if (e.target.open) track('addons_opened', {{}}); }});
     sec.querySelectorAll('.pk-cur button').forEach(function (b) {{
       b.addEventListener('click', function () {{
         cur = b.dataset.cur;
@@ -342,27 +322,14 @@ def main():
       }});
     }});
 
-    function picked() {{ return boxes.filter(function (b) {{ return b.checked; }}); }}
-    function total() {{
-      var eur = 0, card = chosen && document.getElementById('pk-' + chosen);
-      if (card) eur += +card.dataset.price;
-      picked().forEach(function (b) {{ eur += +b.dataset.price; }});
-      return eur;
-    }}
-    function whatText() {{
-      var parts = [], n = picked().length;
-      if (chosen) parts.push(tr('pk.' + chosen + '.name', NAMES_EN[chosen]));
-      if (n) parts.push('+' + n + ' ' + tr('sum.addons', 'features'));
-      return parts.join(' ');
-    }}
+    function whatText() {{ return chosen ? tr('pk.' + chosen + '.name', NAMES_EN[chosen]) : ''; }}
+    function price() {{ var c = chosen && document.getElementById('pk-' + chosen); return c ? +c.dataset.price : 0; }}
     function syncLead() {{
       // the template's "selected solutions" set is sent to /api/lead and lands in the Zoho lead description
       try {{
         if (typeof state === 'undefined' || !state.selected) return;
         Array.from(state.selected).forEach(function (k) {{ if (/^(Package|Add-on): /.test(k)) state.selected.delete(k); }});
         if (chosen) {{ var cc = document.getElementById('pk-' + chosen); state.selected.add('Package: ' + NAMES_EN[chosen] + ' (€' + cc.dataset.price + (cc.dataset.was ? ', -20% from €' + cc.dataset.was + ', valid 1 week from offer' : '') + ')'); }}
-        picked().forEach(function (b) {{ state.selected.add('Add-on: ' + b.dataset.en + ' (€' + b.dataset.price + ')'); }});
-        if (chosen || picked().length) state.selected.add('Package: TOTAL €' + total() + ' + VAT (shown in ' + cur.toUpperCase() + ')');
       }} catch (e) {{ log('*** lead sync failed', e.message); }}
     }}
     function render() {{
@@ -373,26 +340,15 @@ def main():
         c.classList.toggle('is-chosen', on);
         c.querySelector('.pk-choose').setAttribute('aria-pressed', on ? 'true' : 'false');
       }});
-      var any = chosen || picked().length;
-      document.getElementById('pkBarWhat').textContent = any ? whatText() : tr('sum.empty', 'Choose a package');
-      document.getElementById('pkBarTotal').innerHTML = any ? money(total()) + ' <small>' + tr('sum.vat', '+ VAT') + '</small>' : '<small>' + money(990) + '+</small>';
+      var any = !!chosen;
       syncLead();
       var fin = document.getElementById('final'), box = document.getElementById('pkPicked');
       if (fin && any) {{
         if (!box) {{ box = document.createElement('p'); box.id = 'pkPicked'; box.className = 'pk-picked'; var form = fin.querySelector('form'); (form || fin).parentNode.insertBefore(box, form || fin.firstChild); }}
-        box.innerHTML = tr('sum.picked', 'Your selection:') + ' <b>' + whatText() + '</b> · ' + money(total()) + ' ' + tr('sum.vat', '+ VAT');
+        box.innerHTML = tr('sum.picked', 'Your selection:') + ' <b>' + whatText() + '</b> · ' + money(price()) + ' ' + tr('sum.vat', '+ VAT');
       }} else if (box) box.remove();
     }}
 
-    // bar only while the packages are on screen and the form is not
-    var inPk = false, inForm = false;
-    function showBar() {{ bar.classList.toggle('is-visible', inPk && !inForm); }}
-    if ('IntersectionObserver' in window) {{
-      new IntersectionObserver(function (e) {{ inPk = e[0].isIntersecting; showBar(); }}, {{ threshold: 0.05 }}).observe(sec);
-      var fin = document.getElementById('final');
-      if (fin) new IntersectionObserver(function (e) {{ inForm = e[0].isIntersecting; showBar(); }}, {{ threshold: 0.1 }}).observe(fin);
-    }}
-    document.getElementById('pkBarCta').addEventListener('click', function () {{ track('package_cta', {{ package: chosen || '', addons: picked().length, currency: cur }}); }});
     document.addEventListener('click', function (e) {{ if (e.target.closest && e.target.closest('.lang-btn')) setTimeout(render, 0); }});
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render); else setTimeout(render, 0);
   }})();

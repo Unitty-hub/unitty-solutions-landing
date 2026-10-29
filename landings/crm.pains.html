@@ -1,0 +1,428 @@
+<!-- ============ PAINS ("Sound familiar?") ============ -->
+<!-- crm.unitty.io only (landings/crm.pains.html): each card = problem + solution, minimal text, animated mock-ups. -->
+<style>
+
+  .pains .pain-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 40px; }
+  .pains .pain-grid.count-1 { grid-template-columns: 1fr; max-width: 920px; margin-inline: auto; }
+  @media (min-width: 1000px) {
+    .pains .pain-grid.count-5 { grid-template-columns: repeat(6, 1fr); }
+    .pains .pain-grid.count-5 .pain-card { grid-column: span 2; }
+    .pains .pain-grid.count-5 .pain-card:nth-child(4) { grid-column: 2 / span 2; }
+    .pains .pain-grid.count-5 .pain-card:nth-child(5) { grid-column: 4 / span 2; }
+  }
+  .pain-card {
+    position: relative; display: flex; flex-direction: column; gap: 14px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
+    padding: 22px; overflow: hidden;
+  }
+  .pain-grid.count-1 .pain-card { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 28px; padding: 28px; }
+  .pain-grid.count-1 .pain-card .pain-visual { grid-row: span 4; }
+  @media (max-width: 760px) { .pain-grid.count-1 .pain-card { grid-template-columns: 1fr; } .pain-grid.count-1 .pain-card .pain-visual { grid-row: auto; } }
+  .pain-visual {
+    position: relative; min-height: 200px; border-radius: 14px; padding: 18px;
+    background: var(--surface-2); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .pain-title { font-family: var(--font-head); font-weight: 900; font-size: 19px; line-height: 1.25; color: var(--fg); margin: 0; }
+  .pain-body { font-size: 15px; line-height: 1.55; color: var(--fg-dim); margin: 0; }
+  .pain-fix {
+    margin: auto 0 0; padding: 12px 14px; border-radius: 10px; font-size: 14px; line-height: 1.5; color: var(--fg);
+    background: color-mix(in srgb, var(--accent) 8%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  }
+  .pain-fix b { color: var(--accent); font-weight: 600; margin-right: 6px; }
+  .pain-source { font-size: 14px; color: var(--fg-mute); margin: 0; }
+  .pains-cta { display: flex; justify-content: center; margin-top: 32px; }
+
+  /* --- phone frame (chat + notifications) --- */
+  .ui-phone { width: 210px; max-width: 100%; border-radius: 30px; padding: 9px; background: #0b0b0b; border: 1px solid #2c2c2a; box-shadow: 0 18px 40px rgba(0,0,0,.45); }
+  .ui-phone-screen { position: relative; border-radius: 22px; overflow: hidden; background: #ece5dd; min-height: 230px; display: flex; flex-direction: column; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', var(--font-body); }
+  .ui-phone-notch { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 64px; height: 16px; border-radius: 10px; background: #0b0b0b; z-index: 2; }
+  .ui-status { display: flex; justify-content: space-between; padding: 8px 16px 4px; font-size: 14px; font-weight: 600; color: #111; }
+  .ui-chat-head { display: flex; align-items: center; gap: 8px; padding: 6px 10px 8px; background: #f6f6f6; border-bottom: 1px solid #ddd; }
+  .ui-avatar { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 14px; font-weight: 700; color: #fff; background: #8b8b8b; flex: none; }
+  .ui-chat-name { font-size: 14px; font-weight: 600; color: #111; line-height: 1.2; }
+  .ui-chat-name small { display: block; font-size: 14px; font-weight: 400; color: #777; }
+  .ui-chat-body { flex: 1; padding: 10px 10px 12px; display: flex; flex-direction: column; gap: 8px; }
+  .ui-bubble { align-self: flex-start; max-width: 88%; background: #fff; color: #111; border-radius: 4px 12px 12px 12px; padding: 7px 9px 5px; font-size: 14px; line-height: 1.35; box-shadow: 0 1px 1px rgba(0,0,0,.12); }
+  .ui-bubble time { display: block; text-align: right; font-size: 14px; color: #999; margin-top: 2px; }
+  .ui-system { align-self: center; background: #e1f2fb; color: #3b5b6b; font-size: 14px; border-radius: 8px; padding: 4px 10px; text-align: center; }
+  .ui-lost { list-style: none; padding: 0; margin: 2px 0 0; display: grid; gap: 4px; }
+  .ui-lost li { font-size: 14px; color: #8a8a8a; text-decoration: line-through; }
+
+  .ui-lock { background: linear-gradient(160deg, #2b3440, #151a21); color: #fff; padding: 26px 10px 14px; gap: 8px; }
+  .ui-lock-time { text-align: center; font-size: 34px; font-weight: 300; letter-spacing: 1px; line-height: 1; margin-bottom: 6px; }
+  .ui-notif { display: flex; gap: 8px; align-items: flex-start; padding: 8px 9px; border-radius: 14px; background: rgba(255,255,255,.16); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+  .ui-app { width: 24px; height: 24px; border-radius: 7px; flex: none; display: grid; place-items: center; font-size: 14px; font-weight: 700; color: #fff; }
+  .ui-notif-text { min-width: 0; flex: 1; }
+  .ui-notif-top { display: flex; justify-content: space-between; gap: 6px; font-size: 14px; color: rgba(255,255,255,.75); }
+  .ui-notif-msg { font-size: 14px; line-height: 1.3; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ui-more { text-align: center; font-size: 14px; color: rgba(255,255,255,.7); }
+
+  /* --- spreadsheet --- */
+  .ui-sheet { width: 100%; border-radius: 10px; overflow: hidden; background: #fff; color: #222; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', var(--font-body); box-shadow: 0 14px 30px rgba(0,0,0,.35); }
+  .ui-sheet-bar { display: flex; align-items: center; gap: 8px; padding: 7px 10px; background: #1d6f42; color: #fff; font-size: 14px; }
+  .ui-sheet-bar b { width: 16px; height: 16px; border-radius: 3px; background: #fff; color: #1d6f42; display: grid; place-items: center; font-size: 14px; font-weight: 800; line-height: 1; }
+  .ui-sheet-bar span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ui-fx { display: flex; gap: 8px; padding: 4px 8px; border-bottom: 1px solid #d9d9d9; font-size: 14px; color: #555; background: #f7f7f7; }
+  .ui-fx i { font-style: italic; color: #888; }
+  .ui-grid { display: grid; grid-template-columns: 24px 1.15fr 1.2fr 0.5fr; font-size: 14px; }
+  .ui-grid > div { padding: 4px 6px; border-right: 1px solid #e3e3e3; border-bottom: 1px solid #e3e3e3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.35; }
+  .ui-grid .c { background: #f0f0f0; color: #666; text-align: center; font-size: 14px; }
+  .ui-grid .h { font-weight: 700; background: #e8f3ec; }
+  .ui-grid .dup { background: #fff2b3; }
+  .ui-grid .err { color: #b00020; font-weight: 600; }
+  .ui-grid .sel { outline: 2px solid #1d6f42; outline-offset: -2px; }
+  .ui-sticky { position: absolute; right: 14px; bottom: 14px; transform: rotate(4deg); background: #ffe27a; color: #1A1A1A; font-size: 14px; font-weight: 600; padding: 8px 10px; border-radius: 3px; max-width: 58%; box-shadow: 0 6px 16px rgba(0,0,0,0.35); }
+
+  /* --- notes app --- */
+  .ui-notes { width: 100%; max-width: 300px; border-radius: 14px; overflow: hidden; background: #fffdf6; color: #1f1f1f; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', var(--font-body); box-shadow: 0 14px 30px rgba(0,0,0,.35); }
+  .ui-notes-top { display: flex; justify-content: space-between; align-items: center; padding: 9px 12px; font-size: 14px; color: #c58f00; font-weight: 600; border-bottom: 1px solid #efe9d6; }
+  .ui-notes-top span { color: #999; font-weight: 400; }
+  .ui-notes-title { padding: 10px 12px 2px; font-size: 16px; font-weight: 700; }
+  .ui-notes ul { list-style: none; margin: 0; padding: 4px 12px 12px; display: grid; gap: 6px; }
+  .ui-notes li { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; line-height: 1.35; }
+  .ui-notes li::before { content: ""; width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid #c9c2ad; flex: none; margin-top: 2px; }
+  .ui-notes li.done { color: #a5a5a5; text-decoration: line-through; }
+  .ui-notes li.done::before { background: #c58f00; border-color: #c58f00; }
+
+  /* --- 28% --- */
+  .ui-time { width: 100%; display: flex; flex-direction: column; gap: 12px; }
+  .ui-time-big { font-family: var(--font-head); font-weight: 900; font-size: 64px; line-height: 1; color: var(--accent); }
+  .ui-time-bar { display: flex; height: 14px; border-radius: 999px; overflow: hidden; background: color-mix(in srgb, var(--fg) 14%, transparent); }
+  .ui-time-bar i { width: 28%; background: var(--accent); }
+  .ui-time-legend { display: flex; justify-content: space-between; font-size: 14px; color: var(--fg-dim); }
+  /* --- many open chat windows at once (CRM "chats" card, v39) --- */
+  .ui-wins { position: relative; width: 100%; max-width: 340px; height: 236px; margin: 0 auto; }
+  .ui-win { position: absolute; width: 64%; border-radius: 12px; overflow: hidden; background: #fff; color: #1d1d1f;
+    box-shadow: 0 12px 28px rgba(0,0,0,.45); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', var(--font-body); }
+  .ui-win-bar { display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: var(--c); color: #fff; font-size: 14px; font-weight: 600; line-height: 1.2; }
+  .ui-win-bar .ui-app { width: 20px; height: 20px; border-radius: 6px; background: rgba(255,255,255,.22); font-size: 14px; }
+  .ui-win-bar b { margin-left: auto; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #fff; color: var(--c); font-size: 14px; display: grid; place-items: center; }
+  .ui-win-body { padding: 8px; display: grid; gap: 5px; background: #f2f3f5; }
+  .ui-bub { margin: 0; justify-self: start; max-width: 100%; padding: 5px 9px; border-radius: 12px 12px 12px 4px; background: #fff; font-size: 14px; line-height: 1.3;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; box-shadow: 0 1px 1px rgba(0,0,0,.06); }
+  .ui-bub.dots { letter-spacing: 2px; color: #8a8a8e; }
+  .ui-win.w1 { left: 0; top: 0; transform: rotate(-4deg); z-index: 1; }
+  .ui-win.w2 { right: 0; top: 22px; transform: rotate(3deg); z-index: 2; }
+  .ui-win.w3 { left: 6%; top: 104px; transform: rotate(2deg); z-index: 3; }
+  .ui-win.w4 { right: 2%; top: 140px; transform: rotate(-3deg); z-index: 4; }
+  .ui-wins-more { position: absolute; left: 50%; bottom: -6px; transform: translateX(-50%); z-index: 5; padding: 6px 12px; border-radius: 999px;
+    background: #1d1d1f; color: #fff; font-size: 14px; white-space: nowrap; box-shadow: 0 6px 16px rgba(0,0,0,.4); border: 1px solid rgba(255,255,255,.12); }
+  .pain-card[data-pain="chatswin"] .pain-visual { min-height: 260px; padding: 16px 12px 22px; }
+
+  /* --- Before / After switch (landings with "pains_ba": true, e.g. CRM) --- */
+  .ba-bar { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 76px); z-index: 30; display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 28px auto 0; }
+  .ba-switch { position: relative; display: grid; grid-template-columns: 1fr 1fr; width: 100%; max-width: 420px; padding: 4px; border-radius: 999px;
+    background: color-mix(in srgb, var(--bg) 88%, transparent); border: 1px solid var(--border); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.45); }
+  .ba-switch::before { content: ""; position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc(50% - 4px); border-radius: 999px;
+    background: #3a3a38; transition: transform .35s cubic-bezier(.3,.7,.2,1), background .35s; }
+  .cp .ba-switch::before { transform: translateX(100%); background: color-mix(in srgb, var(--accent) 16%, rgba(255,255,255,.06)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent); }
+  .ba-btn { position: relative; z-index: 1; min-height: 48px; padding: 8px 10px; border: 0; border-radius: 999px; background: none; cursor: pointer;
+    font: 700 15px/1.2 var(--font-body); color: var(--fg-dim); display: flex; align-items: center; justify-content: center; gap: 8px; transition: color .3s; }
+  .ba-btn[aria-pressed="true"] { color: var(--fg); }
+  .cp .ba-btn[aria-pressed="true"] { color: var(--accent); }
+  .ba-btn i { width: 8px; height: 8px; border-radius: 50%; background: currentColor; opacity: .7; flex: none; }
+  .ba-btn.ba-to-after:not([aria-pressed="true"]) i { background: var(--accent); opacity: 1; animation: baPulse 1.6s ease-out infinite; }
+  @keyframes baPulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 70%, transparent); } 100% { box-shadow: 0 0 0 10px transparent; } }
+  .pains.has-ba .pain-grid { margin-top: 20px; }
+  .pain-side { display: contents; }
+  .pain-after { display: none; }
+  .pains.has-ba .pain-card { display: grid; grid-template-columns: minmax(0, 1fr); padding: 0; gap: 0; transition: border-color .35s, box-shadow .35s; }
+  .pains.has-ba .pain-side { display: flex; flex-direction: column; gap: 14px; padding: 22px; grid-area: 1 / 1; min-width: 0; transition: opacity .35s ease; }
+  .pains.has-ba .pain-before .pain-fix { display: none; }
+  .pains.has-ba .pain-before .pain-visual > * { filter: saturate(.75); }
+  .pains.has-ba .pain-after .pain-visual { background: linear-gradient(160deg, rgba(255,255,255,.07), rgba(255,255,255,.02)); border-color: rgba(255,255,255,.10); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+  .pains.has-ba .pain-after .ui-z { box-shadow: 0 10px 28px rgba(0,0,0,.35); }
+  .pains.has-ba .pain-before .pain-body { display: none; }
+  .pain-stat { display: none; }
+  .pains.has-ba .pain-stat { display: block; margin: 0; padding: 14px 16px; border-radius: 12px; background: rgba(255,255,255,.04); border: 1px solid var(--border); }
+  .pain-stat b { display: block; font-family: var(--font-head); font-weight: 900; font-size: 30px; line-height: 1.1; color: var(--fg); margin-bottom: 4px; }
+  .pain-stat span { display: block; font-size: 15px; line-height: 1.45; color: var(--fg-dim); }
+  .pain-stat small { display: block; margin-top: 6px; font-size: 14px; color: var(--fg-mute); }
+  .pains.has-ba .pain-after .pain-body { color: var(--fg); }
+  .cp .pain-after, .cp .pain-before { opacity: 0; visibility: hidden; pointer-events: none; }
+  .cp .pain-card { background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015)), var(--surface); border-color: rgba(255,255,255,.16); }
+  .pains.has-ba .pain-visual { min-height: 270px; }
+  @media (prefers-reduced-motion: reduce) { .pains.has-ba .pain-side, .ba-switch::before { transition: none; } .ba-btn i { animation: none !important; } }
+  @media (min-width: 900px) { .ba-bar { top: 88px; } }
+
+  /* --- CRM interface mock-ups (Zoho CRM style) --- */
+  .ui-z { width: 100%; max-width: 330px; border-radius: 12px; overflow: hidden; background: #fff; color: #1f2937; box-shadow: 0 18px 40px rgba(0,0,0,.45);
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', var(--font-body); font-size: 14px; line-height: 1.3; text-align: left; }
+  .ui-z-top { display: flex; align-items: center; gap: 8px; padding: 9px 12px; background: #0f2d52; color: #fff; font-weight: 600; }
+  .ui-z-top .ui-z-logo { padding: 2px 7px; border-radius: 5px; background: #e42527; font-weight: 800; letter-spacing: .5px; }
+  .ui-z-top em { margin-left: auto; font-style: normal; padding: 2px 8px; border-radius: 999px; background: #1fa855; font-size: 14px; white-space: nowrap; }
+  .ui-z-search { display: flex; align-items: center; gap: 8px; margin: 10px 12px 6px; padding: 7px 10px; border-radius: 8px; border: 1.5px solid #1a73e8; background: #f5f9ff; }
+  .ui-z-search svg { flex: none; }
+  .ui-z-search span { flex: 1; min-width: 0; }
+  .ui-z-search small { font-size: 14px; color: #1a73e8; white-space: nowrap; }
+  .ui-z-rec { margin: 4px 12px 12px; padding: 10px; border-radius: 10px; border: 1px solid #e5e7eb; background: #fff; display: grid; gap: 7px; }
+  .ui-z-who { display: flex; align-items: center; gap: 9px; }
+  .ui-z-av { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; color: #fff; background: #1a73e8; flex: none; font-size: 14px; }
+  .ui-z-who b { display: block; }
+  .ui-z-who small { display: block; font-size: 14px; color: #6b7280; }
+  .ui-z-chip { margin-left: auto; padding: 3px 8px; border-radius: 6px; background: #fff4e5; color: #b45309; font-weight: 600; white-space: nowrap; }
+  .ui-z-kv { display: flex; justify-content: space-between; gap: 8px; padding-top: 7px; border-top: 1px dashed #e5e7eb; color: #6b7280; }
+  .ui-z-kv b { color: #111827; white-space: nowrap; }
+  .ui-z-ok { display: flex; align-items: center; gap: 6px; color: #15803d; font-weight: 600; }
+  .ui-z-list { list-style: none; margin: 0; padding: 4px 0 6px; }
+  .ui-z-list li { display: flex; align-items: center; gap: 9px; padding: 8px 12px; border-bottom: 1px solid #f0f1f3; }
+  .ui-z-list li:last-child { border-bottom: 0; }
+  .ui-z-list .ui-z-av { width: 26px; height: 26px; }
+  .ui-z-t { flex: 1; min-width: 0; }
+  .ui-z-t b { display: block; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ui-z-t small { display: block; font-size: 14px; color: #6b7280; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ui-z-st { flex: none; padding: 2px 8px; border-radius: 6px; font-weight: 600; font-size: 14px; white-space: nowrap; }
+  .ui-z-st.done { background: #e7f6ec; color: #15803d; }
+  .ui-z-st.soon { background: #e8f0fe; color: #1a56c8; }
+  .ui-z-st.auto { background: #f3e8ff; color: #7e22ce; }
+  .ui-z-list li.done .ui-z-t b { color: #6b7280; text-decoration: line-through; }
+  .ui-z-bell { display: flex; align-items: center; gap: 6px; margin: 0 12px 12px; padding: 7px 10px; border-radius: 8px; background: #fff8e1; color: #92400e; font-weight: 600; }
+  .ui-z-ch { width: 24px; height: 24px; border-radius: 7px; flex: none; display: grid; place-items: center; font-size: 14px; font-weight: 700; color: #fff; background: var(--c); }
+  .ui-z-rep { flex: none; text-align: right; font-size: 14px; color: #15803d; font-weight: 600; white-space: nowrap; }
+  .ui-z-rep small { display: block; color: #6b7280; font-weight: 400; font-size: 14px; }
+  .ui-z-top > span:not(.ui-z-logo) { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ui-z-who > div { flex: 1; min-width: 0; }
+  .ui-z-who b, .ui-z-who small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ui-z-chip { font-size: 14px; }
+
+  /* --- v52: scattered numbers (before) + Zoho-style animated mock-ups: pipeline, Blueprint, analytics (after) --- */
+  .ui-scatter { position: relative; width: 100%; max-width: 320px; height: 210px; }
+  .ui-rep { position: absolute; width: 58%; padding: 10px 12px; border-radius: 10px; background: #fff; color: #1f2937; box-shadow: 0 10px 24px rgba(0,0,0,.4);
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', var(--font-body); font-size: 14px; line-height: 1.3; }
+  .ui-rep small { display: block; font-size: 14px; color: #6b7280; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ui-rep b { display: block; font-size: 20px; margin-top: 2px; }
+  .ui-rep.r1 { left: 0; top: 0; transform: rotate(-4deg); } .ui-rep.r1 b { color: #15803d; }
+  .ui-rep.r2 { right: 0; top: 52px; transform: rotate(3deg); background: #fffdf6; } .ui-rep.r2 b { color: #b45309; }
+  .ui-rep.r3 { left: 8%; bottom: 0; transform: rotate(-1deg); } .ui-rep.r3 b { color: #b91c1c; }
+  .ui-q { position: absolute; right: 6%; bottom: 10px; z-index: 3; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+    background: #1d1d1f; color: #fff; font: 900 24px/1 var(--font-head); border: 1px solid rgba(255,255,255,.2); box-shadow: 0 6px 16px rgba(0,0,0,.4); }
+
+  .ui-z-body { padding: 10px; background: #f5f7fa; }
+  /* pipeline (kanban) */
+  .ui-kb { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; position: relative; }
+  .ui-kb-col { min-width: 0; border-radius: 8px; background: #eef1f6; padding: 6px; display: grid; gap: 6px; align-content: start; min-height: 150px; }
+  .ui-kb-col > span { font-size: 14px; font-weight: 700; color: #374151; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-bottom: 4px; border-bottom: 3px solid var(--c); }
+  .ui-kb-card { border-radius: 6px; background: #fff; padding: 6px; box-shadow: 0 1px 2px rgba(0,0,0,.08); font-size: 14px; line-height: 1.25; }
+  .ui-kb-card b { display: block; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ui-kb-card small { display: block; color: #15803d; font-weight: 700; font-size: 14px; }
+  .ui-kb-card.mv { position: relative; z-index: 2; border: 1.5px solid #1a73e8; }
+  .cp .ui-kb-card.mv { animation: kbMove 5s ease-in-out infinite; }
+  @keyframes kbMove { 0%, 18% { transform: translateX(0); } 42%, 58% { transform: translateX(calc(100% + 18px)); } 82%, 100% { transform: translateX(calc(200% + 36px)); box-shadow: 0 0 0 3px rgba(21,128,61,.35); } }
+  /* blueprint */
+  .ui-bp { display: grid; gap: 0; padding: 4px 2px; }
+  .ui-bp-st { position: relative; display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 8px; background: #fff; border: 1.5px solid #d6dbe4; font-size: 14px; font-weight: 600; color: #6b7280; }
+  .ui-bp-st i { width: 20px; height: 20px; border-radius: 50%; flex: none; border: 2px solid #c3cad6; background: #fff; display: grid; place-items: center; font-style: normal; font-size: 14px; color: #fff; }
+  .ui-bp-st em { margin-left: auto; font-style: normal; font-size: 14px; font-weight: 600; color: #1a56c8; white-space: nowrap; }
+  .ui-bp-ln { width: 2px; height: 12px; margin-left: 20px; background: #c3cad6; }
+  .cp .ui-bp-st { animation: bpStep 6s infinite; }
+  .cp .ui-bp-st i { animation: bpDot 6s infinite; }
+  .ui-bp-st.s2, .ui-bp-st.s2 i { animation-delay: 1.4s !important; } .ui-bp-st.s3, .ui-bp-st.s3 i { animation-delay: 2.8s !important; } .ui-bp-st.s4, .ui-bp-st.s4 i { animation-delay: 4.2s !important; }
+  @keyframes bpStep { 0% { border-color: #d6dbe4; color: #6b7280; } 4%, 85% { border-color: #1a73e8; color: #111827; box-shadow: 0 0 0 3px rgba(26,115,232,.15); } 20%, 85% { box-shadow: none; } 100% { border-color: #d6dbe4; color: #6b7280; } }
+  @keyframes bpDot { 0% { background: #fff; border-color: #c3cad6; } 4%, 85% { background: #15803d; border-color: #15803d; } 100% { background: #fff; border-color: #c3cad6; } }
+  /* analytics */
+  .ui-an-kpi { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-bottom: 8px; }
+  .ui-an-kpi div { border-radius: 8px; background: #fff; padding: 6px 8px; font-size: 14px; color: #6b7280; box-shadow: 0 1px 2px rgba(0,0,0,.06); min-width: 0; }
+  .ui-an-kpi b { display: block; font-size: 18px; color: #111827; }
+  .ui-an-kpi b small { font-size: 14px; color: #15803d; font-weight: 700; }
+  .ui-an-ch { display: flex; align-items: flex-end; gap: 6px; height: 92px; padding: 8px 8px 0; border-radius: 8px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+  .ui-an-ch span { flex: 1; height: var(--h); border-radius: 4px 4px 0 0; background: linear-gradient(180deg, #4f8ef7, #1a73e8); transform-origin: bottom; }
+  .ui-an-ch span:last-child { background: linear-gradient(180deg, #34c759, #15803d); }
+  .cp .ui-an-ch span { animation: anGrow 4s ease-out infinite; }
+  .ui-an-ch span:nth-child(2) { animation-delay: .1s !important; } .ui-an-ch span:nth-child(3) { animation-delay: .2s !important; } .ui-an-ch span:nth-child(4) { animation-delay: .3s !important; }
+  .ui-an-ch span:nth-child(5) { animation-delay: .4s !important; } .ui-an-ch span:nth-child(6) { animation-delay: .5s !important; }
+  @keyframes anGrow { 0% { transform: scaleY(.05); } 30%, 100% { transform: scaleY(1); } }
+  @media (prefers-reduced-motion: reduce) { .cp .ui-kb-card.mv, .cp .ui-bp-st, .cp .ui-bp-st i, .cp .ui-an-ch span { animation: none !important; } }
+
+  /* --- v53: motion on the "challenge" side (runs only while that side is shown) --- */
+  .cp .ui-sticky { animation: stWobble 2.6s ease-in-out infinite; }
+  @keyframes stWobble { 0%, 100% { transform: rotate(4deg); } 50% { transform: rotate(-2deg) translateY(-3px); } }
+  .cp .ui-grid .err { animation: errBlink 1.4s steps(2, jump-none) infinite; }
+  @keyframes errBlink { 0% { background: #fff; } 100% { background: #ffd9de; } }
+  .cp .ui-grid .dup { animation: dupPulse 2s ease-in-out infinite; }
+  @keyframes dupPulse { 0%, 100% { background: #fff2b3; } 50% { background: #ffe066; } }
+  .cp .ui-grid .sel { animation: selJump 3s steps(1) infinite; }
+  @keyframes selJump { 0% { outline-color: #1d6f42; } 33% { outline-color: transparent; } 66% { outline-color: #b00020; } }
+  .cp .ui-notes { animation: ntShake 4s ease-in-out infinite; }
+  @keyframes ntShake { 0%, 70%, 100% { transform: none; } 74% { transform: rotate(-1.5deg); } 78% { transform: rotate(1.5deg); } 82% { transform: rotate(-1deg); } 86% { transform: none; } }
+  .cp .ui-notes li:not(.done) { animation: ntFlick 3.2s ease-in-out infinite; }
+  .ui-notes li:nth-child(3) { animation-delay: .8s !important; } .ui-notes li:nth-child(5) { animation-delay: 1.6s !important; } .ui-notes li:nth-child(6) { animation-delay: 2.4s !important; }
+  @keyframes ntFlick { 0%, 80%, 100% { color: inherit; } 88% { color: #b00020; } }
+  .cp .ui-rep.r1 { animation: rpA 5s ease-in-out infinite; }
+  .cp .ui-rep.r2 { animation: rpB 5s ease-in-out infinite; }
+  .cp .ui-rep.r3 { animation: rpC 5s ease-in-out infinite; }
+  @keyframes rpA { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(-1deg) translate(6px, 4px); } }
+  @keyframes rpB { 0%, 100% { transform: rotate(3deg); } 50% { transform: rotate(6deg) translate(-8px, -4px); } }
+  @keyframes rpC { 0%, 100% { transform: rotate(-1deg); } 50% { transform: rotate(-4deg) translate(6px, -6px); } }
+  .cp .ui-q { animation: qPulse 1.8s ease-in-out infinite; }
+  @keyframes qPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+  @media (prefers-reduced-motion: reduce) { .cp * { animation: none !important; } }
+
+  /* --- v53: closer to the real Zoho CRM layout (module rail + header + content) --- */
+  .ui-zf { display: grid; grid-template-columns: 30px minmax(0, 1fr); width: 100%; max-width: 340px; border-radius: 12px; overflow: hidden; background: #fff; color: #1f2937;
+    box-shadow: 0 18px 40px rgba(0,0,0,.45); font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', var(--font-body); font-size: 14px; line-height: 1.3; text-align: left; }
+  .ui-zf-rail { background: #1b2433; display: flex; flex-direction: column; align-items: center; gap: 9px; padding: 10px 0; }
+  .ui-zf-rail i { width: 14px; height: 14px; border-radius: 4px; background: rgba(255,255,255,.22); }
+  .ui-zf-rail i.on { background: #e42527; }
+  .ui-zf-main { min-width: 0; background: #f4f6f9; }
+  .ui-zf-head { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: #fff; border-bottom: 1px solid #e5e7eb; font-weight: 700; }
+  .ui-zf-head span { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ui-zf-head em { margin-left: auto; font-style: normal; font-weight: 600; font-size: 14px; color: #fff; background: #1a73e8; border-radius: 6px; padding: 3px 8px; white-space: nowrap; }
+  .ui-zf .ui-z-body { background: transparent; }
+  .ui-kb-col > span small { display: block; font-weight: 400; color: #6b7280; font-size: 14px; }
+  .ui-kb-card b { color: #1a56c8; }
+  .ui-bp-rec { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; padding: 8px; border-radius: 8px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+  .ui-bp-rec b { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ui-bp-rec em { margin-left: auto; font-style: normal; font-size: 14px; font-weight: 600; color: #fff; background: #15803d; border-radius: 6px; padding: 3px 8px; white-space: nowrap; }
+  .cp .ui-bp-rec em { animation: bpBtn 6s infinite; }
+  @keyframes bpBtn { 0%, 60%, 100% { transform: none; } 64% { transform: scale(.94); } 70% { transform: none; } }
+  .ui-an-ch { position: relative; }
+
+  /* --- minimal problem -> solution cards (mobile first) --- */
+  .cp .cp-list { display: grid; gap: 18px; margin-top: 32px; }
+  .cp-card { display: grid; gap: 0; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); background: var(--surface); }
+  .cp-half { display: flex; flex-direction: column; gap: 12px; padding: 18px; min-width: 0; }
+  .cp-sol { background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015)); }
+  .cp-tag { align-self: flex-start; font-size: 14px; font-weight: 600; padding: 4px 10px; border-radius: 999px; color: var(--fg-dim); background: rgba(255,255,255,.06); border: 1px solid var(--border); }
+  .cp-tag.is-sol { color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+  .cp-title { margin: 0; font-family: var(--font-head); font-weight: 900; font-size: 19px; line-height: 1.25; color: var(--fg); }
+  .cp-vis { position: relative; min-height: 230px; border-radius: 14px; padding: 16px; background: var(--surface-2); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .cp-vis > * { max-width: 100%; }
+  .cp-arrow { position: relative; height: 0; }
+  .cp-arrow::after { content: ""; position: absolute; z-index: 2; left: 50%; top: 0; transform: translate(-50%, -50%); width: 34px; height: 34px; border-radius: 50%;
+    background: #1c1c1b no-repeat center / 16px 16px; border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C1FD3A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 4v16M5 13l7 7 7-7'/%3E%3C/svg%3E"); }
+  @media (max-width: 599px) {
+    .cp .ui-kb-card.mv { animation: kbPulse 2.4s ease-in-out infinite !important; }
+    .ui-kb-col > span { font-size: 14px; }
+  }
+  @keyframes kbPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(26,115,232,.0); } 50% { box-shadow: 0 0 0 4px rgba(26,115,232,.35); } }
+  .cp .pains-cta { display: flex; justify-content: center; margin-top: 28px; }
+  @media (min-width: 900px) {
+    .cp-card { grid-template-columns: 1fr 0 1fr; }
+    .cp-half { padding: 24px; }
+    .cp-arrow { height: auto; }
+    .cp-arrow::after { top: 50%; left: 0; transform: translate(-50%, -50%) rotate(-90deg); }
+    .cp-vis { min-height: 250px; }
+  }
+</style>
+<section class="section pains cp" id="pains">
+  <div class="wrap">
+    <h2 class="section-title" data-i18n="pain.title">Sound familiar?</h2>
+    <p class="section-sub" data-i18n="pain.sub">…</p>
+    <div class="cp-list">
+      <article class="cp-card">
+        <div class="cp-half cp-prob">
+          <span class="cp-tag" data-i18n="pain.ba.before">Challenge</span>
+          <h3 class="cp-title" data-i18n="cp.cx.p">…</h3>
+          <div class="cp-vis" aria-hidden="true">
+            <div class="ui-sheet">
+              <div class="ui-sheet-bar"><b>X</b><span>clients_FINAL_v7 (2).xlsx</span></div>
+              <div class="ui-fx"><i>fx</i><span>=VLOOKUP(B7;Sheet2!A:D;3;FALSE)</span></div>
+              <div class="ui-grid">
+                <div class="c"></div><div class="c">A</div><div class="c">B</div><div class="c">C</div>
+                <div class="c">1</div><div class="h" data-i18n="pain.excel.h1">Client</div><div class="h" data-i18n="pain.excel.h2">Phone</div><div class="h" data-i18n="pain.excel.h3">Status</div>
+                <div class="c">2</div><div>N. Beridze</div><div>599 123 456</div><div>✓</div>
+                <div class="c">3</div><div class="dup">G. Kapanadze</div><div class="dup">555 987 654</div><div>??</div>
+                <div class="c">4</div><div class="dup">G. Kapanadze</div><div class="dup">555 987 654</div><div></div>
+                <div class="c">5</div><div>LTD "Mega"</div><div class="err">#N/A</div><div class="sel"></div>
+                <div class="c">6</div><div>T. Gelashvili</div><div>577 …</div><div>!!</div>
+              </div>
+            </div>
+            <div class="ui-sticky" data-i18n="pain.excel.sticky">Who deleted column C?!</div>
+          </div>
+        </div>
+        <div class="cp-arrow" aria-hidden="true"></div>
+        <div class="cp-half cp-sol">
+          <span class="cp-tag is-sol" data-i18n="pain.ba.after">Result</span>
+          <h3 class="cp-title" data-i18n="cp.cx.s">…</h3>
+          <div class="cp-vis" aria-hidden="true">
+            <div class="ui-zf">
+              <div class="ui-zf-rail"><i></i><i class="on"></i><i></i><i></i><i></i></div>
+              <div class="ui-zf-main">
+                <div class="ui-zf-head"><span data-i18n="pain.z.deals">…</span><em data-i18n="pain.z.create">…</em></div>
+                <div class="ui-z-body"><div class="ui-kb">
+                <div class="ui-kb-col" style="--c:#f59e0b"><span><span data-i18n="pain.z.k1">New</span><small>2 · 6 000 ₾</small></span><div class="ui-kb-card mv"><b>LTD "Mega"</b><small>4 800 ₾</small></div><div class="ui-kb-card"><b>N. Beridze</b><small>1 200 ₾</small></div></div>
+                <div class="ui-kb-col" style="--c:#1a73e8"><span><span data-i18n="pain.z.k2">Proposal</span><small>1 · 2 400 ₾</small></span><div class="ui-kb-card"><b>G. Kapanadze</b><small>2 400 ₾</small></div></div>
+                <div class="ui-kb-col" style="--c:#15803d"><span><span data-i18n="pain.z.k3">Won</span><small>1 · 3 100 ₾</small></span><div class="ui-kb-card"><b>T. Gelashvili</b><small>3 100 ₾</small></div></div>
+              </div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="cp-card">
+        <div class="cp-half cp-prob">
+          <span class="cp-tag" data-i18n="pain.ba.before">Challenge</span>
+          <h3 class="cp-title" data-i18n="cp.cc.p">…</h3>
+          <div class="cp-vis" aria-hidden="true">
+            <div class="ui-notes">
+              <div class="ui-notes-top"><span>‹</span>Notes<span>⋯</span></div>
+              <div class="ui-notes-title" data-i18n="pain.owner.note">Today!!</div>
+              <ul>
+                <li data-i18n="pain.owner.c1">Call the client!</li>
+                <li class="done" data-i18n="pain.owner.c2">Invoice on rs.ge</li>
+                <li data-i18n="pain.owner.c3">Who replied on Instagram?</li>
+                <li data-i18n="pain.owner.c4">Did you send the price?</li>
+                <li data-i18n="pain.owner.c5">Manager is off today</li>
+                <li data-i18n="pain.owner.c6">Report tomorrow!!</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="cp-arrow" aria-hidden="true"></div>
+        <div class="cp-half cp-sol">
+          <span class="cp-tag is-sol" data-i18n="pain.ba.after">Result</span>
+          <h3 class="cp-title" data-i18n="cp.cc.s">…</h3>
+          <div class="cp-vis" aria-hidden="true">
+            <div class="ui-zf">
+              <div class="ui-zf-rail"><i></i><i class="on"></i><i></i><i></i><i></i></div>
+              <div class="ui-zf-main">
+                <div class="ui-zf-head"><span data-i18n="pain.z.bp">…</span></div>
+                <div class="ui-z-body"><div class="ui-bp-rec"><b>LTD "Mega"</b><em data-i18n="pain.z.bnext">Next step</em></div>
+                <div class="ui-bp">
+                  <div class="ui-bp-st s1"><i>✓</i><span data-i18n="pain.z.b1">New lead</span><em data-i18n="pain.z.n1">Nika</em></div><div class="ui-bp-ln"></div>
+                  <div class="ui-bp-st s2"><i>✓</i><span data-i18n="pain.z.b2">Qualified</span><em data-i18n="pain.z.n1">Nika</em></div><div class="ui-bp-ln"></div>
+                  <div class="ui-bp-st s3"><i>✓</i><span data-i18n="pain.z.b3">Offer sent</span><em data-i18n="pain.z.n2">Ana</em></div><div class="ui-bp-ln"></div>
+                  <div class="ui-bp-st s4"><i>✓</i><span data-i18n="pain.z.b4">Contract</span><em data-i18n="pain.z.n3">Luka</em></div>
+                </div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="cp-card">
+        <div class="cp-half cp-prob">
+          <span class="cp-tag" data-i18n="pain.ba.before">Challenge</span>
+          <h3 class="cp-title" data-i18n="cp.cd.p">…</h3>
+          <div class="cp-vis" aria-hidden="true">
+            <div class="ui-scatter">
+              <div class="ui-rep r1"><small data-i18n="pain.data.s1">Excel · October sales</small><b>38 400 ₾</b></div>
+              <div class="ui-rep r2"><small data-i18n="pain.data.s2">Manager · "about"</small><b>~45 000 ₾</b></div>
+              <div class="ui-rep r3"><small data-i18n="pain.data.s3">Accounting</small><b>41 250 ₾</b></div>
+              <div class="ui-q">?</div>
+            </div>
+          </div>
+        </div>
+        <div class="cp-arrow" aria-hidden="true"></div>
+        <div class="cp-half cp-sol">
+          <span class="cp-tag is-sol" data-i18n="pain.ba.after">Result</span>
+          <h3 class="cp-title" data-i18n="cp.cd.s">…</h3>
+          <div class="cp-vis" aria-hidden="true">
+            <div class="ui-zf">
+              <div class="ui-zf-rail"><i></i><i class="on"></i><i></i><i></i><i></i></div>
+              <div class="ui-zf-main">
+                <div class="ui-zf-head"><span data-i18n="pain.z.an">…</span></div>
+                <div class="ui-z-body"><div class="ui-an-kpi"><div><span data-i18n="pain.z.kp1">Revenue</span><b>41 250 ₾ <small>+18%</small></b></div><div><span data-i18n="pain.z.kp2">Conversion</span><b>24% <small>+5%</small></b></div></div>
+                <div class="ui-an-ch"><span style="--h:34%"></span><span style="--h:46%"></span><span style="--h:41%"></span><span style="--h:60%"></span><span style="--h:72%"></span><span style="--h:94%"></span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="pains-cta"><a href="#final" class="btn btn-primary"><span data-i18n="pain.cta">Request a free 20-minute call</span></a></div>
+  </div>
+</section>

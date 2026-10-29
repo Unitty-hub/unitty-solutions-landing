@@ -1,12 +1,8 @@
 {
   "name": "crm",
-  "version": "v57-2026-10-29",
+  "version": "v58-2026-10-29",
   "description": "CRM-ის შერჩევა და დანერგვა 5 დღიდან: ყველა კლიენტი ერთ სისტემაში. Zoho, Pipedrive, Kommo, monday, Bitrix24, Odoo, ფიქსირებული ფასით. უფასო 20-წუთიანი ზარი.",
-  "pains": [
-    "crmexcel",
-    "crmchaos",
-    "crmdata"
-  ],
+  "pains": [],
   "i18n": {
     "nav.brand": {
       "ka": "Unitty CRM",
@@ -163,25 +159,10 @@
       "en": "free 20-minute consultation",
       "ru": "бесплатную 20-минутную консультацию"
     },
-    "process.0.desc": {
-      "ka": "ქაოსი: ცხრილები, მიმოფანტული ჩატები, დავიწყებული ზარები და დაკარგული კლიენტები.",
-      "en": "Chaos: spreadsheets, scattered chats, forgotten calls and lost clients.",
-      "ru": "Хаос: таблицы, разрозненные чаты, забытые звонки и потерянные клиенты."
-    },
-    "process.0.name": {
-      "ka": "დღევანდელი რეალობა",
-      "en": "Where you are today",
-      "ru": "Где вы сейчас"
-    },
-    "process.0.time": {
-      "ka": "საწყისი წერტილი",
-      "en": "Starting point",
-      "ru": "Отправная точка"
-    },
     "process.1.desc": {
-      "ka": "ქაოსის ნაცვლად — ზუსტი გეგმა: რა ინსტრუმენტი, რა ვადაში და რა ბიუჯეტით.",
-      "en": "Instead of chaos, an exact plan: which tools, what timeline, what budget.",
-      "ru": "Вместо хаоса — точный план: какие инструменты, сроки и бюджет."
+      "ka": "ვარჩევთ სწორ CRM-ს და ვადგენთ გეგმას.",
+      "en": "We choose the right CRM and make a plan.",
+      "ru": "Подбираем правильную CRM и составляем план."
     },
     "process.1.name": {
       "ka": "კონსულტაცია",
@@ -189,14 +170,14 @@
       "ru": "Консультация"
     },
     "process.1.time": {
-      "ka": "პირველი ზარი · 20 წთ · უფასო",
-      "en": "First call · 20 min · free",
-      "ru": "Первый звонок · 20 мин · бесплатно"
+      "ka": "20 წთ · უფასო",
+      "en": "20 min · free",
+      "ru": "20 мин · бесплатно"
     },
     "process.2.desc": {
-      "ka": "სისტემას მოკლე სპრინტებით ვაწყობთ და ბიზნესი ძლიერდება. პირველ შედეგს 1-2 კვირაში ხედავ.",
-      "en": "We build the system in short sprints and the business gets stronger. You see first results in 1-2 weeks.",
-      "ru": "Мы строим систему короткими спринтами, и бизнес становится сильнее. Первый результат — через 1-2 недели."
+      "ka": "ვაწყობთ სისტემას და ვატრენინგებთ გუნდს.",
+      "en": "We set up the system and train your team.",
+      "ru": "Настраиваем систему и обучаем команду."
     },
     "process.2.name": {
       "ka": "დანერგვა",
@@ -204,14 +185,14 @@
       "ru": "Внедрение"
     },
     "process.2.time": {
-      "ka": "სპრინტი · 1-2 კვირა",
-      "en": "Sprint · 1-2 weeks",
-      "ru": "Спринт · 1-2 недели"
+      "ka": "5–25 სამუშაო დღე",
+      "en": "5–25 working days",
+      "ru": "5–25 рабочих дней"
     },
     "process.3.desc": {
-      "ka": "სისტემა ბიზნესთან ერთად იზრდება და ზრდას ზღვარი არ აქვს.",
-      "en": "The system grows with your business, and growth has no ceiling.",
-      "ru": "Система растёт вместе с бизнесом, и у роста нет потолка."
+      "ka": "ვრჩებით შენთან, სისტემა ბიზნესთან ერთად იზრდება.",
+      "en": "We stay with you as the system grows with your business.",
+      "ru": "Остаёмся рядом, система растёт вместе с бизнесом."
     },
     "process.3.name": {
       "ka": "მხარდაჭერა",
@@ -219,9 +200,9 @@
       "ru": "Поддержка"
     },
     "process.3.time": {
-      "ka": "მუდმივად · საჭიროებისამებრ",
-      "en": "Ongoing · as needed",
-      "ru": "Постоянно · по необходимости"
+      "ka": "მუდმივად",
+      "en": "Ongoing",
+      "ru": "Постоянно"
     },
     "process.eyebrow": {
       "ka": "როგორ ვმუშაობთ",
@@ -234,14 +215,44 @@
       "ru": "Запросить сейчас"
     },
     "process.sub": {
-      "ka": "ქაოსიდან სტაბილურ ზრდამდე: ნახე, რა გზას გაივლი ჩვენთან ერთად.",
-      "en": "From chaos to steady growth: see the path you'll take with us.",
-      "ru": "От хаоса к стабильному росту: посмотрите, какой путь вы пройдёте с нами."
+      "ka": "ზარიდან სტაბილურ შედეგამდე.",
+      "en": "From one call to steady results.",
+      "ru": "От одного звонка к стабильному результату."
     },
     "process.title": {
       "ka": "სამი ნაბიჯი შედეგამდე",
       "en": "Three steps to results",
       "ru": "Три шага к результату"
+    },
+    "cp.cx.p": {
+      "ka": "Excel ანელებს გაყიდვებს და ქმნის რისკებს",
+      "en": "Excel slows sales down and creates risks",
+      "ru": "Excel тормозит продажи и создаёт риски"
+    },
+    "cp.cx.s": {
+      "ka": "Zoho CRM: ყველა გარიგება ერთ სისტემაში",
+      "en": "Zoho CRM: every deal in one system",
+      "ru": "Zoho CRM: все сделки в одной системе"
+    },
+    "cp.cc.p": {
+      "ka": "არასისტემური მუშაობა ქაოსს ქმნის",
+      "en": "Work without a system creates chaos",
+      "ru": "Работа без системы создаёт хаос"
+    },
+    "cp.cc.s": {
+      "ka": "Blueprint: ყველა ნაბიჯი წესით და თანმიმდევრობით",
+      "en": "Blueprint: every step by the rules, in order",
+      "ru": "Blueprint: каждый шаг по правилам и по порядку"
+    },
+    "cp.cd.p": {
+      "ka": "გაფანტული მონაცემები — არასწორი გადაწყვეტილებები",
+      "en": "Scattered data, wrong decisions",
+      "ru": "Разрозненные данные — неверные решения"
+    },
+    "cp.cd.s": {
+      "ka": "ანალიტიკა: ზუსტი ციფრები ერთ დეშბორდზე",
+      "en": "Analytics: exact numbers on one dashboard",
+      "ru": "Аналитика: точные цифры на одном дашборде"
     },
     "pk.title": {
       "ka": "აირჩიე, საიდან დაიწყო",
@@ -358,6 +369,11 @@
       "en": "To move from Excel into a CRM",
       "ru": "Чтобы перейти с Excel на CRM"
     },
+    "pk.starter.out": {
+      "ka": "Excel-იდან CRM-ზე გადახვალ: ყველა კლიენტი და ლიდი ერთ სისტემაშია.",
+      "en": "You move from Excel to a CRM: every client and lead in one system.",
+      "ru": "Переходите с Excel на CRM: все клиенты и лиды в одной системе."
+    },
     "pk.starter.h1": {
       "ka": "4 ძირითადი მოდული",
       "en": "4 core modules",
@@ -417,6 +433,11 @@
       "ka": "სტარტ პაკეტის სრული ფუნქციონალი, პლუს:",
       "en": "Everything in Starter, plus:",
       "ru": "Всё из «Старта», плюс:"
+    },
+    "pk.essentials.out": {
+      "ka": "მოწესრიგებული გაყიდვები: ლიდები ავტომატურად შემოდის და გუნდზე სწორად ნაწილდება.",
+      "en": "Sales in order: leads come in automatically and go to the right people.",
+      "ru": "Продажи в порядке: лиды приходят автоматически и правильно распределяются по команде."
     },
     "pk.essentials.h1": {
       "ka": "სტარტ პაკეტის სრული ფუნქციონალი",
@@ -492,6 +513,11 @@
       "ka": "ოპტიმალურის სრული ფუნქციონალი, პლუს:",
       "en": "Everything in Essentials, plus:",
       "ru": "Всё из «Оптимального», плюс:"
+    },
+    "pk.growth.out": {
+      "ka": "გაყიდვების სრული სისტემა: ზარები, ავტომატიზაციები და AI ერთ სივრცეში.",
+      "en": "A complete sales system: calls, automations and AI in one place.",
+      "ru": "Полная система продаж: звонки, автоматизации и AI в одном месте."
     },
     "pk.growth.h1": {
       "ka": "ოპტიმალურის სრული ფუნქციონალი",
@@ -825,6 +851,10 @@
       "before": "<!-- ============ TRUST BAR ============ -->"
     },
     {
+      "file": "crm.pains.html",
+      "before": "<!-- ============ CHAOS vs CLARITY ============ -->"
+    },
+    {
       "file": "crm.packages.html",
       "before": "<!-- ============ TESTIMONIALS (moved above Final CTA) ============ -->"
     }
@@ -878,7 +908,6 @@
     "position": "50% 88%",
     "brightness": 0.8
   },
-  "pains_ba": true,
   "replace": [
     {
       "from": "<!-- ============ CHAOS vs CLARITY ============ -->",

@@ -72,7 +72,12 @@
      "en": "Lead form and KPI dashboard",
      "ru": "Форма лидов и дашборд KPI"
     }
-   ]
+   ],
+   "outcome": {
+    "ka": "Excel-იდან CRM-ზე გადახვალ: ყველა კლიენტი და ლიდი ერთ სისტემაშია.",
+    "en": "You move from Excel to a CRM: every client and lead in one system.",
+    "ru": "Переходите с Excel на CRM: все клиенты и лиды в одной системе."
+   }
   },
   {
    "id": "essentials",
@@ -168,7 +173,12 @@
      "ru": "Правила этапов и распределение лидов"
     }
    ],
-   "was": 2499
+   "was": 2499,
+   "outcome": {
+    "ka": "მოწესრიგებული გაყიდვები: ლიდები ავტომატურად შემოდის და გუნდზე სწორად ნაწილდება.",
+    "en": "Sales in order: leads come in automatically and go to the right people.",
+    "ru": "Продажи в порядке: лиды приходят автоматически и правильно распределяются по команде."
+   }
   },
   {
    "id": "growth",
@@ -262,7 +272,12 @@
      "en": "Automations and AI (Claude)",
      "ru": "Автоматизации и AI (Claude)"
     }
-   ]
+   ],
+   "outcome": {
+    "ka": "გაყიდვების სრული სისტემა: ზარები, ავტომატიზაციები და AI ერთ სივრცეში.",
+    "en": "A complete sales system: calls, automations and AI in one place.",
+    "ru": "Полная система продаж: звонки, автоматизации и AI в одном месте."
+   }
   }
  ],
  "categories": [

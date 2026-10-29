@@ -31,6 +31,7 @@
   .pk-off { font-size: 14px; font-weight: 700; line-height: 1; padding: 5px 8px; border-radius: 6px; color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
   .pk-deal { margin: -2px 0 0; font-size: 14px; line-height: 1.45; color: var(--fg-dim); }
   .pk-time { margin: 0; font-size: 15px; color: var(--fg-dim); }
+  .pk-out { margin: 4px 0 2px; font-size: 16px; line-height: 1.5; color: var(--fg); }
   .pk-time b { color: var(--accent); }
   .pk-hl { list-style: none; margin: 6px 0 4px; padding: 0; display: grid; gap: 10px; }
   .pk-hl li, .pk-full li { position: relative; padding-left: 26px; font-size: 15px; line-height: 1.45; color: var(--fg); }
@@ -130,11 +131,11 @@
         <p class="pk-for" data-i18n="pk.starter.short">To move from Excel into a CRM</p>
         <p class="pk-price"><span class="pk-amount" data-eur="990">€990</span><span class="pk-once" data-i18n="pk.once">one-time</span></p>
         <p class="pk-time"><b>5</b> <span data-i18n="pk.days">working days</span></p>
-        <ul class="pk-hl"><li data-i18n="pk.starter.h1">4 core modules</li><li data-i18n="pk.starter.h2">Email and Facebook inside the CRM</li><li data-i18n="pk.starter.h3">Lead form and KPI dashboard</li></ul>
+        <p class="pk-out" data-i18n="pk.starter.out">You move from Excel to a CRM: every client and lead in one system.</p>
         <button type="button" class="btn pk-choose" data-pk="starter" aria-pressed="false"><span class="pk-choose-off" data-i18n="pk.choose">Choose this package</span><span class="pk-choose-on" data-i18n="pk.chosen">Selected</span></button>
         <details class="pk-full">
           <summary data-i18n="pk.full">Everything included</summary>
-          <ul><li data-i18n="pk.starter.i1">4 core modules: Leads, Contacts, Accounts, Deals</li><li data-i18n="pk.starter.i2">2-way email sync (Google or Microsoft 365)</li><li data-i18n="pk.starter.i3">Facebook messages right inside the CRM</li><li data-i18n="pk.starter.i4">1 web form to capture leads</li><li data-i18n="pk.starter.i5">1 sales-pipeline KPI dashboard</li><li data-i18n="pk.starter.i6">Recorded video instructions for the team</li></ul>
+          <ul><li data-i18n="pk.starter.h1">4 core modules</li><li data-i18n="pk.starter.h2">Email and Facebook inside the CRM</li><li data-i18n="pk.starter.h3">Lead form and KPI dashboard</li><li data-i18n="pk.starter.i1">4 core modules: Leads, Contacts, Accounts, Deals</li><li data-i18n="pk.starter.i2">2-way email sync (Google or Microsoft 365)</li><li data-i18n="pk.starter.i3">Facebook messages right inside the CRM</li><li data-i18n="pk.starter.i4">1 web form to capture leads</li><li data-i18n="pk.starter.i5">1 sales-pipeline KPI dashboard</li><li data-i18n="pk.starter.i6">Recorded video instructions for the team</li></ul>
         </details>
       </article>
       <article class="pk-card is-popular" id="pk-essentials" role="tabpanel" data-pk="essentials" data-price="1999" data-was="2499" data-days="15">
@@ -144,11 +145,11 @@
         <p class="pk-price"><span class="pk-was-row"><s class="pk-was" data-eur="2499">€2,499</s><span class="pk-off">-20%</span></span><span class="pk-amount" data-eur="1999">€1,999</span><span class="pk-once" data-i18n="pk.once">one-time</span></p>
         <p class="pk-deal" data-i18n="pk.deal">Discount valid for 1 week from the day the offer is sent.</p>
         <p class="pk-time"><b>15</b> <span data-i18n="pk.days">working days</span></p>
-        <ul class="pk-hl"><li data-i18n="pk.essentials.h1">Everything in Starter</li><li data-i18n="pk.essentials.h2">Meta and Google Ads leads, automatically</li><li data-i18n="pk.essentials.h3">Stage rules and lead assignment</li></ul>
+        <p class="pk-out" data-i18n="pk.essentials.out">Sales in order: leads come in automatically and go to the right people.</p>
         <button type="button" class="btn pk-choose" data-pk="essentials" aria-pressed="false"><span class="pk-choose-off" data-i18n="pk.choose">Choose this package</span><span class="pk-choose-on" data-i18n="pk.chosen">Selected</span></button>
         <details class="pk-full">
           <summary data-i18n="pk.full">Everything included</summary>
-          <ul><li class="pk-base" data-i18n="pk.essentials.base">Everything in Starter, plus:</li><li data-i18n="pk.essentials.i1">Up to 15 custom fields</li><li data-i18n="pk.essentials.i2">Products and invoices, with your invoice template</li><li data-i18n="pk.essentials.i3">Sales stages with rules: no skipped steps</li><li data-i18n="pk.essentials.i4">Phone validation (+995) and deduplication</li><li data-i18n="pk.essentials.i5">Meta and Google Ads leads synced automatically</li><li data-i18n="pk.essentials.i6">Automatic lead assignment across managers</li><li data-i18n="pk.essentials.i7">Follow-up reminders</li><li data-i18n="pk.essentials.i8">Contacts and products migration</li><li data-i18n="pk.essentials.i9">30-minute training, recorded</li></ul>
+          <ul><li class="pk-base" data-i18n="pk.essentials.base">Everything in Starter, plus:</li><li data-i18n="pk.essentials.h1">Everything in Starter</li><li data-i18n="pk.essentials.h2">Meta and Google Ads leads, automatically</li><li data-i18n="pk.essentials.h3">Stage rules and lead assignment</li><li data-i18n="pk.essentials.i1">Up to 15 custom fields</li><li data-i18n="pk.essentials.i2">Products and invoices, with your invoice template</li><li data-i18n="pk.essentials.i3">Sales stages with rules: no skipped steps</li><li data-i18n="pk.essentials.i4">Phone validation (+995) and deduplication</li><li data-i18n="pk.essentials.i5">Meta and Google Ads leads synced automatically</li><li data-i18n="pk.essentials.i6">Automatic lead assignment across managers</li><li data-i18n="pk.essentials.i7">Follow-up reminders</li><li data-i18n="pk.essentials.i8">Contacts and products migration</li><li data-i18n="pk.essentials.i9">30-minute training, recorded</li></ul>
         </details>
       </article>
       <article class="pk-card" id="pk-growth" role="tabpanel" data-pk="growth" data-price="5990" data-days="25">
@@ -157,37 +158,18 @@
         <p class="pk-for" data-i18n="pk.growth.short">For a growing 15-25 person team</p>
         <p class="pk-price"><span class="pk-amount" data-eur="5990">€5,990</span><span class="pk-once" data-i18n="pk.once">one-time</span></p>
         <p class="pk-time"><b>25</b> <span data-i18n="pk.days">working days</span></p>
-        <ul class="pk-hl"><li data-i18n="pk.growth.h1">Everything in Essentials</li><li data-i18n="pk.growth.h2">Telephony and call processing</li><li data-i18n="pk.growth.h3">Automations and AI (Claude)</li></ul>
+        <p class="pk-out" data-i18n="pk.growth.out">A complete sales system: calls, automations and AI in one place.</p>
         <button type="button" class="btn pk-choose" data-pk="growth" aria-pressed="false"><span class="pk-choose-off" data-i18n="pk.choose">Choose this package</span><span class="pk-choose-on" data-i18n="pk.chosen">Selected</span></button>
         <details class="pk-full">
           <summary data-i18n="pk.full">Everything included</summary>
-          <ul><li class="pk-base" data-i18n="pk.growth.base">Everything in Essentials, plus:</li><li data-i18n="pk.growth.i1">Up to 3 additional modules</li><li data-i18n="pk.growth.i2">Up to 5 no-code automations</li><li data-i18n="pk.growth.i3">Up to 3 automations with custom functions</li><li data-i18n="pk.growth.i4">Telephony: GEONET or another cloud PBX</li><li data-i18n="pk.growth.i5">Call processing workflow in the CRM</li><li data-i18n="pk.growth.i6">Website form + secure webhook</li><li data-i18n="pk.growth.i7">Up to 10 reports</li><li data-i18n="pk.growth.i8">AI: Claude connected to your CRM</li><li data-i18n="pk.growth.i9">60-minute training, recorded</li></ul>
+          <ul><li class="pk-base" data-i18n="pk.growth.base">Everything in Essentials, plus:</li><li data-i18n="pk.growth.h1">Everything in Essentials</li><li data-i18n="pk.growth.h2">Telephony and call processing</li><li data-i18n="pk.growth.h3">Automations and AI (Claude)</li><li data-i18n="pk.growth.i1">Up to 3 additional modules</li><li data-i18n="pk.growth.i2">Up to 5 no-code automations</li><li data-i18n="pk.growth.i3">Up to 3 automations with custom functions</li><li data-i18n="pk.growth.i4">Telephony: GEONET or another cloud PBX</li><li data-i18n="pk.growth.i5">Call processing workflow in the CRM</li><li data-i18n="pk.growth.i6">Website form + secure webhook</li><li data-i18n="pk.growth.i7">Up to 10 reports</li><li data-i18n="pk.growth.i8">AI: Claude connected to your CRM</li><li data-i18n="pk.growth.i9">60-minute training, recorded</li></ul>
         </details>
       </article>
     </div>
     <p class="pk-note" data-i18n="pk.note"></p>
 
-    <details class="ao" id="addons">
-      <summary><span class="ao-title" data-i18n="ao.title">Extra features</span><span class="ao-sub"><span data-i18n="ao.sub">Optional</span> · 44</span><span class="ao-plus" aria-hidden="true"></span></summary>
-      <div class="ao-body">
-        <p class="ao-head" data-i18n="ao.popular">Often added</p>
-        <ul class="ao-list"><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="4" data-price="190" data-days="5" data-en="Automated lead routing (round-robin)"><span class="ao-name" data-i18n="ao.4">Automated lead routing (round-robin)</span><span class="ao-price" data-eur="190">€190</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="5" data-price="490" data-days="7" data-en="Enforced sales stage blueprint"><span class="ao-name" data-i18n="ao.5">Enforced sales stage blueprint</span><span class="ao-price" data-eur="490">€490</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="10" data-price="490" data-days="7" data-en="Cloud telephony integration (GEONET)"><span class="ao-name" data-i18n="ao.10">Cloud telephony integration (GEONET)</span><span class="ao-price" data-eur="490">€490</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="11" data-price="190" data-days="7" data-en="WhatsApp Business integration"><span class="ao-name" data-i18n="ao.11">WhatsApp Business integration</span><span class="ao-price" data-eur="190">€190</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="18" data-price="990" data-days="10" data-en="TBC/BOG bank wire deposit matching"><span class="ao-name" data-i18n="ao.18">TBC/BOG bank wire deposit matching</span><span class="ao-price" data-eur="990">€990</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="30" data-price="190" data-days="10" data-en="Autonomous web chat assistant (Unitty AI)"><span class="ao-name" data-i18n="ao.30">Autonomous web chat assistant (Unitty AI)</span><span class="ao-price" data-eur="190">€190</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="38" data-price="1490" data-days="15" data-en="Enterprise ERP sync (1C / FINA / SAP)"><span class="ao-name" data-i18n="ao.38">Enterprise ERP sync (1C / FINA / SAP)</span><span class="ao-price" data-eur="1490">€1,490</span><span class="ao-box" aria-hidden="true"></span></label></li></ul>
-        <p class="ao-more" data-i18n="ao.more">All add-ons by category</p>
-        <div class="ao-cats"><details class="ao-cat"><summary><span data-i18n="ao.cat.data">Data foundation</span> <small>3</small></summary><ul class="ao-list"><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="1" data-price="590" data-days="5" data-en="Georgian phone validation &amp; deduplication (+995)"><span class="ao-name" data-i18n="ao.1">Georgian phone validation &amp; deduplication (+995)</span><span class="ao-price" data-eur="590">€590</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="2" data-price="490" data-days="7" data-en="Legacy spreadsheet → CRM migration"><span class="ao-name" data-i18n="ao.2">Legacy spreadsheet → CRM migration</span><span class="ao-price" data-eur="490">€490</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="3" data-price="190" data-days="5" data-en="Property stock database migration"><span class="ao-name" data-i18n="ao.3">Property stock database migration</span><span class="ao-price" data-eur="190">€190</span><span class="ao-box" aria-hidden="true"></span></label></li></ul></details><details class="ao-cat"><summary><span data-i18n="ao.cat.sales">Sales automation</span> <small>4</small></summary><ul class="ao-list"><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="6" data-price="290" data-days="5" data-en="Follow-up reminders &amp; alerts"><span class="ao-name" data-i18n="ao.6">Follow-up reminders &amp; alerts</span><span class="ao-price" data-eur="290">€290</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="7" data-price="990" data-days="10" data-en="One-click agreement PDF generator"><span class="ao-name" data-i18n="ao.7">One-click agreement PDF generator</span><span class="ao-price" data-eur="990">€990</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="8" data-price="290" data-days="5" data-en="First-response SLA tracker"><span class="ao-name" data-i18n="ao.8">First-response SLA tracker</span><span class="ao-price" data-eur="290">€290</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="9" data-price="490" data-days="10" data-en="Broker commission tracking"><span class="ao-name" data-i18n="ao.9">Broker commission tracking</span><span class="ao-price" data-eur="490">€490</span><span class="ao-box" aria-hidden="true"></span></label></li></ul></details><details class="ao-cat"><summary><span data-i18n="ao.cat.comms">Communication</span> <small>3</small></summary><ul class="ao-list"><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="12" data-price="190" data-days="5" data-en="Email + calendar 2-way sync"><span class="ao-name" data-i18n="ao.12">Email + calendar 2-way sync</span><span class="ao-price" data-eur="190">€190</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="13" data-price="290" data-days="5" data-en="Missed-call recovery &amp; SMS callback"><span class="ao-name" data-i18n="ao.13">Missed-call recovery &amp; SMS callback</span><span class="ao-price" data-eur="290">€290</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="14" data-price="390" data-days="5" data-en="Messaging bot lead capture webhook"><span class="ao-name" data-i18n="ao.14">Messaging bot lead capture webhook</span><span class="ao-price" data-eur="390">€390</span><span class="ao-box" aria-hidden="true"></span></label></li></ul></details><details class="ao-cat"><summary><span data-i18n="ao.cat.mkt">Marketing &amp; growth</span> <small>3</small></summary><ul class="ao-list"><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="15" data-price="190" data-days="5" data-en="Website lead form + webhook"><span class="ao-name" data-i18n="ao.15">Website lead form + webhook</span><span class="ao-price" data-eur="190">€190</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="16" data-price="490" data-days="7" data-en="Lead source ROI &amp; campaign attribution"><span class="ao-name" data-i18n="ao.16">Lead source ROI &amp; campaign attribution</span><span class="ao-price" data-eur="490">€490</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="17" data-price="390" data-days="7" data-en="Email campaigns: account setup &amp; contact sync"><span class="ao-name" data-i18n="ao.17">Email campaigns: account setup &amp; contact sync</span><span class="ao-price" data-eur="390">€390</span><span class="ao-box" aria-hidden="true"></span></label></li></ul></details><details class="ao-cat"><summary><span data-i18n="ao.cat.fin">Fintech &amp; accounting</span> <small>6</small></summary><ul class="ao-list"><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="19" data-price="490" data-days="10" data-en="Multi-currency reconciliation (GEL/USD/EUR)"><span class="ao-name" data-i18n="ao.19">Multi-currency reconciliation (GEL/USD/EUR)</span><span class="ao-price" data-eur="490">€490</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="20" data-price="290" data-days="5" data-en="NBG daily exchange rate sync"><span class="ao-name" data-i18n="ao.20">NBG daily exchange rate sync</span><span class="ao-price" data-eur="290">€290</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="21" data-price="290" data-days="5" data-en="Ambiguous payment reference fallback queue"><span class="ao-name" data-i18n="ao.21">Ambiguous payment reference fallback queue</span><span class="ao-price" data-eur="290">€290</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="22" data-price="690" data-days="7" data-en="Dynamic installment payment schedule"><span class="ao-name" data-i18n="ao.22">Dynamic installment payment schedule</span><span class="ao-price" data-eur="690">€690</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="23" data-price="490" data-days="5" data-en="Overdue debt alert &amp; SMS warning"><span class="ao-name" data-i18n="ao.23">Overdue debt alert &amp; SMS warning</span><span class="ao-price" data-eur="490">€490</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="24" data-price="290" data-days="7" data-en="SMS gateway &amp; OTP verification"><span class="ao-name" data-i18n="ao.24">SMS gateway &amp; OTP verification</span><span class="ao-price" data-eur="290">€290</span><span class="ao-box" aria-hidden="true"></span></label></li></ul></details><details class="ao-cat"><summary><span data-i18n="ao.cat.cx">Customer experience</span> <small>5</small></summary><ul class="ao-list"><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="25" data-price="990" data-days="7" data-en="Omnichannel support ticketing (Zoho Desk)"><span class="ao-name" data-i18n="ao.25">Omnichannel support ticketing (Zoho Desk)</span><span class="ao-price" data-eur="990">€990</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="26" data-price="390" data-days="7" data-en="Multi-tier SLA escalation matrix"><span class="ao-name" data-i18n="ao.26">Multi-tier SLA escalation matrix</span><span class="ao-price" data-eur="390">€390</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="27" data-price="690" data-days="7" data-en="Post-ticket NPS/CSAT feedback loop"><span class="ao-name" data-i18n="ao.27">Post-ticket NPS/CSAT feedback loop</span><span class="ao-price" data-eur="690">€690</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="28" data-price="290" data-days="5" data-en="Dynamic KYC intake smart form"><span class="ao-name" data-i18n="ao.28">Dynamic KYC intake smart form</span><span class="ao-price" data-eur="290">€290</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="29" data-price="290" data-days="5" data-en="Warranty expiration alerts"><span class="ao-name" data-i18n="ao.29">Warranty expiration alerts</span><span class="ao-price" data-eur="290">€290</span><span class="ao-box" aria-hidden="true"></span></label></li></ul></details><details class="ao-cat"><summary><span data-i18n="ao.cat.ai">AI &amp; automation</span> <small>2</small></summary><ul class="ao-list"><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="31" data-price="190" data-days="10" data-en="Georgian voice meeting transcription"><span class="ao-name" data-i18n="ao.31">Georgian voice meeting transcription</span><span class="ao-price" data-eur="190">€190</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="32" data-price="590" data-days="7" data-en="Audio call sentiment extractor"><span class="ao-name" data-i18n="ao.32">Audio call sentiment extractor</span><span class="ao-price" data-eur="590">€590</span><span class="ao-box" aria-hidden="true"></span></label></li></ul></details><details class="ao-cat"><summary><span data-i18n="ao.cat.ind">Industry solutions</span> <small>5</small></summary><ul class="ao-list"><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="33" data-price="690" data-days="10" data-en="Real estate unit inventory &amp; anti-double-booking"><span class="ao-name" data-i18n="ao.33">Real estate unit inventory &amp; anti-double-booking</span><span class="ao-price" data-eur="690">€690</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="34" data-price="690" data-days="10" data-en="Client preference proactive matcher"><span class="ao-name" data-i18n="ao.34">Client preference proactive matcher</span><span class="ao-price" data-eur="690">€690</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="35" data-price="390" data-days="7" data-en="Reservation expiration timer"><span class="ao-name" data-i18n="ao.35">Reservation expiration timer</span><span class="ao-price" data-eur="390">€390</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="36" data-price="290" data-days="10" data-en="Floor plan &amp; proposal PDF generator"><span class="ao-name" data-i18n="ao.36">Floor plan &amp; proposal PDF generator</span><span class="ao-price" data-eur="290">€290</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="37" data-price="390" data-days="10" data-en="Field service visit tracking + approval"><span class="ao-name" data-i18n="ao.37">Field service visit tracking + approval</span><span class="ao-price" data-eur="390">€390</span><span class="ao-box" aria-hidden="true"></span></label></li></ul></details><details class="ao-cat"><summary><span data-i18n="ao.cat.ops">Operations &amp; ERP</span> <small>6</small></summary><ul class="ao-list"><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="39" data-price="2990" data-days="15" data-en="Cold storage WMS &amp; automated billing"><span class="ao-name" data-i18n="ao.39">Cold storage WMS &amp; automated billing</span><span class="ao-price" data-eur="2990">€2,990</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="40" data-price="1490" data-days="10" data-en="Construction operations &amp; budget tracker"><span class="ao-name" data-i18n="ao.40">Construction operations &amp; budget tracker</span><span class="ao-price" data-eur="1490">€1,490</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="41" data-price="2290" data-days="10" data-en="Predictive debtor call queue"><span class="ao-name" data-i18n="ao.41">Predictive debtor call queue</span><span class="ao-price" data-eur="2290">€2,290</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="42" data-price="790" data-days="7" data-en="Agent attendance tracker"><span class="ao-name" data-i18n="ao.42">Agent attendance tracker</span><span class="ao-price" data-eur="790">€790</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="43" data-price="690" data-days="7" data-en="Round-robin appointment balancing"><span class="ao-name" data-i18n="ao.43">Round-robin appointment balancing</span><span class="ao-price" data-eur="690">€690</span><span class="ao-box" aria-hidden="true"></span></label></li><li><label class="ao-row"><input type="checkbox" class="ao-cb" value="44" data-price="490" data-days="5" data-en="Discovery call auto-scheduling"><span class="ao-name" data-i18n="ao.44">Discovery call auto-scheduling</span><span class="ao-price" data-eur="490">€490</span><span class="ao-box" aria-hidden="true"></span></label></li></ul></details></div>
-        <p class="ao-catalog" data-i18n="ao.catalog"></p>
-      </div>
-    </details>
   </div>
 </section>
-<div class="pk-bar" id="pkBar" aria-live="polite">
-  <div class="pk-bar-in">
-    <div class="pk-bar-sum">
-      <span class="pk-bar-what" id="pkBarWhat"></span>
-      <span class="pk-bar-total" id="pkBarTotal"></span>
-    </div>
-    <a href="#final" class="btn btn-primary" id="pkBarCta"><span data-i18n="sum.cta">Request a call</span></a>
-  </div>
-</div>
 <script>
   // CRM packages: one package + optional add-ons, EUR/GEL switch, live total, sent with the lead.
   (function () {
@@ -195,7 +177,6 @@
     var GEL_RATE = 3;
     var sec = document.getElementById('packages');
     if (!sec) return;
-    var bar = document.getElementById('pkBar');
     var chosen = null;
     var cur = 'eur';
     try { cur = localStorage.getItem('unitty-cur') === 'gel' ? 'gel' : 'eur'; } catch (e) {}
@@ -205,7 +186,6 @@
     function track(name, data) { try { if (window.UnittyTracking) window.UnittyTracking.event(name, data); } catch (e) {} }
     var cards = [].slice.call(sec.querySelectorAll('.pk-card'));
     var tabs = [].slice.call(sec.querySelectorAll('.pk-tab'));
-    var boxes = [].slice.call(sec.querySelectorAll('.ao-cb'));
 
     // phones: one card at a time, switched by the tabs (desktop shows all three, tabs hidden)
     function show(id) {
@@ -224,8 +204,6 @@
         render();
       });
     });
-    boxes.forEach(function (cb) { cb.addEventListener('change', function () { if (cb.checked) track('addon_selected', { addon: cb.dataset.en }); render(); }); });
-    sec.querySelector('#addons').addEventListener('toggle', function (e) { if (e.target.open) track('addons_opened', {}); });
     sec.querySelectorAll('.pk-cur button').forEach(function (b) {
       b.addEventListener('click', function () {
         cur = b.dataset.cur;
@@ -236,27 +214,14 @@
       });
     });
 
-    function picked() { return boxes.filter(function (b) { return b.checked; }); }
-    function total() {
-      var eur = 0, card = chosen && document.getElementById('pk-' + chosen);
-      if (card) eur += +card.dataset.price;
-      picked().forEach(function (b) { eur += +b.dataset.price; });
-      return eur;
-    }
-    function whatText() {
-      var parts = [], n = picked().length;
-      if (chosen) parts.push(tr('pk.' + chosen + '.name', NAMES_EN[chosen]));
-      if (n) parts.push('+' + n + ' ' + tr('sum.addons', 'features'));
-      return parts.join(' ');
-    }
+    function whatText() { return chosen ? tr('pk.' + chosen + '.name', NAMES_EN[chosen]) : ''; }
+    function price() { var c = chosen && document.getElementById('pk-' + chosen); return c ? +c.dataset.price : 0; }
     function syncLead() {
       // the template's "selected solutions" set is sent to /api/lead and lands in the Zoho lead description
       try {
         if (typeof state === 'undefined' || !state.selected) return;
         Array.from(state.selected).forEach(function (k) { if (/^(Package|Add-on): /.test(k)) state.selected.delete(k); });
         if (chosen) { var cc = document.getElementById('pk-' + chosen); state.selected.add('Package: ' + NAMES_EN[chosen] + ' (€' + cc.dataset.price + (cc.dataset.was ? ', -20% from €' + cc.dataset.was + ', valid 1 week from offer' : '') + ')'); }
-        picked().forEach(function (b) { state.selected.add('Add-on: ' + b.dataset.en + ' (€' + b.dataset.price + ')'); });
-        if (chosen || picked().length) state.selected.add('Package: TOTAL €' + total() + ' + VAT (shown in ' + cur.toUpperCase() + ')');
       } catch (e) { log('*** lead sync failed', e.message); }
     }
     function render() {
@@ -267,26 +232,15 @@
         c.classList.toggle('is-chosen', on);
         c.querySelector('.pk-choose').setAttribute('aria-pressed', on ? 'true' : 'false');
       });
-      var any = chosen || picked().length;
-      document.getElementById('pkBarWhat').textContent = any ? whatText() : tr('sum.empty', 'Choose a package');
-      document.getElementById('pkBarTotal').innerHTML = any ? money(total()) + ' <small>' + tr('sum.vat', '+ VAT') + '</small>' : '<small>' + money(990) + '+</small>';
+      var any = !!chosen;
       syncLead();
       var fin = document.getElementById('final'), box = document.getElementById('pkPicked');
       if (fin && any) {
         if (!box) { box = document.createElement('p'); box.id = 'pkPicked'; box.className = 'pk-picked'; var form = fin.querySelector('form'); (form || fin).parentNode.insertBefore(box, form || fin.firstChild); }
-        box.innerHTML = tr('sum.picked', 'Your selection:') + ' <b>' + whatText() + '</b> · ' + money(total()) + ' ' + tr('sum.vat', '+ VAT');
+        box.innerHTML = tr('sum.picked', 'Your selection:') + ' <b>' + whatText() + '</b> · ' + money(price()) + ' ' + tr('sum.vat', '+ VAT');
       } else if (box) box.remove();
     }
 
-    // bar only while the packages are on screen and the form is not
-    var inPk = false, inForm = false;
-    function showBar() { bar.classList.toggle('is-visible', inPk && !inForm); }
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (e) { inPk = e[0].isIntersecting; showBar(); }, { threshold: 0.05 }).observe(sec);
-      var fin = document.getElementById('final');
-      if (fin) new IntersectionObserver(function (e) { inForm = e[0].isIntersecting; showBar(); }, { threshold: 0.1 }).observe(fin);
-    }
-    document.getElementById('pkBarCta').addEventListener('click', function () { track('package_cta', { package: chosen || '', addons: picked().length, currency: cur }); });
     document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('.lang-btn')) setTimeout(render, 0); });
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render); else setTimeout(render, 0);
   })();
