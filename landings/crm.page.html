@@ -576,7 +576,7 @@ dialog p{color:var(--dim)}
 .hero-c .micro{justify-content:center}
 .btn-xl{--h:62px;padding:0 34px;font-size:17px}
 .timer{display:flex;flex-direction:column;align-items:center;gap:14px;margin-block:4px;padding:20px 24px 18px;border:1px solid var(--line-2);border-radius:24px;background:linear-gradient(180deg,rgba(193,253,58,.06),rgba(255,255,255,.01));width:min(100%,520px)}
-.timer-lbl{font:500 12.5px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.timer-lbl{font:600 15px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--lime)}
 .timer-digits{display:flex;align-items:center;gap:12px}
 .tg{display:flex;gap:6px}
 .tgw{display:flex;flex-direction:column;align-items:center;gap:8px}
@@ -733,19 +733,19 @@ dialog p{color:var(--dim)}
       <span class="ln">შეგირჩევთ და დაგინერგავთ</span>
       <span class="ln"><span class="mark">CRM სისტემას<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path id="uline" d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></span>
     </h1>
-    <p class="lead" data-hero>მოითხოვე 20-წუთიანი უფასო კონსულტაცია და გეტყვი, რომელი CRM და AI ინსტრუმენტები სჭირდება შენს გამოწვევებს.</p>
+    <p class="lead" data-hero>მოითხოვე 20 წუთიანი უფასო კონსულტაცია - გეტყვი რომელი CRM და AI ჭირდება შენს გამოწვევებს</p>
     <div class="timer" data-hero>
-      <span class="timer-lbl">უფასო კონსულტაციის შეთავაზება იწურება</span>
+      <span class="timer-lbl">შეთავაზება იწურება</span>
       <div class="timer-digits" role="timer" aria-label="დარჩენილი დრო" id="timer">
-        <span class="tgw"><span class="tg"><span class="d" id="d0">1</span><span class="d" id="d1">5</span></span><small aria-hidden="true">წუთი</small></span>
+        <span class="tgw"><span class="tg"><span class="d" id="d0">1</span><span class="d" id="d1">5</span></span></span>
         <span class="colon" aria-hidden="true">:</span>
-        <span class="tgw"><span class="tg"><span class="d" id="d2">0</span><span class="d" id="d3">0</span></span><small aria-hidden="true">წამი</small></span>
+        <span class="tgw"><span class="tg"><span class="d" id="d2">0</span><span class="d" id="d3">0</span></span></span>
       </div>
       <div class="timer-bar" aria-hidden="true"><i id="tBar"></i></div>
     </div>
     <div class="cta-row" data-hero>
-      <a href="#lead" class="btn btn-primary btn-xl" data-cta="hero">მოითხოვე უფასო ზარი <span class="arr" aria-hidden="true">→</span></a>
-      <a href="#pricing" class="btn btn-ghost btn-xl">ნახე ფასები</a>
+      <a href="#lead" class="btn btn-primary btn-xl" data-cta="hero">მოითხოვე სანამ უფასოა <span class="arr" aria-hidden="true">→</span></a>
+      <a href="#pricing" class="btn btn-ghost btn-xl">დანერგვის ფასები</a>
     </div>
   </div>
 </section>
@@ -769,7 +769,6 @@ dialog p{color:var(--dim)}
   <div class="wrap">
     <div class="story-intro">
       <div class="sec-head rv">
-        <span class="kicker">ნაცნობია?</span>
         <h2 class="display h2" id="storyH">როგორ მიხვდე, რომ CRM გჭირდება?</h2>
       </div>
     </div>
@@ -890,7 +889,6 @@ dialog p{color:var(--dim)}
 <section class="sec" id="how" style="background:var(--bg-2);border-block:1px solid var(--line)" aria-labelledby="howH">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kicker">როგორ ვმუშაობთ</span>
       <h2 class="display h2" id="howH">CRM დანერგვა სამ ნაბიჯად</h2>
       
     </div>
@@ -911,7 +909,6 @@ dialog p{color:var(--dim)}
   <div class="wrap">
     <div class="price-top">
       <div class="sec-head rv" style="margin-bottom:0">
-        <span class="kicker">ფასები</span>
         <h2 class="display h2" id="priceH">ფიქსირებული ფასი. მკაფიო ვადა.</h2>
         
       </div>
@@ -968,7 +965,6 @@ dialog p{color:var(--dim)}
 <section class="sec" id="reviews" aria-labelledby="revH">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kicker">კლიენტები</span>
       <h2 class="display h2" id="revH">რას ამბობენ ჩვენზე</h2>
     </div>
     <div class="tgrid">
@@ -989,7 +985,6 @@ dialog p{color:var(--dim)}
 <section class="sec" id="faq" aria-labelledby="faqH">
   <div class="wrap faq-grid">
     <div class="sec-head rv">
-      <span class="kicker">FAQ</span>
       <h2 class="display h2" id="faqH">ხშირად დასმული კითხვები</h2>
       
     </div>
@@ -1011,7 +1006,6 @@ dialog p{color:var(--dim)}
 <section class="sec final" id="lead" aria-labelledby="leadH">
   <div class="wrap final-grid">
     <div class="final-copy rv">
-      <span class="kicker">უფასო კონსულტაცია</span>
       <h2 class="display" id="leadH">20 წუთში გეტყვით, <span class="accent">რომელი CRM გჭირდება</span></h2>
       <p class="lead">მოგვიყევი, როგორ ყიდი. ერთად შევარჩევთ სისტემას და გეტყვით ზუსტ ფასსა და ვადას.</p>
       <ul class="micro"><li>ზარი უფასოა</li><li>ვალდებულების გარეშე</li><li>500+ დანერგვის გამოცდილება</li></ul>
