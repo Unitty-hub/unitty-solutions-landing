@@ -37,6 +37,9 @@ UI = {
                 "Fixed price, fixed timeline. Start small and add the rest later.",
                 "Фиксированная цена и срок. Начните с малого, остальное добавите потом."),
     "pk.popular": T("ყველაზე ხშირად ირჩევენ", "Most popular", "Выбирают чаще всего"),
+    "pk.deal": T("ფასდაკლება მოქმედებს ოფერის გაგზავნიდან 1 კვირის განმავლობაში.",
+                  "Discount valid for 1 week from the day the offer is sent.",
+                  "Скидка действует 1 неделю с момента отправки предложения."),
     "pk.once": T("ერთჯერადად, + დღგ", "one-time, + VAT", "разово, + НДС"),
     "pk.days": T("სამუშაო დღე", "working days", "рабочих дней"),
     "pk.full": T("სრული ჩამონათვალი", "Everything included", "Всё, что входит"),
@@ -69,6 +72,18 @@ def price_span(eur, cls=""):
     return f'<span{c} data-eur="{eur}">€{eur:,}</span>'
 
 
+def was_html(p):
+    """Old price struck through + the discount chip, only for a package with "was" (e.g. Essentials 2499 -> 1999 = -20%)."""
+    if not p.get("was"):
+        return ""
+    off = round((1 - p["price"] / p["was"]) * 100)
+    return f'<span class="pk-was-row"><s class="pk-was" data-eur="{p["was"]}">€{p["was"]:,}</s><span class="pk-off">-{off}%</span></span>'
+
+
+def deal_html(p):
+    return '\n        <p class="pk-deal" data-i18n="pk.deal">Discount valid for 1 week from the day the offer is sent.</p>' if p.get("was") else ""
+
+
 def main():
     d = json.loads(DATA.read_text(encoding="utf-8"))
     keys = dict(UI)
@@ -96,11 +111,11 @@ def main():
         badge = '<span class="pk-badge" data-i18n="pk.popular">Most popular</span>' if p.get("popular") else ""
         tabs.append(f'<button type="button" class="pk-tab" role="tab" data-pk="{pid}" aria-selected="false" aria-controls="pk-{pid}">'
                     f'<span data-i18n="pk.{pid}.name">{esc(p["name"]["en"])}</span>{price_span(p["price"], "pk-tab-price")}</button>')
-        cards.append(f'''      <article class="pk-card{pop}" id="pk-{pid}" role="tabpanel" data-pk="{pid}" data-price="{p["price"]}" data-days="{p["days"]}">
+        cards.append(f'''      <article class="pk-card{pop}" id="pk-{pid}" role="tabpanel" data-pk="{pid}" data-price="{p["price"]}"{(' data-was="%d"' % p["was"]) if p.get("was") else ""} data-days="{p["days"]}">
         {badge}
         <h3 class="pk-name" data-i18n="pk.{pid}.name">{esc(p["name"]["en"])}</h3>
         <p class="pk-for" data-i18n="pk.{pid}.short">{esc(p["short"]["en"])}</p>
-        <p class="pk-price">{price_span(p["price"], "pk-amount")}<span class="pk-once" data-i18n="pk.once">one-time, + VAT</span></p>
+        <p class="pk-price">{was_html(p)}{price_span(p["price"], "pk-amount")}<span class="pk-once" data-i18n="pk.once">one-time, + VAT</span></p>{deal_html(p)}
         <p class="pk-time"><b>{p["days"]}</b> <span data-i18n="pk.days">working days</span></p>
         <ul class="pk-hl">{"".join(hl)}</ul>
         <button type="button" class="btn pk-choose" data-pk="{pid}" aria-pressed="false"><span class="pk-choose-off" data-i18n="pk.choose">Choose this package</span><span class="pk-choose-on" data-i18n="pk.chosen">Selected</span></button>
@@ -156,6 +171,10 @@ def main():
   .pk-price {{ margin: 6px 0 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; }}
   .pk-amount {{ font-weight: 700; font-size: 42px; line-height: 1; letter-spacing: -0.02em; color: var(--fg); }}
   .pk-once {{ font-size: 14px; color: var(--fg-dim); }}
+  .pk-was-row {{ flex-basis: 100%; display: flex; align-items: center; gap: 10px; }}
+  .pk-was {{ font-size: 18px; color: var(--fg-mute); text-decoration-thickness: 2px; text-decoration-color: color-mix(in srgb, var(--fg) 55%, transparent); }}
+  .pk-off {{ font-size: 14px; font-weight: 700; line-height: 1; padding: 5px 8px; border-radius: 6px; color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }}
+  .pk-deal {{ margin: -2px 0 0; font-size: 14px; line-height: 1.45; color: var(--fg-dim); }}
   .pk-time {{ margin: 0; font-size: 15px; color: var(--fg-dim); }}
   .pk-time b {{ color: var(--accent); }}
   .pk-hl {{ list-style: none; margin: 6px 0 4px; padding: 0; display: grid; gap: 10px; }}
@@ -341,7 +360,7 @@ def main():
       try {{
         if (typeof state === 'undefined' || !state.selected) return;
         Array.from(state.selected).forEach(function (k) {{ if (/^(Package|Add-on): /.test(k)) state.selected.delete(k); }});
-        if (chosen) state.selected.add('Package: ' + NAMES_EN[chosen] + ' (€' + document.getElementById('pk-' + chosen).dataset.price + ')');
+        if (chosen) {{ var cc = document.getElementById('pk-' + chosen); state.selected.add('Package: ' + NAMES_EN[chosen] + ' (€' + cc.dataset.price + (cc.dataset.was ? ', -20% from €' + cc.dataset.was + ', valid 1 week from offer' : '') + ')'); }}
         picked().forEach(function (b) {{ state.selected.add('Add-on: ' + b.dataset.en + ' (€' + b.dataset.price + ')'); }});
         if (chosen || picked().length) state.selected.add('Package: TOTAL €' + total() + ' + VAT (shown in ' + cur.toUpperCase() + ')');
       }} catch (e) {{ log('*** lead sync failed', e.message); }}

@@ -76,7 +76,7 @@
   },
   {
    "id": "essentials",
-   "price": 2990,
+   "price": 1999,
    "days": 15,
    "popular": true,
    "name": {
@@ -167,7 +167,8 @@
      "en": "Stage rules and lead assignment",
      "ru": "Правила этапов и распределение лидов"
     }
-   ]
+   ],
+   "was": 2499
   },
   {
    "id": "growth",

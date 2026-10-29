@@ -26,6 +26,10 @@
   .pk-price { margin: 6px 0 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; }
   .pk-amount { font-weight: 700; font-size: 42px; line-height: 1; letter-spacing: -0.02em; color: var(--fg); }
   .pk-once { font-size: 14px; color: var(--fg-dim); }
+  .pk-was-row { flex-basis: 100%; display: flex; align-items: center; gap: 10px; }
+  .pk-was { font-size: 18px; color: var(--fg-mute); text-decoration-thickness: 2px; text-decoration-color: color-mix(in srgb, var(--fg) 55%, transparent); }
+  .pk-off { font-size: 14px; font-weight: 700; line-height: 1; padding: 5px 8px; border-radius: 6px; color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
+  .pk-deal { margin: -2px 0 0; font-size: 14px; line-height: 1.45; color: var(--fg-dim); }
   .pk-time { margin: 0; font-size: 15px; color: var(--fg-dim); }
   .pk-time b { color: var(--accent); }
   .pk-hl { list-style: none; margin: 6px 0 4px; padding: 0; display: grid; gap: 10px; }
@@ -118,7 +122,7 @@
         <button type="button" data-cur="gel" aria-pressed="false">GEL ₾</button>
       </div>
     </div>
-    <div class="pk-tabs" role="tablist"><button type="button" class="pk-tab" role="tab" data-pk="starter" aria-selected="false" aria-controls="pk-starter"><span data-i18n="pk.starter.name">Starter</span><span class="pk-tab-price" data-eur="990">€990</span></button><button type="button" class="pk-tab" role="tab" data-pk="essentials" aria-selected="false" aria-controls="pk-essentials"><span data-i18n="pk.essentials.name">Essentials</span><span class="pk-tab-price" data-eur="2990">€2,990</span></button><button type="button" class="pk-tab" role="tab" data-pk="growth" aria-selected="false" aria-controls="pk-growth"><span data-i18n="pk.growth.name">Growth</span><span class="pk-tab-price" data-eur="5990">€5,990</span></button></div>
+    <div class="pk-tabs" role="tablist"><button type="button" class="pk-tab" role="tab" data-pk="starter" aria-selected="false" aria-controls="pk-starter"><span data-i18n="pk.starter.name">Starter</span><span class="pk-tab-price" data-eur="990">€990</span></button><button type="button" class="pk-tab" role="tab" data-pk="essentials" aria-selected="false" aria-controls="pk-essentials"><span data-i18n="pk.essentials.name">Essentials</span><span class="pk-tab-price" data-eur="1999">€1,999</span></button><button type="button" class="pk-tab" role="tab" data-pk="growth" aria-selected="false" aria-controls="pk-growth"><span data-i18n="pk.growth.name">Growth</span><span class="pk-tab-price" data-eur="5990">€5,990</span></button></div>
     <div class="pk-cards">
       <article class="pk-card" id="pk-starter" role="tabpanel" data-pk="starter" data-price="990" data-days="5">
         
@@ -133,11 +137,12 @@
           <ul><li data-i18n="pk.starter.i1">4 core modules: Leads, Contacts, Accounts, Deals</li><li data-i18n="pk.starter.i2">2-way email sync (Google or Microsoft 365)</li><li data-i18n="pk.starter.i3">Facebook messages right inside the CRM</li><li data-i18n="pk.starter.i4">1 web form to capture leads</li><li data-i18n="pk.starter.i5">1 sales-pipeline KPI dashboard</li><li data-i18n="pk.starter.i6">Recorded video instructions for the team</li></ul>
         </details>
       </article>
-      <article class="pk-card is-popular" id="pk-essentials" role="tabpanel" data-pk="essentials" data-price="2990" data-days="15">
+      <article class="pk-card is-popular" id="pk-essentials" role="tabpanel" data-pk="essentials" data-price="1999" data-was="2499" data-days="15">
         <span class="pk-badge" data-i18n="pk.popular">Most popular</span>
         <h3 class="pk-name" data-i18n="pk.essentials.name">Essentials</h3>
         <p class="pk-for" data-i18n="pk.essentials.short">For a 5-10 person sales team</p>
-        <p class="pk-price"><span class="pk-amount" data-eur="2990">€2,990</span><span class="pk-once" data-i18n="pk.once">one-time, + VAT</span></p>
+        <p class="pk-price"><span class="pk-was-row"><s class="pk-was" data-eur="2499">€2,499</s><span class="pk-off">-20%</span></span><span class="pk-amount" data-eur="1999">€1,999</span><span class="pk-once" data-i18n="pk.once">one-time, + VAT</span></p>
+        <p class="pk-deal" data-i18n="pk.deal">Discount valid for 1 week from the day the offer is sent.</p>
         <p class="pk-time"><b>15</b> <span data-i18n="pk.days">working days</span></p>
         <ul class="pk-hl"><li data-i18n="pk.essentials.h1">Everything in Starter</li><li data-i18n="pk.essentials.h2">Meta and Google Ads leads, automatically</li><li data-i18n="pk.essentials.h3">Stage rules and lead assignment</li></ul>
         <button type="button" class="btn pk-choose" data-pk="essentials" aria-pressed="false"><span class="pk-choose-off" data-i18n="pk.choose">Choose this package</span><span class="pk-choose-on" data-i18n="pk.chosen">Selected</span></button>
@@ -249,7 +254,7 @@
       try {
         if (typeof state === 'undefined' || !state.selected) return;
         Array.from(state.selected).forEach(function (k) { if (/^(Package|Add-on): /.test(k)) state.selected.delete(k); });
-        if (chosen) state.selected.add('Package: ' + NAMES_EN[chosen] + ' (€' + document.getElementById('pk-' + chosen).dataset.price + ')');
+        if (chosen) { var cc = document.getElementById('pk-' + chosen); state.selected.add('Package: ' + NAMES_EN[chosen] + ' (€' + cc.dataset.price + (cc.dataset.was ? ', -20% from €' + cc.dataset.was + ', valid 1 week from offer' : '') + ')'); }
         picked().forEach(function (b) { state.selected.add('Add-on: ' + b.dataset.en + ' (€' + b.dataset.price + ')'); });
         if (chosen || picked().length) state.selected.add('Package: TOTAL €' + total() + ' + VAT (shown in ' + cur.toUpperCase() + ')');
       } catch (e) { log('*** lead sync failed', e.message); }
