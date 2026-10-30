@@ -8,7 +8,7 @@
 <title>CRM სისტემის დანერგვა საქართველოში | Unitty</title>
 <meta name="description" content="CRM სისტემის შერჩევა და დანერგვა 5 სამუშაო დღიდან. Zoho, Pipedrive, Kommo, Bitrix24, Odoo, ფიქსირებული ფასით. მოითხოვე უფასო 20-წუთიანი კონსულტაცია.">
 <meta name="unitty-landing" content="crm">
-<meta name="unitty-version" content="v86-2026-10-31">
+<meta name="unitty-version" content="v87-2026-10-31">
 <link rel="canonical" href="https://crm.unitty.io/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
@@ -33,7 +33,7 @@
 <link rel="preload" href="/fonts/TBCContracticaCAPS-Black.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/TBCContractica-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/JetBrainsMono-Medium.woff2" as="font" type="font/woff2" crossorigin>
-<script src="/tracking.js?v=v86-2026-10-31" defer></script>
+<script src="/tracking.js?v=v87-2026-10-31" defer></script>
 <style>
 /* self-hosted brand fonts (same files as every Unitty landing) */
 @font-face{font-family:'Unitty Head';font-weight:700 900;font-style:normal;font-display:swap;src:url('/fonts/TBCContracticaCAPS-Black.woff2') format('woff2')}
@@ -1279,9 +1279,12 @@ form.addEventListener('submit',async e=>{ e.preventDefault(); let first=null; Ob
   console.info('>>> lead submit', { pkg, lang:LANG, eid:event_id });
   try{
     const res=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
-    if(!res.ok) throw new Error('HTTP '+res.status);
-    console.info('<<< lead ok');
+    const out=await res.json().catch(()=>({}));
+    if(!res.ok||!out.ok||!out.lead_id) throw new Error('lead not created: HTTP '+res.status+' '+(out.error||''));
+    console.info('<<< lead created', out.lead_id);
+    /* v65 (shared): Meta Lead fires only here, once Zoho confirmed the lead; thank-you no longer fires it */
     if(Tr) Tr.event('form_submitted',{lead_source:heardFrom,package:pkg||''});
+    if(Tr&&Tr.leadCreated) await Tr.leadCreated(event_id,{lead_id:out.lead_id,lead_source:heardFrom});
     const qs=new URLSearchParams({name:payload.fullName.split(/\s+/)[0]||'', v:(Tr&&Tr.version)||'crm', eid:event_id});
     location.href='/thank-you?'+qs.toString();
   }catch(err){ console.error('*** lead submit failed', err); btn.disabled=false; btn.innerHTML=btnTxt; form.classList.add('err'); if(Tr) Tr.event('form_submit_failed',{}); }

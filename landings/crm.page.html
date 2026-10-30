@@ -1279,9 +1279,12 @@ form.addEventListener('submit',async e=>{ e.preventDefault(); let first=null; Ob
   console.info('>>> lead submit', { pkg, lang:LANG, eid:event_id });
   try{
     const res=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
-    if(!res.ok) throw new Error('HTTP '+res.status);
-    console.info('<<< lead ok');
+    const out=await res.json().catch(()=>({}));
+    if(!res.ok||!out.ok||!out.lead_id) throw new Error('lead not created: HTTP '+res.status+' '+(out.error||''));
+    console.info('<<< lead created', out.lead_id);
+    /* v65 (shared): Meta Lead fires only here, once Zoho confirmed the lead; thank-you no longer fires it */
     if(Tr) Tr.event('form_submitted',{lead_source:heardFrom,package:pkg||''});
+    if(Tr&&Tr.leadCreated) await Tr.leadCreated(event_id,{lead_id:out.lead_id,lead_source:heardFrom});
     const qs=new URLSearchParams({name:payload.fullName.split(/\s+/)[0]||'', v:(Tr&&Tr.version)||'crm', eid:event_id});
     location.href='/thank-you?'+qs.toString();
   }catch(err){ console.error('*** lead submit failed', err); btn.disabled=false; btn.innerHTML=btnTxt; form.classList.add('err'); if(Tr) Tr.event('form_submit_failed',{}); }

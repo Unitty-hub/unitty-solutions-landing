@@ -15,7 +15,7 @@
 (function () {
   'use strict';
 
-  var BUILD = 'v64-2026-10-29';
+  var BUILD = 'v65-2026-10-30';
   // Which landing this is: <meta name="unitty-landing" content="crm"> (start / crm / ai / banks / solutions).
   // The thank-you page gets it from the ?v= parameter the landing passes along.
   var LANDING = (function () {
@@ -172,23 +172,33 @@
   window.fbq('init', META_PIXEL_ID);
   window.fbq('track', 'PageView');
 
-  // Thank-you page: fire the browser Lead event once, with the same event_id the server sends to the
-  // Conversions API, so Meta counts it once.
-  if (PAGE === 'thank-you') {
-    var eid = '';
-    try { eid = new URLSearchParams(location.search).get('eid') || ''; } catch (e) {}
-    if (eid) {
-      var firedKey = 'unitty_lead_fired_' + eid;
-      var already = false;
-      try { already = sessionStorage.getItem(firedKey) === '1'; } catch (e) {}
-      if (!already) {
-        window.fbq('track', 'Lead', { content_name: LANDING + ' lead form', landing_version: SITE_VERSION }, { eventID: eid });
-        clarity('event', 'lead_thankyou_view');
-        try { sessionStorage.setItem(firedKey, '1'); } catch (e) {}
-        log('+++ Meta Lead event sent', eid);
-      }
+  // v65 (2026-10-30): the Meta Lead event fires ONLY when /api/lead confirms the Zoho lead was created
+  // (UnittyTracking.leadCreated, called by the landing's form handler). The thank-you page no longer fires
+  // Lead - it only logs a Clarity view. The same event_id goes to the Conversions API, so Meta counts it once.
+  function leadCreated(eid, data) {
+    data = data || {};
+    var firedKey = 'unitty_lead_fired_' + eid;
+    var already = false;
+    try { already = sessionStorage.getItem(firedKey) === '1'; } catch (e) {}
+    if (!eid || already) {
+      log('--- Meta Lead skipped', { eid: eid, already: already });
+      return Promise.resolve(false);
     }
+    try {
+      window.fbq('track', 'Lead', {
+        content_name: LANDING + ' lead form',
+        landing_version: SITE_VERSION,
+        lead_source: data.lead_source || undefined
+      }, { eventID: eid });
+    } catch (e) { log('*** Meta Lead failed', e && e.message); }
+    clarity('event', 'lead_created');
+    if (data.lead_id) clarity('set', 'lead_id', String(data.lead_id));
+    try { sessionStorage.setItem(firedKey, '1'); } catch (e) {}
+    log('+++ Meta Lead event sent (lead created)', { eid: eid, lead_id: data.lead_id });
+    // give the Pixel request a moment to leave before the page navigates to /thank-you
+    return new Promise(function (resolve) { setTimeout(function () { resolve(true); }, 400); });
   }
+  if (PAGE === 'thank-you') clarity('event', 'lead_thankyou_view');
 
   // ---------- public API ----------
   window.UnittyTracking = {
@@ -197,6 +207,7 @@
     page: PAGE,
     getAttribution: getAttribution,
     newEventId: newEventId,
+    leadCreated: leadCreated,
     event: function (name, data) {
       clarity('event', name);
       if (data) Object.keys(data).forEach(function (k) { clarity('set', k, String(data[k])); });

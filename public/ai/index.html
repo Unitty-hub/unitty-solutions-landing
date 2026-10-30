@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="unitty-landing" content="ai">
-<meta name="unitty-version" content="v62-2026-10-29">
+<meta name="unitty-version" content="v63-2026-10-30">
 <title data-i18n="seo.title">AI და პროცესების ავტომატიზაცია ბიზნესისთვის | Unitty</title>
 <meta name="description" content="AI ჩატ-ასისტენტი, შეხვედრების ტრანსკრიფცია ქართულად და პროცესების ავტომატიზაცია. 20 წუთში გეტყვით, სად დაგიზოგავს AI რეალურად დროს. უფასო ზარი.">
 <!--SEO-->
@@ -2427,10 +2427,14 @@
         body: JSON.stringify(payload),
       });
 
-      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const out = await res.json().catch(() => ({}));
+      if (!res.ok || !out.ok || !out.lead_id) throw new Error('lead not created: HTTP ' + res.status + ' ' + (out.error || ''));
+      console.info('<<< lead created', out.lead_id);
 
-      // Success → Clarity event, then the thank-you page (which fires the Meta Lead event with this event_id)
+      // v65: lead created in Zoho → Clarity event + the Meta Lead event (same event_id as the server-side CAPI),
+      // fired only here; the thank-you page no longer fires Lead.
       if (T) T.event('form_submitted', { lead_source: data.heardFrom || '' });
+      if (T && T.leadCreated) await T.leadCreated(event_id, { lead_id: out.lead_id, lead_source: data.heardFrom || '' });
 
       const qs = new URLSearchParams({
         name: (data.fullName || '').trim().split(/\s+/)[0] || '',

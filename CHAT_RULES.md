@@ -72,6 +72,14 @@ reaches CRM only if the CRM chat ports it, or the shared chat edits `crm.page.ht
 - v65: Zoho picklist `Language` = Georgian for leads from the Georgian site (lang "ka" or none), English for "en".
 - Legal name in footers/consent texts is **Unity LLC** (one t) on every page; the brand stays Unitty.
 
+## Meta Lead event (v65, 2026-10-30)
+
+- The browser Pixel `Lead` fires **only** when `/api/lead` returns `{ok:true, lead_id}` (Zoho lead created):
+  the form handler calls `UnittyTracking.leadCreated(event_id, {lead_id, lead_source})`, waits ~400 ms, then
+  redirects to /thank-you. The thank-you page no longer fires Lead (only the Clarity event `lead_thankyou_view`).
+- Same `event_id` goes to the server-side Conversions API (sent only after Zoho success) → Meta dedups the pair.
+- Any new landing or form must call `leadCreated` the same way after a confirmed lead. Clarity event: `lead_created`.
+
 ## Build
 
 - One landing: `python3 tools/build_landings.py --only crm` (template CRM parts also: `python3 tools/build_crm_packages.py` first).
