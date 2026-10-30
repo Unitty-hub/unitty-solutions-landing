@@ -15,7 +15,7 @@
 (function () {
   'use strict';
 
-  var BUILD = 'v65-2026-10-30';
+  var BUILD = 'v66-2026-10-31';
   // Which landing this is: <meta name="unitty-landing" content="crm"> (start / crm / ai / banks / solutions).
   // The thank-you page gets it from the ?v= parameter the landing passes along.
   var LANDING = (function () {

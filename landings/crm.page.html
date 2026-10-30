@@ -1012,7 +1012,7 @@ dialog p{color:var(--dim)}
         <div class="pkg-pill" id="pkgPill"><span>არჩეული პაკეტი: <b id="pkgName"></b></span><button type="button" id="pkgClear">გაუქმება</button></div>
         <div class="field" id="fName"><label for="name">სახელი და გვარი <i>*</i></label><div class="input"><input id="name" name="name" autocomplete="name" placeholder="სახელი და გვარი" required></div><span class="err-msg">შეიყვანე სახელი, რომ ვიცოდეთ, ვის ვურეკავთ.</span></div>
         <div class="f2">
-          <div class="field" id="fPhone"><label for="phone">ტელეფონი <i>*</i></label><div class="input"><span class="pre-ph">+995</span><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="5XX XX XX XX" required></div><span class="err-msg">შეიყვანე 9-ნიშნა ნომერი, მაგ. 599 12 34 56.</span></div>
+          <div class="field" id="fPhone"><label for="phone">ტელეფონი <i>*</i></label><div class="input"><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" value="+995 " placeholder="+995 5XX XX XX XX" required></div><span class="err-msg">შეიყვანე ნომერი, მაგ. +995 599 12 34 56. სხვა ქვეყნის ნომრისთვის შეცვალე კოდი.</span></div>
           <div class="field" id="fEmail"><label for="email">ელფოსტა <i>*</i></label><div class="input"><input id="email" name="email" type="email" autocomplete="email" placeholder="name@company.ge" required></div><span class="err-msg">შეიყვანე სწორი ელფოსტა.</span></div>
         </div>
         <div class="field" id="fCompany"><label for="company">კომპანია <i>*</i></label><div class="input"><input id="company" name="company" autocomplete="organization" placeholder="კომპანიის სახელი" required></div><span class="err-msg">შეიყვანე კომპანიის სახელი.</span></div>
@@ -1265,9 +1265,12 @@ $('#utm').value=new URLSearchParams(location.search).get('utm_source')||'direct'
 const form=$('#leadForm');
 const phone=$('#phone');
 const intl=()=>/^\s*\+/.test(phone.value)&&!/^\s*\+\s*9\s*9\s*5/.test(phone.value);
-phone.addEventListener('input',()=>{ $('#fPhone').classList.toggle('intl',intl()); if(intl()){ phone.value=phone.value.replace(/[^\d+ ]/g,'').slice(0,20); return; } let d=phone.value.replace(/\D/g,''); if(d.startsWith('995')) d=d.slice(3); d=d.slice(0,9); phone.value=[d.slice(0,3),d.slice(3,5),d.slice(5,7),d.slice(7,9)].filter(Boolean).join(' '); });
-const phoneFull=()=>intl()?'+'+phone.value.replace(/\D/g,''):'+995 '+phone.value.trim();
-const rules={fName:()=>$('#name').value.trim().length>=2,fPhone:()=>intl()?/^\d{8,15}$/.test(phone.value.replace(/\D/g,'')):/^5\d{8}$|^[23]\d{8}$/.test(phone.value.replace(/\D/g,'')),fEmail:()=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('#email').value.trim()),fCompany:()=>$('#company').value.trim().length>=2,fHeard:()=>!!$('#heardFrom').value};
+/* shared v66: +995 is editable text in the field (default), so visitors from other countries can type their own code */
+const geoDigits=()=>{ let d=phone.value.replace(/\D/g,''); if(d.startsWith('995')) d=d.slice(3); return d; };
+phone.addEventListener('focus',()=>{ if(!phone.value.trim()) phone.value='+995 '; });
+phone.addEventListener('input',()=>{ $('#fPhone').classList.toggle('intl',intl()); if(!phone.value.trim()) return; if(intl()){ phone.value=phone.value.replace(/[^\d+ ]/g,'').slice(0,20); return; } if(/^\s*\+?\s*9?9?\s*$/.test(phone.value)) return; const d=geoDigits().slice(0,9); phone.value='+995 '+[d.slice(0,3),d.slice(3,5),d.slice(5,7),d.slice(7,9)].filter(Boolean).join(' '); });
+const phoneFull=()=>intl()?'+'+phone.value.replace(/\D/g,''):'+995'+geoDigits();
+const rules={fName:()=>$('#name').value.trim().length>=2,fPhone:()=>intl()?/^\d{8,15}$/.test(phone.value.replace(/\D/g,'')):/^5\d{8}$|^[23]\d{8}$/.test(geoDigits()),fEmail:()=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('#email').value.trim()),fCompany:()=>$('#company').value.trim().length>=2,fHeard:()=>!!$('#heardFrom').value};
 Object.keys(rules).forEach(id=>{ const f=$('#'+id); const inp=$('input,select',f); inp.addEventListener('blur',()=>{ if(inp.value) f.classList.toggle('bad',!rules[id]()); }); ['input','change'].forEach(t=>inp.addEventListener(t,()=>{ if(f.classList.contains('bad')) f.classList.toggle('bad',!rules[id]()); })); });
 form.addEventListener('submit',async e=>{ e.preventDefault(); let first=null; Object.keys(rules).forEach(id=>{ const ok=rules[id](); $('#'+id).classList.toggle('bad',!ok); if(!ok&&!first) first=$('#'+id+' input, #'+id+' select'); }); if(first){ first.focus(); if(window.UnittyTracking) window.UnittyTracking.event('form_invalid',{}); return; }
   /* real submission (crm.unitty.io): same /api/lead endpoint, attribution and thank-you flow as every Unitty landing */

@@ -80,6 +80,12 @@ reaches CRM only if the CRM chat ports it, or the shared chat edits `crm.page.ht
 - Same `event_id` goes to the server-side Conversions API (sent only after Zoho success) → Meta dedups the pair.
 - Any new landing or form must call `leadCreated` the same way after a confirmed lead. Clarity event: `lead_created`.
 
+## Phone field (v66, 2026-10-31)
+
+- Every lead form: the phone input starts with editable text `+995 ` (no fixed prefix), so visitors from other
+  countries can replace the code. Valid = +995 + 9 digits (5XX mobile, 2X/32 landline) or any other +code with
+  8-15 digits. lead.js stores Mobile as +<digits>.
+
 ## Build
 
 - One landing: `python3 tools/build_landings.py --only crm` (template CRM parts also: `python3 tools/build_crm_packages.py` first).

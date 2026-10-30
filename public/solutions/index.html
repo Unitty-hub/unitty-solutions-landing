@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="unitty-landing" content="solutions">
-<meta name="unitty-version" content="v63-2026-10-30">
+<meta name="unitty-version" content="v64-2026-10-31">
 <title data-i18n="seo.title">75+ მზა გადაწყვეტა CRM-ის, AI-ს და ანალიტიკისთვის | Unitty</title>
 <meta name="description" content="აირჩიე მზა გადაწყვეტები CRM-ის, AI-ს, მონაცემების და ინტეგრაციებისთვის, დაამატე მოთხოვნაში და 20 წუთში ერთად განვიხილავთ. უფასო ზარი.">
 <!--SEO-->
@@ -1746,7 +1746,7 @@
       </div>
       <div class="form-field">
         <label class="form-label" for="phone"><span data-i18n="form.phone">ტელეფონის ნომერი</span><span class="req">*</span></label>
-        <input class="form-input" type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="+995 ___ ___ ___">
+        <input class="form-input" type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel" value="+995 " placeholder="+995 5XX XX XX XX">
       </div>
       <div class="form-field">
         <label class="form-label" for="email"><span data-i18n="form.email">ელფოსტა</span><span class="req">*</span></label>
@@ -2197,6 +2197,27 @@
   // CHANGE THIS to the actual Zoho CRM Web Form API endpoint OR your Cloudflare Worker URL
   const LEAD_ENDPOINT = "/api/lead"; // will be routed by Cloudflare Pages Functions / Worker
   const THANK_YOU_URL = "/thank-you";
+
+  // shared v66: +995 is editable text in the phone field (default), so visitors from other countries can change it.
+  // Valid: +995 + 9 digits (5XX... mobile, 2X/32 landline) or any other +<country code> number with 8-15 digits.
+  (function initPhoneField() {
+    const ph = document.getElementById('phone');
+    if (!ph) return;
+    const MSG = 'შეიყვანე ნომერი, მაგ. +995 599 12 34 56. სხვა ქვეყნის ნომრისთვის შეცვალე კოდი.';
+    const check = () => {
+      const v = ph.value.trim();
+      const d = v.replace(/\D/g, '');
+      let ok;
+      if (/^\+?\s*9\s*9\s*5/.test(v) || !v.startsWith('+')) ok = /^(995)?(5\d{8}|[23]\d{8})$/.test(d);
+      else ok = d.length >= 8 && d.length <= 15;
+      ph.setCustomValidity(ok ? '' : MSG);
+      return ok;
+    };
+    ph.addEventListener('focus', () => { if (!ph.value.trim()) ph.value = '+995 '; });
+    ph.addEventListener('input', () => { ph.value = ph.value.replace(/[^\d+ ()-]/g, '').slice(0, 22); check(); });
+    check();
+    console.info('>>> phone field: editable +995 default');
+  })();
 
   async function submitLeadForm(e) {
     e.preventDefault();
