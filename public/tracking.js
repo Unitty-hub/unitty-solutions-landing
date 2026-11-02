@@ -15,7 +15,7 @@
 (function () {
   'use strict';
 
-  var BUILD = 'v67-2026-11-02';
+  var BUILD = 'v68-2026-11-02';
   // Which landing this is: <meta name="unitty-landing" content="crm"> (start / crm / ai / banks / solutions).
   // The thank-you page gets it from the ?v= parameter the landing passes along.
   var LANDING = (function () {
@@ -160,6 +160,43 @@
     if (attrNow.utm[k]) clarity('set', k, attrNow.utm[k]);
   });
   clarity('set', 'traffic', attrNow.fbclid ? 'meta_click' : (attrNow.gclid ? 'google_click' : (attrNow.utm.utm_source || 'organic_or_direct')));
+
+  // ---------- 2b. Auto-scroll guard (v68, 2026-11-02) ----------
+  // Instagram / Facebook in-app browsers (iOS) jump straight to the lead form ~1-2 s after the page opens from an ad
+  // (their autofill focuses / reveals the form fields). For the first seconds after a fresh navigation, any scroll or
+  // field focus that the visitor did not cause is undone: the page goes back to the top and the field loses focus.
+  // Skipped when the URL has a #hash (intended anchor) and on reload / back-forward (scroll restore is fine there).
+  (function autoScrollGuard() {
+    if (PAGE !== 'landing' || location.hash) return;
+    var navType = '';
+    try { var nav = performance.getEntriesByType('navigation')[0]; navType = nav ? nav.type : ''; } catch (e) {}
+    if (navType === 'reload' || navType === 'back_forward') return;
+    var GUARD_MS = 5000;
+    var started = Date.now();
+    var userActed = false;
+    var blocked = 0;
+    try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
+    var onUser = function () { userActed = true; };
+    ['touchstart', 'pointerdown', 'mousedown', 'wheel', 'keydown'].forEach(function (t) {
+      window.addEventListener(t, onUser, { capture: true, passive: true });
+    });
+    var active = function () { return !userActed && Date.now() - started < GUARD_MS; };
+    var isField = function (el) { return el && /^(INPUT|SELECT|TEXTAREA)$/.test(el.tagName); };
+    var undo = function (why) {
+      blocked++;
+      if (isField(document.activeElement)) { try { document.activeElement.blur(); } catch (e) {} }
+      try { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); } catch (e) { window.scrollTo(0, 0); }
+      log('*** auto-scroll blocked (' + why + ')', { y: window.scrollY, ms: Date.now() - started });
+      if (blocked === 1) clarity('event', 'auto_scroll_blocked');
+    };
+    document.addEventListener('focusin', function (e) {
+      if (active() && isField(e.target)) undo('focus ' + (e.target.id || e.target.name || e.target.tagName));
+    }, true);
+    window.addEventListener('scroll', function () {
+      if (active() && window.scrollY > 80) undo('scroll');
+    }, { passive: true });
+    setTimeout(function () { log('--- auto-scroll guard off', { blocked: blocked, userActed: userActed }); }, GUARD_MS);
+  })();
 
   // ---------- 3. Meta Pixel ----------
   /* eslint-disable */

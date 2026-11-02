@@ -113,3 +113,9 @@ reaches CRM only if the CRM chat ports it, or the shared chat edits `crm.page.ht
   the `<noscript>` pixel sits right after `<body>` in the template, `crm.page.html` and the thank-you page.
 - Lead conversion `lintrk('track', {conversion_id: 32715321})` fires inside `UnittyTracking.leadCreated`, i.e. at the
   same moment as the Meta Lead (only after Zoho confirmed the lead). New forms get it automatically via `leadCreated`.
+
+## Auto-scroll guard (v68, 2026-11-02)
+
+- Instagram/Facebook in-app browsers jumped straight to the lead form ~1.5 s after opening a landing from an ad.
+  `tracking.js` now undoes any scroll / form-field focus the visitor did not cause during the first 5 s of a fresh
+  visit (no #hash, not reload/back). Clarity event `auto_scroll_blocked` shows how often it happens. Do not remove.
