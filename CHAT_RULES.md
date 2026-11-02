@@ -106,3 +106,10 @@ reaches CRM only if the CRM chat ports it, or the shared chat edits `crm.page.ht
 2. Work only in your files, build only your landing, test mobile first (390px), then desktop.
 3. End: write files to the Mac, verify sizes, ask Giorgi to Commit + Push in GitHub Desktop.
 4. Only one chat writes at a time. Switch chats only after the previous Push.
+
+## LinkedIn Insight Tag (v67, 2026-11-02)
+
+- Partner ID 11084609 loads from `public/tracking.js` on every page that loads it (all landings + thank-you);
+  the `<noscript>` pixel sits right after `<body>` in the template, `crm.page.html` and the thank-you page.
+- Lead conversion `lintrk('track', {conversion_id: 32715321})` fires inside `UnittyTracking.leadCreated`, i.e. at the
+  same moment as the Meta Lead (only after Zoho confirmed the lead). New forms get it automatically via `leadCreated`.

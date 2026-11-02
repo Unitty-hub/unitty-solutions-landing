@@ -15,7 +15,7 @@
 (function () {
   'use strict';
 
-  var BUILD = 'v66-2026-10-31';
+  var BUILD = 'v67-2026-11-02';
   // Which landing this is: <meta name="unitty-landing" content="crm"> (start / crm / ai / banks / solutions).
   // The thank-you page gets it from the ?v= parameter the landing passes along.
   var LANDING = (function () {
@@ -172,6 +172,24 @@
   window.fbq('init', META_PIXEL_ID);
   window.fbq('track', 'PageView');
 
+  // ---------- 4. LinkedIn Insight Tag (v67, 2026-11-02) ----------
+  // Same code as LinkedIn Campaign Manager gives (partner 11084609), loaded on every page that loads tracking.js.
+  // The <noscript> pixel sits right after <body> in the template, crm.page.html and the thank-you page.
+  var LINKEDIN_PARTNER_ID = '11084609';
+  var LINKEDIN_LEAD_CONVERSION_ID = 32715321;
+  window._linkedin_partner_id = LINKEDIN_PARTNER_ID;
+  window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+  window._linkedin_data_partner_ids.push(LINKEDIN_PARTNER_ID);
+  (function (l) {
+    if (!l) { window.lintrk = function (a, b) { window.lintrk.q.push([a, b]); }; window.lintrk.q = []; }
+    var s = document.getElementsByTagName('script')[0];
+    var b = document.createElement('script');
+    b.type = 'text/javascript'; b.async = true;
+    b.src = 'https://snap.licdn.com/li.lms-analytics/insight.min.js';
+    s.parentNode.insertBefore(b, s);
+  })(window.lintrk);
+  log('--- LinkedIn Insight Tag loaded', LINKEDIN_PARTNER_ID);
+
   // v65 (2026-10-30): the Meta Lead event fires ONLY when /api/lead confirms the Zoho lead was created
   // (UnittyTracking.leadCreated, called by the landing's form handler). The thank-you page no longer fires
   // Lead - it only logs a Clarity view. The same event_id goes to the Conversions API, so Meta counts it once.
@@ -191,6 +209,11 @@
         lead_source: data.lead_source || undefined
       }, { eventID: eid });
     } catch (e) { log('*** Meta Lead failed', e && e.message); }
+    // LinkedIn lead conversion - same moment as the Meta Lead (only after Zoho confirmed the lead)
+    try {
+      window.lintrk('track', { conversion_id: LINKEDIN_LEAD_CONVERSION_ID });
+      log('+++ LinkedIn conversion sent', LINKEDIN_LEAD_CONVERSION_ID);
+    } catch (e) { log('*** LinkedIn conversion failed', e && e.message); }
     clarity('event', 'lead_created');
     if (data.lead_id) clarity('set', 'lead_id', String(data.lead_id));
     try { sessionStorage.setItem(firedKey, '1'); } catch (e) {}
