@@ -521,8 +521,11 @@ img,svg{max-width:100%}
 .form{background:var(--surface);border:1px solid var(--line-2);border-radius:24px;padding:24px 20px;display:flex;flex-direction:column;gap:16px;box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
 @media(min-width:768px){.form{padding:32px}}
 .form h3{font-size:20px}
-.f2{display:grid;gap:16px}
-@media(min-width:600px){.f2{grid-template-columns:1fr 1fr}}
+.f2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 12px}
+.f2 .field,.f2 .input,.f2 input{min-width:0}
+.f2 input{width:100%}
+@media(max-width:520px){.btn{white-space:normal;text-align:center;line-height:1.25}.btn-xl{padding:0 20px;font-size:15px}.form .btn{padding:0 18px;font-size:15px}.nav .nav-cta{padding:0 14px;font-size:13px}}
+@media(min-width:600px){.f2{gap:16px}}
 .field{display:flex;flex-direction:column;gap:7px;min-width:0}
 .field label,.field .lbl{font-size:13.5px;font-weight:600;color:var(--dim)}
 .field label i{color:var(--lime);font-style:normal}
@@ -742,7 +745,7 @@ dialog p{color:var(--dim)}
   <div class="wrap nav-in">
     <a href="#top" class="logo" aria-label="Unitty, გვერდის დასაწყისი"><svg class="logo-svg" width="88" height="27" viewBox="0 0 88 27" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="unitty"><path d="M10.7891 13.5109V4.00645H16.102V20.729H11.0286V17.6153H10.8544C10.4843 18.6387 9.85282 19.4516 8.96008 20.054C8.0746 20.6492 7.00403 20.9468 5.74839 20.9468C4.60887 20.9468 3.60726 20.6855 2.74355 20.1629C1.87984 19.6403 1.20847 18.9109 0.729435 17.9746C0.250403 17.031 0.00725806 15.9278 0 14.6649V4.00645H5.32379V13.6198C5.33105 14.527 5.57056 15.2419 6.04234 15.7645C6.51411 16.2871 7.15645 16.5484 7.96936 16.5484C8.49919 16.5484 8.9746 16.4323 9.39556 16.2C9.82379 15.9605 10.1613 15.6157 10.4081 15.1657C10.6621 14.7085 10.7891 14.1569 10.7891 13.5109Z" fill="#FFFFFF"/><path d="M24.8144 11.1919V20.729H19.4906V4.00645H24.5531V7.07661H24.7382C25.1084 6.05323 25.7398 5.25121 26.6326 4.67056C27.5253 4.08266 28.5886 3.78871 29.8225 3.78871C30.9983 3.78871 32.018 4.05363 32.8818 4.58347C33.7527 5.10605 34.4277 5.83911 34.9068 6.78266C35.393 7.71895 35.6326 8.81492 35.6253 10.0706V20.729H30.3015V11.1157C30.3088 10.1867 30.0729 9.46089 29.5939 8.9383C29.1221 8.41572 28.4652 8.15444 27.6233 8.15444C27.0644 8.15444 26.5709 8.27782 26.1426 8.5246C25.7217 8.76411 25.3951 9.10887 25.1628 9.55887C24.9378 10.0089 24.8217 10.5532 24.8144 11.1919Z" fill="#FFFFFF"/><path d="M55.9861 4.00645V7.92581L47.6466 8.02923V4.00645H55.9861ZM47.6466 0H52.9704V15.4706C52.9704 15.7972 53.0212 16.0621 53.1228 16.2653C53.2317 16.4613 53.3877 16.6028 53.591 16.6899C53.7942 16.7698 54.0373 16.8097 54.3204 16.8097C54.5236 16.8097 54.7377 16.7915 54.9627 16.7552C55.195 16.7117 55.3692 16.6754 55.4853 16.6464L56.291 20.4895C56.0369 20.5621 55.6777 20.6528 55.2131 20.7617C54.7559 20.8706 54.2079 20.9395 53.5692 20.9685C52.3208 21.0266 51.2502 20.8815 50.3575 20.5331C49.472 20.1774 48.7934 19.6258 48.3216 18.8782C47.8571 18.1306 47.6321 17.1907 47.6466 16.0585V0Z" fill="#FFFFFF"/><path d="M67.4171 4.00645V7.92581L59.2284 7.96957V3.98479L67.4171 4.00645ZM59.0775 0H64.4013V15.4706C64.4013 15.7972 64.4521 16.0621 64.5538 16.2653C64.6626 16.4613 64.8187 16.6028 65.0219 16.6899C65.2251 16.7698 65.4683 16.8097 65.7513 16.8097C65.9546 16.8097 66.1687 16.7915 66.3937 16.7552C66.6259 16.7117 66.8001 16.6754 66.9163 16.6464L67.7219 20.4895C67.4679 20.5621 67.1086 20.6528 66.6441 20.7617C66.1868 20.8706 65.6388 20.9395 65.0001 20.9685C63.7517 21.0266 62.6812 20.8815 61.7884 20.5331C60.903 20.1774 60.2243 19.6258 59.7525 18.8782C59.288 18.1306 59.063 17.1907 59.0775 16.0585V0Z" fill="#FFFFFF"/><path d="M74.6191 27C73.9804 27 73.378 26.9492 72.8119 26.8476C72.2457 26.7532 71.7595 26.6262 71.353 26.4665L72.5288 22.6016C73.0514 22.7758 73.5232 22.8774 73.9441 22.9065C74.3724 22.9355 74.7389 22.8665 75.0437 22.6996C75.3558 22.5399 75.5953 22.2532 75.7623 21.8395L75.9691 21.3387L70.0248 4.00645H75.599L78.68 15.9387H78.8542L81.9788 4.00645H87.5857L81.282 22.3294C80.9772 23.244 80.5453 24.0496 79.9865 24.7464C79.4349 25.4504 78.7199 26.002 77.8417 26.4012C76.9707 26.8004 75.8966 27 74.6191 27Z" fill="#FFFFFF"/><path d="M44.1949 8.33182V20.7475H39.1234V8.33182H44.1949Z" fill="#FFFFFF"/><circle cx="41.6591" cy="3.26028" r="3.26028" fill="#C1FD3A"/></svg></a>
     <div class="nav-right">
-      <a class="btn btn-primary btn-sm nav-cta" href="#lead" data-cta="nav">უფასო ზარი</a>
+      <a class="btn btn-primary btn-sm nav-cta" href="#lead" data-cta="nav">უფასო კონსულტაცია</a>
     </div>
   </div>
 </header>
@@ -767,7 +770,7 @@ dialog p{color:var(--dim)}
       <div class="timer-bar" aria-hidden="true"><i id="tBar"></i></div>
     </div>
     <div class="cta-row" data-hero>
-      <a href="#lead" class="btn btn-primary btn-xl" data-cta="hero">მოითხოვე უფასო ზარი <span class="arr" aria-hidden="true">→</span></a>
+      <a href="#lead" class="btn btn-primary btn-xl" data-cta="hero">მოითხოვე უფასო კონსულტაცია <span class="arr" aria-hidden="true">→</span></a>
       
     </div>
   </div>
@@ -921,7 +924,7 @@ dialog p{color:var(--dim)}
       <div class="step" style="--i:1"><span class="num">2</span><span class="when">5–25 სამუშაო დღე</span><h3 class="h3">დანერგვა</h3><p>ვაწყობთ სისტემას და ვატრენინგებთ გუნდს.</p></div>
       <div class="step" style="--i:2"><span class="num">3</span><span class="when">მუდმივად</span><h3 class="h3">მხარდაჭერა</h3><p>3 დღე შესამოწმებლად, შემდეგ მუდმივი მხარდაჭერა.</p></div>
     </div>
-    <div class="steps-cta rv"><a href="#lead" class="btn btn-primary" data-cta="steps">მოითხოვე უფასო ზარი <span class="arr" aria-hidden="true">→</span></a></div>
+    <div class="steps-cta rv"><a href="#lead" class="btn btn-primary" data-cta="steps">მოითხოვე უფასო კონსულტაცია <span class="arr" aria-hidden="true">→</span></a></div>
   </div>
 </section>
 
@@ -1003,27 +1006,27 @@ dialog p{color:var(--dim)}
   <div class="wrap final-grid">
     <div class="final-copy rv">
       <h2 class="display" id="leadH">20 წუთში გეტყვით, <span class="accent">რომელი CRM გჭირდება</span></h2>
-      <p class="lead">მოგვიყევი, როგორ ყიდი. ერთად შევარჩევთ სისტემას და გეტყვით ზუსტ ფასსა და ვადას.</p>
-      <ul class="micro"><li>ზარი უფასოა</li><li>ვალდებულების გარეშე</li><li>500+ დანერგვის გამოცდილება</li></ul>
-      <div class="host"><img src="/crm/media/giorgi-avatar.jpg" alt="გიორგი კორძახია" width="64" height="64" loading="lazy" decoding="async"><div class="host-txt"><small>ზარზე გესაუბრება</small><b>გიორგი კორძახია</b><span>Unitty-ს CEO</span><ul class="host-tags"><li>12+ წელი CRM-ებში</li><li>500+ დანერგვა</li></ul></div></div>
+      <ul class="micro"><li>კონსულტაცია უფასოა</li><li>ვალდებულების გარეშე</li><li>500+ დანერგვის გამოცდილება</li></ul>
+      <div class="host"><img src="/crm/media/giorgi-avatar.jpg" alt="გიორგი კორძახია" width="64" height="64" loading="lazy" decoding="async"><div class="host-txt"><small>კონსულტაციას გაგიწევს</small><b>გიორგი კორძახია</b><span>Unitty-ს CEO</span><ul class="host-tags"><li>12+ წელი CRM-ებში</li><li>500+ დანერგვა</li></ul></div></div>
     </div>
     <form class="form rv" id="leadForm" novalidate aria-labelledby="formH">
       <div class="fbody" style="display:flex;flex-direction:column;gap:16px">
-        <h3 class="h3" id="formH">მოითხოვე უფასო ზარი</h3>
+        <h3 class="h3" id="formH">მოითხოვე უფასო კონსულტაცია</h3>
         <div class="pkg-pill" id="pkgPill"><span>არჩეული პაკეტი: <b id="pkgName"></b></span><button type="button" id="pkgClear">გაუქმება</button></div>
-        <div class="field" id="fName"><label for="name">სახელი და გვარი <i>*</i></label><div class="input"><input id="name" name="name" autocomplete="name" placeholder="სახელი და გვარი" required></div><span class="err-msg">შეიყვანე სახელი, რომ ვიცოდეთ, ვის ვურეკავთ.</span></div>
+        <div class="f2">
+          <div class="field" id="fName"><label for="name">სახელი და გვარი <i>*</i></label><div class="input"><input id="name" name="name" autocomplete="name" placeholder="სახელი და გვარი" required></div><span class="err-msg">შეიყვანე სახელი, რომ ვიცოდეთ, ვის ვურეკავთ.</span></div>
+          <div class="field" id="fCompany"><label for="company">კომპანია <i>*</i></label><div class="input"><input id="company" name="company" autocomplete="organization" placeholder="კომპანიის სახელი" required></div><span class="err-msg">შეიყვანე კომპანიის სახელი.</span></div>
+        </div>
         <div class="f2">
           <div class="field" id="fPhone"><label for="phone">ტელეფონი <i>*</i></label><div class="input"><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" value="+995 " placeholder="+995 5XX XX XX XX" required></div><span class="err-msg">შეიყვანე ნომერი, მაგ. +995 599 12 34 56. სხვა ქვეყნის ნომრისთვის შეცვალე კოდი.</span></div>
           <div class="field" id="fEmail"><label for="email">ელფოსტა <i>*</i></label><div class="input"><input id="email" name="email" type="email" autocomplete="email" placeholder="name@company.ge" required></div><span class="err-msg">შეიყვანე სწორი ელფოსტა.</span></div>
         </div>
-        <div class="field" id="fCompany"><label for="company">კომპანია <i>*</i></label><div class="input"><input id="company" name="company" autocomplete="organization" placeholder="კომპანიის სახელი" required></div><span class="err-msg">შეიყვანე კომპანიის სახელი.</span></div>
-        <div class="field" id="fHeard"><label for="heardFrom">საიდან გაიგე ჩვენ შესახებ? <i>*</i></label><div class="input sel"><select id="heardFrom" name="heardFrom" required><option value="" disabled selected>აირჩიე ვარიანტი</option><option value="LinkedIn">LinkedIn</option><option value="Facebook">Facebook</option><option value="YouTube">YouTube</option><option value="Google">Google</option><option value="AI">AI</option><option value="Email">ელ.ფოსტა</option><option value="Recommendation">რეკომენდაცია</option><option value="Other">სხვა</option></select></div><span class="err-msg">აირჩიე ვარიანტი.</span></div>
         <input type="hidden" name="package" id="package"><input type="hidden" name="utm_source" id="utm">
         <p class="send-err" role="alert">გაგზავნა ვერ მოხერხდა. სცადე ხელახლა ან დაგვირეკე: +995 32 205 50 60.</p>
-        <button class="btn btn-primary" type="submit">მოითხოვე უფასო ზარი <span class="arr" aria-hidden="true">→</span></button>
+        <button class="btn btn-primary" type="submit">მოითხოვე უფასო კონსულტაცია <span class="arr" aria-hidden="true">→</span></button>
         <p class="consent">ფორმის გაგზავნით ვეთანხმები შპს „იუნითის“ (unitty.io) მიერ ჩემი მონაცემების დამუშავებას კომუნიკაციისა და პირდაპირი მარკეტინგის მიზნით. თანხმობის გაუქმება ან მონაცემების გასწორება/წაშლა შესაძლებელია ნებისმიერ დროს: digital@unitty.io.</p>
       </div>
-      <div class="success" role="status" aria-live="polite"><span class="ok" aria-hidden="true">✓</span><h3 class="h3" id="okTitle">მადლობა!</h3><p class="lead">მოთხოვნა მიღებულია. დაგიკავშირდებით, რომ ზარის დრო შევათანხმოთ.</p></div>
+      <div class="success" role="status" aria-live="polite"><span class="ok" aria-hidden="true">✓</span><h3 class="h3" id="okTitle">მადლობა!</h3><p class="lead">მოთხოვნა მიღებულია. დაგიკავშირდებით, რომ კონსულტაციის დრო შევათანხმოთ.</p></div>
     </form>
   </div>
 </section>
@@ -1039,7 +1042,7 @@ dialog p{color:var(--dim)}
       <details><summary>რა არის CRM სისტემა და რატომ სჭირდება ჩემს ბიზნესს?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>CRM არის სისტემა, სადაც ერთ ადგილას ინახება კლიენტები, გარიგებები, ზარები, მიმოწერა და დავალებები. ხედავ, ვინ ვის ესაუბრა, რა ეტაპზეა თითოეული გარიგება და ვის რა უნდა გააკეთოს. შედეგად ნაკლები კლიენტი იკარგება და ნაკლებს მუშაობ ხელით.</p></div></details>
       <details><summary>რით განსხვავდება CRM Excel-ისგან?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Excel მხოლოდ ინახავს ინფორმაციას. CRM მუშაობს: გახსენებს follow-up-ს, ანაწილებს ლიდებს, აჩვენებს გაყიდვების ძაბრს და ინახავს ყველა ზარისა და წერილის ისტორიას. მენეჯერი რომც წავიდეს, კლიენტები კომპანიაში რჩება.</p></div></details>
       <details><summary>რომელ CRM პროგრამებს ნერგავთ?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>ვართ Zoho-ს, Pipedrive-ის, Kommo-ს, monday.com-ის, Bitrix24-ისა და Odoo-ს სერტიფიცირებული პარტნიორი, ასევე ვმუშაობთ ClickUp-სა და Manychat-ზე. დამოუკიდებელი პარტნიორი ვართ, ამიტომ ჯერ ვნახავთ, როგორ მუშაობ, და მერე გირჩევთ შესაფერის სისტემას.</p></div></details>
-      <details><summary>რა ღირს CRM-ის დანერგვა?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>პაკეტები ფიქსირებული ფასისაა: საბაზისო €999, ოპტიმალური €1,999 (ნაცვლად €2,999-ისა), ამბიციური €7,999. დამატებები €199-დან. ფასებს ემატება დღგ (18%). CRM-ის ლიცენზიას პირდაპირ მწარმოებელს უხდი. ზარზე გეტყვით, რომელი პაკეტი გჭირდება და რა დაჯდება ლიცენზია.</p></div></details>
+      <details><summary>რა ღირს CRM-ის დანერგვა?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>პაკეტები ფიქსირებული ფასისაა: საბაზისო €999, ოპტიმალური €1,999 (ნაცვლად €2,999-ისა), ამბიციური €7,999. დამატებები €199-დან. ფასებს ემატება დღგ (18%). CRM-ის ლიცენზიას პირდაპირ მწარმოებელს უხდი. კონსულტაციაზე გეტყვით, რომელი პაკეტი გჭირდება და რა დაჯდება ლიცენზია.</p></div></details>
       <details><summary>რამდენ ხანს გრძელდება CRM-ის დანერგვა?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>საბაზისო 5 სამუშაო დღეში, ოპტიმალური 15 დღეში, ამბიციური 25 დღეში. ვიწყებთ ყველაზე მნიშვნელოვანით, გუნდი ითვისებს და მერე ვამატებთ ავტომატიზაციებსა და ინტეგრაციებს. ასე რისკი მინიმალურია, შედეგს კი სწრაფად ხედავ.</p></div></details>
       <details><summary>შეიძლება CRM-ის დაკავშირება სხვა სისტემებთან?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>კი. ვაკავშირებთ ელფოსტასთან, WhatsApp-თან, Instagram-თან, Facebook-თან, საიტის ფორმებთან, Meta-სა და Google-ის რეკლამის ლიდებთან, ტელეფონიასთან (მათ შორის GEONET), ბანკებთან და ბუღალტრულ ან ERP სისტემებთან (1C, FINA).</p></div></details>
       <details><summary>შესაძლებელია მონაცემების Excel-იდან ან სხვა CRM-იდან გადმოტანა?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>კი. კლიენტებს, კონტაქტებს, გარიგებებს და ისტორიას გადმოვიტანთ Excel-იდან, Google Sheets-იდან ან სხვა CRM-იდან. მანამდე ვასუფთავებთ დუბლიკატებს და ვაწესრიგებთ ნომრებს, რომ სისტემა სუფთა ბაზით დაიწყოს.</p></div></details>
@@ -1052,10 +1055,10 @@ dialog p{color:var(--dim)}
 
 <footer><div class="wrap foot"><span class="foot-brand"><svg class="logo-svg sm" width="88" height="27" viewBox="0 0 88 27" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="unitty"><path d="M10.7891 13.5109V4.00645H16.102V20.729H11.0286V17.6153H10.8544C10.4843 18.6387 9.85282 19.4516 8.96008 20.054C8.0746 20.6492 7.00403 20.9468 5.74839 20.9468C4.60887 20.9468 3.60726 20.6855 2.74355 20.1629C1.87984 19.6403 1.20847 18.9109 0.729435 17.9746C0.250403 17.031 0.00725806 15.9278 0 14.6649V4.00645H5.32379V13.6198C5.33105 14.527 5.57056 15.2419 6.04234 15.7645C6.51411 16.2871 7.15645 16.5484 7.96936 16.5484C8.49919 16.5484 8.9746 16.4323 9.39556 16.2C9.82379 15.9605 10.1613 15.6157 10.4081 15.1657C10.6621 14.7085 10.7891 14.1569 10.7891 13.5109Z" fill="#FFFFFF"/><path d="M24.8144 11.1919V20.729H19.4906V4.00645H24.5531V7.07661H24.7382C25.1084 6.05323 25.7398 5.25121 26.6326 4.67056C27.5253 4.08266 28.5886 3.78871 29.8225 3.78871C30.9983 3.78871 32.018 4.05363 32.8818 4.58347C33.7527 5.10605 34.4277 5.83911 34.9068 6.78266C35.393 7.71895 35.6326 8.81492 35.6253 10.0706V20.729H30.3015V11.1157C30.3088 10.1867 30.0729 9.46089 29.5939 8.9383C29.1221 8.41572 28.4652 8.15444 27.6233 8.15444C27.0644 8.15444 26.5709 8.27782 26.1426 8.5246C25.7217 8.76411 25.3951 9.10887 25.1628 9.55887C24.9378 10.0089 24.8217 10.5532 24.8144 11.1919Z" fill="#FFFFFF"/><path d="M55.9861 4.00645V7.92581L47.6466 8.02923V4.00645H55.9861ZM47.6466 0H52.9704V15.4706C52.9704 15.7972 53.0212 16.0621 53.1228 16.2653C53.2317 16.4613 53.3877 16.6028 53.591 16.6899C53.7942 16.7698 54.0373 16.8097 54.3204 16.8097C54.5236 16.8097 54.7377 16.7915 54.9627 16.7552C55.195 16.7117 55.3692 16.6754 55.4853 16.6464L56.291 20.4895C56.0369 20.5621 55.6777 20.6528 55.2131 20.7617C54.7559 20.8706 54.2079 20.9395 53.5692 20.9685C52.3208 21.0266 51.2502 20.8815 50.3575 20.5331C49.472 20.1774 48.7934 19.6258 48.3216 18.8782C47.8571 18.1306 47.6321 17.1907 47.6466 16.0585V0Z" fill="#FFFFFF"/><path d="M67.4171 4.00645V7.92581L59.2284 7.96957V3.98479L67.4171 4.00645ZM59.0775 0H64.4013V15.4706C64.4013 15.7972 64.4521 16.0621 64.5538 16.2653C64.6626 16.4613 64.8187 16.6028 65.0219 16.6899C65.2251 16.7698 65.4683 16.8097 65.7513 16.8097C65.9546 16.8097 66.1687 16.7915 66.3937 16.7552C66.6259 16.7117 66.8001 16.6754 66.9163 16.6464L67.7219 20.4895C67.4679 20.5621 67.1086 20.6528 66.6441 20.7617C66.1868 20.8706 65.6388 20.9395 65.0001 20.9685C63.7517 21.0266 62.6812 20.8815 61.7884 20.5331C60.903 20.1774 60.2243 19.6258 59.7525 18.8782C59.288 18.1306 59.063 17.1907 59.0775 16.0585V0Z" fill="#FFFFFF"/><path d="M74.6191 27C73.9804 27 73.378 26.9492 72.8119 26.8476C72.2457 26.7532 71.7595 26.6262 71.353 26.4665L72.5288 22.6016C73.0514 22.7758 73.5232 22.8774 73.9441 22.9065C74.3724 22.9355 74.7389 22.8665 75.0437 22.6996C75.3558 22.5399 75.5953 22.2532 75.7623 21.8395L75.9691 21.3387L70.0248 4.00645H75.599L78.68 15.9387H78.8542L81.9788 4.00645H87.5857L81.282 22.3294C80.9772 23.244 80.5453 24.0496 79.9865 24.7464C79.4349 25.4504 78.7199 26.002 77.8417 26.4012C76.9707 26.8004 75.8966 27 74.6191 27Z" fill="#FFFFFF"/><path d="M44.1949 8.33182V20.7475H39.1234V8.33182H44.1949Z" fill="#FFFFFF"/><circle cx="41.6591" cy="3.26028" r="3.26028" fill="#C1FD3A"/></svg>© 2026 Unity LLC</span><span class="foot-links"><a href="tel:+995322055060" data-cta="footer-phone">+995 32 205 50 60</a><a href="mailto:digital@unitty.io">digital@unitty.io</a></span></div></footer>
 
-<aside class="vpop" id="vpop" aria-label="ვიდეო: გიორგი კორძახია, Unitty-ს CEO">
+<aside class="vpop" id="vpop" hidden aria-label="ვიდეო: გიორგი კორძახია, Unitty-ს CEO">
   <div class="vp-media" id="vpMedia">
     <!-- Webflow: self-hosted MP4 540x960 (~7 MB) or YouTube QruRi7RQ5HA -->
-    <video id="vpVideo" class="vp-video" src="/crm/media/giorgi-540.mp4" poster="/crm/media/giorgi-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="გიორგი კორძახია, Unitty-ს CEO, CRM დანერგვის შესახებ"></video>
+    <video id="vpVideo" class="vp-video" data-src="/crm/media/giorgi-540.mp4?v=2" poster="/crm/media/giorgi-poster.jpg" muted loop playsinline preload="none" aria-label="გიორგი კორძახია, Unitty-ს CEO, CRM დანერგვის შესახებ"></video>
     <div class="vp-shade" aria-hidden="true"></div>
     <button class="vp-play" id="vpPlay" type="button" aria-label="ვიდეოს ჩართვა" hidden><svg width="22" height="22" viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 1.2l6 3.8-6 3.8z" fill="currentColor"/></svg></button>
     <div class="vp-top"><span class="vp-live" id="vpTime">1:02</span><button class="vp-x" id="vpClose" type="button" aria-label="ვიდეოს დამალვა">×</button></div>
@@ -1069,11 +1072,11 @@ dialog p{color:var(--dim)}
     <div class="vp-cap"><b>გიორგი კორძახია</b><span>CEO · 500+ დანერგვა</span></div>
     <div class="vp-prog" aria-hidden="true"><i id="vpProg"></i></div>
   </div>
-  <a href="#lead" class="vp-cta" data-cta="video">მოითხოვე უფასო ზარი</a>
+  <a href="#lead" class="vp-cta" data-cta="video">მოითხოვე უფასო კონსულტაცია</a>
 </aside>
-<button class="vbubble" id="vbubble" type="button" hidden><span class="pl" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z" fill="currentColor"/></svg></span>გიორგის ვიდეო</button>
+<button class="vbubble" id="vbubble" type="button"><span class="pl" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z" fill="currentColor"/></svg></span>გიორგის ვიდეო</button>
 
-<div class="mcta" id="mcta"><a href="#lead" class="btn btn-primary" data-cta="sticky">მოითხოვე უფასო ზარი</a><a href="tel:+995322055060" class="btn call" id="mctaCall" hidden aria-label="დარეკე +995 32 205 50 60"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></a></div>
+<div class="mcta" id="mcta"><a href="#lead" class="btn btn-primary" data-cta="sticky">მოითხოვე უფასო კონსულტაცია</a><a href="tel:+995322055060" class="btn call" id="mctaCall" hidden aria-label="დარეკე +995 32 205 50 60"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></a></div>
 
 
 <script type="application/ld+json">
@@ -1174,16 +1177,21 @@ function firstGesture(e){ if(e.target.closest && e.target.closest('#vpop,#vbubbl
 vSound.addEventListener('click',e=>{ e.stopPropagation(); dropGest(); setSound(!soundOn); });
 $('#vpReplay').addEventListener('click',e=>{ e.stopPropagation(); dropGest(); vid.currentTime=0; vid.play(); setSound(true); try{ window.UnittyTracking&&UnittyTracking.event&&UnittyTracking.event('video_replay'); }catch(_){} });
 $('#vpMedia').addEventListener('click',e=>{ if(e.target.closest('button')) return; dropGest(); if(vid.paused){ vid.play(); setSound(true); } else setSound(!soundOn); });
-$('#vpClose').addEventListener('click',e=>{ e.stopPropagation(); dropGest(); vid.pause(); setSound(false); vpop.hidden=true; vbub.hidden=false; });
-vbub.addEventListener('click',()=>{ vbub.hidden=true; vpop.hidden=false; vpop.classList.remove('enter'); void vpop.offsetWidth; vpop.classList.add('enter'); vid.currentTime=0; vid.play(); setSound(true); });
+$('#vpClose').addEventListener('click',e=>{ e.stopPropagation(); dropGest(); vid.pause(); setSound(false); vpop.hidden=true; vbub.hidden=false; vpClosed=true; });
+/* crm-v94: video loads only when opened; auto-opens (muted) once the hero is scrolled past, unless the visitor closed it */
+let vpClosed=false;
+const loadVid=()=>{ if(!vid.getAttribute('src')){ vid.src=vid.dataset.src; vid.preload='auto'; } };
+const openPop=user=>{ loadVid(); vbub.hidden=true; vpop.hidden=false; vpop.classList.remove('enter'); void vpop.offsetWidth; vpop.classList.add('enter');
+  if(user){ vid.currentTime=0; vid.play(); setSound(true); }
+  else if(!RM.matches){ vid.muted=true; const pr=vid.play(); pr&&pr.catch(syncPlay); setTimeout(syncPlay,1500); } else syncPlay(); };
+vbub.addEventListener('click',()=>openPop(true));
 const fmtT=t=>Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0');
 vid.addEventListener('timeupdate',()=>{ if(vid.duration){ vProg.style.width=(vid.currentTime/vid.duration*100).toFixed(2)+'%'; vTime.textContent=fmtT(vid.duration-vid.currentTime); } });
 const vPlay=$('#vpPlay');
 const syncPlay=()=>{ vPlay.hidden=!vid.paused; };
 ['play','playing','pause'].forEach(t=>vid.addEventListener(t,syncPlay));
 vPlay.addEventListener('click',e=>{ e.stopPropagation(); dropGest(); vid.play(); setSound(true); });
-if(RM.matches){ vid.removeAttribute('autoplay'); vid.pause(); syncPlay(); }
-else { setTimeout(()=>vpop.classList.add('enter'),0); vid.muted=true; const pr=vid.play(); pr&&pr.catch(syncPlay); setTimeout(syncPlay,1500); }
+new IntersectionObserver(es=>{ const e=es[0]; if(!e.isIntersecting && e.boundingClientRect.top<0 && vpop.hidden && !vpClosed) openPop(false); }).observe($('.hero'));
 /* shrink while the lead form is on screen so it never covers the form */
 new IntersectionObserver(es=>vpop.classList.toggle('mini',es[0].isIntersecting && innerWidth>=900),{threshold:.25}).observe($('#lead'));
 
@@ -1258,7 +1266,7 @@ $$('.cur button').forEach(b=>b.addEventListener('click',()=>{ const c=b.dataset.
 /* PACKAGE PICK → FORM */
 const pill=$('#pkgPill'), pkgIn=$('#package');
 const setPkg=n=>{ pkgIn.value=n||''; $('#pkgName').textContent=n?T(n):''; pill.classList.toggle('on',!!n); };
-$$('.pick').forEach(b=>b.addEventListener('click',()=>{ setPkg(b.closest('.plan').dataset.plan); $('#lead').scrollIntoView({behavior:RM.matches?'auto':'smooth'}); setTimeout(()=>$('#name').focus({preventScroll:true}),RM.matches?0:700); }));
+$$('.pick').forEach(b=>b.addEventListener('click',()=>{ setPkg(b.closest('.plan').dataset.plan); (innerWidth<900?$('#leadForm'):$('#lead')).scrollIntoView({behavior:RM.matches?'auto':'smooth'}); setTimeout(()=>$('#name').focus({preventScroll:true}),RM.matches?0:700); }));
 $('#pkgClear').addEventListener('click',()=>setPkg(''));
 $('#utm').value=new URLSearchParams(location.search).get('utm_source')||'direct';
 
@@ -1271,7 +1279,7 @@ const geoDigits=()=>{ let d=phone.value.replace(/\D/g,''); if(d.startsWith('995'
 phone.addEventListener('focus',()=>{ if(!phone.value.trim()) phone.value='+995 '; });
 phone.addEventListener('input',()=>{ $('#fPhone').classList.toggle('intl',intl()); if(!phone.value.trim()) return; if(intl()){ phone.value=phone.value.replace(/[^\d+ ]/g,'').slice(0,20); return; } if(/^\s*\+?\s*9?9?\s*$/.test(phone.value)) return; const d=geoDigits().slice(0,9); phone.value='+995 '+[d.slice(0,3),d.slice(3,5),d.slice(5,7),d.slice(7,9)].filter(Boolean).join(' '); });
 const phoneFull=()=>intl()?'+'+phone.value.replace(/\D/g,''):'+995'+geoDigits();
-const rules={fName:()=>$('#name').value.trim().length>=2,fPhone:()=>intl()?/^\d{8,15}$/.test(phone.value.replace(/\D/g,'')):/^5\d{8}$|^[23]\d{8}$/.test(geoDigits()),fEmail:()=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('#email').value.trim()),fCompany:()=>$('#company').value.trim().length>=2,fHeard:()=>!!$('#heardFrom').value};
+const rules={fName:()=>$('#name').value.trim().length>=2,fPhone:()=>intl()?/^\d{8,15}$/.test(phone.value.replace(/\D/g,'')):/^5\d{8}$|^[23]\d{8}$/.test(geoDigits()),fEmail:()=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('#email').value.trim()),fCompany:()=>$('#company').value.trim().length>=2};
 Object.keys(rules).forEach(id=>{ const f=$('#'+id); const inp=$('input,select',f); inp.addEventListener('blur',()=>{ if(inp.value) f.classList.toggle('bad',!rules[id]()); }); ['input','change'].forEach(t=>inp.addEventListener(t,()=>{ if(f.classList.contains('bad')) f.classList.toggle('bad',!rules[id]()); })); });
 form.addEventListener('submit',async e=>{ e.preventDefault(); let first=null; Object.keys(rules).forEach(id=>{ const ok=rules[id](); $('#'+id).classList.toggle('bad',!ok); if(!ok&&!first) first=$('#'+id+' input, #'+id+' select'); }); if(first){ first.focus(); if(window.UnittyTracking) window.UnittyTracking.event('form_invalid',{}); return; }
   /* real submission (crm.unitty.io): same /api/lead endpoint, attribution and thank-you flow as every Unitty landing */
@@ -1280,7 +1288,8 @@ form.addEventListener('submit',async e=>{ e.preventDefault(); let first=null; Ob
   const attribution=Tr?Tr.getAttribution():{landing_version:'crm',submission_url:location.href};
   const event_id=Tr?Tr.newEventId():String(Date.now());
   const sel=[]; if(pkg) sel.push('Package: '+PKG_EN[pkg]+(pkg==='ოპტიმალური'?' (€1999, -33% from €2999, valid 1 week from offer)':''));
-  const heardFrom=$('#heardFrom').value;
+  /* crm-v95: no "where did you hear" question; Lead Source comes from UTM / click id / referrer, else Direct */
+  const heardFrom=detectSource(attribution);
   const payload={ fullName:$('#name').value.trim(), phone:phoneFull(), email:$('#email').value.trim(), company:$('#company').value.trim(), heardFrom,
     package:pkg, lang:LANG, selected_solutions:sel.join(' | '), event_id, hero_variant:'designer-v4', attribution };
   console.info('>>> lead submit', { pkg, lang:LANG, eid:event_id });
@@ -1331,6 +1340,27 @@ new IntersectionObserver(es=>{leadIn=es[0].isIntersecting; mUpd();},{threshold:.
   if(document.readyState==='complete') syncMarq(); else window.addEventListener('load',syncMarq);
   var t; window.addEventListener('resize',function(){ clearTimeout(t); t=setTimeout(syncMarq,250); });
 })();
+
+/* crm-v94: on mobile every "#lead" CTA lands on the form itself, not on the section heading */
+document.addEventListener('click',e=>{ const a=e.target.closest&&e.target.closest('a[href="#lead"]'); if(!a||innerWidth>=900) return; const f=document.getElementById('leadForm'); if(!f) return; e.preventDefault(); f.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'}); });
+
+/* crm-v95: Lead Source from attribution. Values match functions/api/lead.js LEAD_SOURCE_MAP (Zoho spelling there). */
+function detectSource(a){
+  a=a||{}; const u=(a.utm||{}), fu=(a.first_utm||{}), ids=(a.click_ids||{});
+  const src=String(u.utm_source||fu.utm_source||'').toLowerCase(), med=String(u.utm_medium||fu.utm_medium||'').toLowerCase();
+  const refs=[a.referrer,a.first_referrer].map(r=>String(r||'').toLowerCase()).filter(r=>r&&r!=='(direct)'&&r.indexOf(location.hostname)<0);
+  const has=(re)=>re.test(src)||refs.some(r=>re.test(r));
+  if(/instagram|\big\b/.test(src)||refs.some(r=>/instagram\./.test(r))) return 'Instagram';
+  if(/meta|facebook|\bfb\b/.test(src)||a.fbclid||refs.some(r=>/facebook\.|fb\.com|fb\.me/.test(r))) return 'Facebook';
+  if(has(/linkedin|lnkd\.in/)||ids.li_fat_id) return 'LinkedIn';
+  if(has(/youtube|youtu\.be/)) return 'YouTube';
+  if(has(/tiktok/)||ids.ttclid) return 'TikTok';
+  if(has(/chatgpt|openai|perplexity|claude\.ai|gemini|copilot/)) return 'AI';
+  if(/google/.test(src)||a.gclid||refs.some(r=>/google\./.test(r))) return 'Google';
+  if(/e-?mail|newsletter|zcampaign|mailchimp/.test(src+' '+med)) return 'Email';
+  if(src||refs.length) return 'Other';
+  return 'Direct';
+}
 </script>
 
 </body>
