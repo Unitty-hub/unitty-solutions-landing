@@ -1,6 +1,8 @@
 {
   "name": "start",
-  "version": "v65-2026-11-02",
+  "version": "v66-2026-11-04",
+  "standalone": "start.page.html",
+  "_note": "Standalone page (since 2026-11-04), like crm. Edit landings/start.page.html; seo/i18n/pains below are legacy and unused by the build.",
   "output": "public/index.html",
   "pains": [],
   "seo": {

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the subdomain landings from the start landing.
 
-public/index.html is the template (start.unitty.io). Every landings/<name>.json describes only
+landings/base.html is the shared template for ai / banks / solutions (start and crm are standalone pages). Every landings/<name>.json describes only
 what differs for that landing: texts (KA/EN/RU), its "Sound familiar?" pain cards (landings/pains.html)
 and optionally an extra HTML block. The script writes public/<name>/index.html (start.json writes
 public/index.html itself), so a design or tracking change made once on the start page reaches every
@@ -16,7 +16,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-TEMPLATE = ROOT / "public" / "index.html"
+TEMPLATE = ROOT / "landings" / "base.html"   # shared template for ai / banks / solutions (start + crm are standalone pages)
 LANDINGS = ROOT / "landings"
 PUBLIC = ROOT / "public"
 I18N_RE = re.compile(r"const I18N = (\{.*?\});\n")
@@ -146,12 +146,15 @@ def build_standalone(cfg):
     "standalone": "crm.page.html", "standalone_i18n": "crm.page.i18n.py" (dict T = {georgian: (en, ru)})."""
     name = cfg["name"]
     s = (LANDINGS / cfg["standalone"]).read_text(encoding="utf-8")
-    ns = {}
-    exec((LANDINGS / cfg["standalone_i18n"]).read_text(encoding="utf-8"), ns)
-    i18n = {k: list(v) for k, v in ns["T"].items()}
-    s = s.replace("{{VERSION}}", cfg["version"]).replace("{{I18N}}", json.dumps(i18n, ensure_ascii=False))
+    i18n = {}
+    if cfg.get("standalone_i18n"):   # optional: crm has EN/RU strings, start is Georgian only
+        ns = {}
+        exec((LANDINGS / cfg["standalone_i18n"]).read_text(encoding="utf-8"), ns)
+        i18n = {k: list(v) for k, v in ns["T"].items()}
+        s = s.replace("{{I18N}}", json.dumps(i18n, ensure_ascii=False))
+    s = s.replace("{{VERSION}}", cfg["version"])
     assert "{{" not in s.split("<script")[0], "unreplaced placeholder"
-    out = PUBLIC / name / "index.html"
+    out = ROOT / cfg.get("output", f"public/{name}/index.html")   # start writes public/index.html
     out.write_text(s, encoding="utf-8")
     log(f"--- standalone page {cfg['standalone']} + {len(i18n)} EN/RU strings, version {name}-{cfg['version']}")
     log(f"<<< wrote {out.relative_to(ROOT)} ({len(s)} chars)")

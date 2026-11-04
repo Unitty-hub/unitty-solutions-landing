@@ -20,20 +20,23 @@ Each chat starts by reading this file and `claude/landings-and-funnel-dashboards
 
 | Chat | May change | Must ask first |
 |---|---|---|
-| **start.unitty.io** | `landings/start.json`, start-only insert files, `public/index.html` *only via the build* | anything else |
+| **start.unitty.io** | `landings/start.json`, **`landings/start.page.html`** (standalone page since 2026-11-04), start-only files, `public/index.html` *only via the build* | anything else |
 | **crm.unitty.io** | `landings/crm.*` (crm.json, **crm.page.html**, crm.page.i18n.py, crm.process.html, crm.packages.*, crm.extra.html), CRM cards in `landings/pains.html` (crm* cards only), `public/crm/` | anything else |
 | **ai.unitty.io** | `landings/ai.json`, ai-only insert files, `public/ai/` | anything else |
 | **banks.unitty.io** | `landings/banks.json`, banks-only insert files, `public/banks/` | anything else |
 | **solutions.unitty.io** | `landings/solutions.json`, `landings/solutions.extra.html`, `public/solutions/` | anything else |
-| **Shared (all landings)** | template `public/index.html` (header, footer, shared sections), `public/unitty-v2.css`, `tools/*`, `public/tracking.js`, `functions/*`, `public/thank-you/`, shared pain cards, fonts/logos, this file | — |
+| **Shared (all landings)** | template `landings/base.html` (header, footer, shared sections of ai / banks / solutions), `public/unitty-v2.css`, `tools/*`, `public/tracking.js`, `functions/*`, `public/thank-you/`, shared pain cards, fonts/logos, this file | — |
 
 Rule: a request made in a landing chat changes **only that landing**. A change to a shared file happens only in the
 shared chat, or after Giorgi explicitly says "all landings" in a landing chat.
 Landing-only variants of a shared section go into the landing's own file via `"inserts"` or `"replace"` in its JSON
 (example: CRM's own process section = `landings/crm.process.html`).
 
-Note: `public/index.html` is both the template and the start landing. The start chat changes start through
-`landings/start.json`; the template's shared parts belong to the shared chat.
+Note (2026-11-04): **start is a standalone page now** (`landings/start.page.html`, `"standalone"` in start.json), written to
+`public/index.html` by the build, exactly like crm. The shared template for ai / banks / solutions is `landings/base.html`
+(a frozen copy of the old start page). Changing start never touches the other landings. A shared change (header, footer, style,
+CTA, tracking, form logic) reaches start and crm only if their chat ports it, or the shared chat edits `start.page.html` /
+`crm.page.html` after Giorgi says "all landings".
 
 **CRM is a standalone designer page** (`landings/crm.page.html`, `"standalone"` in crm.json since crm-v63). It does not
 use the template and does not load `public/unitty-v2.css`. A shared change (header, footer, style, CTA, tracking)
