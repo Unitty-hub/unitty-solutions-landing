@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="unitty-landing" content="start">
-<meta name="unitty-version" content="v66-2026-11-04">
+<meta name="unitty-version" content="v67-2026-11-04">
 <title data-i18n="seo.title">Unitty - CRM, AI და ავტომატიზაცია ბიზნესისთვის</title>
 <meta name="description" content="20-წუთიან უფასო ზარზე შეგირჩევთ 1-3 ინსტრუმენტს შენი გამოწვევისთვის: CRM, AI, ავტომატიზაცია და ანალიტიკა. 500+ დანერგვა, 12+ წლის გამოცდილება.">
 <!--SEO-->
@@ -1433,17 +1433,56 @@
   .qz .lead-form { max-width: none; margin: 0; }
   .qz .form-consent { margin: 14px 0 0; text-align: left; }
   .qz-error { display: none; grid-column: 1 / -1; color: var(--danger); font-size: 14px; }
-  .qz-tools { display: grid; gap: 12px; margin-top: 22px; }
-  .qz-tool { background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--r-ui); padding: 16px; }
-  .qz-tool[data-top="1"] { border-color: var(--lime-line); }
-  .qz-tool-h { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 10px; }
-  .qz-tool-h h4 { margin: 0; font-size: 18px; font-weight: 700; }
-  .qz-tag { font: 500 12px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--lime); border: 1px solid var(--lime-line); background: var(--lime-soft); border-radius: 99px; padding: 3px 10px; }
-  .qz-hrs { margin-left: auto; font: 500 13px var(--font-mono); color: var(--dim); }
-  .qz-tool ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
-  .qz-tool li { position: relative; padding-left: 18px; color: var(--dim); font-size: 15px; line-height: 1.5; }
-  .qz-tool li::before { content: ""; position: absolute; left: 0; top: .62em; width: 8px; height: 2px; background: var(--lime); }
-  .qz-tool li b { color: var(--fg); font-weight: 600; }
+  .qz.is-full { max-width: 1040px; }
+  .qz-narrow { max-width: 760px; }
+  .qz-railbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 28px 0 12px; }
+  .qz-railtitle { margin: 0; font: 500 12.5px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
+  .qz-arrows { display: none; gap: 8px; }
+  @media (min-width: 768px) { .qz-arrows { display: flex; } }
+  .qz-arrow { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-2); background: transparent; color: var(--fg); font-size: 16px; cursor: pointer; transition: border-color .2s, opacity .2s; }
+  .qz-arrow:hover:not(:disabled) { border-color: var(--lime); }
+  .qz-arrow:disabled { opacity: .35; cursor: default; }
+  .qz-rail { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; overscroll-behavior-x: contain; padding: 0 16px 14px; margin-inline: -16px; scroll-padding-inline: 16px; scrollbar-width: thin; scrollbar-color: var(--line-2) transparent; }
+  @media (min-width: 768px) { .qz-rail { padding-inline: 40px; margin-inline: -40px; scroll-padding-inline: 40px; } }
+  .qz-rail::-webkit-scrollbar { height: 6px; }
+  .qz-rail::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 3px; }
+  .qz-card { flex: 0 0 min(300px, 82vw); scroll-snap-align: start; display: flex; flex-direction: column; gap: 14px; min-width: 0; padding: 18px; background: var(--surface-2); border: 1px solid var(--line-2); border-radius: var(--r-card); }
+  @media (min-width: 768px) { .qz-card { flex-basis: 320px; } }
+  .qz-card[data-top="1"] { border-color: var(--lime-line); }
+  .qz-card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 26px; }
+  .qz-tag { font: 500 12px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--lime); border: 1px solid var(--lime-line); background: var(--lime-soft); border-radius: 99px; padding: 3px 10px; white-space: nowrap; }
+  .qz-hrs { font: 500 13px var(--font-mono); color: var(--dim); white-space: nowrap; }
+  .qz-plabel { font: 500 11.5px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--danger); margin: 0 0 8px; }
+  .qz-plist, .qz-slist { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+  .qz-plist li, .qz-slist li { position: relative; padding-left: 18px; font-size: 15px; line-height: 1.45; }
+  .qz-plist li { color: var(--fg); font-weight: 600; font-family: var(--font-head); font-size: 17px; line-height: 1.3; }
+  .qz-slist li { color: var(--dim); }
+  .qz-plist li::before, .qz-slist li::before { content: ""; position: absolute; left: 0; top: .62em; width: 8px; height: 2px; background: var(--lime); }
+  .qz-plist li::before { background: var(--danger); }
+  .qz-div { display: flex; align-items: center; gap: 10px; font: 500 11px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
+  .qz-div::before, .qz-div::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .qz-ctitle { margin: 0; font-size: 18px; font-weight: 700; }
+  .qz-cplat { margin: -8px 0 0; font: 500 11.5px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--mute); }
+  /* light interface mock-ups (HTML/CSS, no images) */
+  .qz-vis { height: 136px; padding: 10px; display: flex; flex-direction: column; justify-content: center; gap: 6px; overflow: hidden; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--r-ui); font-size: 12px; }
+  .v-row { display: flex; align-items: center; gap: 8px; min-width: 0; padding: 6px 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+  .v-av { flex: none; width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-3); font: 500 10px var(--font-mono); color: var(--dim); font-style: normal; }
+  .v-t { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--fg); font-size: 12px; }
+  .v-pill { flex: none; font: 500 10.5px var(--font-mono); padding: 2px 7px; border-radius: 99px; border: 1px solid var(--line-2); color: var(--dim); white-space: nowrap; }
+  .v-pill.on { background: var(--lime-soft); border-color: var(--lime-line); color: var(--lime); }
+  .v-bub { max-width: 82%; padding: 6px 9px; border-radius: 10px; font-size: 12px; line-height: 1.35; color: var(--fg); }
+  .v-bub.me { align-self: flex-end; background: var(--surface-3); }
+  .v-bub.bot { align-self: flex-start; background: var(--lime-soft); border: 1px solid var(--lime-line); }
+  .v-head { font: 500 10.5px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--dim); }
+  .v-chk { flex: none; width: 12px; height: 12px; border-radius: 3px; border: 1.5px solid var(--lime); }
+  .v-chk.on { background: var(--lime); }
+  .v-line { height: 6px; border-radius: 3px; background: var(--surface-3); }
+  .v-btn { align-self: flex-end; background: var(--lime); color: var(--lime-ink); font: 700 11px var(--font-body); padding: 4px 12px; border-radius: 99px; }
+  .v-flow { display: flex; align-items: center; justify-content: center; }
+  .v-node { padding: 8px 10px; border: 1px solid var(--line-2); border-radius: 8px; background: var(--surface); font: 500 11px var(--font-mono); color: var(--fg); }
+  .v-link { flex: 1; max-width: 28px; height: 2px; background: var(--lime); }
+  .v-bars { display: flex; align-items: flex-end; gap: 6px; height: 74px; }
+  .v-bars i { flex: 1; background: var(--lime); border-radius: 3px 3px 0 0; opacity: .9; }
   .qz-cta { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--line); }
   .qz-cta .btn { width: 100%; }
   .qz-partner { margin: 14px 0 0 !important; font-size: 13px; color: var(--mute) !important; }
@@ -1510,6 +1549,30 @@
       a: ['ყველაფერი CRM-ში რჩება', 'ნაწილი', 'ცოტა', 'არაფერი'],
       sol: 'ცოდნა კომპანიაში რჩება და არა ერთ ადამიანთან: კონტაქტები, ისტორია და პროცესები CRM-ში ინახება.' }
   ];
+  var PR = [
+    'კლიენტების ინფორმაცია არ არის ერთ ბაზაში',
+    'ლიდები იკარგება ან დაგვიანებით პასუხდება',
+    'მიმოწერები სხვადასხვა არხსა და ტელეფონში ნაწილდება',
+    'გუნდი ერთსა და იმავე კითხვებზე ხელით პასუხობს',
+    'ზარის შემდეგ ინფორმაცია და დავალებები იკარგება',
+    'შეთავაზება და ინვოისი ხელით მზადდება',
+    'სისტემები ერთმანეთთან დაკავშირებული არ არის',
+    'გაყიდვების სურათი გვიან ან საერთოდ არ ჩანს',
+    'არ ჩანს, რომელმა რეკლამამ მოიყვანა კლიენტი',
+    'ცოდნა და კონტაქტები ერთ ადამიანზეა მიბმული'
+  ];
+  var PLAT = { crm: 'Zoho CRM', inbox: 'Zoho CRM · მესენჯერები', ai: 'AI · ვებსაიტი და ჩატები', notes: 'AI · ქართული ენა',
+               docs: 'Zoho CRM · PDF', integ: 'API · ავტომატიზაცია', dash: 'Zoho CRM · Analytics', attrib: 'UTM · Zoho CRM' };
+  var VIS = {
+    crm: '<div class="v-row"><i class="v-av"></i><span class="v-t">შპს ალფა</span><span class="v-pill">ახალი</span></div><div class="v-row"><i class="v-av"></i><span class="v-t">ბეტა ჯგუფი</span><span class="v-pill on">მოლაპარაკება</span></div><div class="v-row"><i class="v-av"></i><span class="v-t">გამა სერვისი</span><span class="v-pill on">მოგებული</span></div>',
+    inbox: '<div class="v-row"><i class="v-av">W</i><span class="v-t">WhatsApp · გამარჯობა, ფასი?</span><span class="v-pill on">2</span></div><div class="v-row"><i class="v-av">M</i><span class="v-t">Messenger · ხელმისაწვდომია?</span><span class="v-pill on">1</span></div><div class="v-row"><i class="v-av">I</i><span class="v-t">Instagram · მადლობა!</span></div>',
+    ai: '<div class="v-bub me">რა ღირს და როდის მიიღებთ?</div><div class="v-bub bot">გამარჯობა! სიამოვნებით დაგეხმარებით. რა გჭირდებათ?</div><span class="v-pill on" style="align-self:flex-start">AI · 24/7</span>',
+    notes: '<div class="v-head">შეხვედრის შეჯამება</div><div class="v-row"><i class="v-chk on"></i><span class="v-t">შეთავაზების გაგზავნა</span></div><div class="v-row"><i class="v-chk"></i><span class="v-t">დარეკვა ხუთშაბათს</span></div><div class="v-row"><i class="v-chk"></i><span class="v-t">ხელშეკრულების მომზადება</span></div>',
+    docs: '<div class="v-row"><span class="v-t">ინვოისი #0142</span><span class="v-pill on">მზადაა</span></div><div class="v-line" style="width:86%"></div><div class="v-line" style="width:64%"></div><div class="v-line" style="width:74%"></div><span class="v-btn">გაგზავნა</span>',
+    integ: '<div class="v-flow"><span class="v-node">CRM</span><i class="v-link"></i><span class="v-node">ბანკი</span><i class="v-link"></i><span class="v-node">საიტი</span></div><div class="v-flow"><span class="v-pill on">მონაცემი ერთხელ შედის</span></div>',
+    dash: '<div class="v-head">გაყიდვები · ამ თვე</div><div class="v-bars"><i style="height:30%"></i><i style="height:46%"></i><i style="height:38%"></i><i style="height:62%"></i><i style="height:54%"></i><i style="height:80%"></i></div>',
+    attrib: '<div class="v-row"><span class="v-pill on">Meta</span><span class="v-t">→ კლიენტი #1024</span></div><div class="v-row"><span class="v-pill on">Google</span><span class="v-t">→ კლიენტი #1025</span></div><div class="v-row"><span class="v-pill on">LinkedIn</span><span class="v-t">→ კლიენტი #1026</span></div>'
+  };
   var THEMES = ['გაყიდვები', 'კომუნიკაცია', 'შეხვედრები', 'ოპერაციები', 'მონაცემები', 'რისკი'];
   var STATUS = { ok: 'რიგზეა', mid: 'გასაუმჯობესებელია', bad: 'კრიტიკულია' };
 
@@ -1566,6 +1629,7 @@
 
   function render(scroll) {
     var n = answered();
+    $('qz').classList.toggle('is-full', !!st.done);
     if (st.done) return renderFull(scroll);
     if (n === 10 && st.i >= 10) return renderShort(scroll);
     renderQ(scroll);
@@ -1628,17 +1692,23 @@
   function renderFull(scroll) {
     setHead(false);
     var list = tools();
-    var h = '<div class="qz-fade"><p class="qz-kicker">შენი ხელსაწყოები</p><h2 class="qz-q" id="qzTitle" tabindex="-1" data-focus></h2>' +
+    var h = '<div class="qz-fade"><div class="qz-narrow"><p class="qz-kicker">შენი ხელსაწყოები</p><h2 class="qz-q" id="qzTitle" tabindex="-1" data-focus></h2>' +
             '<p class="qz-big">~' + total() + '<small>საათი თვეში</small></p>' +
-            '<p class="qz-lead">ეს არის ხელსაწყოები, რომლებიც შენი პასუხების მიხედვით დაგიბრუნებს დროს. პრიორიტეტი დანაკარგის მიხედვითაა დალაგებული.</p><div class="qz-tools">';
+            '<p class="qz-lead">ეს ხელსაწყოები შენი პასუხების მიხედვით დაგიბრუნებს დროს. პრიორიტეტი დანაკარგის მიხედვითაა დალაგებული.</p></div>' +
+            '<div class="qz-railbar"><h3 class="qz-railtitle">ჩვენი გადაწყვეტები · გადაფურცლე</h3><div class="qz-arrows">' +
+            '<button type="button" class="qz-arrow" data-rail="-1" id="qzPrev" aria-label="წინა">←</button><button type="button" class="qz-arrow" data-rail="1" id="qzNext" aria-label="შემდეგი">→</button></div></div>' +
+            '<div class="qz-rail" id="qzRail" tabindex="0" aria-label="ხელსაწყოები შენი პასუხების მიხედვით">';
     list.forEach(function (t, idx) {
-      h += '<article class="qz-tool"' + (idx === 0 ? ' data-top="1"' : '') + '><div class="qz-tool-h"><h4>' + TOOLS[t.key].n + '</h4>' +
-           (idx < 3 ? '<span class="qz-tag">პრიორიტეტი ' + (idx + 1) + '</span>' : '') +
-           '<span class="qz-hrs">~' + t.hours + ' სთ / თვე</span></div><ul>';
-      t.items.forEach(function (it) { h += '<li><b>' + Q[it.i].t + ':</b> ' + Q[it.i].sol + '</li>'; });
+      h += '<article class="qz-card"' + (idx === 0 ? ' data-top="1"' : '') + '><div class="qz-card-top">' +
+           (idx < 3 ? '<span class="qz-tag">პრიორიტეტი ' + (idx + 1) + '</span>' : '<span></span>') + '<span class="qz-hrs">~' + t.hours + ' სთ / თვე</span></div>' +
+           '<div class="qz-vis" aria-hidden="true">' + (VIS[t.key] || '') + '</div>' +
+           '<div><p class="qz-plabel">პრობლემა</p><ul class="qz-plist">';
+      t.items.forEach(function (it) { h += '<li>' + PR[it.i] + '</li>'; });
+      h += '</ul></div><div class="qz-div"><span>როგორ ვხსნით</span></div><h4 class="qz-ctitle">' + TOOLS[t.key].n + '</h4><p class="qz-cplat">' + (PLAT[t.key] || '') + '</p><ul class="qz-slist">';
+      t.items.forEach(function (it) { h += '<li>' + Q[it.i].sol + '</li>'; });
       h += '</ul></article>';
     });
-    h += '</div><div class="qz-cta"><h3>შენით თუ არ გინდა დანერგვა, ჩვენ დაგინერგავთ</h3>' +
+    h += '</div><div class="qz-narrow qz-cta"><h3>შენით თუ არ გინდა დანერგვა, ჩვენ დაგინერგავთ</h3>' +
          '<p>20 წუთის უფასო ზარზე გადავხედავთ შენს პასუხებს და გეტყვით, საიდან დაიწყო.</p>' +
          '<a class="btn btn-primary" id="qzCta" href="#">მოითხოვე უფასო კონსულტაცია<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>' +
          '<p class="qz-partner">Unitty არის Zoho-ს სერტიფიცირებული პარტნიორი.</p></div>' +
@@ -1650,7 +1720,23 @@
     var qs = new URLSearchParams({ name: first || '', v: (t && t.version) || '', eid: st.eid || '' });
     $('qzCta').setAttribute('href', '/thank-you?' + qs.toString());
     $('qzCta').addEventListener('click', function () { ev('quiz_result_cta'); log('+++ quiz_result_cta'); });
+    var rail = $('qzRail');
+    rail.addEventListener('scroll', railArrows, { passive: true });
+    railArrows();
     if (scroll) { inView(); focusTitle(); }
+  }
+
+  function railArrows() {
+    var r = $('qzRail'), p = $('qzPrev'), n = $('qzNext');
+    if (!r || !p || !n) return;
+    p.disabled = r.scrollLeft <= 2;
+    n.disabled = r.scrollLeft + r.clientWidth >= r.scrollWidth - 4;
+  }
+  function railMove(dir) {
+    var r = $('qzRail'), c = r && r.querySelector('.qz-card');
+    if (!c) return;
+    r.scrollBy({ left: (c.offsetWidth + 14) * dir, behavior: 'smooth' });
+    ev('quiz_rail_scroll');
   }
 
   function complete(formVisible) {
@@ -1731,6 +1817,7 @@
       var o = e.target.closest('.qz-opt'); if (o) return answer(o.dataset.l);
       if (e.target.closest('[data-back]')) { st.i = Math.max(0, Math.min(st.i, 10) - 1); save(); return render(true); }
       if (e.target.closest('[data-restart]')) return restart();
+      var ra = e.target.closest('[data-rail]'); if (ra) return railMove(parseInt(ra.dataset.rail, 10));
       var c = e.target.closest('[data-cta]'); if (c) { ev('quiz_result_cta'); }
     });
     // hero button / deep link
