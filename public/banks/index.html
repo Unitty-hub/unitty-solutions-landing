@@ -8,7 +8,7 @@
 <title>ბანკის ინტეგრაცია CRM-ში: TBC, BOG, NBG | Unitty</title>
 <meta name="description" content="ბანკის ტრანზაქციები CRM-ში ავტომატურად: TBC, საქართველოს ბანკი, NBG-ის კურსი. ავტომატური შეჯერება და განვადების გრაფიკი. მოითხოვე უფასო 20-წუთიანი ზარი.">
 <meta name="unitty-landing" content="banks">
-<meta name="unitty-version" content="v05-2026-11-05">
+<meta name="unitty-version" content="v06-2026-11-05">
 <link rel="canonical" href="https://banks.unitty.io/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
@@ -33,7 +33,7 @@
 <link rel="preload" href="/fonts/TBCContracticaCAPS-Black.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/TBCContractica-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/JetBrainsMono-Medium.woff2" as="font" type="font/woff2" crossorigin>
-<script src="/tracking.js?v=v05-2026-11-05" defer></script>
+<script src="/tracking.js?v=v06-2026-11-05" defer></script>
 <style>
 /* self-hosted brand fonts (same files as every Unitty landing) */
 @font-face{font-family:'Unitty Head';font-weight:700 900;font-style:normal;font-display:swap;src:url('/fonts/TBCContracticaCAPS-Black.woff2') format('woff2')}
@@ -441,7 +441,7 @@ img,svg{max-width:100%}
 /* ===== banks: time-waste 3-step story section ===== */
 .sec-sub{margin:10px 0 0;color:var(--dim);font:500 16px/1.5 var(--f-body);max-width:640px}
 .time-steps{display:grid;gap:16px;margin-top:40px}
-@media(min-width:768px){.time-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}}
+@media(min-width:768px){.time-steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}}
 .tstep-time-auto{color:var(--lime)!important;background:rgba(193,253,58,.14)!important;border-color:var(--lime-line)!important}
 /* SMS notification mock */
 .tv-sms{width:100%;display:flex;flex-direction:column;gap:10px}
@@ -458,11 +458,11 @@ img,svg{max-width:100%}
 .tstep-time{font:700 15px var(--f-mono);color:var(--lime);background:rgba(193,253,58,.1);border:1px solid var(--lime-line);border-radius:999px;padding:5px 12px}
 .tstep h3{margin:0;font:800 19px/1.25 var(--f-display);color:var(--fg);font-stretch:85%}
 .tstep p{margin:0;color:var(--dim);font-size:15px;line-height:1.55}
-.time-total{margin:28px auto 0;max-width:720px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;padding:18px 22px;border:1px solid var(--lime-line);border-radius:var(--r-card);background:linear-gradient(180deg,rgba(193,253,58,.08),rgba(193,253,58,.02))}
-.tt-lbl{font:700 13px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--lime)}
-.tt-eq{font:600 16px/1.4 var(--f-body);color:var(--fg)}
-.tt-eq s{color:var(--mute);text-decoration-thickness:2px;margin-right:4px}
-.tt-eq b{color:var(--fg);font-weight:800}
+
+
+
+
+
 /* tstep visual mock-ups (demo-stage style, Unitty-consistent) */
 .tstep-vis{position:relative;margin-top:14px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--bg-2);font-family:var(--f-mono);font-size:12.5px;line-height:1.45;color:var(--fg);min-height:170px;display:flex;align-items:center;justify-content:center}
 .tstep-vis .demo-tag{position:absolute;top:8px;right:8px;font:600 9.5px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:999px;padding:3px 8px}
@@ -836,9 +836,9 @@ dialog p{color:var(--dim)}
   <div class="wrap hero-c">
     <h1 class="display h1" id="h1" data-hero>
       <span class="ln">ბანკის ინტეგრაცია</span>
-      <span class="ln"><span class="mark">საათების დასაზოგად<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path id="uline" d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></span>
+      <span class="ln"><span class="mark">ნებისმიერ სისტემასთან<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path id="uline" d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></span>
     </h1>
-    <p class="lead" data-hero>დაგიმუშავებთ თითოეულ ტრანზაქციას წამებში, თქვენი რუტინის/ლოგიკის შესაბამისად.</p>
+    <p class="lead" data-hero>დაგიმუშავებთ თითოეულ ტრანზაქციას წამებში, სასურველი ლოგიკის შესაბამისად.</p>
     <div class="hero-vis" data-hero role="img" aria-label="BANK → NBG → CRM: Banks, NBG, Sheets, CRM და SMS ერთ ავტომატურ ინტეგრაციაში">
       <div class="hv-stage">
         <svg class="hv-lines" viewBox="0 0 400 170" aria-hidden="true">
@@ -863,9 +863,9 @@ dialog p{color:var(--dim)}
       <div class="hv-chips">
         <span class="hv-chip">Banks</span>
         <span class="hv-chip">NBG</span>
-        <span class="hv-chip">Sheets</span>
         <span class="hv-chip">CRM</span>
-        <span class="hv-chip">SMS</span>
+        <span class="hv-chip">Sheets</span>
+        <span class="hv-chip">AI</span>
       </div>
     </div>
     <div class="cta-row" data-hero>
@@ -893,10 +893,27 @@ dialog p{color:var(--dim)}
 <section class="sec" id="story" aria-labelledby="storyH" style="background:var(--bg-2);border-block:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-head rv">
-      <h2 class="display h2" id="storyH">რამდენ დროს კარგავ?</h2>
-      <p class="sec-sub">ყოველ ბანკის ჩარიცხვაზე ვიღაც ხელით ასრულებს 3 ნაბიჯს. ყოველი ტრანზაქცია - დაახლოებით 15 წუთი.</p>
+      <h2 class="display h2" id="storyH">რამდენ დროს კარგავ რუტინულ პროცესებში?</h2>
+      <p class="sec-sub">ყოველ ჩარიცხვაზე ვიღაც ხელით ასრულებს რუტინულ სამუშაოს. ყოველი ტრანზაქცია დაახლოებით 15 წუთს მოითხოვს - რომლის ავტომატიზებაც შეგიძლია.</p>
     </div>
     <div class="time-steps">
+      <div class="tstep rv">
+        <div class="tstep-top"><span class="tstep-ico" aria-hidden="true">🔔</span><span class="tstep-time tstep-time-auto">ავტომატურად</span></div>
+        <h3 class="h3">შეახსენებს გადახდის მოახლოებას</h3>
+        <p>SMS-ით ან ელფოსტით შეახსენებს კლიენტს, როცა გადახდის ვადა უახლოვდება - follow-up-ის გარეშე.</p>
+        <div class="tstep-vis" aria-hidden="true">
+          <div class="tv-sms">
+            <div class="tv-sms-bar">📱 SMS · +995 598 ...</div>
+            <div class="tv-sms-body">
+              <p>გამარჯობა, თ. ფირცხ...</p>
+              <p>გაუხდელი თანხა: <b>400 ₾</b></p>
+              <p>ვადა: <b>25 ნოემბერს</b></p>
+            </div>
+            <div class="tv-sms-foot"><span class="ck">✓</span> გაიგზავნა · 3 დღით ადრე</div>
+          </div>
+          <span class="demo-tag">სადემონსტრაციო</span>
+        </div>
+      </div>
       <div class="tstep rv">
         <div class="tstep-top"><span class="tstep-ico" aria-hidden="true">🏷️</span><span class="tstep-time">~5 წთ</span></div>
         <h3 class="h3">არ მოგიწევს ხელით ძებნა</h3>
@@ -917,7 +934,7 @@ dialog p{color:var(--dim)}
       </div>
       <div class="tstep rv">
         <div class="tstep-top"><span class="tstep-ico" aria-hidden="true">🧾</span><span class="tstep-time">~7 წთ</span></div>
-        <h3 class="h3">თავად ჩახურავს ინვოისს</h3>
+        <h3 class="h3">თავად იპოვის და ჩახურავს ინვოისს</h3>
         <p>ინვოისს ემთხვევა თუ არა თანხა. განვადება: რამდენი გადაიხადა, რამდენი დარჩა.</p>
         <div class="tstep-vis" aria-hidden="true">
           <div class="tv-inv">
@@ -932,54 +949,15 @@ dialog p{color:var(--dim)}
           <span class="demo-tag">სადემონსტრაციო</span>
         </div>
       </div>
-      <div class="tstep rv">
-        <div class="tstep-top"><span class="tstep-ico" aria-hidden="true">✏️</span><span class="tstep-time">~3 წთ</span></div>
-        <h3 class="h3">მიუთითებს შესაბამის სტატუსს</h3>
-        <p>CRM-ში ან Excel-ში ხელით ცვლის სტატუსს, გადახდილად ნიშნავს და ინახავს ცვლილებებს.</p>
-        <div class="tstep-vis" aria-hidden="true">
-          <div class="tv-crm">
-            <div class="tv-crm-bar">💼 CRM · კლიენტი: თ. ფირცხალავა</div>
-            <div class="tv-crm-field">
-              <span class="tv-lbl">სტატუსი</span>
-              <span class="tv-val"><s>გაუხდელი</s> <span class="arr">→</span> <b>გადახდილი ✓</b></span>
-            </div>
-            <div class="tv-crm-hint"><span class="cursor">↖</span> ხელით შეცვლა</div>
-          </div>
-          <span class="demo-tag">სადემონსტრაციო</span>
-        </div>
-      </div>
-      <div class="tstep rv">
-        <div class="tstep-top"><span class="tstep-ico" aria-hidden="true">🔔</span><span class="tstep-time tstep-time-auto">ავტომატურად</span></div>
-        <h3 class="h3">შეახსენებს გადახდის მოახლოებას</h3>
-        <p>SMS-ით ან ელფოსტით შეახსენებს კლიენტს, როცა გადახდის ვადა უახლოვდება - follow-up-ის გარეშე.</p>
-        <div class="tstep-vis" aria-hidden="true">
-          <div class="tv-sms">
-            <div class="tv-sms-bar">📱 SMS · +995 598 ...</div>
-            <div class="tv-sms-body">
-              <p>გამარჯობა, თ. ფირცხ...</p>
-              <p>გაუხდელი თანხა: <b>400 ₾</b></p>
-              <p>ვადა: <b>25 ნოემბერს</b></p>
-            </div>
-            <div class="tv-sms-foot"><span class="ck">✓</span> გაიგზავნა · 3 დღით ადრე</div>
-          </div>
-          <span class="demo-tag">სადემონსტრაციო</span>
-        </div>
-      </div>
     </div>
-    <div class="time-total rv">
-      <span class="tt-lbl">შედეგი</span>
-      <span class="tt-eq"><s>15 წუთი</s> × ყოველი ტრანზაქცია → <b>0 წუთი ავტომატურად</b></span>
-    </div>
-  </div>
-</section>
+  </section>
 
 <!-- KINETIC INTERLUDE -->
 <section class="kinetic" id="kinetic" aria-label="Unitty-ს მთავარი სარგებელი">
   <div class="kinetic-in"><div class="wrap">
     <p class="display lines" id="kLines">
-      <span><span class="w">ნაკლები</span> <span class="w">ქაოსი.</span></span>
-      <span><span class="w">ნაკლები</span> <span class="w">ხელით</span> <span class="w">მუშაობა.</span></span>
-      <span><span class="w acc">მეტი</span> <span class="w acc">გაყიდვა.</span></span>
+      <span><span class="w">ნაკლები</span> <span class="w">რუტინა.</span></span>
+      <span><span class="w acc">მეტი</span> <span class="w acc">ავტომატიზება.</span></span>
     </p>
   </div></div>
 </section>
@@ -1012,14 +990,14 @@ dialog p{color:var(--dim)}
   <div class="wrap">
     <div class="price-top">
       <div class="sec-head rv" style="margin-bottom:0">
-        <h2 class="display h2" id="priceH">აირჩიე ინტეგრაციის მოდელი</h2>
+        <h2 class="display h2" id="priceH">აირჩიე მოდელი</h2>
       </div>
       <div class="cur rv" role="group" aria-label="ვალუტა"><button type="button" data-cur="gel" aria-pressed="true">GEL ₾</button><button type="button" data-cur="eur" aria-pressed="false">EUR €</button></div>
     </div>
     <div class="plans">
       <article class="plan rv" data-plan="Bank & Google Sheets">
         <h3 class="plan-name">Bank &amp; Google Sheets</h3>
-        <p class="plan-for">ბანკის ჩარიცხვები Google Sheets-ში ავტომატურად, ხელით გადატანის გარეშე.</p>
+        <p class="plan-for">ბანკის ჩარიცხვების ასახვა Google Sheets-ში, ავტომატურად.</p>
         <div class="price"><div class="pl"><span class="amt tnum" data-eur="€1,490" data-gel="4,499 ₾">4,499 ₾</span><span class="side"><span class="from">-დან</span><span class="once">ერთჯერადად</span></span></div></div>
         <button class="btn btn-ghost pick" type="button">დაწყება</button>
         <details><summary>რა შედის</summary>
@@ -1028,7 +1006,7 @@ dialog p{color:var(--dim)}
       <article class="plan pop rv" data-plan="Bank & CRM">
         <span class="badge">პოპულარული</span>
         <h3 class="plan-name">Bank &amp; CRM</h3>
-        <p class="plan-for">ბანკი → CRM: ავტომატური შეჯერება, განვადების გრაფიკი, სტატუსის ცვლილება.</p>
+        <p class="plan-for">გამართული CRM სისტემა, ბანკთან ინტეგრაციით.</p>
         <div class="price"><div class="pl"><span class="amt tnum" data-eur="€2,990" data-gel="8,999 ₾">8,999 ₾</span><span class="side"><span class="from">-დან</span><span class="once">ერთჯერადად</span></span></div></div>
         <button class="btn btn-primary pick" type="button">დაწყება</button>
         <details><summary>რა შედის</summary>
@@ -1037,7 +1015,7 @@ dialog p{color:var(--dim)}
       </article>
       <article class="plan rv" data-plan="Bank & CRM + AI">
         <h3 class="plan-name">Bank &amp; CRM + AI</h3>
-        <p class="plan-for">იგივე, AI-ის დახმარებით: ჭკვიანი შეჯერება, ანომალიების აღმოჩენა, ბუნებრივი ენით ძიება.</p>
+        <p class="plan-for">სრული ინტეგრაცია, AI ასისტენტით.</p>
         <div class="price"><div class="pl"><span class="amt tnum" data-eur="€4,990" data-gel="14,999 ₾">14,999 ₾</span><span class="side"><span class="from">-დან</span><span class="once">ერთჯერადად</span></span></div></div>
         <button class="btn btn-ghost pick" type="button">დაწყება</button>
         <details><summary>რა შედის</summary>
@@ -1048,7 +1026,7 @@ dialog p{color:var(--dim)}
     <div class="price-foot rv">
       <ul class="notes">
         <li>ფასებს ემატება დღგ (18%).</li>
-        <li>ბანკის API-ის და CRM-ის ლიცენზიებს პირდაპირ მწარმოებელს უხდი (TBC €49/თვე, BOG €49/თვე, NBG €29/თვე, Zoho CRM Enterprise €50/მომხმარებელი/თვე).</li>
+        <li>ბანკის API-ის და CRM-ის ლიცენზიებს პირდაპირ მწარმოებელს უხდი (TBC €49/თვე, BOG €49/თვე, NBG €29/თვე, შესაბამისი CRM სისტემა ან Google Sheets).</li>
         <li>პაკეტებში მოცემულია ტიპიური სცენარები. ნებისმიერი დამატებითი დავალება ცალკეულად ფასდება.</li>
       </ul>
     </div>
@@ -1079,7 +1057,7 @@ dialog p{color:var(--dim)}
 <section class="sec final" id="lead" aria-labelledby="leadH">
   <div class="wrap final-grid">
     <div class="final-copy rv">
-      <h2 class="display" id="leadH">20 წუთში გაჩვენებ, <span class="accent">როგორ იმუშავებს ბანკის ინტეგრაცია შენთან</span></h2>
+      <h2 class="display" id="leadH">20 წუთში გაჩვენებ, <span class="accent">როგორ უამრავი საათი</span></h2>
       <ul class="micro"><li>კონსულტაცია უფასოა</li><li>ვალდებულების გარეშე</li><li>500+ დანერგვის გამოცდილება</li></ul>
       <div class="host"><img src="/banks/media/giorgi-avatar.jpg" alt="გიორგი კორძახია" width="64" height="64" loading="lazy" decoding="async"><div class="host-txt"><small>კონსულტაციას გაგიწევს</small><b>გიორგი კორძახია</b><span>Unitty-ს CEO</span><ul class="host-tags"><li>12+ წელი CRM-ებში</li><li>500+ დანერგვა</li></ul></div></div>
     </div>
@@ -1113,15 +1091,16 @@ dialog p{color:var(--dim)}
       
     </div>
     <div class="faq rv">
-      <details><summary>რა არის CRM სისტემა და რატომ სჭირდება ჩემს ბიზნესს?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>CRM არის სისტემა, სადაც ერთ ადგილას ინახება კლიენტები, გარიგებები, ზარები, მიმოწერა და დავალებები. ხედავ, ვინ ვის ესაუბრა, რა ეტაპზეა თითოეული გარიგება და ვის რა უნდა გააკეთოს. შედეგად ნაკლები კლიენტი იკარგება და ნაკლებს მუშაობ ხელით.</p></div></details>
-      <details><summary>რით განსხვავდება CRM Excel-ისგან?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Excel მხოლოდ ინახავს ინფორმაციას. CRM მუშაობს: გახსენებს follow-up-ს, ანაწილებს ლიდებს, აჩვენებს გაყიდვების ძაბრს და ინახავს ყველა ზარისა და წერილის ისტორიას. მენეჯერი რომც წავიდეს, კლიენტები კომპანიაში რჩება.</p></div></details>
-      <details><summary>რომელ CRM პროგრამებს ნერგავთ?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>ვართ Zoho-ს, Pipedrive-ის, Kommo-ს, monday.com-ის, Bitrix24-ისა და Odoo-ს სერტიფიცირებული პარტნიორი, ასევე ვმუშაობთ ClickUp-სა და Manychat-ზე. დამოუკიდებელი პარტნიორი ვართ, ამიტომ ჯერ ვნახავთ, როგორ მუშაობ, და მერე გირჩევთ შესაფერის სისტემას.</p></div></details>
-      <details><summary>რა ღირს ბანკის ინტეგრაცია?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>პაკეტები ფიქსირებული ფასისაა: საბაზისო €999, ოპტიმალური €1,999 (ნაცვლად €2,999-ისა), ამბიციური €7,999. დამატებები €199-დან. ფასებს ემატება დღგ (18%). CRM-ის ლიცენზიას პირდაპირ მწარმოებელს უხდი. კონსულტაციაზე გეტყვით, რომელი პაკეტი გჭირდება და რა დაჯდება ლიცენზია.</p></div></details>
-      <details><summary>რამდენ ხანს გრძელდება ბანკის ინტეგრაცია?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>საბაზისო 5 სამუშაო დღეში, ოპტიმალური 15 დღეში, ამბიციური 25 დღეში. ვიწყებთ ყველაზე მნიშვნელოვანით, გუნდი ითვისებს და მერე ვამატებთ ავტომატიზაციებსა და ინტეგრაციებს. ასე რისკი მინიმალურია, შედეგს კი სწრაფად ხედავ.</p></div></details>
-      <details><summary>შეიძლება CRM-ის დაკავშირება სხვა სისტემებთან?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>კი. ვაკავშირებთ ელფოსტასთან, WhatsApp-თან, Instagram-თან, Facebook-თან, საიტის ფორმებთან, Meta-სა და Google-ის რეკლამის ლიდებთან, ტელეფონიასთან (მათ შორის GEONET), ბანკებთან და ბუღალტრულ ან ERP სისტემებთან (1C, FINA).</p></div></details>
-      <details><summary>შესაძლებელია მონაცემების Excel-იდან ან სხვა CRM-იდან გადმოტანა?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>კი. კლიენტებს, კონტაქტებს, გარიგებებს და ისტორიას გადმოვიტანთ Excel-იდან, Google Sheets-იდან ან სხვა CRM-იდან. მანამდე ვასუფთავებთ დუბლიკატებს და ვაწესრიგებთ ნომრებს, რომ სისტემა სუფთა ბაზით დაიწყოს.</p></div></details>
-      <details><summary>რა ხდება ინტეგრაციის შემდეგ?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>3 სამუშაო დღე გაქვს სისტემის შესამოწმებლად და ჩასაბარებლად, მერე გუნდი უკვე CRM-ში მუშაობს. ტექნიკური მხარდაჭერა ხელმისაწვდომია საჭიროებისამებრ, ხოლო ვისაც სისტემის მუდმივი განვითარება სურს, ვთავაზობთ ყოველთვიურ მხარდაჭერას.</p></div></details>
-      <details><summary>ვის საკუთრებაშია CRM და მონაცემები?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>CRM-ის ანგარიში და ყველა მონაცემი შენი კომპანიის სახელზე რეგისტრირდება და შენს სრულ მფლობელობაში რჩება. მონაცემების ექსპორტი ნებისმიერ დროს შეგიძლია.</p></div></details>
+      <details><summary>რა არის „ბანკის ინტეგრაცია" და რას გავაკეთებთ?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>ბანკის ოფიციალური API-ით (TBC, საქართველოს ბანკი) ტრანზაქციები ავტომატურად ჩადის CRM-ში ან Google Sheets-ში. NBG-ის ყოველდღიური კურსით ვალუტები თავისით გადადის ლარში. სისტემა ავტომატურად აბამს ტრანზაქციას შესაბამის ინვოისს და ცვლის სტატუსს. უცნობი გამგზავნები ცალკე სიაში ჩანს ხელით გადასამოწმებლად.</p></div></details>
+      <details><summary>რომელ ბანკებთან მუშაობთ?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>TBC ბანკი და საქართველოს ბანკი - ოფიციალური API ინტეგრაციით. NBG-ის ყოველდღიური კურსი - ოფიციალური ეროვნული ბანკიდან. სხვა ბანკის შემთხვევაში ზარზე დავაზუსტებთ, რა ტიპის ინტეგრაცია იქნება შესაძლებელი.</p></div></details>
+      <details><summary>რამდენ ხანს გრძელდება ბანკის ინტეგრაცია?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>სპრინტებად: Bank & Google Sheets 5-10 სამუშაო დღე; Bank & CRM 30 სამუშაო დღე (Sprint 1 - CRM Payments მოდული და ავტომატიზაცია 10 დღე, Sprint 2 - TBC/BOG ტრანზაქციების დამუშავება 15 დღე, Sprint 3 - განვადების გრაფიკის იმპორტი 5 დღე); Bank & CRM + AI დამატებით 10-15 სამუშაო დღე. ვიწყებთ ყველაზე მნიშვნელოვანით და თანდათან ვამატებთ.</p></div></details>
+      <details><summary>რა ღირს ბანკის ინტეგრაცია?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>ფიქსირებული პაკეტები: Bank & Google Sheets €1,490-დან, Bank & CRM €2,990-დან, Bank & CRM + AI €4,990-დან. ფასებს ემატება დღგ (18%). ბანკის API-ის და CRM-ის ლიცენზიებს პირდაპირ მწარმოებელს უხდი. ზუსტ ფასს ზარზე გეტყვით.</p></div></details>
+      <details><summary>რა ლიცენზიები მჭირდება ყოველთვიურად?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>TBC Bank API - €49/თვე (წლიური €490), საქართველოს ბანკი API - €49/თვე (წლიური €490), NBG კურსის API - €29/თვე (წლიური €290), შესაბამისი CRM სისტემა (მაგ: Zoho CRM Enterprise €50/მომხმარებელი/თვე) ან Google Sheets (უფასო). ყველა ლიცენზიას პირდაპირ მწარმოებელს უხდი, ოფიციალური ფასით.</p></div></details>
+      <details><summary>როგორ მუშაობს ავტომატური შეჯერება?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>ტრანზაქციის დანიშნულების (reference / description) და თანხის მიხედვით სისტემა ავტომატურად აბამს შესაბამის ინვოისს ან კლიენტს. შემოსავლის სრული სურათი რეალურ დროში ჩანს. რასაც სისტემა ვერ ამოიცნობს, ცალკე სიაში ჩანს, რომ ხელით გადაამოწმო.</p></div></details>
+      <details><summary>უსაფრთხოა ბანკის CRM-თან დაკავშირება?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>კავშირი ხდება ბანკის ოფიციალური API-ით, დაცული წვდომით. ინტეგრაცია მხოლოდ ანგარიშის მოძრაობას კითხულობს (read-only) - თანხების გაგზავნის უფლება არ აქვს. დაწყებამდე წერილობით გაცნობთ რისკებს და რეკომენდაციებს.</p></div></details>
+      <details><summary>როგორ მუშაობს მულტივალუტური ტრანზაქციები?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>USD და EUR ტრანზაქციები ავტომატურად გადადის ლარში ეროვნული ბანკის იმ დღის ოფიციალური კურსით. ყველა ვალუტაში შემოსავალი ერთ ადგილას ჩანს.</p></div></details>
+      <details><summary>როგორ ხდება პროექტის მიღება-ჩაბარება?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>თითოეული სპრინტის დასრულების შემდეგ გიგზავნით მიწოდების დასტურს. გაქვს 3 სამუშაო დღე დასადასტურებლად ან კომენტარისთვის. პასუხის არარსებობა ჩაითვლება მიღებულად.</p></div></details>
+      <details><summary>მომავალში ცვლილებები რა ფასი ჯდება?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>ჩაბარების შემდეგ ახალი დავალებები ცალკე დავალებად განიხილება და შესაბამისად ფასდება. ტექნიკური მხარდაჭერა - €69/საათი + დღგ, საჭიროებისამებრ. ვისაც სისტემის მუდმივად განვითარება უნდა, ვთავაზობთ ყოველთვიურ მხარდაჭერას.</p></div></details>
     </div>
   </div>
 </section>
@@ -1146,7 +1125,7 @@ dialog p{color:var(--dim)}
     <div class="vp-cap"><b>ბანკი → NBG → CRM</b><span>Unitty-ის ავტომატიზაცია</span></div>
     <div class="vp-prog" aria-hidden="true"><i id="vpProg"></i></div>
   </div>
-  <a href="#lead" class="vp-cta" data-cta="video">მოითხოვე უფასო კონსულტაცია</a>
+  <a href="#lead" class="vp-cta" data-cta="video">კონსულტაცია</a>
 </aside>
 <button class="vbubble" id="vbubble" type="button"><span class="pl" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z" fill="currentColor"/></svg></span>ვიდეოს ნახვა</button>
 
@@ -1157,12 +1136,8 @@ dialog p{color:var(--dim)}
 {"@context":"https://schema.org","@graph":[
 {"@type":"Organization","name":"Unitty","url":"https://www.unitty.io","telephone":"+995322055060","email":"digital@unitty.io","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","bestRating":"5"}},
 {"@type":"Service","name":"ბანკის ინტეგრაცია CRM-ში (TBC, BOG, NBG)","serviceType":"ბანკის ინტეგრაცია","areaServed":"GE","provider":{"@type":"Organization","name":"Unitty"},
- "offers":[{"@type":"Offer","name":"საბაზისო","price":"999","priceCurrency":"EUR"},{"@type":"Offer","name":"ოპტიმალური","price":"1999","priceCurrency":"EUR"},{"@type":"Offer","name":"ამბიციური","price":"7999","priceCurrency":"EUR"}]},
-{"@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"რა არის CRM სისტემა და რატომ სჭირდება ჩემს ბიზნესს?","acceptedAnswer":{"@type":"Answer","text":"CRM არის სისტემა, სადაც ერთ ადგილას ინახება კლიენტები, გარიგებები, ზარები, მიმოწერა და დავალებები."}},
-{"@type":"Question","name":"რომელ CRM პროგრამებს ნერგავთ?","acceptedAnswer":{"@type":"Answer","text":"Zoho, Pipedrive, Kommo, monday.com, Bitrix24, Odoo, ასევე ClickUp და Manychat."}},
-{"@type":"Question","name":"რა ღირს ბანკის ინტეგრაცია?","acceptedAnswer":{"@type":"Answer","text":"საბაზისო €999, ოპტიმალური €1,999, ამბიციური €7,999, დამატებები €199-დან. ფასებს ემატება დღგ (18%)."}},
-{"@type":"Question","name":"რამდენ ხანს გრძელდება ბანკის ინტეგრაცია?","acceptedAnswer":{"@type":"Answer","text":"საბაზისო 5 სამუშაო დღეში, ოპტიმალური 15 დღეში, ამბიციური 25 დღეში."}}]}
+ "offers":[{"@type":"Offer","name":"Bank & Google Sheets","price":"1490","priceCurrency":"EUR"},{"@type":"Offer","name":"Bank & CRM","price":"2990","priceCurrency":"EUR"},{"@type":"Offer","name":"Bank & CRM + AI","price":"4990","priceCurrency":"EUR"}]},
+{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"რა არის „ბანკის ინტეგრაცია" და რას გავაკეთებთ?","acceptedAnswer":{"@type":"Answer","text":"ბანკის ოფიციალური API-ით (TBC, BOG) ტრანზაქციები ავტომატურად ჩადის CRM-ში ან Google Sheets-ში. NBG-ის კურსით ვალუტები თავისით გადადის ლარში. სისტემა აბამს ტრანზაქციას ინვოისს და ცვლის სტატუსს."}},{"@type":"Question","name":"რომელ ბანკებთან მუშაობთ?","acceptedAnswer":{"@type":"Answer","text":"TBC ბანკი და საქართველოს ბანკი ოფიციალური API-ით. NBG-ის ყოველდღიური კურსი."}},{"@type":"Question","name":"რამდენ ხანს გრძელდება ბანკის ინტეგრაცია?","acceptedAnswer":{"@type":"Answer","text":"Bank & Google Sheets 5-10 სამუშაო დღე. Bank & CRM 30 სამუშაო დღე (3 სპრინტი). Bank & CRM + AI დამატებით 10-15 დღე."}},{"@type":"Question","name":"რა ღირს ბანკის ინტეგრაცია?","acceptedAnswer":{"@type":"Answer","text":"Bank & Google Sheets €1,490-დან, Bank & CRM €2,990-დან, Bank & CRM + AI €4,990-დან. ფასებს ემატება დღგ (18%)."}},{"@type":"Question","name":"რა ლიცენზიები მჭირდება?","acceptedAnswer":{"@type":"Answer","text":"TBC API €49/თვე, BOG API €49/თვე, NBG კურსი €29/თვე, შესაბამისი CRM სისტემა ან Google Sheets. პირდაპირ მწარმოებელს უხდი."}},{"@type":"Question","name":"უსაფრთხოა ბანკის CRM-თან დაკავშირება?","acceptedAnswer":{"@type":"Answer","text":"ოფიციალური API-ით, read-only კავშირი. თანხების გაგზავნის უფლება არ აქვს."}}]}
 ]}
 </script>
 

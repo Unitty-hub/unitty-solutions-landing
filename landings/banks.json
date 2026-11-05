@@ -1,8 +1,8 @@
 {
   "name": "banks",
-  "version": "v05-2026-11-05",
+  "version": "v06-2026-11-05",
   "standalone": "banks.page.html",
   "standalone_i18n": "banks.page.i18n.py",
-  "_note": "banks.unitty.io: cloned from crm.unitty.io (crm-v95) on 2026-11-05 then diverged. v05 copy pass: hero h1 is now \"ბანკის ინტეგრაცია / საათების დასაზოგად\"; hero lead adds \"/ლოგიკის\"; the single time badge was replaced with a row of 5 checkmark chips (Banks · NBG · Sheets · CRM · SMS); the hero stage was shortened and spacing tightened; vbubble text became \"ვიდეოს ნახვა\"; the story cards were reframed as solution promises (არ მოგიწევს ხელით ძებნა / თავად ჩახურავს ინვოისს / მიუთითებს შესაბამის სტატუსს) and a 4th card was added for payment reminders (SMS/email notification mock) with a 2x2 grid on desktop. FAQ answers and process-steps body still carry crm clone content.",
+  "_note": "banks.unitty.io: cloned from crm (crm-v95) on 2026-11-05 then diverged. v06 copy pass: vpop button → \"კონსულტაცია\"; hero h1 → \"ბანკის ინტეგრაცია / ნებისმიერ სისტემასთან\"; hero lead → \"...სასურველი ლოგიკის შესაბამისად\"; chips reordered Banks·NBG·CRM·Sheets·AI (SMS dropped); story heading → \"რამდენ დროს კარგავ რუტინულ პროცესებში?\" with reframed subtitle; story cards reduced to 3 and reordered: reminder → search → invoice (status card dropped); time-total band removed; grid back to 3-col; kinetic now \"ნაკლები რუტინა. მეტი ავტომატიზება.\"; pricing heading → \"აირჩიე მოდელი\"; 3 package descriptions shortened; footnote licenses → generic \"შესაბამისი CRM ან Google Sheets\"; form heading → \"20 წუთში გაჩვენებ, როგორ უამრავი საათი\"; FAQ fully rewritten with 10 bank-focused questions sourced from the Payments Automation DOCX scope; JSON-LD Service offers switched to bank packages and FAQPage mainEntity updated to 6 bank questions.",
   "description": "ბანკის ტრანზაქციები CRM-ში ავტომატურად: TBC, საქართველოს ბანკი, NBG-ის კურსი. ავტომატური შეჯერება და განვადების გრაფიკი. მოითხოვე უფასო 20-წუთიანი ზარი."
 }
