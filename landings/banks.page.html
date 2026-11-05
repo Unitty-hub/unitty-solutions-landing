@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <!-- banks.unitty.io: cloned 1:1 from the crm sibling landing (crm-v95) on 2026-11-05 as an independent landing with its own tracking.
      Source: landings/banks.page.html, texts EN/RU: landings/banks.page.i18n.py, built by tools/build_landings.py ("standalone" in landings/banks.json). -->
-<title>CRM სისტემის დანერგვა საქართველოში | Unitty</title>
-<meta name="description" content="CRM სისტემის შერჩევა და დანერგვა 5 სამუშაო დღიდან. Zoho, Pipedrive, Kommo, Bitrix24, Odoo, ფიქსირებული ფასით. მოითხოვე უფასო 20-წუთიანი კონსულტაცია.">
+<title>ბანკის ინტეგრაცია CRM-ში: TBC, BOG, NBG | Unitty</title>
+<meta name="description" content="ბანკის ტრანზაქციები CRM-ში ავტომატურად: TBC, საქართველოს ბანკი, NBG-ის კურსი. ავტომატური შეჯერება და განვადების გრაფიკი. მოითხოვე უფასო 20-წუთიანი ზარი.">
 <meta name="unitty-landing" content="banks">
 <meta name="unitty-version" content="{{VERSION}}">
 <link rel="canonical" href="https://banks.unitty.io/">
@@ -14,8 +14,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Unitty">
 <meta property="og:url" content="https://banks.unitty.io/">
-<meta property="og:title" content="CRM სისტემის დანერგვა საქართველოში | Unitty">
-<meta property="og:description" content="CRM სისტემის შერჩევა და დანერგვა 5 სამუშაო დღიდან. Zoho, Pipedrive, Kommo, Bitrix24, Odoo, ფიქსირებული ფასით. მოითხოვე უფასო 20-წუთიანი კონსულტაცია.">
+<meta property="og:title" content="ბანკის ინტეგრაცია CRM-ში: TBC, BOG, NBG | Unitty">
+<meta property="og:description" content="ბანკის ტრანზაქციები CRM-ში ავტომატურად: TBC, საქართველოს ბანკი, NBG-ის კურსი. ავტომატური შეჯერება და განვადების გრაფიკი. მოითხოვე უფასო 20-წუთიანი ზარი.">
 <meta property="og:image" content="https://banks.unitty.io/og/banks.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -23,8 +23,8 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:locale:alternate" content="ru_RU">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CRM სისტემის დანერგვა საქართველოში | Unitty">
-<meta name="twitter:description" content="CRM სისტემის შერჩევა და დანერგვა 5 სამუშაო დღიდან. Zoho, Pipedrive, Kommo, Bitrix24, Odoo, ფიქსირებული ფასით. მოითხოვე უფასო 20-წუთიანი კონსულტაცია.">
+<meta name="twitter:title" content="ბანკის ინტეგრაცია CRM-ში: TBC, BOG, NBG | Unitty">
+<meta name="twitter:description" content="ბანკის ტრანზაქციები CRM-ში ავტომატურად: TBC, საქართველოს ბანკი, NBG-ის კურსი. ავტომატური შეჯერება და განვადების გრაფიკი. მოითხოვე უფასო 20-წუთიანი ზარი.">
 <meta name="twitter:image" content="https://banks.unitty.io/og/banks.jpg">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
@@ -438,6 +438,22 @@ img,svg{max-width:100%}
 @keyframes qbar{to{width:100%}}
 @media(max-width:1023px){.qnav{flex-direction:row;overflow-x:auto}.qnav button{flex:1 0 auto}.qnav button small{display:none}}
 
+/* ===== banks: time-waste 3-step story section ===== */
+.sec-sub{margin:10px 0 0;color:var(--dim);font:500 16px/1.5 var(--f-body);max-width:640px}
+.time-steps{display:grid;gap:16px;margin-top:40px}
+@media(min-width:768px){.time-steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}}
+.tstep{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:24px;display:flex;flex-direction:column;gap:12px;transition:border-color .35s}
+.tstep:hover{border-color:var(--line-2)}
+.tstep-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.tstep-ico{font-size:28px;line-height:1;width:44px;height:44px;display:grid;place-items:center;border-radius:12px;background:var(--surface-2);border:1px solid var(--line)}
+.tstep-time{font:700 15px var(--f-mono);color:var(--lime);background:rgba(193,253,58,.1);border:1px solid var(--lime-line);border-radius:999px;padding:5px 12px}
+.tstep h3{margin:0;font:800 19px/1.25 var(--f-display);color:var(--fg);font-stretch:85%}
+.tstep p{margin:0;color:var(--dim);font-size:15px;line-height:1.55}
+.time-total{margin:28px auto 0;max-width:720px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;padding:18px 22px;border:1px solid var(--lime-line);border-radius:var(--r-card);background:linear-gradient(180deg,rgba(193,253,58,.08),rgba(193,253,58,.02))}
+.tt-lbl{font:700 13px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--lime)}
+.tt-eq{font:600 16px/1.4 var(--f-body);color:var(--fg)}
+.tt-eq s{color:var(--mute);text-decoration-thickness:2px;margin-right:4px}
+.tt-eq b{color:var(--fg);font-weight:800}
 /* pricing */
 .price-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;margin-bottom:56px}
 @media(min-width:1024px){.price-top{margin-bottom:80px}}
@@ -574,11 +590,23 @@ dialog p{color:var(--dim)}
 .vid{aspect-ratio:16/9;max-width:100%;background:var(--bg-2);border:1px dashed var(--line-2);border-radius:14px;display:grid;place-items:center;color:var(--mute);font:500 13px var(--f-mono);text-align:center;padding:16px;margin:14px 0}
 
 
-/* ===== banks: hero motion video (replaces the countdown timer) ===== */
-.hero-vid{display:flex;flex-direction:column;align-items:center;gap:12px;margin-block:4px;padding:14px 16px;border:1px solid var(--line-2);border-radius:20px;background:linear-gradient(180deg,rgba(193,253,58,.06),rgba(255,255,255,.01));width:min(100%,260px)}
-.hero-vid-lbl{font:600 13px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--lime);text-align:center}
-.hero-vid-frame{position:relative;width:100%;aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:#000}
-.hero-vid-el{width:100%;height:100%;object-fit:cover;display:block}
+/* ===== banks: hero motion-design visualization (bank → NBG → CRM money flow) ===== */
+.hero-vis{display:flex;flex-direction:column;align-items:center;gap:14px;margin-block:4px;padding:18px 20px 16px;border:1px solid var(--line-2);border-radius:20px;background:linear-gradient(180deg,rgba(193,253,58,.06),rgba(255,255,255,.01));width:min(100%,380px)}
+.hv-stage{position:relative;width:100%;aspect-ratio:5/3;color:var(--mute)}
+.hv-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.hv-node{position:absolute;display:flex;flex-direction:column;align-items:center;gap:4px;line-height:1}
+.hv-ico{width:60px;height:60px;display:grid;place-items:center;border-radius:16px;background:var(--surface-2);border:1px solid var(--line);font-size:30px;line-height:1}
+.hv-ico.crm{background:var(--lime);border-color:var(--lime-line)}
+.hv-lbl{font:700 12.5px var(--f-body);color:var(--fg);letter-spacing:.01em}
+.hv-sub{font:600 10.5px var(--f-mono);color:var(--dim);letter-spacing:.04em}
+.n-bank{left:0;top:40%;transform:translateY(-50%)}
+.n-nbg{left:50%;top:-4px;transform:translateX(-50%)}
+.n-crm{right:0;top:40%;transform:translateY(-50%)}
+.hv-badges{display:flex;flex-direction:column;gap:6px;width:100%;align-items:center}
+.hv-badge{background:rgba(193,253,58,.12);border:1px solid var(--lime-line);border-radius:999px;padding:7px 16px;font:600 13px var(--f-body);color:var(--fg);display:inline-flex;align-items:center;gap:6px;max-width:100%}
+.hv-badge s{color:var(--mute);text-decoration-thickness:2px}
+.hv-badge b{color:var(--fg);font-weight:800}
+@media (prefers-reduced-motion:reduce){.hv-lines text{display:none}}
 /* ===== v2: centred hero + countdown ===== */
 .hero{padding-block:64px 56px}
 @media(min-width:1024px){.hero{padding-block:64px 72px}}
@@ -764,10 +792,30 @@ dialog p{color:var(--dim)}
       <span class="ln"><span class="mark">CRM-ში ავტომატურად<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path id="uline" d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></span>
     </h1>
     <p class="lead" data-hero>TBC, საქართველოს ბანკი და NBG-ის კურსი პირდაპირ შენს CRM-ში. 15 წუთი ხელით გადატანა → 0 წუთი თითო ჩარიცხვაზე.</p>
-    <div class="hero-vid" data-hero>
-      <span class="hero-vid-lbl">როგორ მუშაობს: ბანკი → NBG → CRM</span>
-      <div class="hero-vid-frame">
-        <video class="hero-vid-el" src="/banks/media/bank-motion-540.mp4?v=1" poster="/banks/media/bank-motion-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="ბანკი → NBG → CRM: ინტეგრაცია მოძრაობაში"></video>
+    <div class="hero-vis" data-hero role="img" aria-label="ბანკი → NBG → CRM: ავტომატური ინტეგრაცია, 15 წუთი → 0 წუთი თითო ტრანზაქციაზე">
+      <div class="hv-stage">
+        <svg class="hv-lines" viewBox="0 0 400 240" aria-hidden="true">
+          <defs>
+            <path id="hv-p1" d="M 72,118 L 196,48"/>
+            <path id="hv-p2" d="M 204,48 L 328,118"/>
+            <path id="hv-p3" d="M 72,142 L 328,142"/>
+          </defs>
+          <g stroke="currentColor" stroke-dasharray="4 5" stroke-width="1.6" fill="none" opacity=".4">
+            <use href="#hv-p1"/><use href="#hv-p2"/><use href="#hv-p3"/>
+          </g>
+          <g font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-weight="700" font-size="18">
+            <text fill="#7bc3ff">$<animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#hv-p1"/></animateMotion></text>
+            <text fill="#C1FD3A">₾<animateMotion dur="2.8s" begin="1.4s" repeatCount="indefinite"><mpath href="#hv-p2"/></animateMotion></text>
+            <text fill="#C1FD3A">₾<animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#hv-p3"/></animateMotion></text>
+          </g>
+        </svg>
+        <div class="hv-node n-bank"><div class="hv-ico"><span aria-hidden="true">🏦</span></div><div class="hv-lbl">ბანკი</div></div>
+        <div class="hv-node n-nbg"><div class="hv-ico"><span aria-hidden="true">🏛️</span></div><div class="hv-lbl">NBG</div><div class="hv-sub">$ → ₾</div></div>
+        <div class="hv-node n-crm"><div class="hv-ico crm"><span aria-hidden="true">📊</span></div><div class="hv-lbl">CRM</div></div>
+      </div>
+      <div class="hv-badges">
+        <div class="hv-badge"><span aria-hidden="true">✅</span> ₾ პირდაპირ CRM-ში</div>
+        <div class="hv-badge"><span aria-hidden="true">⏱️</span> <s>15 წთ</s> → <b>0 წთ</b></div>
       </div>
     </div>
     <div class="cta-row" data-hero>
@@ -792,107 +840,32 @@ dialog p{color:var(--dim)}
 </section>
 
 <!-- 2+3. PROBLEMS → SOLUTIONS (pinned story on desktop) -->
-<section class="story" id="story" aria-labelledby="storyH">
+<section class="sec" id="story" aria-labelledby="storyH" style="background:var(--bg-2);border-block:1px solid var(--line)">
   <div class="wrap">
-    <div class="story-intro">
-      <div class="sec-head rv">
-        <h2 class="display h2" id="storyH">როგორ მიხვდე, რომ CRM გჭირდება?</h2>
+    <div class="sec-head rv">
+      <h2 class="display h2" id="storyH">რამდენ დროს კარგავ?</h2>
+      <p class="sec-sub">ყოველ ბანკის ჩარიცხვაზე ვიღაც ხელით ასრულებს 3 ნაბიჯს. ყოველი ტრანზაქცია — დაახლოებით 15 წუთი.</p>
+    </div>
+    <div class="time-steps">
+      <div class="tstep rv">
+        <div class="tstep-top"><span class="tstep-ico" aria-hidden="true">🏷️</span><span class="tstep-time">~5 წთ</span></div>
+        <h3 class="h3">ეძებს ვინ ჩარიცხა</h3>
+        <p>ბანკის ამონაწერში პოულობს გამგზავნს და თანხას, ცდილობს დაუკავშიროს კლიენტს.</p>
+      </div>
+      <div class="tstep rv">
+        <div class="tstep-top"><span class="tstep-ico" aria-hidden="true">🧾</span><span class="tstep-time">~7 წთ</span></div>
+        <h3 class="h3">პოულობს ინვოისს და ამოწმებს</h3>
+        <p>ინვოისს ემთხვევა თუ არა თანხა. განვადება — რამდენი გადაიხადა, რამდენი დარჩა.</p>
+      </div>
+      <div class="tstep rv">
+        <div class="tstep-top"><span class="tstep-ico" aria-hidden="true">✏️</span><span class="tstep-time">~3 წთ</span></div>
+        <h3 class="h3">ხელით ცვლის სტატუსს</h3>
+        <p>CRM-ში ან Excel-ში ხელით ცვლის სტატუსს, გადახდილად ნიშნავს და ინახავს ცვლილებებს.</p>
       </div>
     </div>
-    <div class="chapters" id="chapters">
-            <div class="sticky"><div class="sticky-in">
-        <div class="rail" id="rail" aria-hidden="true"><button tabindex="-1"><i></i></button><button tabindex="-1"><i></i></button><button tabindex="-1"><i></i></button></div>
-
-        <!-- Chapter 1 -->
-        <article class="chap" data-chap="0">
-          <div class="chap-text">
-            <div class="state-txt">
-              <div class="s-bad"><span class="tag">პრობლემა</span><h3>Excel</h3><ul class="lose"><li>შენელებული პროცესი</li><li>უსაფრთხოების რისკები</li><li>ტექნოლოგიური ჩამორჩენა</li></ul></div>
-              <div class="s-good"><span class="tag">Unitty-სთან</span><h3>ყველა გარიგება ერთ სისტემაში</h3><p>ყოველი კლიენტი ეტაპით, თანხით და პასუხისმგებლით.</p></div>
-            </div>
-            <div class="seg" role="group" aria-label="მდგომარეობა"><button class="b-bad" type="button">ადრე</button><button class="b-good" type="button">CRM-ით</button></div>
-          </div>
-          <div class="stage" aria-hidden="true">
-            <div class="lay l-bad">
-              <div class="sheet">
-                <div class="sheet-bar">▦ clients_FINAL_v7 (2).xlsx</div>
-                <div class="sheet-fx"><b>fx</b> =VLOOKUP(B7;Sheet2!A:D;3;FALSE)</div>
-                <div class="sheet-grid">
-                  <div class="h"></div><div class="h">A · კლიენტი</div><div class="h">B · ტელეფონი</div><div class="h">C · სტატუსი</div>
-                  <div class="h">2</div><div>ნ. ბერიძე</div><div>599 123 456</div><div>✓</div>
-                  <div class="h">3</div><div class="dup">გ. კაპანაძე</div><div class="dup">555 987 654</div><div class="dup">??</div>
-                  <div class="h">4</div><div class="dup">გ. კაპანაძე</div><div class="dup">555 987 654</div><div class="dup"></div>
-                  <div class="h">5</div><div>LTD „მეგა“</div><div class="err">#N/A</div><div></div>
-                  <div class="h">6</div><div>თ. გელაშვილი</div><div>577 …</div><div class="err">!!</div>
-                  <div class="h">7</div><div></div><div></div><div></div>
-                </div>
-              </div>
-              <div class="sheet-sticky">ვინ წაშალა C სვეტი?!</div>
-            </div>
-            <div class="lay l-good">
-              <div class="pipe">
-                <div class="kb-col"><div class="kb-h">ახალი <span class="sum">6 000 ₾</span></div><div class="deal"><b>LTD „მეგა“</b><div class="meta"><span>ნიკა</span><span class="v">4 800 ₾</span></div></div><div class="deal"><b>ნ. ბერიძე</b><div class="meta"><span>ანა</span><span class="v">1 200 ₾</span></div></div></div>
-                <div class="kb-col"><div class="kb-h">შეთავაზება <span class="sum">2 400 ₾</span></div><div class="deal"><b>გ. კაპანაძე</b><div class="meta"><span>ლუკა</span><span class="v">2 400 ₾</span></div></div></div>
-                <div class="kb-col won"><div class="kb-h">მოგებული <span class="sum">3 100 ₾</span></div><div class="deal"><b>თ. გელაშვილი</b><div class="meta"><span>ანა</span><span class="v">3 100 ₾</span></div></div></div>
-              </div>
-            </div>
-            <span class="demo-tag">სადემონსტრაციო</span>
-          </div>
-        </article>
-
-        <!-- Chapter 2 -->
-        <article class="chap" data-chap="1">
-          <div class="chap-text">
-            <div class="state-txt">
-              <div class="s-bad"><span class="tag">პრობლემა</span><h3>არასისტემური მუშაობა</h3><ul class="lose"><li>მუდმივი ქაოსი</li><li>უკონტროლო პროცესები</li></ul></div>
-              <div class="s-good"><span class="tag">Unitty-სთან</span><h3>ყველა ნაბიჯი წესით და დროზე</h3><p>CRM ლიდს ანაწილებს და follow-up-ს დროზე გახსენებს.</p></div>
-            </div>
-            <div class="seg" role="group" aria-label="მდგომარეობა"><button class="b-bad" type="button">ადრე</button><button class="b-good" type="button">CRM-ით</button></div>
-          </div>
-          <div class="stage" aria-hidden="true">
-            <div class="lay l-bad notes">
-              <div class="note" style="left:6%;top:8%;transform:rotate(-5deg)">დღეს!! კლიენტს დაურეკე!</div>
-              <div class="note n2" style="right:6%;top:12%;transform:rotate(4deg)">Instagram-ზე ვინ უპასუხა?</div>
-              <div class="note n3" style="left:14%;top:42%;transform:rotate(3deg)">ფასი გაუგზავნე?</div>
-              <div class="note n4" style="right:10%;top:48%;transform:rotate(-3deg)">მენეჯერი დღეს არ მოვა</div>
-              <div class="note n5" style="left:30%;bottom:6%;transform:rotate(-2deg)">ანგარიში ხვალ!!</div>
-            </div>
-            <div class="lay l-good bp">
-              <div class="bp-head"><span>BLUEPRINT · გაყიდვის პროცესი</span><span>LTD „მეგა“</span></div>
-              <div class="bp-row"><span class="ck">✓</span>ახალი ლიდი<span class="who">ნიკა</span></div>
-              <div class="bp-row"><span class="ck">✓</span>კვალიფიკაცია<span class="who">ნიკა</span></div>
-              <div class="bp-row"><span class="ck">✓</span>შეთავაზება გაიგზავნა<span class="who">ანა</span></div>
-              <div class="bp-row next"><span class="ck">4</span>ხელშეკრულება · შეხსენება ხვალ 11:00<span class="who">ლუკა</span></div>
-            </div>
-            <span class="demo-tag">სადემონსტრაციო</span>
-          </div>
-        </article>
-
-        <!-- Chapter 3 -->
-        <article class="chap" data-chap="2">
-          <div class="chap-text">
-            <div class="state-txt">
-              <div class="s-bad"><span class="tag">პრობლემა</span><h3>გაფანტული მონაცემები</h3><ul class="lose"><li>არაზუსტი გადაწყვეტილებები</li><li>კონკურენტული სისუსტე</li></ul></div>
-              <div class="s-good"><span class="tag">Unitty-სთან</span><h3>ზუსტი ციფრები ერთ დეშბორდზე</h3><p>შემოსავალი და კონვერსია რეალურ დროში.</p></div>
-            </div>
-            <div class="seg" role="group" aria-label="მდგომარეობა"><button class="b-bad" type="button">ადრე</button><button class="b-good" type="button">CRM-ით</button></div>
-          </div>
-          <div class="stage" aria-hidden="true">
-            <div class="lay l-bad conf">
-              <span class="conf-q">?</span>
-              <div class="conf-card"><span>Excel · ოქტომბრის გაყიდვები</span><b>38 400 ₾</b></div>
-              <div class="conf-card"><span>მენეჯერი · „დაახლოებით“</span><b>~45 000 ₾</b></div>
-              <div class="conf-card"><span>ბუღალტერია</span><b>41 250 ₾</b></div>
-            </div>
-            <div class="lay l-good dash">
-              <div class="kpi"><small>შემოსავალი · ოქტ.</small><b>41 250 ₾</b><span class="up">▲ 18%</span></div>
-              <div class="kpi"><small>კონვერსია</small><b>24%</b><span class="up">▲ 5 პპ</span></div>
-              <div class="chart"><small>გაყიდვები თვეების მიხედვით</small><div class="bars"><i style="--h:42%"></i><i style="--h:55%"></i><i style="--h:48%"></i><i style="--h:66%"></i><i style="--h:72%"></i><i style="--h:88%"></i></div><div class="bars-x"><span>მაი</span><span>ივნ</span><span>ივლ</span><span>აგვ</span><span>სექ</span><span>ოქტ</span></div></div>
-            </div>
-            <span class="demo-tag">სადემონსტრაციო</span>
-          </div>
-        </article>
-      </div></div>
+    <div class="time-total rv">
+      <span class="tt-lbl">შედეგი</span>
+      <span class="tt-eq"><s>15 წუთი</s> × ყოველი ტრანზაქცია → <b>0 წუთი ავტომატურად</b></span>
     </div>
   </div>
 </section>
@@ -916,7 +889,7 @@ dialog p{color:var(--dim)}
 <section class="sec" id="how" style="background:var(--bg-2);border-block:1px solid var(--line)" aria-labelledby="howH">
   <div class="wrap">
     <div class="sec-head rv">
-      <h2 class="display h2" id="howH">CRM დანერგვა სამ ნაბიჯად</h2>
+      <h2 class="display h2" id="howH">ბანკის ინტეგრაცია სამ ნაბიჯად</h2>
       
     </div>
     <div class="steps" id="steps">
@@ -936,7 +909,7 @@ dialog p{color:var(--dim)}
   <div class="wrap">
     <div class="price-top">
       <div class="sec-head rv" style="margin-bottom:0">
-        <h2 class="display h2" id="priceH">ბანკიდან CRM-ში ავტომატურად</h2>
+        <h2 class="display h2" id="priceH">აირჩიე ინტეგრაციის მოდელი</h2>
       </div>
       <div class="cur rv" role="group" aria-label="ვალუტა"><button type="button" data-cur="gel" aria-pressed="true">GEL ₾</button><button type="button" data-cur="eur" aria-pressed="false">EUR €</button></div>
     </div>
@@ -1003,7 +976,7 @@ dialog p{color:var(--dim)}
 <section class="sec final" id="lead" aria-labelledby="leadH">
   <div class="wrap final-grid">
     <div class="final-copy rv">
-      <h2 class="display" id="leadH">20 წუთში გეტყვით, <span class="accent">რომელი CRM გჭირდება</span></h2>
+      <h2 class="display" id="leadH">20 წუთში გაჩვენებ, <span class="accent">როგორ იმუშავებს ბანკის ინტეგრაცია შენთან</span></h2>
       <ul class="micro"><li>კონსულტაცია უფასოა</li><li>ვალდებულების გარეშე</li><li>500+ დანერგვის გამოცდილება</li></ul>
       <div class="host"><img src="/banks/media/giorgi-avatar.jpg" alt="გიორგი კორძახია" width="64" height="64" loading="lazy" decoding="async"><div class="host-txt"><small>კონსულტაციას გაგიწევს</small><b>გიორგი კორძახია</b><span>Unitty-ს CEO</span><ul class="host-tags"><li>12+ წელი CRM-ებში</li><li>500+ დანერგვა</li></ul></div></div>
     </div>
@@ -1040,11 +1013,11 @@ dialog p{color:var(--dim)}
       <details><summary>რა არის CRM სისტემა და რატომ სჭირდება ჩემს ბიზნესს?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>CRM არის სისტემა, სადაც ერთ ადგილას ინახება კლიენტები, გარიგებები, ზარები, მიმოწერა და დავალებები. ხედავ, ვინ ვის ესაუბრა, რა ეტაპზეა თითოეული გარიგება და ვის რა უნდა გააკეთოს. შედეგად ნაკლები კლიენტი იკარგება და ნაკლებს მუშაობ ხელით.</p></div></details>
       <details><summary>რით განსხვავდება CRM Excel-ისგან?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Excel მხოლოდ ინახავს ინფორმაციას. CRM მუშაობს: გახსენებს follow-up-ს, ანაწილებს ლიდებს, აჩვენებს გაყიდვების ძაბრს და ინახავს ყველა ზარისა და წერილის ისტორიას. მენეჯერი რომც წავიდეს, კლიენტები კომპანიაში რჩება.</p></div></details>
       <details><summary>რომელ CRM პროგრამებს ნერგავთ?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>ვართ Zoho-ს, Pipedrive-ის, Kommo-ს, monday.com-ის, Bitrix24-ისა და Odoo-ს სერტიფიცირებული პარტნიორი, ასევე ვმუშაობთ ClickUp-სა და Manychat-ზე. დამოუკიდებელი პარტნიორი ვართ, ამიტომ ჯერ ვნახავთ, როგორ მუშაობ, და მერე გირჩევთ შესაფერის სისტემას.</p></div></details>
-      <details><summary>რა ღირს CRM-ის დანერგვა?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>პაკეტები ფიქსირებული ფასისაა: საბაზისო €999, ოპტიმალური €1,999 (ნაცვლად €2,999-ისა), ამბიციური €7,999. დამატებები €199-დან. ფასებს ემატება დღგ (18%). CRM-ის ლიცენზიას პირდაპირ მწარმოებელს უხდი. კონსულტაციაზე გეტყვით, რომელი პაკეტი გჭირდება და რა დაჯდება ლიცენზია.</p></div></details>
-      <details><summary>რამდენ ხანს გრძელდება CRM-ის დანერგვა?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>საბაზისო 5 სამუშაო დღეში, ოპტიმალური 15 დღეში, ამბიციური 25 დღეში. ვიწყებთ ყველაზე მნიშვნელოვანით, გუნდი ითვისებს და მერე ვამატებთ ავტომატიზაციებსა და ინტეგრაციებს. ასე რისკი მინიმალურია, შედეგს კი სწრაფად ხედავ.</p></div></details>
+      <details><summary>რა ღირს ბანკის ინტეგრაცია?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>პაკეტები ფიქსირებული ფასისაა: საბაზისო €999, ოპტიმალური €1,999 (ნაცვლად €2,999-ისა), ამბიციური €7,999. დამატებები €199-დან. ფასებს ემატება დღგ (18%). CRM-ის ლიცენზიას პირდაპირ მწარმოებელს უხდი. კონსულტაციაზე გეტყვით, რომელი პაკეტი გჭირდება და რა დაჯდება ლიცენზია.</p></div></details>
+      <details><summary>რამდენ ხანს გრძელდება ბანკის ინტეგრაცია?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>საბაზისო 5 სამუშაო დღეში, ოპტიმალური 15 დღეში, ამბიციური 25 დღეში. ვიწყებთ ყველაზე მნიშვნელოვანით, გუნდი ითვისებს და მერე ვამატებთ ავტომატიზაციებსა და ინტეგრაციებს. ასე რისკი მინიმალურია, შედეგს კი სწრაფად ხედავ.</p></div></details>
       <details><summary>შეიძლება CRM-ის დაკავშირება სხვა სისტემებთან?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>კი. ვაკავშირებთ ელფოსტასთან, WhatsApp-თან, Instagram-თან, Facebook-თან, საიტის ფორმებთან, Meta-სა და Google-ის რეკლამის ლიდებთან, ტელეფონიასთან (მათ შორის GEONET), ბანკებთან და ბუღალტრულ ან ERP სისტემებთან (1C, FINA).</p></div></details>
       <details><summary>შესაძლებელია მონაცემების Excel-იდან ან სხვა CRM-იდან გადმოტანა?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>კი. კლიენტებს, კონტაქტებს, გარიგებებს და ისტორიას გადმოვიტანთ Excel-იდან, Google Sheets-იდან ან სხვა CRM-იდან. მანამდე ვასუფთავებთ დუბლიკატებს და ვაწესრიგებთ ნომრებს, რომ სისტემა სუფთა ბაზით დაიწყოს.</p></div></details>
-      <details><summary>რა ხდება დანერგვის შემდეგ?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>3 სამუშაო დღე გაქვს სისტემის შესამოწმებლად და ჩასაბარებლად, მერე გუნდი უკვე CRM-ში მუშაობს. ტექნიკური მხარდაჭერა ხელმისაწვდომია საჭიროებისამებრ, ხოლო ვისაც სისტემის მუდმივი განვითარება სურს, ვთავაზობთ ყოველთვიურ მხარდაჭერას.</p></div></details>
+      <details><summary>რა ხდება ინტეგრაციის შემდეგ?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>3 სამუშაო დღე გაქვს სისტემის შესამოწმებლად და ჩასაბარებლად, მერე გუნდი უკვე CRM-ში მუშაობს. ტექნიკური მხარდაჭერა ხელმისაწვდომია საჭიროებისამებრ, ხოლო ვისაც სისტემის მუდმივი განვითარება სურს, ვთავაზობთ ყოველთვიურ მხარდაჭერას.</p></div></details>
       <details><summary>ვის საკუთრებაშია CRM და მონაცემები?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>CRM-ის ანგარიში და ყველა მონაცემი შენი კომპანიის სახელზე რეგისტრირდება და შენს სრულ მფლობელობაში რჩება. მონაცემების ექსპორტი ნებისმიერ დროს შეგიძლია.</p></div></details>
     </div>
   </div>
@@ -1080,13 +1053,13 @@ dialog p{color:var(--dim)}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"Organization","name":"Unitty","url":"https://www.unitty.io","telephone":"+995322055060","email":"digital@unitty.io","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","bestRating":"5"}},
-{"@type":"Service","name":"CRM სისტემის შერჩევა და დანერგვა","serviceType":"CRM დანერგვა","areaServed":"GE","provider":{"@type":"Organization","name":"Unitty"},
+{"@type":"Service","name":"ბანკის ინტეგრაცია CRM-ში (TBC, BOG, NBG)","serviceType":"ბანკის ინტეგრაცია","areaServed":"GE","provider":{"@type":"Organization","name":"Unitty"},
  "offers":[{"@type":"Offer","name":"საბაზისო","price":"999","priceCurrency":"EUR"},{"@type":"Offer","name":"ოპტიმალური","price":"1999","priceCurrency":"EUR"},{"@type":"Offer","name":"ამბიციური","price":"7999","priceCurrency":"EUR"}]},
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"რა არის CRM სისტემა და რატომ სჭირდება ჩემს ბიზნესს?","acceptedAnswer":{"@type":"Answer","text":"CRM არის სისტემა, სადაც ერთ ადგილას ინახება კლიენტები, გარიგებები, ზარები, მიმოწერა და დავალებები."}},
 {"@type":"Question","name":"რომელ CRM პროგრამებს ნერგავთ?","acceptedAnswer":{"@type":"Answer","text":"Zoho, Pipedrive, Kommo, monday.com, Bitrix24, Odoo, ასევე ClickUp და Manychat."}},
-{"@type":"Question","name":"რა ღირს CRM-ის დანერგვა?","acceptedAnswer":{"@type":"Answer","text":"საბაზისო €999, ოპტიმალური €1,999, ამბიციური €7,999, დამატებები €199-დან. ფასებს ემატება დღგ (18%)."}},
-{"@type":"Question","name":"რამდენ ხანს გრძელდება CRM-ის დანერგვა?","acceptedAnswer":{"@type":"Answer","text":"საბაზისო 5 სამუშაო დღეში, ოპტიმალური 15 დღეში, ამბიციური 25 დღეში."}}]}
+{"@type":"Question","name":"რა ღირს ბანკის ინტეგრაცია?","acceptedAnswer":{"@type":"Answer","text":"საბაზისო €999, ოპტიმალური €1,999, ამბიციური €7,999, დამატებები €199-დან. ფასებს ემატება დღგ (18%)."}},
+{"@type":"Question","name":"რამდენ ხანს გრძელდება ბანკის ინტეგრაცია?","acceptedAnswer":{"@type":"Answer","text":"საბაზისო 5 სამუშაო დღეში, ოპტიმალური 15 დღეში, ამბიციური 25 დღეში."}}]}
 ]}
 </script>
 
@@ -1191,36 +1164,7 @@ if(!RM.matches){
   cnts.forEach(c=>co.observe(c));
 }
 
-/* STORY */
-const story=$('#story'), chapsWrap=$('#chapters'), chaps=$$('.chap'), railBtns=$$('#rail button');
-const DESK=matchMedia('(min-width:1024px)');
-let pinned=false;
-function setMode(){
-  pinned = false; /* crm-v66: three horizontal cards instead of the pinned scroll story */
-  story.classList.toggle('pinned',pinned);
-  if(pinned){ onStory(); } else chaps.forEach(c=>c.classList.remove('active','past'));
-}
-function onStory(){
-  if(!pinned) return;
-  const r=chapsWrap.getBoundingClientRect(), total=r.height-(vh()-72);
-  const p=Math.min(.9999,Math.max(0,(-r.top)/total));
-  const idx=Math.floor(p*3), local=p*3-idx;
-  chaps.forEach((c,i)=>{ c.classList.toggle('active',i===idx); c.classList.toggle('past',i<idx); if(!c.dataset.manual){ c.classList.toggle('solved', i<idx || (i===idx && local>.5)); } });
-  railBtns.forEach((b,i)=>b.style.setProperty('--p', i<idx?1:i>idx?0:local.toFixed(3)));
-}
-let raf=0; addEventListener('scroll',()=>{ if(!raf) raf=requestAnimationFrame(()=>{raf=0;onStory();}); },{passive:true});
-addEventListener('resize',onStory);
-DESK.addEventListener?.('change',setMode); RM.addEventListener?.('change',setMode);
-setMode();
-const goChap=(i,solved)=>{ const r=chapsWrap.getBoundingClientRect(); const total=r.height-(vh()-72); const target=scrollY+r.top+total*((i+(solved?.72:.2))/3); scrollTo({top:target,behavior:RM.matches?'auto':'smooth'}); };
-railBtns.forEach((b,i)=>b.addEventListener('click',()=>goChap(i,false)));
-chaps.forEach((c,i)=>{
-  $('.b-bad',c).addEventListener('click',()=>{ if(pinned) goChap(i,false); else c.classList.remove('solved'); });
-  $('.b-good',c).addEventListener('click',()=>{ if(pinned) goChap(i,true); else c.classList.add('solved'); });
-});
-/* mobile/reduced: auto-solve once a chapter is mostly in view */
-const mo=new IntersectionObserver(es=>es.forEach(e=>{ if(pinned||!e.isIntersecting) return; const c=e.target; if(c.dataset.auto) return; c.dataset.auto=1; 0&&setTimeout(()=>c.classList.add('solved'), RM.matches?0:1100); }),{threshold:.65});
-chaps.forEach(c=>mo.observe(c));
+/* STORY: banks-v03 — replaced with 3 time-step cards (no pinned chapters, no JS state) */
 
 /* KINETIC */
 const kin=$('#kinetic'), words=$$('#kLines .w');
