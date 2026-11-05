@@ -1,8 +1,8 @@
 {
   "name": "banks",
-  "version": "v01-2026-11-05",
+  "version": "v02-2026-11-05",
   "standalone": "banks.page.html",
   "standalone_i18n": "banks.page.i18n.py",
-  "_note": "banks.unitty.io: cloned 1:1 from crm.unitty.io (crm-v95-2026-11-03) on 2026-11-05 as an independent landing with its own tracking (Landing_Version prefix 'banks-'). Content edits are coming later; until then every visible text matches crm. Keep crm.unitty.io untouched.",
-  "description": "CRM სისტემის შერჩევა და დანერგვა 5 სამუშაო დღიდან. Zoho, Pipedrive, Kommo, Bitrix24, Odoo, ფიქსირებული ფასით. მოითხოვე უფასო 20-წუთიანი კონსულტაცია."
+  "_note": "banks.unitty.io: cloned from crm.unitty.io (crm-v95) on 2026-11-05, then rewritten for the Payments Automation offer. v02 replaced hero timer with bank→NBG→CRM motion video and swapped pricing for the 3 bank tiers. Story / FAQ / process / testimonials still carry crm content pending further rewrites.",
+  "description": "ბანკის ტრანზაქციები CRM-ში ავტომატურად: TBC, საქართველოს ბანკი, NBG-ის კურსი. ავტომატური შეჯერება და განვადების გრაფიკი. უფასო 20-წუთიანი ზარი."
 }

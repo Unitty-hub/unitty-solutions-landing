@@ -574,6 +574,11 @@ dialog p{color:var(--dim)}
 .vid{aspect-ratio:16/9;max-width:100%;background:var(--bg-2);border:1px dashed var(--line-2);border-radius:14px;display:grid;place-items:center;color:var(--mute);font:500 13px var(--f-mono);text-align:center;padding:16px;margin:14px 0}
 
 
+/* ===== banks: hero motion video (replaces the countdown timer) ===== */
+.hero-vid{display:flex;flex-direction:column;align-items:center;gap:12px;margin-block:4px;padding:14px 16px;border:1px solid var(--line-2);border-radius:20px;background:linear-gradient(180deg,rgba(193,253,58,.06),rgba(255,255,255,.01));width:min(100%,260px)}
+.hero-vid-lbl{font:600 13px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--lime);text-align:center}
+.hero-vid-frame{position:relative;width:100%;aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:#000}
+.hero-vid-el{width:100%;height:100%;object-fit:cover;display:block}
 /* ===== v2: centred hero + countdown ===== */
 .hero{padding-block:64px 56px}
 @media(min-width:1024px){.hero{padding-block:64px 72px}}
@@ -755,19 +760,15 @@ dialog p{color:var(--dim)}
 <section class="hero" aria-labelledby="h1">
   <div class="wrap hero-c">
     <h1 class="display h1" id="h1" data-hero>
-      <span class="ln">შეგირჩევთ და დაგინერგავთ</span>
-      <span class="ln"><span class="mark">CRM სისტემას<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path id="uline" d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></span>
+      <span class="ln">ბანკის ტრანზაქციები</span>
+      <span class="ln"><span class="mark">CRM-ში ავტომატურად<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path id="uline" d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></span>
     </h1>
-    <p class="lead" data-hero>მოითხოვე 20 წუთიანი უფასო კონსულტაცია - გეტყვი რომელი CRM და AI გაუმკლავდება შენს გამოწვევებს</p>
-    <div class="timer" data-hero>
-      <span class="timer-lbl">მოითხოვე კონსულტაცია</span>
-      <div class="t-price"><s>€100</s><span class="t-arr" aria-hidden="true">→</span><b>უფასოდ</b></div>
-      <div class="timer-digits" role="timer" aria-label="დარჩენილი დრო" id="timer">
-        <span class="tgw"><span class="tg"><span class="d" id="d0">1</span><span class="d" id="d1">5</span></span></span>
-        <span class="colon" aria-hidden="true">:</span>
-        <span class="tgw"><span class="tg"><span class="d" id="d2">0</span><span class="d" id="d3">0</span></span></span>
+    <p class="lead" data-hero>TBC, საქართველოს ბანკი და NBG-ის კურსი პირდაპირ შენს CRM-ში. 15 წუთი ხელით გადატანა → 0 წუთი თითო ჩარიცხვაზე.</p>
+    <div class="hero-vid" data-hero>
+      <span class="hero-vid-lbl">როგორ მუშაობს: ბანკი → NBG → CRM</span>
+      <div class="hero-vid-frame">
+        <video class="hero-vid-el" src="/banks/media/bank-motion-540.mp4?v=1" poster="/banks/media/bank-motion-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="ბანკი → NBG → CRM: ინტეგრაცია მოძრაობაში"></video>
       </div>
-      <div class="timer-bar" aria-hidden="true"><i id="tBar"></i></div>
     </div>
     <div class="cta-row" data-hero>
       <a href="#lead" class="btn btn-primary btn-xl" data-cta="hero">მოითხოვე უფასო კონსულტაცია <span class="arr" aria-hidden="true">→</span></a>
@@ -935,47 +936,44 @@ dialog p{color:var(--dim)}
   <div class="wrap">
     <div class="price-top">
       <div class="sec-head rv" style="margin-bottom:0">
-        <h2 class="display h2" id="priceH">ეფექტური სტარტისთვის</h2>
-        
+        <h2 class="display h2" id="priceH">ბანკიდან CRM-ში ავტომატურად</h2>
       </div>
       <div class="cur rv" role="group" aria-label="ვალუტა"><button type="button" data-cur="gel" aria-pressed="true">GEL ₾</button><button type="button" data-cur="eur" aria-pressed="false">EUR €</button></div>
     </div>
     <div class="plans">
-      <article class="plan rv" data-plan="საბაზისო">
-        <h3 class="plan-name">საბაზისო</h3>
-        <p class="plan-for">ლიდების და გაყიდვების მართვა, Excel-ის ნაცვლად.</p>
-        <div class="price"><div class="pl"><span class="amt tnum" data-eur="€999" data-gel="2,999 ₾">2,999 ₾</span><span class="side"><span class="from">-დან</span><span class="once">ერთჯერადად</span></span></div></div>
+      <article class="plan rv" data-plan="Bank & Google Sheets">
+        <h3 class="plan-name">Bank &amp; Google Sheets</h3>
+        <p class="plan-for">ბანკის ჩარიცხვები Google Sheets-ში ავტომატურად, ხელით გადატანის გარეშე.</p>
+        <div class="price"><div class="pl"><span class="amt tnum" data-eur="€1,490" data-gel="4,499 ₾">4,499 ₾</span><span class="side"><span class="from">-დან</span><span class="once">ერთჯერადად</span></span></div></div>
         <button class="btn btn-ghost pick" type="button">დაწყება</button>
         <details><summary>რა შედის</summary>
-          <ul class="ticks"><li>4 ძირითადი მოდული: ლიდები, კონტაქტები, კომპანიები, გარიგებები</li><li>ელფოსტის ორმხრივი სინქრონიზაცია (Google ან Microsoft 365)</li><li>Facebook-ის შეტყობინებები პირდაპირ CRM-ში</li><li>1 ვებფორმა ლიდების მისაღებად</li><li>გაყიდვების ძაბრის KPI დაფა</li><li>ჩაწერილი ვიდეო ინსტრუქციები გუნდისთვის</li></ul></details>
+          <ul class="ticks"><li>1 ბანკის API-სთან კავშირი (TBC ან BOG)</li><li>NBG-ის ყოველდღიური ოფიციალური კურსი (GEL/USD/EUR)</li><li>ტრანზაქციები Google Sheets-ში ყოველდღიურად ავტომატურად</li><li>თანხის და დანიშნულების მიხედვით ავტომატური შეჯერების წესები</li><li>უცნობი გამგზავნების ცალკე სია ხელით გადასამოწმებლად</li><li>ყოველდღიური შეჯამება ელფოსტაზე</li><li>ჩაწერილი ვიდეო ინსტრუქციები გუნდისთვის</li></ul></details>
       </article>
-      <article class="plan pop rv" data-plan="ოპტიმალური">
+      <article class="plan pop rv" data-plan="Bank & CRM">
         <span class="badge">პოპულარული</span>
-        <h3 class="plan-name">ოპტიმალური</h3>
-        <p class="plan-for">ლიდები, გაყიდვები, ინვოისი, სოც.მედია.</p>
-        <div class="was"><s class="tnum" data-eur="€2,999" data-gel="8,999 ₾">8,999 ₾</s><span class="off">−33%</span></div>
-        <div class="price"><div class="pl"><span class="amt tnum" data-eur="€1,999" data-gel="5,999 ₾">5,999 ₾</span><span class="side"><span class="from">-დან</span><span class="once">ერთჯერადად</span></span></div></div>
-        <p class="deal-note">ფასდაკლება ძალაშია შეთავაზების მიღებიდან 7 დღის განმავლობაში.</p>
+        <h3 class="plan-name">Bank &amp; CRM</h3>
+        <p class="plan-for">ბანკი → CRM: ავტომატური შეჯერება, განვადების გრაფიკი, სტატუსის ცვლილება.</p>
+        <div class="price"><div class="pl"><span class="amt tnum" data-eur="€2,990" data-gel="8,999 ₾">8,999 ₾</span><span class="side"><span class="from">-დან</span><span class="once">ერთჯერადად</span></span></div></div>
         <button class="btn btn-primary pick" type="button">დაწყება</button>
         <details><summary>რა შედის</summary>
-          <p class="plus">საბაზისოს ყველაფერი, პლუს:</p>
-          <ul class="ticks"><li>Meta-სა და Google Ads-ის ლიდები ავტომატურად CRM-ში</li><li>გაყიდვის ეტაპები მკაფიო წესებით</li><li>ლიდების ავტომატური განაწილება მენეჯერებზე</li><li>follow-up შეხსენებები</li><li>პროდუქტები და ინვოისები, შენი ინვოისის შაბლონით</li><li>15-მდე დამატებითი ველი</li><li>ნომრების ვალიდაცია (+995) და დუბლიკატების გასუფთავება</li><li>კონტაქტებისა და პროდუქტების გადმოტანა</li><li>30-წუთიანი ტრენინგი (ჩანაწერით)</li></ul></details>
+          <p class="plus">Bank &amp; Google Sheets-ის ყველაფერი, პლუს:</p>
+          <ul class="ticks"><li>CRM-ის სრული ინტეგრაცია (Zoho, Pipedrive, Kommo, Bitrix24 ან Odoo)</li><li>Payments მოდული და ავტომატიზაცია</li><li>განვადების გრაფიკის მოდული (Payment Schedules)</li><li>TBC + BOG ერთდროულად (ორივე ბანკი)</li><li>ტრანზაქციის ავტომატური მიბმა შესაბამის ინვოისს ან გარიგებას</li><li>სტატუსის ავტომატური ცვლილება გადახდის მიღებისთანავე</li><li>მულტივალუტური შეჯერება NBG-ის კურსით (GEL/USD/EUR)</li><li>განვადების გრაფიკის Excel-იდან იმპორტი</li><li>30-წუთიანი ტრენინგი (ჩანაწერით)</li></ul></details>
       </article>
-      <article class="plan rv" data-plan="ამბიციური">
-        <h3 class="plan-name">ამბიციური</h3>
-        <p class="plan-for">ყველა საკომუნიკაციო არხი და პროცესი ერთ გარემოში</p>
-        <div class="price"><div class="pl"><span class="amt tnum" data-eur="€7,999" data-gel="23,999 ₾">23,999 ₾</span><span class="side"><span class="from">-დან</span><span class="once">ერთჯერადად</span></span></div></div>
+      <article class="plan rv" data-plan="Bank & CRM + AI">
+        <h3 class="plan-name">Bank &amp; CRM + AI</h3>
+        <p class="plan-for">იგივე, AI-ის დახმარებით: ჭკვიანი შეჯერება, ანომალიების აღმოჩენა, ბუნებრივი ენით ძიება.</p>
+        <div class="price"><div class="pl"><span class="amt tnum" data-eur="€4,990" data-gel="14,999 ₾">14,999 ₾</span><span class="side"><span class="from">-დან</span><span class="once">ერთჯერადად</span></span></div></div>
         <button class="btn btn-ghost pick" type="button">დაწყება</button>
         <details><summary>რა შედის</summary>
-          <p class="plus">ოპტიმალურის ყველაფერი, პლუს:</p>
-          <ul class="ticks"><li>ტელეფონია: GEONET ან სხვა cloud PBX</li><li>ზარების დამუშავება CRM-ში</li><li>5-მდე ავტომატიზაცია, მათ შორის 3 custom ფუნქციით</li><li>3-მდე დამატებითი მოდული</li><li>საიტის ფორმა + დაცული webhook</li><li>10-მდე რეპორტი</li><li>AI: Claude, დაკავშირებული შენს CRM-თან</li><li>60-წუთიანი ტრენინგი (ჩანაწერით)</li><li>ბანკთან ინტეგრაცია (TBC, BOG ან სხვა)</li><li>საბუღალტრო სისტემასთან ინტეგრაცია</li><li>ხელშეკრულების ავტომატური გენერირება</li><li>ელექტრონული ხელმოწერა</li><li>SMS ავტომატიზაცია</li></ul></details>
+          <p class="plus">Bank &amp; CRM-ის ყველაფერი, პლუს:</p>
+          <ul class="ticks"><li>AI-ით ბუნდოვანი ტრანზაქციების ავტომატური მიბმა</li><li>განვადების გრაფიკის AI-ით ავტომატური შევსება</li><li>ანომალიური გადახდების ავტომატური აღმოჩენა</li><li>ბუნებრივი ენით ძიება: „ვინ გადაიხადა მაისში?"</li><li>კასტომ დეშბორდი და რეალურ-დროის შეტყობინებები</li><li>ყოველთვიური ანგარიში: დავალიანებები, პროგნოზი, ტრენდები</li><li>60-წუთიანი ტრენინგი (ჩანაწერით)</li></ul></details>
       </article>
     </div>
     <div class="price-foot rv">
       <ul class="notes">
         <li>ფასებს ემატება დღგ (18%).</li>
-        <li>CRM-ის ლიცენზიას პირდაპირ მწარმოებელს უხდი, მისი ოფიციალური ფასით.</li>
-        <li>პაკეტებში მოცემულია ყველაზე მოთხოვნადი საჭიროებები. ნებისმიერი სხვა დავალება ცალკეულად ფასდება. შეუკვეთე რაც გინდა.</li>
+        <li>ბანკის API-ის და CRM-ის ლიცენზიებს პირდაპირ მწარმოებელს უხდი (TBC €49/თვე, BOG €49/თვე, NBG €29/თვე, Zoho CRM Enterprise €50/მომხმარებელი/თვე).</li>
+        <li>პაკეტებში მოცემულია ტიპიური სცენარები. ნებისმიერი დამატებითი დავალება ცალკეულად ფასდება.</li>
       </ul>
     </div>
   </div>
@@ -1055,10 +1053,10 @@ dialog p{color:var(--dim)}
 
 <footer><div class="wrap foot"><span class="foot-brand"><svg class="logo-svg sm" width="88" height="27" viewBox="0 0 88 27" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="unitty"><path d="M10.7891 13.5109V4.00645H16.102V20.729H11.0286V17.6153H10.8544C10.4843 18.6387 9.85282 19.4516 8.96008 20.054C8.0746 20.6492 7.00403 20.9468 5.74839 20.9468C4.60887 20.9468 3.60726 20.6855 2.74355 20.1629C1.87984 19.6403 1.20847 18.9109 0.729435 17.9746C0.250403 17.031 0.00725806 15.9278 0 14.6649V4.00645H5.32379V13.6198C5.33105 14.527 5.57056 15.2419 6.04234 15.7645C6.51411 16.2871 7.15645 16.5484 7.96936 16.5484C8.49919 16.5484 8.9746 16.4323 9.39556 16.2C9.82379 15.9605 10.1613 15.6157 10.4081 15.1657C10.6621 14.7085 10.7891 14.1569 10.7891 13.5109Z" fill="#FFFFFF"/><path d="M24.8144 11.1919V20.729H19.4906V4.00645H24.5531V7.07661H24.7382C25.1084 6.05323 25.7398 5.25121 26.6326 4.67056C27.5253 4.08266 28.5886 3.78871 29.8225 3.78871C30.9983 3.78871 32.018 4.05363 32.8818 4.58347C33.7527 5.10605 34.4277 5.83911 34.9068 6.78266C35.393 7.71895 35.6326 8.81492 35.6253 10.0706V20.729H30.3015V11.1157C30.3088 10.1867 30.0729 9.46089 29.5939 8.9383C29.1221 8.41572 28.4652 8.15444 27.6233 8.15444C27.0644 8.15444 26.5709 8.27782 26.1426 8.5246C25.7217 8.76411 25.3951 9.10887 25.1628 9.55887C24.9378 10.0089 24.8217 10.5532 24.8144 11.1919Z" fill="#FFFFFF"/><path d="M55.9861 4.00645V7.92581L47.6466 8.02923V4.00645H55.9861ZM47.6466 0H52.9704V15.4706C52.9704 15.7972 53.0212 16.0621 53.1228 16.2653C53.2317 16.4613 53.3877 16.6028 53.591 16.6899C53.7942 16.7698 54.0373 16.8097 54.3204 16.8097C54.5236 16.8097 54.7377 16.7915 54.9627 16.7552C55.195 16.7117 55.3692 16.6754 55.4853 16.6464L56.291 20.4895C56.0369 20.5621 55.6777 20.6528 55.2131 20.7617C54.7559 20.8706 54.2079 20.9395 53.5692 20.9685C52.3208 21.0266 51.2502 20.8815 50.3575 20.5331C49.472 20.1774 48.7934 19.6258 48.3216 18.8782C47.8571 18.1306 47.6321 17.1907 47.6466 16.0585V0Z" fill="#FFFFFF"/><path d="M67.4171 4.00645V7.92581L59.2284 7.96957V3.98479L67.4171 4.00645ZM59.0775 0H64.4013V15.4706C64.4013 15.7972 64.4521 16.0621 64.5538 16.2653C64.6626 16.4613 64.8187 16.6028 65.0219 16.6899C65.2251 16.7698 65.4683 16.8097 65.7513 16.8097C65.9546 16.8097 66.1687 16.7915 66.3937 16.7552C66.6259 16.7117 66.8001 16.6754 66.9163 16.6464L67.7219 20.4895C67.4679 20.5621 67.1086 20.6528 66.6441 20.7617C66.1868 20.8706 65.6388 20.9395 65.0001 20.9685C63.7517 21.0266 62.6812 20.8815 61.7884 20.5331C60.903 20.1774 60.2243 19.6258 59.7525 18.8782C59.288 18.1306 59.063 17.1907 59.0775 16.0585V0Z" fill="#FFFFFF"/><path d="M74.6191 27C73.9804 27 73.378 26.9492 72.8119 26.8476C72.2457 26.7532 71.7595 26.6262 71.353 26.4665L72.5288 22.6016C73.0514 22.7758 73.5232 22.8774 73.9441 22.9065C74.3724 22.9355 74.7389 22.8665 75.0437 22.6996C75.3558 22.5399 75.5953 22.2532 75.7623 21.8395L75.9691 21.3387L70.0248 4.00645H75.599L78.68 15.9387H78.8542L81.9788 4.00645H87.5857L81.282 22.3294C80.9772 23.244 80.5453 24.0496 79.9865 24.7464C79.4349 25.4504 78.7199 26.002 77.8417 26.4012C76.9707 26.8004 75.8966 27 74.6191 27Z" fill="#FFFFFF"/><path d="M44.1949 8.33182V20.7475H39.1234V8.33182H44.1949Z" fill="#FFFFFF"/><circle cx="41.6591" cy="3.26028" r="3.26028" fill="#C1FD3A"/></svg>© 2026 Unity LLC</span><span class="foot-links"><a href="tel:+995322055060" data-cta="footer-phone">+995 32 205 50 60</a><a href="mailto:digital@unitty.io">digital@unitty.io</a></span></div></footer>
 
-<aside class="vpop" id="vpop" hidden aria-label="ვიდეო: გიორგი კორძახია, Unitty-ს CEO">
+<aside class="vpop" id="vpop" hidden aria-label="ვიდეო: ბანკი → NBG → CRM ინტეგრაცია">
   <div class="vp-media" id="vpMedia">
     <!-- Webflow: self-hosted MP4 540x960 (~7 MB) or YouTube QruRi7RQ5HA -->
-    <video id="vpVideo" class="vp-video" data-src="/banks/media/giorgi-540.mp4?v=2" poster="/banks/media/giorgi-poster.jpg" muted loop playsinline preload="none" aria-label="გიორგი კორძახია, Unitty-ს CEO, CRM დანერგვის შესახებ"></video>
+    <video id="vpVideo" class="vp-video" data-src="/banks/media/bank-motion-540.mp4?v=1" poster="/banks/media/bank-motion-poster.jpg" muted loop playsinline preload="none" aria-label="ბანკი → NBG → CRM: ინტეგრაცია მოძრაობაში"></video>
     <div class="vp-shade" aria-hidden="true"></div>
     <button class="vp-play" id="vpPlay" type="button" aria-label="ვიდეოს ჩართვა" hidden><svg width="22" height="22" viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 1.2l6 3.8-6 3.8z" fill="currentColor"/></svg></button>
     <div class="vp-top"><span class="vp-live" id="vpTime">1:02</span><button class="vp-x" id="vpClose" type="button" aria-label="ვიდეოს დამალვა">×</button></div>
@@ -1069,12 +1067,12 @@ dialog p{color:var(--dim)}
       <svg class="on" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>
       <span>ჩართე ხმა</span></button>
     </div>
-    <div class="vp-cap"><b>გიორგი კორძახია</b><span>CEO · 500+ დანერგვა</span></div>
+    <div class="vp-cap"><b>ბანკი → NBG → CRM</b><span>Unitty-ის ავტომატიზაცია</span></div>
     <div class="vp-prog" aria-hidden="true"><i id="vpProg"></i></div>
   </div>
   <a href="#lead" class="vp-cta" data-cta="video">მოითხოვე უფასო კონსულტაცია</a>
 </aside>
-<button class="vbubble" id="vbubble" type="button"><span class="pl" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z" fill="currentColor"/></svg></span>გიორგის ვიდეო</button>
+<button class="vbubble" id="vbubble" type="button"><span class="pl" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z" fill="currentColor"/></svg></span>ნახე მოძრაობაში</button>
 
 <div class="mcta" id="mcta"><a href="#lead" class="btn btn-primary" data-cta="sticky">მოითხოვე უფასო კონსულტაცია</a><a href="tel:+995322055060" class="btn call" id="mctaCall" hidden aria-label="დარეკე +995 32 205 50 60"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></a></div>
 
@@ -1152,19 +1150,7 @@ if(!RM.matches){
   const p=$('#uline'); if(p){ p.animate([{strokeDashoffset:600},{strokeDashoffset:0}],{duration:900,delay:700,easing:'cubic-bezier(.2,.7,.1,1)',fill:'backwards'}); }
 }
 
-/* COUNTDOWN: always starts at 15:00 on every visit, restarts at 00:00 */
-const TOTAL=15*60, digits=[0,1,2,3].map(i=>$('#d'+i)), tBar=$('#tBar'), timerEl=$('.timer');
-let tStart=Date.now(), lastTxt='';
-function tRender(){
-  let left=TOTAL-Math.floor((Date.now()-tStart)/1000);
-  if(left<=0){ tStart=Date.now(); left=TOTAL; }
-  const m=String(Math.floor(left/60)).padStart(2,'0'), sec=String(left%60).padStart(2,'0'), txt=m+sec;
-  if(txt!==lastTxt){ [...txt].forEach((ch,i)=>{ if(ch!==lastTxt[i]){ const d=digits[i]; d.textContent=ch; if(!RM.matches){ d.classList.remove('tick'); void d.offsetWidth; d.classList.add('tick'); } } }); lastTxt=txt;
-    $('#timer').setAttribute('aria-label',T('დარჩენილი დრო: ')+m+T(' წუთი ')+sec+T(' წამი')); }
-  tBar.style.transform='scaleX('+(left/TOTAL).toFixed(4)+')';
-  timerEl.classList.toggle('low',left<=60);
-}
-tRender(); setInterval(tRender,250);
+/* banks-v02: no countdown timer; hero shows the bank→NBG→CRM motion video instead */
 
 /* CEO VIDEO POP-UP: autoplays muted (browser rule), sound turns on at the first click/tap/key anywhere */
 const vpop=$('#vpop'), vbub=$('#vbubble'), vSound=$('#vpSound'), vProg=$('#vpProg'), vid=$('#vpVideo'), vTime=$('#vpTime');
