@@ -8,7 +8,7 @@
 <title>ბანკის ინტეგრაცია CRM-ში: TBC, BOG, NBG | Unitty</title>
 <meta name="description" content="ბანკის ტრანზაქციები CRM-ში ავტომატურად: TBC, საქართველოს ბანკი, NBG-ის კურსი. ავტომატური შეჯერება და განვადების გრაფიკი. მოითხოვე უფასო 20-წუთიანი ზარი.">
 <meta name="unitty-landing" content="banks">
-<meta name="unitty-version" content="v04-2026-11-05">
+<meta name="unitty-version" content="v05-2026-11-05">
 <link rel="canonical" href="https://banks.unitty.io/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
@@ -33,7 +33,7 @@
 <link rel="preload" href="/fonts/TBCContracticaCAPS-Black.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/TBCContractica-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/JetBrainsMono-Medium.woff2" as="font" type="font/woff2" crossorigin>
-<script src="/tracking.js?v=v04-2026-11-05" defer></script>
+<script src="/tracking.js?v=v05-2026-11-05" defer></script>
 <style>
 /* self-hosted brand fonts (same files as every Unitty landing) */
 @font-face{font-family:'Unitty Head';font-weight:700 900;font-style:normal;font-display:swap;src:url('/fonts/TBCContracticaCAPS-Black.woff2') format('woff2')}
@@ -441,7 +441,16 @@ img,svg{max-width:100%}
 /* ===== banks: time-waste 3-step story section ===== */
 .sec-sub{margin:10px 0 0;color:var(--dim);font:500 16px/1.5 var(--f-body);max-width:640px}
 .time-steps{display:grid;gap:16px;margin-top:40px}
-@media(min-width:768px){.time-steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}}
+@media(min-width:768px){.time-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}}
+.tstep-time-auto{color:var(--lime)!important;background:rgba(193,253,58,.14)!important;border-color:var(--lime-line)!important}
+/* SMS notification mock */
+.tv-sms{width:100%;display:flex;flex-direction:column;gap:10px}
+.tv-sms-bar{font:600 11.5px var(--f-mono);color:var(--dim);padding-bottom:8px;border-bottom:1px solid var(--line)}
+.tv-sms-body{padding:10px 12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column;gap:3px}
+.tv-sms-body p{margin:0;font:500 12.5px/1.45 var(--f-body);color:var(--fg)}
+.tv-sms-body b{font-weight:800;color:var(--lime)}
+.tv-sms-foot{font:600 11.5px var(--f-mono);color:var(--dim);display:flex;align-items:center;gap:6px}
+.tv-sms-foot .ck{width:16px;height:16px;display:grid;place-items:center;border-radius:50%;background:var(--lime);color:#000;font-weight:800;font-size:10px}
 .tstep{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:24px;display:flex;flex-direction:column;gap:12px;transition:border-color .35s}
 .tstep:hover{border-color:var(--line-2)}
 .tstep-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -630,21 +639,20 @@ dialog p{color:var(--dim)}
 
 
 /* ===== banks: hero motion-design visualization (bank → NBG → CRM money flow) ===== */
-.hero-vis{display:flex;flex-direction:column;align-items:center;gap:4px;margin-block:4px;padding:18px 20px 14px;border:1px solid var(--line-2);border-radius:20px;background:linear-gradient(180deg,rgba(193,253,58,.06),rgba(255,255,255,.01));width:min(100%,380px)}
-.hv-stage{position:relative;width:100%;aspect-ratio:5/3;color:var(--mute)}
+.hero-vis{display:flex;flex-direction:column;align-items:center;gap:2px;margin-block:4px;padding:16px 18px 12px;border:1px solid var(--line-2);border-radius:20px;background:linear-gradient(180deg,rgba(193,253,58,.06),rgba(255,255,255,.01));width:min(100%,380px)}
+.hv-stage{position:relative;width:100%;aspect-ratio:400/170;color:var(--mute)}
 .hv-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
-.hv-node{position:absolute;display:flex;flex-direction:column;align-items:center;gap:4px;line-height:1}
-.hv-ico{width:60px;height:60px;display:grid;place-items:center;border-radius:16px;background:var(--surface-2);border:1px solid var(--line);font-size:30px;line-height:1}
+.hv-node{position:absolute;display:flex;flex-direction:column;align-items:center;gap:3px;line-height:1}
+.hv-ico{width:52px;height:52px;display:grid;place-items:center;border-radius:14px;background:var(--surface-2);border:1px solid var(--line);font-size:26px;line-height:1}
 .hv-ico.crm{background:var(--lime);border-color:var(--lime-line)}
-.hv-lbl{font:700 12.5px var(--f-body);color:var(--fg);letter-spacing:.01em}
-.hv-sub{font:600 10.5px var(--f-mono);color:var(--dim);letter-spacing:.04em}
-.n-bank{left:0;top:40%;transform:translateY(-50%)}
-.n-nbg{left:50%;top:-4px;transform:translateX(-50%)}
-.n-crm{right:0;top:40%;transform:translateY(-50%)}
-.hv-badges{display:flex;flex-direction:column;gap:6px;width:100%;align-items:center}
-.hv-badge{background:rgba(193,253,58,.12);border:1px solid var(--lime-line);border-radius:999px;padding:7px 16px;font:600 13px var(--f-body);color:var(--fg);display:inline-flex;align-items:center;gap:6px;max-width:100%}
-.hv-badge s{color:var(--mute);text-decoration-thickness:2px}
-.hv-badge b{color:var(--fg);font-weight:800}
+.hv-lbl{font:700 11.5px var(--f-body);color:var(--fg);letter-spacing:.01em}
+.hv-sub{font:600 10px var(--f-mono);color:var(--dim);letter-spacing:.04em}
+.n-bank{left:0;top:50%;transform:translateY(-50%)}
+.n-nbg{left:50%;top:-2px;transform:translateX(-50%)}
+.n-crm{right:0;top:50%;transform:translateY(-50%)}
+.hv-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;width:100%;margin-top:0}
+.hv-chip{background:rgba(193,253,58,.1);border:1px solid var(--lime-line);border-radius:999px;padding:4px 10px 4px 8px;font:600 12px var(--f-mono);color:var(--fg);display:inline-flex;align-items:center;gap:4px;line-height:1.1}
+.hv-chip::before{content:"✓";color:var(--lime);font-weight:800;font-size:11px}
 @media (prefers-reduced-motion:reduce){.hv-lines text{display:none}}
 /* ===== v2: centred hero + countdown ===== */
 .hero{padding-block:64px 56px}
@@ -828,16 +836,16 @@ dialog p{color:var(--dim)}
   <div class="wrap hero-c">
     <h1 class="display h1" id="h1" data-hero>
       <span class="ln">ბანკის ინტეგრაცია</span>
-      <span class="ln"><span class="mark">შენს სისტემასთან<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path id="uline" d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></span>
+      <span class="ln"><span class="mark">საათების დასაზოგად<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path id="uline" d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></span>
     </h1>
-    <p class="lead" data-hero>დაგიმუშავებთ თითოეულ ტრანზაქციას წამებში, თქვენი რუტინის შესაბამისად.</p>
-    <div class="hero-vis" data-hero role="img" aria-label="BANK → NBG → CRM: ავტომატური ინტეგრაცია, 15 წთ იქცევა 0 წთ-ად თითო ტრანზაქციაზე">
+    <p class="lead" data-hero>დაგიმუშავებთ თითოეულ ტრანზაქციას წამებში, თქვენი რუტინის/ლოგიკის შესაბამისად.</p>
+    <div class="hero-vis" data-hero role="img" aria-label="BANK → NBG → CRM: Banks, NBG, Sheets, CRM და SMS ერთ ავტომატურ ინტეგრაციაში">
       <div class="hv-stage">
-        <svg class="hv-lines" viewBox="0 0 400 240" aria-hidden="true">
+        <svg class="hv-lines" viewBox="0 0 400 170" aria-hidden="true">
           <defs>
-            <path id="hv-p1" d="M 72,118 L 196,48"/>
-            <path id="hv-p2" d="M 204,48 L 328,118"/>
-            <path id="hv-p3" d="M 72,142 L 328,142"/>
+            <path id="hv-p1" d="M 72,100 L 196,42"/>
+            <path id="hv-p2" d="M 204,42 L 328,100"/>
+            <path id="hv-p3" d="M 72,124 L 328,124"/>
           </defs>
           <g stroke="currentColor" stroke-dasharray="4 5" stroke-width="1.6" fill="none" opacity=".4">
             <use href="#hv-p1"/><use href="#hv-p2"/><use href="#hv-p3"/>
@@ -852,8 +860,12 @@ dialog p{color:var(--dim)}
         <div class="hv-node n-nbg"><div class="hv-ico"><span aria-hidden="true">🏛️</span></div><div class="hv-lbl">NBG</div><div class="hv-sub">$ → ₾</div></div>
         <div class="hv-node n-crm"><div class="hv-ico crm"><span aria-hidden="true">💡</span></div><div class="hv-lbl">CRM</div></div>
       </div>
-      <div class="hv-badges">
-        <div class="hv-badge"><span aria-hidden="true">⏱️</span> <s>15 წთ</s> → <b>0 წთ</b></div>
+      <div class="hv-chips">
+        <span class="hv-chip">Banks</span>
+        <span class="hv-chip">NBG</span>
+        <span class="hv-chip">Sheets</span>
+        <span class="hv-chip">CRM</span>
+        <span class="hv-chip">SMS</span>
       </div>
     </div>
     <div class="cta-row" data-hero>
@@ -887,7 +899,7 @@ dialog p{color:var(--dim)}
     <div class="time-steps">
       <div class="tstep rv">
         <div class="tstep-top"><span class="tstep-ico" aria-hidden="true">🏷️</span><span class="tstep-time">~5 წთ</span></div>
-        <h3 class="h3">ეძებს ვინ ჩარიცხა</h3>
+        <h3 class="h3">არ მოგიწევს ხელით ძებნა</h3>
         <p>ბანკის ამონაწერში პოულობს გამგზავნს და თანხას, ცდილობს დაუკავშიროს კლიენტს.</p>
         <div class="tstep-vis" aria-hidden="true">
           <div class="tv-sheet">
@@ -905,7 +917,7 @@ dialog p{color:var(--dim)}
       </div>
       <div class="tstep rv">
         <div class="tstep-top"><span class="tstep-ico" aria-hidden="true">🧾</span><span class="tstep-time">~7 წთ</span></div>
-        <h3 class="h3">პოულობს ინვოისს და ამოწმებს</h3>
+        <h3 class="h3">თავად ჩახურავს ინვოისს</h3>
         <p>ინვოისს ემთხვევა თუ არა თანხა. განვადება: რამდენი გადაიხადა, რამდენი დარჩა.</p>
         <div class="tstep-vis" aria-hidden="true">
           <div class="tv-inv">
@@ -922,7 +934,7 @@ dialog p{color:var(--dim)}
       </div>
       <div class="tstep rv">
         <div class="tstep-top"><span class="tstep-ico" aria-hidden="true">✏️</span><span class="tstep-time">~3 წთ</span></div>
-        <h3 class="h3">ხელით ცვლის სტატუსს</h3>
+        <h3 class="h3">მიუთითებს შესაბამის სტატუსს</h3>
         <p>CRM-ში ან Excel-ში ხელით ცვლის სტატუსს, გადახდილად ნიშნავს და ინახავს ცვლილებებს.</p>
         <div class="tstep-vis" aria-hidden="true">
           <div class="tv-crm">
@@ -932,6 +944,23 @@ dialog p{color:var(--dim)}
               <span class="tv-val"><s>გაუხდელი</s> <span class="arr">→</span> <b>გადახდილი ✓</b></span>
             </div>
             <div class="tv-crm-hint"><span class="cursor">↖</span> ხელით შეცვლა</div>
+          </div>
+          <span class="demo-tag">სადემონსტრაციო</span>
+        </div>
+      </div>
+      <div class="tstep rv">
+        <div class="tstep-top"><span class="tstep-ico" aria-hidden="true">🔔</span><span class="tstep-time tstep-time-auto">ავტომატურად</span></div>
+        <h3 class="h3">შეახსენებს გადახდის მოახლოებას</h3>
+        <p>SMS-ით ან ელფოსტით შეახსენებს კლიენტს, როცა გადახდის ვადა უახლოვდება - follow-up-ის გარეშე.</p>
+        <div class="tstep-vis" aria-hidden="true">
+          <div class="tv-sms">
+            <div class="tv-sms-bar">📱 SMS · +995 598 ...</div>
+            <div class="tv-sms-body">
+              <p>გამარჯობა, თ. ფირცხ...</p>
+              <p>გაუხდელი თანხა: <b>400 ₾</b></p>
+              <p>ვადა: <b>25 ნოემბერს</b></p>
+            </div>
+            <div class="tv-sms-foot"><span class="ck">✓</span> გაიგზავნა · 3 დღით ადრე</div>
           </div>
           <span class="demo-tag">სადემონსტრაციო</span>
         </div>
@@ -1119,7 +1148,7 @@ dialog p{color:var(--dim)}
   </div>
   <a href="#lead" class="vp-cta" data-cta="video">მოითხოვე უფასო კონსულტაცია</a>
 </aside>
-<button class="vbubble" id="vbubble" type="button"><span class="pl" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z" fill="currentColor"/></svg></span>ნახე მოძრაობაში</button>
+<button class="vbubble" id="vbubble" type="button"><span class="pl" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 10 10"><path d="M2 1l7 4-7 4z" fill="currentColor"/></svg></span>ვიდეოს ნახვა</button>
 
 <div class="mcta" id="mcta"><a href="#lead" class="btn btn-primary" data-cta="sticky">მოითხოვე უფასო კონსულტაცია</a><a href="tel:+995322055060" class="btn call" id="mctaCall" hidden aria-label="დარეკე +995 32 205 50 60"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></a></div>
 
