@@ -1,8 +1,8 @@
 {
   "name": "banks",
-  "version": "v03-2026-11-05",
+  "version": "v04-2026-11-05",
   "standalone": "banks.page.html",
   "standalone_i18n": "banks.page.i18n.py",
-  "_note": "banks.unitty.io: cloned from crm.unitty.io (crm-v95) on 2026-11-05 then diverged. v03 replaced the hero video embed with a CSS/SVG motion-design visualisation (bank↔NBG↔CRM money flow), rewrote the story section as 3 time-cost cards under \"რამდენ დროს კარგავ?\", renamed the service to \"ბანკის ინტეგრაცია\" throughout meta/headings/FAQ/schema, and retitled the pricing heading to \"აირჩიე ინტეგრაციის მოდელი\". FAQ answers and process-steps body still carry crm clone content pending a later round.",
+  "_note": "banks.unitty.io: cloned from crm.unitty.io (crm-v95) on 2026-11-05 then diverged. v04 rewrote the hero copy (\"ბანკის ინტეგრაცია / შენს სისტემასთან\", new lead), trimmed the hero visualisation (BANK label, lightbulb CRM icon, single time badge, tighter spacing) and added demo-stage visual mock-ups to each tstep card (TBC bank statement search, invoice & schedule check, manual CRM status change). Restored const DESK=matchMedia that had been inadvertently removed with the story-chapters JS in v03 and was breaking the lead form submission + phone field. Replaced every em-dash with a hyphen. FAQ answers and process-steps body still carry crm clone content pending a later round.",
   "description": "ბანკის ტრანზაქციები CRM-ში ავტომატურად: TBC, საქართველოს ბანკი, NBG-ის კურსი. ავტომატური შეჯერება და განვადების გრაფიკი. მოითხოვე უფასო 20-წუთიანი ზარი."
 }

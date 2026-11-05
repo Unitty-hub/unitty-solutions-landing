@@ -454,6 +454,45 @@ img,svg{max-width:100%}
 .tt-eq{font:600 16px/1.4 var(--f-body);color:var(--fg)}
 .tt-eq s{color:var(--mute);text-decoration-thickness:2px;margin-right:4px}
 .tt-eq b{color:var(--fg);font-weight:800}
+/* tstep visual mock-ups (demo-stage style, Unitty-consistent) */
+.tstep-vis{position:relative;margin-top:14px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--bg-2);font-family:var(--f-mono);font-size:12.5px;line-height:1.45;color:var(--fg);min-height:170px;display:flex;align-items:center;justify-content:center}
+.tstep-vis .demo-tag{position:absolute;top:8px;right:8px;font:600 9.5px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:999px;padding:3px 8px}
+/* bank statement */
+.tv-sheet{position:relative;width:100%}
+.tv-sheet-bar{font:600 11.5px var(--f-mono);color:var(--dim);padding-bottom:8px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.tv-sheet-grid{display:grid;grid-template-columns:auto auto 1fr;gap:5px 10px;align-items:center}
+.tv-sheet-grid>span{padding:2px 0;color:var(--dim)}
+.tv-sheet-grid>span:nth-child(3n){color:var(--fg)}
+.tv-sheet-grid>.hit{background:rgba(193,253,58,.12);color:var(--fg);border-radius:4px;padding:2px 6px;font-weight:700}
+.tv-sheet-grid>.hit.q{color:var(--lime);font-weight:800}
+.tv-sheet-cursor{position:absolute;right:-4px;top:58%;font-size:18px;opacity:.85;animation:tvPulse 1.6s ease-in-out infinite}
+@keyframes tvPulse{0%,100%{transform:translateX(0)}50%{transform:translateX(-10px)}}
+/* invoice + schedule */
+.tv-inv{width:100%}
+.tv-inv-bar{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:8px;border-bottom:1px solid var(--line);margin-bottom:10px;font:600 12px var(--f-mono)}
+.tv-inv-bar b{font-weight:800;color:var(--fg)}
+.tv-sched{display:grid;gap:5px}
+.tv-s-row{display:grid;grid-template-columns:22px 1fr auto;gap:8px;align-items:center;padding:4px 8px;border-radius:6px;background:rgba(255,255,255,.02)}
+.tv-s-row .ck{width:20px;height:20px;display:grid;place-items:center;border-radius:50%;background:var(--surface-2);border:1px solid var(--line);font-weight:700;font-size:11px}
+.tv-s-row.ok .ck{background:var(--lime);color:#000;border-color:var(--lime)}
+.tv-s-row.ok .st{color:var(--lime)}
+.tv-s-row.q{background:rgba(193,253,58,.1);border:1px solid var(--lime-line)}
+.tv-s-row.q .ck{color:var(--lime);border-color:var(--lime)}
+.tv-s-row.q .st{color:var(--lime);font-weight:700}
+.tv-s-row.pend{opacity:.55}
+/* manual CRM status change */
+.tv-crm{width:100%}
+.tv-crm-bar{font:600 11.5px var(--f-mono);color:var(--dim);padding-bottom:8px;border-bottom:1px solid var(--line);margin-bottom:10px}
+.tv-crm-field{display:flex;flex-direction:column;gap:6px;padding:10px;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.tv-lbl{font:500 11px var(--f-mono);color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.tv-val{font:600 13px var(--f-body);color:var(--fg);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tv-val s{color:var(--mute);text-decoration-thickness:2px}
+.tv-val .arr{color:var(--mute)}
+.tv-val b{color:var(--lime);font-weight:800}
+.tv-crm-hint{margin-top:8px;font:500 11.5px var(--f-mono);color:var(--dim);display:flex;align-items:center;gap:6px}
+.tv-crm-hint .cursor{font-size:16px;color:var(--lime);animation:tvBob 1.5s ease-in-out infinite}
+@keyframes tvBob{0%,100%{transform:translate(0,0)}50%{transform:translate(-3px,3px)}}
+@media (prefers-reduced-motion:reduce){.tv-sheet-cursor,.tv-crm-hint .cursor{animation:none}}
 /* pricing */
 .price-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;margin-bottom:56px}
 @media(min-width:1024px){.price-top{margin-bottom:80px}}
@@ -591,7 +630,7 @@ dialog p{color:var(--dim)}
 
 
 /* ===== banks: hero motion-design visualization (bank → NBG → CRM money flow) ===== */
-.hero-vis{display:flex;flex-direction:column;align-items:center;gap:14px;margin-block:4px;padding:18px 20px 16px;border:1px solid var(--line-2);border-radius:20px;background:linear-gradient(180deg,rgba(193,253,58,.06),rgba(255,255,255,.01));width:min(100%,380px)}
+.hero-vis{display:flex;flex-direction:column;align-items:center;gap:4px;margin-block:4px;padding:18px 20px 14px;border:1px solid var(--line-2);border-radius:20px;background:linear-gradient(180deg,rgba(193,253,58,.06),rgba(255,255,255,.01));width:min(100%,380px)}
 .hv-stage{position:relative;width:100%;aspect-ratio:5/3;color:var(--mute)}
 .hv-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .hv-node{position:absolute;display:flex;flex-direction:column;align-items:center;gap:4px;line-height:1}
@@ -788,11 +827,11 @@ dialog p{color:var(--dim)}
 <section class="hero" aria-labelledby="h1">
   <div class="wrap hero-c">
     <h1 class="display h1" id="h1" data-hero>
-      <span class="ln">ბანკის ტრანზაქციები</span>
-      <span class="ln"><span class="mark">CRM-ში ავტომატურად<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path id="uline" d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></span>
+      <span class="ln">ბანკის ინტეგრაცია</span>
+      <span class="ln"><span class="mark">შენს სისტემასთან<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path id="uline" d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></span>
     </h1>
-    <p class="lead" data-hero>TBC, საქართველოს ბანკი და NBG-ის კურსი პირდაპირ შენს CRM-ში. 15 წუთი ხელით გადატანა → 0 წუთი თითო ჩარიცხვაზე.</p>
-    <div class="hero-vis" data-hero role="img" aria-label="ბანკი → NBG → CRM: ავტომატური ინტეგრაცია, 15 წუთი → 0 წუთი თითო ტრანზაქციაზე">
+    <p class="lead" data-hero>დაგიმუშავებთ თითოეულ ტრანზაქციას წამებში, თქვენი რუტინის შესაბამისად.</p>
+    <div class="hero-vis" data-hero role="img" aria-label="BANK → NBG → CRM: ავტომატური ინტეგრაცია, 15 წთ იქცევა 0 წთ-ად თითო ტრანზაქციაზე">
       <div class="hv-stage">
         <svg class="hv-lines" viewBox="0 0 400 240" aria-hidden="true">
           <defs>
@@ -809,12 +848,11 @@ dialog p{color:var(--dim)}
             <text fill="#C1FD3A">₾<animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#hv-p3"/></animateMotion></text>
           </g>
         </svg>
-        <div class="hv-node n-bank"><div class="hv-ico"><span aria-hidden="true">🏦</span></div><div class="hv-lbl">ბანკი</div></div>
+        <div class="hv-node n-bank"><div class="hv-ico"><span aria-hidden="true">🏦</span></div><div class="hv-lbl">BANK</div></div>
         <div class="hv-node n-nbg"><div class="hv-ico"><span aria-hidden="true">🏛️</span></div><div class="hv-lbl">NBG</div><div class="hv-sub">$ → ₾</div></div>
-        <div class="hv-node n-crm"><div class="hv-ico crm"><span aria-hidden="true">📊</span></div><div class="hv-lbl">CRM</div></div>
+        <div class="hv-node n-crm"><div class="hv-ico crm"><span aria-hidden="true">💡</span></div><div class="hv-lbl">CRM</div></div>
       </div>
       <div class="hv-badges">
-        <div class="hv-badge"><span aria-hidden="true">✅</span> ₾ პირდაპირ CRM-ში</div>
         <div class="hv-badge"><span aria-hidden="true">⏱️</span> <s>15 წთ</s> → <b>0 წთ</b></div>
       </div>
     </div>
@@ -844,23 +882,59 @@ dialog p{color:var(--dim)}
   <div class="wrap">
     <div class="sec-head rv">
       <h2 class="display h2" id="storyH">რამდენ დროს კარგავ?</h2>
-      <p class="sec-sub">ყოველ ბანკის ჩარიცხვაზე ვიღაც ხელით ასრულებს 3 ნაბიჯს. ყოველი ტრანზაქცია — დაახლოებით 15 წუთი.</p>
+      <p class="sec-sub">ყოველ ბანკის ჩარიცხვაზე ვიღაც ხელით ასრულებს 3 ნაბიჯს. ყოველი ტრანზაქცია - დაახლოებით 15 წუთი.</p>
     </div>
     <div class="time-steps">
       <div class="tstep rv">
         <div class="tstep-top"><span class="tstep-ico" aria-hidden="true">🏷️</span><span class="tstep-time">~5 წთ</span></div>
         <h3 class="h3">ეძებს ვინ ჩარიცხა</h3>
         <p>ბანკის ამონაწერში პოულობს გამგზავნს და თანხას, ცდილობს დაუკავშიროს კლიენტს.</p>
+        <div class="tstep-vis" aria-hidden="true">
+          <div class="tv-sheet">
+            <div class="tv-sheet-bar">📋 TBC ბანკი · ამონაწერი</div>
+            <div class="tv-sheet-grid">
+              <span>15:32</span><span>+1,250 ₾</span><span>თ. ფირცხ...</span>
+              <span>14:08</span><span>+850 ₾</span><span>LTD „მეგა"</span>
+              <span class="hit">11:27</span><span class="hit">+2,100 ₾</span><span class="hit q">???</span>
+              <span>10:14</span><span>+740 ₾</span><span>გ. კაპან...</span>
+            </div>
+            <div class="tv-sheet-cursor">🔍</div>
+          </div>
+          <span class="demo-tag">სადემონსტრაციო</span>
+        </div>
       </div>
       <div class="tstep rv">
         <div class="tstep-top"><span class="tstep-ico" aria-hidden="true">🧾</span><span class="tstep-time">~7 წთ</span></div>
         <h3 class="h3">პოულობს ინვოისს და ამოწმებს</h3>
-        <p>ინვოისს ემთხვევა თუ არა თანხა. განვადება — რამდენი გადაიხადა, რამდენი დარჩა.</p>
+        <p>ინვოისს ემთხვევა თუ არა თანხა. განვადება: რამდენი გადაიხადა, რამდენი დარჩა.</p>
+        <div class="tstep-vis" aria-hidden="true">
+          <div class="tv-inv">
+            <div class="tv-inv-bar"><span>🧾 INV-4521</span><b>2,400 ₾</b></div>
+            <div class="tv-sched">
+              <div class="tv-s-row ok"><span class="ck">✓</span><span>1 · 400 ₾</span><span class="st">გადახდილი</span></div>
+              <div class="tv-s-row ok"><span class="ck">✓</span><span>2 · 400 ₾</span><span class="st">გადახდილი</span></div>
+              <div class="tv-s-row q"><span class="ck">?</span><span>3 · 400 ₾</span><span class="st">ემთხვევა?</span></div>
+              <div class="tv-s-row pend"><span class="ck">4</span><span>400 ₾</span><span class="st">ვადა: 1 დეკ</span></div>
+            </div>
+          </div>
+          <span class="demo-tag">სადემონსტრაციო</span>
+        </div>
       </div>
       <div class="tstep rv">
         <div class="tstep-top"><span class="tstep-ico" aria-hidden="true">✏️</span><span class="tstep-time">~3 წთ</span></div>
         <h3 class="h3">ხელით ცვლის სტატუსს</h3>
         <p>CRM-ში ან Excel-ში ხელით ცვლის სტატუსს, გადახდილად ნიშნავს და ინახავს ცვლილებებს.</p>
+        <div class="tstep-vis" aria-hidden="true">
+          <div class="tv-crm">
+            <div class="tv-crm-bar">💼 CRM · კლიენტი: თ. ფირცხალავა</div>
+            <div class="tv-crm-field">
+              <span class="tv-lbl">სტატუსი</span>
+              <span class="tv-val"><s>გაუხდელი</s> <span class="arr">→</span> <b>გადახდილი ✓</b></span>
+            </div>
+            <div class="tv-crm-hint"><span class="cursor">↖</span> ხელით შეცვლა</div>
+          </div>
+          <span class="demo-tag">სადემონსტრაციო</span>
+        </div>
       </div>
     </div>
     <div class="time-total rv">
@@ -1164,7 +1238,8 @@ if(!RM.matches){
   cnts.forEach(c=>co.observe(c));
 }
 
-/* STORY: banks-v03 — replaced with 3 time-step cards (no pinned chapters, no JS state) */
+/* STORY: banks-v03 replaced with 3 time-step cards. DESK (viewport match) kept here because KINETIC and other blocks below depend on it. */
+const DESK=matchMedia('(min-width:1024px)');
 
 /* KINETIC */
 const kin=$('#kinetic'), words=$$('#kLines .w');
