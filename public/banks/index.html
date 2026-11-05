@@ -8,7 +8,7 @@
 <title>ბანკის ინტეგრაცია CRM-ში: TBC, BOG, NBG | Unitty</title>
 <meta name="description" content="ბანკის ტრანზაქციები CRM-ში ავტომატურად: TBC, საქართველოს ბანკი, NBG-ის კურსი. ავტომატური შეჯერება და განვადების გრაფიკი. მოითხოვე უფასო 20-წუთიანი ზარი.">
 <meta name="unitty-landing" content="banks">
-<meta name="unitty-version" content="v06-2026-11-05">
+<meta name="unitty-version" content="v07-2026-11-05">
 <link rel="canonical" href="https://banks.unitty.io/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
@@ -33,7 +33,7 @@
 <link rel="preload" href="/fonts/TBCContracticaCAPS-Black.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/TBCContractica-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/JetBrainsMono-Medium.woff2" as="font" type="font/woff2" crossorigin>
-<script src="/tracking.js?v=v06-2026-11-05" defer></script>
+<script src="/tracking.js?v=v07-2026-11-05" defer></script>
 <style>
 /* self-hosted brand fonts (same files as every Unitty landing) */
 @font-face{font-family:'Unitty Head';font-weight:700 900;font-style:normal;font-display:swap;src:url('/fonts/TBCContracticaCAPS-Black.woff2') format('woff2')}
@@ -314,15 +314,6 @@ img,svg{max-width:100%}
 .bars-x span{flex:1;text-align:center}
 .demo-tag{position:absolute;right:12px;bottom:10px;font:500 10.5px var(--f-mono);color:var(--mute);z-index:3}
 
-/* kinetic */
-.kinetic{position:relative;border-block:1px solid var(--line);background:var(--bg-2)}
-.kinetic-in{padding-block:96px}
-.kinetic .lines{display:flex;flex-direction:column;gap:.08em;font-size:clamp(36px,7.4vw,118px)}
-.kinetic .w{color:var(--surface-3);transition:color .35s}
-.kinetic .w.on{color:var(--fg)}
-.kinetic .w.on.acc{color:var(--lime)}
-.kinetic.pinned{height:220vh}
-.kinetic.pinned .kinetic-in{position:sticky;top:72px;min-height:calc(100vh - 72px);display:flex;align-items:center}
 
 /* features */
 .feat{display:grid;gap:24px}
@@ -763,7 +754,6 @@ dialog p{color:var(--dim)}
 .stage>.lay{transition:opacity .8s var(--ease),transform .8s var(--ease),filter .8s}
 .story-progress{display:none}
 .story.pinned .story-progress{display:flex;justify-content:center;gap:8px;margin-top:14px;font:500 12px var(--f-mono);color:var(--mute)}
-.kinetic.pinned{height:170vh}
 
 /* ===== v2: lighter features ===== */
 .tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
@@ -952,15 +942,6 @@ dialog p{color:var(--dim)}
     </div>
   </section>
 
-<!-- KINETIC INTERLUDE -->
-<section class="kinetic" id="kinetic" aria-label="Unitty-ს მთავარი სარგებელი">
-  <div class="kinetic-in"><div class="wrap">
-    <p class="display lines" id="kLines">
-      <span><span class="w">ნაკლები</span> <span class="w">რუტინა.</span></span>
-      <span><span class="w acc">მეტი</span> <span class="w acc">ავტომატიზება.</span></span>
-    </p>
-  </div></div>
-</section>
 
 
 
@@ -1242,23 +1223,7 @@ if(!RM.matches){
   cnts.forEach(c=>co.observe(c));
 }
 
-/* STORY: banks-v03 replaced with 3 time-step cards. DESK (viewport match) kept here because KINETIC and other blocks below depend on it. */
-const DESK=matchMedia('(min-width:1024px)');
-
-/* KINETIC */
-const kin=$('#kinetic'), words=$$('#kLines .w');
-const KDESK=()=>DESK.matches && !RM.matches;
-function kMode(){ kin.classList.toggle('pinned',KDESK()); kTick(); }
-function kTick(){
-  if(RM.matches){ words.forEach(w=>w.classList.add('on')); return; }
-  const r=kin.getBoundingClientRect();
-  let p;
-  if(KDESK()){ p=(-r.top)/(r.height-vh()); } else { p=(vh()*0.85-r.top)/(r.height*0.9); }
-  p=Math.max(0,Math.min(1,p));
-  const n=Math.floor(p*(words.length+1)*1.05);
-  words.forEach((w,i)=>w.classList.toggle('on',i<n));
-}
-addEventListener('scroll',()=>requestAnimationFrame(kTick),{passive:true}); DESK.addEventListener?.('change',kMode); kMode();
+/* STORY + KINETIC: banks-v07 removed both sections; DESK dropped since no block needs it anymore */
 
 /* TABS */
 const tabs=$$('.tab');
