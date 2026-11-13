@@ -1,0 +1,8 @@
+{
+  "name": "banks",
+  "version": "v13-2026-11-13",
+  "standalone": "banks.page.html",
+  "standalone_i18n": "banks.page.i18n.py",
+  "_note": "banks.unitty.io v13: h1 line 2 switched to plural \"ავტომატიზაციებით\"; hero lead replaced with the concrete \"კვირაში მინიმუმ 5+ საათს\" time-saving promise (\"ბანკთან ინტეგრაციით, დაგიზოგავთ კვირაში მინიმუმ 5+ საათს, რომელიც ახლა რუტინულ პროცესებზე იხარჯება.\").",
+  "description": "ბანკის ტრანზაქციები CRM-ში ავტომატურად: TBC, საქართველოს ბანკი, NBG-ის კურსი. ავტომატური შეჯერება და განვადების გრაფიკი. მოითხოვე უფასო 20-წუთიანი ზარი."
+}

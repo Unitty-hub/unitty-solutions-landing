@@ -1,8 +1,8 @@
 {
   "name": "banks",
-  "version": "v12-2026-11-13",
+  "version": "v13-2026-11-13",
   "standalone": "banks.page.html",
   "standalone_i18n": "banks.page.i18n.py",
-  "_note": "banks.unitty.io: cloned from crm (crm-v95) on 2026-11-05 then diverged. v12: trust-in row rebuilt as flex-center so 3 stats sit in the middle (was grid 2-col which forced a 2+1 layout, no actual centering); stat border moved to :last-child. Bank logos trimmed from 48px → 36px with a soft \"ინტეგრაცია:\" uppercase label beside them (quieter, more designed). Addon prices toned down: lime/800/18px → dim/600/14px with responsive bump capped at 15px (reads as metadata, not a shouting number). Hero h1 line 2 → \"ჩაგინაცვლებთ რუტინას ავტომატიზაციით\"; hero lead rewritten to \"ბანკთან ინტეგრაციით, შემოსული ტრანზაქციები ავტომატურად დამუშავდება, თქვენს მიერ განსაზღვრული ლოგიკით.\"",
+  "_note": "banks.unitty.io v13: h1 line 2 switched to plural \"ავტომატიზაციებით\"; hero lead replaced with the concrete \"კვირაში მინიმუმ 5+ საათს\" time-saving promise (\"ბანკთან ინტეგრაციით, დაგიზოგავთ კვირაში მინიმუმ 5+ საათს, რომელიც ახლა რუტინულ პროცესებზე იხარჯება.\").",
   "description": "ბანკის ტრანზაქციები CRM-ში ავტომატურად: TBC, საქართველოს ბანკი, NBG-ის კურსი. ავტომატური შეჯერება და განვადების გრაფიკი. მოითხოვე უფასო 20-წუთიანი ზარი."
 }
