@@ -1,8 +1,8 @@
 {
   "name": "banks",
-  "version": "v10-2026-11-13",
+  "version": "v11-2026-11-13",
   "standalone": "banks.page.html",
   "standalone_i18n": "banks.page.i18n.py",
-  "_note": "banks.unitty.io: cloned from crm (crm-v95) on 2026-11-05 then diverged. v10 pricing restructure: main package badge \"ფიქსირებული ფასი\" → \"ერთჯერადად\"; removed the \"ფიქსირებული ფასი\" sub-text next to the price; moved NBG daily rate into the main package's included items (so it ships with the fixed €1,499 / 4,499 ₾ price); add-ons section renamed to \"მხარდაჭერა და ინტეგრაციები\" and expanded from 3 to 7 items (Google Sheets integration, CRM integration, TBC/BOG/NBG monthly support, technical support hourly, consulting hourly); dropped the old \"ბანკის API ლიცენზიები\" footnote entirely; shrunk the remaining VAT + \"typical scenarios\" notes to 13px comment-style. FAQ #3 duration and #4 pricing answers rewritten to match the single-package reality; JSON-LD Service offers switched to one offer and schema FAQ #4 aligned.",
+  "_note": "banks.unitty.io: cloned from crm (crm-v95) on 2026-11-05 then diverged. v11: real TBC/BOG/NBG bank PNG logos uploaded by the user replace the placeholder SVG wordmarks (48x48 rounded, no filter). Hero h1 reshaped to \"ბანკთან ინტეგრაცია / სასურველი ლოგიკით\"; lead rewritten to \"დაგიზოგავთ რუტინაში დახარჯულ დროს - თითოეული ტრანზაქციის ავტომატური დამუშავებით.\"; the Banks·NBG·CRM·Sheets·AI chip row below the motion viz removed; trust stats row centered (now 3 stats, previously drifted after 4.9★ was dropped in v08); form heading → \"20 წუთი, 100+ საათის დასაზოგად\".",
   "description": "ბანკის ტრანზაქციები CRM-ში ავტომატურად: TBC, საქართველოს ბანკი, NBG-ის კურსი. ავტომატური შეჯერება და განვადების გრაფიკი. მოითხოვე უფასო 20-წუთიანი ზარი."
 }

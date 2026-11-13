@@ -8,7 +8,7 @@
 <title>ბანკის ინტეგრაცია CRM-ში: TBC, BOG, NBG | Unitty</title>
 <meta name="description" content="ბანკის ტრანზაქციები CRM-ში ავტომატურად: TBC, საქართველოს ბანკი, NBG-ის კურსი. ავტომატური შეჯერება და განვადების გრაფიკი. მოითხოვე უფასო 20-წუთიანი ზარი.">
 <meta name="unitty-landing" content="banks">
-<meta name="unitty-version" content="v10-2026-11-13">
+<meta name="unitty-version" content="v11-2026-11-13">
 <link rel="canonical" href="https://banks.unitty.io/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
@@ -33,7 +33,7 @@
 <link rel="preload" href="/fonts/TBCContracticaCAPS-Black.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/TBCContractica-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/JetBrainsMono-Medium.woff2" as="font" type="font/woff2" crossorigin>
-<script src="/tracking.js?v=v10-2026-11-13" defer></script>
+<script src="/tracking.js?v=v11-2026-11-13" defer></script>
 <style>
 /* self-hosted brand fonts (same files as every Unitty landing) */
 @font-face{font-family:'Unitty Head';font-weight:700 900;font-style:normal;font-display:swap;src:url('/fonts/TBCContracticaCAPS-Black.woff2') format('woff2')}
@@ -181,7 +181,7 @@ img,svg{max-width:100%}
 
 /* trust bar */
 .trust{border-block:1px solid var(--line);background:var(--bg-2)}
-.trust-in{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+.trust-in{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;justify-content:center;gap:48px}
 @media(min-width:900px){.trust-in{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .stat{padding:24px 16px;display:flex;flex-direction:column;gap:2px;border-right:1px solid var(--line)}
 .stat:nth-child(2n){border-right:0}
@@ -499,7 +499,7 @@ img,svg{max-width:100%}
 .plan-main{display:flex;flex-direction:column;gap:18px}
 .plan-main .plan-name{font-size:32px}
 .bank-logos{display:flex;flex-wrap:wrap;gap:8px}
-.bank-logo-img{height:32px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:.9}
+.bank-logo-img{height:48px;width:48px;object-fit:contain;border-radius:10px}
 .plan-main-list{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}
 .plan-main-list li{position:relative;padding-left:26px;font-size:15.5px;line-height:1.5;color:var(--fg)}
 .plan-main-list li::before{content:"";position:absolute;left:0;top:.42em;width:16px;height:16px;border-radius:50%;background:var(--lime);display:grid}
@@ -843,10 +843,10 @@ dialog p{color:var(--dim)}
 <section class="hero" aria-labelledby="h1">
   <div class="wrap hero-c">
     <h1 class="display h1" id="h1" data-hero>
-      <span class="ln">ბანკის ინტეგრაცია</span>
-      <span class="ln"><span class="mark">ნებისმიერ სისტემასთან<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path id="uline" d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></span>
+      <span class="ln">ბანკთან ინტეგრაცია</span>
+      <span class="ln"><span class="mark">სასურველი ლოგიკით<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path id="uline" d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></span>
     </h1>
-    <p class="lead" data-hero>დაგიმუშავებთ თითოეულ ტრანზაქციას წამებში, სასურველი ლოგიკის შესაბამისად.</p>
+    <p class="lead" data-hero>დაგიზოგავთ რუტინაში დახარჯულ დროს - თითოეული ტრანზაქციის ავტომატური დამუშავებით.</p>
     <div class="hero-vis" data-hero role="img" aria-label="BANK → NBG → CRM: Banks, NBG, Sheets, CRM და SMS ერთ ავტომატურ ინტეგრაციაში">
       <div class="hv-stage">
         <svg class="hv-lines" viewBox="0 0 400 170" aria-hidden="true">
@@ -867,13 +867,6 @@ dialog p{color:var(--dim)}
         <div class="hv-node n-bank"><div class="hv-ico"><span aria-hidden="true">🏦</span></div><div class="hv-lbl">BANK</div></div>
         <div class="hv-node n-nbg"><div class="hv-ico"><span aria-hidden="true">🏛️</span></div><div class="hv-lbl">NBG</div><div class="hv-sub">$ → ₾</div></div>
         <div class="hv-node n-crm"><div class="hv-ico crm"><span aria-hidden="true">💡</span></div><div class="hv-lbl">CRM</div></div>
-      </div>
-      <div class="hv-chips">
-        <span class="hv-chip">Banks</span>
-        <span class="hv-chip">NBG</span>
-        <span class="hv-chip">CRM</span>
-        <span class="hv-chip">Sheets</span>
-        <span class="hv-chip">AI</span>
       </div>
     </div>
     <div class="cta-row" data-hero>
@@ -998,9 +991,9 @@ dialog p{color:var(--dim)}
         <span class="badge">ერთჯერადად</span>
         <h3 class="plan-name">ბანკთან ინტეგრაცია</h3>
         <div class="bank-logos" aria-label="TBC, BOG და NBG ბანკებთან ინტეგრაცია">
-          <img class="bank-logo-img" src="/logos/banks/tbc.svg" alt="TBC" width="80" height="32" loading="lazy" decoding="async">
-          <img class="bank-logo-img" src="/logos/banks/bog.svg" alt="BOG" width="80" height="32" loading="lazy" decoding="async">
-          <img class="bank-logo-img" src="/logos/banks/nbg.svg" alt="NBG" width="80" height="32" loading="lazy" decoding="async">
+          <img class="bank-logo-img" src="/logos/banks/tbc.png" alt="TBC" width="48" height="48" loading="lazy" decoding="async">
+          <img class="bank-logo-img" src="/logos/banks/bog.png" alt="BOG" width="48" height="48" loading="lazy" decoding="async">
+          <img class="bank-logo-img" src="/logos/banks/nbg.png" alt="NBG" width="48" height="48" loading="lazy" decoding="async">
         </div>
         <div class="price"><div class="pl"><span class="amt tnum" data-eur="€1,499" data-gel="4,499 ₾">4,499 ₾</span></div></div>
         <button class="btn btn-primary pick" type="button">დაწყება</button>
@@ -1080,7 +1073,7 @@ dialog p{color:var(--dim)}
 <section class="sec final" id="lead" aria-labelledby="leadH">
   <div class="wrap final-grid">
     <div class="final-copy rv">
-      <h2 class="display" id="leadH">გაჩვენებ როგორ, <span class="accent">ჩაანაცვლო რუტინა</span></h2>
+      <h2 class="display" id="leadH">20 წუთი, <span class="accent">100+ საათის დასაზოგად</span></h2>
       <ul class="micro"><li>კონსულტაცია უფასოა</li><li>ვალდებულების გარეშე</li><li>500+ დანერგვის გამოცდილება</li></ul>
       <div class="host"><img src="/banks/media/giorgi-avatar.jpg" alt="გიორგი კორძახია" width="64" height="64" loading="lazy" decoding="async"><div class="host-txt"><small>კონსულტაციას გაგიწევს</small><b>გიორგი კორძახია</b><span>Unitty-ს CEO</span><ul class="host-tags"><li>12+ წელი CRM-ებში</li><li>500+ დანერგვა</li></ul></div></div>
     </div>
