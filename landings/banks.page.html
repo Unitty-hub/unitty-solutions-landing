@@ -181,10 +181,10 @@ img,svg{max-width:100%}
 
 /* trust bar */
 .trust{border-block:1px solid var(--line);background:var(--bg-2)}
-.trust-in{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;justify-content:center;gap:48px}
+.trust-in{display:flex;flex-wrap:wrap;justify-content:center;align-items:stretch;gap:0}
 @media(min-width:900px){.trust-in{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.stat{padding:24px 16px;display:flex;flex-direction:column;gap:2px;border-right:1px solid var(--line)}
-.stat:nth-child(2n){border-right:0}
+.stat{padding:24px 28px;display:flex;flex-direction:column;gap:2px;border-right:1px solid var(--line);min-width:160px}
+.stat:last-child{border-right:0}
 @media(min-width:900px){.stat{padding:28px 24px}.stat:nth-child(2n){border-right:1px solid var(--line)}.stat:last-child{border-right:0}}
 @media(max-width:899px){.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}}
 .stat .n{font-family:var(--f-display);font-weight:900;font-stretch:78%;font-size:clamp(34px,3.6vw,48px);line-height:1;color:var(--fg)}
@@ -498,8 +498,9 @@ img,svg{max-width:100%}
 .plans.single{grid-template-columns:1fr !important;max-width:720px;margin-inline:auto}
 .plan-main{display:flex;flex-direction:column;gap:18px}
 .plan-main .plan-name{font-size:32px}
-.bank-logos{display:flex;flex-wrap:wrap;gap:8px}
-.bank-logo-img{height:48px;width:48px;object-fit:contain;border-radius:10px}
+.bank-logos{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:-4px}
+.bank-lead{font:500 12px var(--f-mono);letter-spacing:.06em;color:var(--mute);text-transform:uppercase;margin-right:2px}
+.bank-logo-img{height:36px;width:36px;object-fit:contain;border-radius:8px;opacity:.92}
 .plan-main-list{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}
 .plan-main-list li{position:relative;padding-left:26px;font-size:15.5px;line-height:1.5;color:var(--fg)}
 .plan-main-list li::before{content:"";position:absolute;left:0;top:.42em;width:16px;height:16px;border-radius:50%;background:var(--lime);display:grid}
@@ -510,8 +511,8 @@ img,svg{max-width:100%}
 .addon{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
 .addon:last-child{border-bottom:0;padding-bottom:0}
 .addon-name{color:var(--fg);font-size:15px;line-height:1.4;flex:1}
-.addon-price{font:800 18px/1 var(--f-mono);color:var(--lime);white-space:nowrap}
-@media(min-width:768px){.addon-name{font-size:15.5px}.addon-price{font-size:19px}}
+.addon-price{font:600 14px/1.2 var(--f-mono);color:var(--dim);white-space:nowrap;letter-spacing:.01em}
+@media(min-width:768px){.addon-name{font-size:15.5px}.addon-price{font-size:15px}}
 .price-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;margin-bottom:56px}
 @media(min-width:1024px){.price-top{margin-bottom:80px}}
 .cur{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-pill);padding:4px}
@@ -844,9 +845,9 @@ dialog p{color:var(--dim)}
   <div class="wrap hero-c">
     <h1 class="display h1" id="h1" data-hero>
       <span class="ln">ბანკთან ინტეგრაცია</span>
-      <span class="ln"><span class="mark">სასურველი ლოგიკით<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path id="uline" d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></span>
+      <span class="ln"><span class="mark">ჩაგინაცვლებთ რუტინას ავტომატიზაციით<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path id="uline" d="M3 14 C 80 4, 200 4, 297 12"/></svg></span></span>
     </h1>
-    <p class="lead" data-hero>დაგიზოგავთ რუტინაში დახარჯულ დროს - თითოეული ტრანზაქციის ავტომატური დამუშავებით.</p>
+    <p class="lead" data-hero>ბანკთან ინტეგრაციით, შემოსული ტრანზაქციები ავტომატურად დამუშავდება, თქვენს მიერ განსაზღვრული ლოგიკით.</p>
     <div class="hero-vis" data-hero role="img" aria-label="BANK → NBG → CRM: Banks, NBG, Sheets, CRM და SMS ერთ ავტომატურ ინტეგრაციაში">
       <div class="hv-stage">
         <svg class="hv-lines" viewBox="0 0 400 170" aria-hidden="true">
@@ -990,7 +991,7 @@ dialog p{color:var(--dim)}
       <article class="plan plan-main pop rv" data-plan="Bank Integration">
         <span class="badge">ერთჯერადად</span>
         <h3 class="plan-name">ბანკთან ინტეგრაცია</h3>
-        <div class="bank-logos" aria-label="TBC, BOG და NBG ბანკებთან ინტეგრაცია">
+        <div class="bank-logos" aria-label="TBC, BOG და NBG ბანკებთან ინტეგრაცია"><span class="bank-lead">ინტეგრაცია:</span>
           <img class="bank-logo-img" src="/logos/banks/tbc.png" alt="TBC" width="48" height="48" loading="lazy" decoding="async">
           <img class="bank-logo-img" src="/logos/banks/bog.png" alt="BOG" width="48" height="48" loading="lazy" decoding="async">
           <img class="bank-logo-img" src="/logos/banks/nbg.png" alt="NBG" width="48" height="48" loading="lazy" decoding="async">
