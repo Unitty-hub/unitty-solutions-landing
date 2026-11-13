@@ -1,8 +1,8 @@
 {
   "name": "banks",
-  "version": "v14-2026-11-13",
+  "version": "v15-2026-11-13",
   "standalone": "banks.page.html",
   "standalone_i18n": "banks.page.i18n.py",
-  "_note": "banks.unitty.io v14: hero h1 rewritten to \"რუტინული პროცესების / ავტომატიზაცია\" (shorter, sharper).",
+  "_note": "banks.unitty.io v15: bank-logos label \"ინტეგრაცია:\" → \"ბანკები\"; \"დაწყება\" button moved below the tick list (used to sit above); tick-list bullets switched from filled lime dot + nested ✓ to a minimalist lime checkmark stroke; pricing heading \"ღირებულება\" → \"ფასი\"; footnote notes shrunk to 11.5px, centered, lime bullet dots removed; lead form submit button → \"მოთხოვნა\".",
   "description": "ბანკის ტრანზაქციები CRM-ში ავტომატურად: TBC, საქართველოს ბანკი, NBG-ის კურსი. ავტომატური შეჯერება და განვადების გრაფიკი. მოითხოვე უფასო 20-წუთიანი ზარი."
 }

@@ -502,9 +502,9 @@ img,svg{max-width:100%}
 .bank-lead{font:500 12px var(--f-mono);letter-spacing:.06em;color:var(--mute);text-transform:uppercase;margin-right:2px}
 .bank-logo-img{height:36px;width:36px;object-fit:contain;border-radius:8px;opacity:.92}
 .plan-main-list{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}
-.plan-main-list li{position:relative;padding-left:26px;font-size:15.5px;line-height:1.5;color:var(--fg)}
-.plan-main-list li::before{content:"";position:absolute;left:0;top:.42em;width:16px;height:16px;border-radius:50%;background:var(--lime);display:grid}
-.plan-main-list li::after{content:"✓";position:absolute;left:3px;top:.18em;font:800 11px/1 var(--f-mono);color:#000}
+.plan-main-list li{position:relative;padding-left:22px;font-size:15.5px;line-height:1.5;color:var(--fg)}
+.plan-main-list li::before{content:"";position:absolute;left:2px;top:.55em;width:10px;height:5px;border-left:1.5px solid var(--lime);border-bottom:1.5px solid var(--lime);transform:rotate(-45deg)}
+.plan-main-list li::after{content:none}
 .addons{margin-top:28px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:24px 26px}
 .addons-head{margin:0 0 14px;font:700 14px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--lime)}
 .addon-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
@@ -549,12 +549,12 @@ img,svg{max-width:100%}
 .plan details .ticks{margin-top:14px}
 .plan details .ticks li{font-size:14px}
 .plan .plus{font:500 12.5px var(--f-mono);color:var(--lime);margin:14px 0 0}
-.price-foot{margin:36px auto 0;max-width:760px;color:var(--dim);font-size:13px;line-height:1.5;display:flex;justify-content:center}
+.price-foot{margin:36px auto 0;max-width:760px;color:var(--mute);font-size:11.5px;line-height:1.5;display:flex;justify-content:center;text-align:center}
 .price-foot ul.notes{background:transparent;border:0;border-radius:0;padding:0;gap:6px}
 @media(min-width:1024px){.price-foot{font-size:17px}}
 .price-foot .notes{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-.price-foot .notes li{position:relative;padding-left:22px}
-.price-foot .notes li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--lime)}
+.price-foot .notes li{position:relative;padding-left:0}
+.price-foot .notes li::before{content:none}
 
 /* faq */
 .faq-grid{display:grid;gap:32px}
@@ -983,7 +983,7 @@ dialog p{color:var(--dim)}
   <div class="wrap">
     <div class="price-top">
       <div class="sec-head rv" style="margin-bottom:0">
-        <h2 class="display h2" id="priceH">ღირებულება</h2>
+        <h2 class="display h2" id="priceH">ფასი</h2>
       </div>
       <div class="cur rv" role="group" aria-label="ვალუტა"><button type="button" data-cur="gel" aria-pressed="true">GEL ₾</button><button type="button" data-cur="eur" aria-pressed="false">EUR €</button></div>
     </div>
@@ -991,13 +991,12 @@ dialog p{color:var(--dim)}
       <article class="plan plan-main pop rv" data-plan="Bank Integration">
         <span class="badge">ერთჯერადად</span>
         <h3 class="plan-name">ბანკთან ინტეგრაცია</h3>
-        <div class="bank-logos" aria-label="TBC, BOG და NBG ბანკებთან ინტეგრაცია"><span class="bank-lead">ინტეგრაცია:</span>
+        <div class="bank-logos" aria-label="TBC, BOG და NBG ბანკებთან ინტეგრაცია"><span class="bank-lead">ბანკები</span>
           <img class="bank-logo-img" src="/logos/banks/tbc.png" alt="TBC" width="48" height="48" loading="lazy" decoding="async">
           <img class="bank-logo-img" src="/logos/banks/bog.png" alt="BOG" width="48" height="48" loading="lazy" decoding="async">
           <img class="bank-logo-img" src="/logos/banks/nbg.png" alt="NBG" width="48" height="48" loading="lazy" decoding="async">
         </div>
         <div class="price"><div class="pl"><span class="amt tnum" data-eur="€1,499" data-gel="4,499 ₾">4,499 ₾</span></div></div>
-        <button class="btn btn-primary pick" type="button">დაწყება</button>
         <ul class="ticks plan-main-list">
           <li>1 ბანკის API-სთან კავშირი</li>
           <li>თანხის და დანიშნულების მიხედვით ავტომატური შეჯერების წესები</li>
@@ -1006,6 +1005,7 @@ dialog p{color:var(--dim)}
           <li>NBG-ის ყოველდღიური ოფიციალური კურსი (სასურველ ვალუტაზე)</li>
           <li>ჩაწერილი ვიდეო ინსტრუქციები გუნდისთვის</li>
         </ul>
+        <button class="btn btn-primary pick" type="button">დაწყება</button>
       </article>
       <div class="addons rv">
         <h3 class="addons-head">მხარდაჭერა და ინტეგრაციები</h3>
@@ -1092,7 +1092,7 @@ dialog p{color:var(--dim)}
         </div>
         <input type="hidden" name="package" id="package"><input type="hidden" name="utm_source" id="utm">
         <p class="send-err" role="alert">გაგზავნა ვერ მოხერხდა. სცადე ხელახლა ან დაგვირეკე: +995 32 205 50 60.</p>
-        <button class="btn btn-primary" type="submit">მოითხოვე უფასო კონსულტაცია <span class="arr" aria-hidden="true">→</span></button>
+        <button class="btn btn-primary" type="submit">მოთხოვნა <span class="arr" aria-hidden="true">→</span></button>
         <p class="consent">ფორმის გაგზავნით ვეთანხმები შპს „იუნითის“ (unitty.io) მიერ ჩემი მონაცემების დამუშავებას კომუნიკაციისა და პირდაპირი მარკეტინგის მიზნით. თანხმობის გაუქმება ან მონაცემების გასწორება/წაშლა შესაძლებელია ნებისმიერ დროს: digital@unitty.io.</p>
       </div>
       <div class="success" role="status" aria-live="polite"><span class="ok" aria-hidden="true">✓</span><h3 class="h3" id="okTitle">მადლობა!</h3><p class="lead">მოთხოვნა მიღებულია. დაგიკავშირდებით, რომ კონსულტაციის დრო შევათანხმოთ.</p></div>
