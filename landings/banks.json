@@ -1,8 +1,8 @@
 {
   "name": "banks",
-  "version": "v08-2026-11-13",
+  "version": "v10-2026-11-13",
   "standalone": "banks.page.html",
   "standalone_i18n": "banks.page.i18n.py",
-  "_note": "banks.unitty.io: cloned from crm (crm-v95) on 2026-11-05 then diverged. v08: dropped the 4.9★ LinkedIn/Google/G2 stat; renamed story cards to solution-voice (\"შეგახსენებს\", \"შენს მაგივრად მოძებნის\"); updated card 2 body to say the system links or creates a matching client in the CRM; removed the time/auto labels from every tstep card. Pricing restructured: ONE fixed-price package \"ბანკთან ინტეგრაცია\" (€1,499 / 4,499 ₾) with TBC/BOG/NBG badges and 5 included items, plus an Add-ons list underneath (NBG rate €299 / 999 ₾, Google Sheets €399 / 1,199 ₾, CRM €499 / 1,499 ₾). Pricing footnote now switches with the EUR/GEL toggle. Pricing heading → \"ღირებულება\"; form heading → \"გაჩვენებ როგორ ჩაანაცვლო რუტინა\".",
+  "_note": "banks.unitty.io: cloned from crm (crm-v95) on 2026-11-05 then diverged. v10 pricing restructure: main package badge \"ფიქსირებული ფასი\" → \"ერთჯერადად\"; removed the \"ფიქსირებული ფასი\" sub-text next to the price; moved NBG daily rate into the main package's included items (so it ships with the fixed €1,499 / 4,499 ₾ price); add-ons section renamed to \"მხარდაჭერა და ინტეგრაციები\" and expanded from 3 to 7 items (Google Sheets integration, CRM integration, TBC/BOG/NBG monthly support, technical support hourly, consulting hourly); dropped the old \"ბანკის API ლიცენზიები\" footnote entirely; shrunk the remaining VAT + \"typical scenarios\" notes to 13px comment-style. FAQ #3 duration and #4 pricing answers rewritten to match the single-package reality; JSON-LD Service offers switched to one offer and schema FAQ #4 aligned.",
   "description": "ბანკის ტრანზაქციები CRM-ში ავტომატურად: TBC, საქართველოს ბანკი, NBG-ის კურსი. ავტომატური შეჯერება და განვადების გრაფიკი. მოითხოვე უფასო 20-წუთიანი ზარი."
 }

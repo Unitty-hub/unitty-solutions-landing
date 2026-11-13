@@ -8,7 +8,7 @@
 <title>ბანკის ინტეგრაცია CRM-ში: TBC, BOG, NBG | Unitty</title>
 <meta name="description" content="ბანკის ტრანზაქციები CRM-ში ავტომატურად: TBC, საქართველოს ბანკი, NBG-ის კურსი. ავტომატური შეჯერება და განვადების გრაფიკი. მოითხოვე უფასო 20-წუთიანი ზარი.">
 <meta name="unitty-landing" content="banks">
-<meta name="unitty-version" content="v08-2026-11-13">
+<meta name="unitty-version" content="v10-2026-11-13">
 <link rel="canonical" href="https://banks.unitty.io/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
@@ -33,7 +33,7 @@
 <link rel="preload" href="/fonts/TBCContracticaCAPS-Black.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/TBCContractica-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/JetBrainsMono-Medium.woff2" as="font" type="font/woff2" crossorigin>
-<script src="/tracking.js?v=v08-2026-11-13" defer></script>
+<script src="/tracking.js?v=v10-2026-11-13" defer></script>
 <style>
 /* self-hosted brand fonts (same files as every Unitty landing) */
 @font-face{font-family:'Unitty Head';font-weight:700 900;font-style:normal;font-display:swap;src:url('/fonts/TBCContracticaCAPS-Black.woff2') format('woff2')}
@@ -499,7 +499,7 @@ img,svg{max-width:100%}
 .plan-main{display:flex;flex-direction:column;gap:18px}
 .plan-main .plan-name{font-size:32px}
 .bank-logos{display:flex;flex-wrap:wrap;gap:8px}
-.bank-logo{font:800 13px/1 var(--f-mono);letter-spacing:.08em;color:var(--fg);background:var(--surface-2);border:1px solid var(--line-2);border-radius:999px;padding:7px 14px 6px}
+.bank-logo-img{height:32px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:.9}
 .plan-main-list{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}
 .plan-main-list li{position:relative;padding-left:26px;font-size:15.5px;line-height:1.5;color:var(--fg)}
 .plan-main-list li::before{content:"";position:absolute;left:0;top:.42em;width:16px;height:16px;border-radius:50%;background:var(--lime);display:grid}
@@ -548,8 +548,8 @@ img,svg{max-width:100%}
 .plan details .ticks{margin-top:14px}
 .plan details .ticks li{font-size:14px}
 .plan .plus{font:500 12.5px var(--f-mono);color:var(--lime);margin:14px 0 0}
-.price-foot{margin:48px auto 0;max-width:760px;color:var(--fg);font-size:16px;line-height:1.5;display:flex;justify-content:center}
-.price-foot ul.notes{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-card);padding:22px 26px;gap:12px}
+.price-foot{margin:36px auto 0;max-width:760px;color:var(--dim);font-size:13px;line-height:1.5;display:flex;justify-content:center}
+.price-foot ul.notes{background:transparent;border:0;border-radius:0;padding:0;gap:6px}
 @media(min-width:1024px){.price-foot{font-size:17px}}
 .price-foot .notes{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .price-foot .notes li{position:relative;padding-left:22px}
@@ -995,30 +995,27 @@ dialog p{color:var(--dim)}
     </div>
     <div class="plans single">
       <article class="plan plan-main pop rv" data-plan="Bank Integration">
-        <span class="badge">ფიქსირებული ფასი</span>
+        <span class="badge">ერთჯერადად</span>
         <h3 class="plan-name">ბანკთან ინტეგრაცია</h3>
         <div class="bank-logos" aria-label="TBC, BOG და NBG ბანკებთან ინტეგრაცია">
-          <span class="bank-logo">TBC</span>
-          <span class="bank-logo">BOG</span>
-          <span class="bank-logo">NBG</span>
+          <img class="bank-logo-img" src="/logos/banks/tbc.svg" alt="TBC" width="80" height="32" loading="lazy" decoding="async">
+          <img class="bank-logo-img" src="/logos/banks/bog.svg" alt="BOG" width="80" height="32" loading="lazy" decoding="async">
+          <img class="bank-logo-img" src="/logos/banks/nbg.svg" alt="NBG" width="80" height="32" loading="lazy" decoding="async">
         </div>
-        <div class="price"><div class="pl"><span class="amt tnum" data-eur="€1,499" data-gel="4,499 ₾">4,499 ₾</span><span class="side"><span class="once">ფიქსირებული ფასი</span></span></div></div>
+        <div class="price"><div class="pl"><span class="amt tnum" data-eur="€1,499" data-gel="4,499 ₾">4,499 ₾</span></div></div>
         <button class="btn btn-primary pick" type="button">დაწყება</button>
         <ul class="ticks plan-main-list">
           <li>1 ბანკის API-სთან კავშირი</li>
           <li>თანხის და დანიშნულების მიხედვით ავტომატური შეჯერების წესები</li>
           <li>უცნობი გამგზავნების ცალკე სია ხელით გადასამოწმებლად</li>
           <li>ტრანზაქციის დაკავშირება შესაბამის კლიენტთან, კონტრაქტთან ან ინვოისთან</li>
+          <li>NBG-ის ყოველდღიური ოფიციალური კურსი (სასურველ ვალუტაზე)</li>
           <li>ჩაწერილი ვიდეო ინსტრუქციები გუნდისთვის</li>
         </ul>
       </article>
       <div class="addons rv">
-        <h3 class="addons-head">დამატებითი ინტეგრაციები (Add-ons)</h3>
+        <h3 class="addons-head">მხარდაჭერა და ინტეგრაციები</h3>
         <ul class="addon-list">
-          <li class="addon">
-            <span class="addon-name">NBG-ის ყოველდღიური ოფიციალური კურსი (სასურველ ვალუტაზე)</span>
-            <span class="addon-price tnum" data-eur="€299" data-gel="999 ₾">999 ₾</span>
-          </li>
           <li class="addon">
             <span class="addon-name">ტრანზაქციების ასახვა და ავტომატური დამუშავება Google Sheets-ში</span>
             <span class="addon-price tnum" data-eur="€399" data-gel="1,199 ₾">1,199 ₾</span>
@@ -1027,13 +1024,32 @@ dialog p{color:var(--dim)}
             <span class="addon-name">ტრანზაქციების ასახვა და ავტომატური დამუშავება CRM-ში</span>
             <span class="addon-price tnum" data-eur="€499" data-gel="1,499 ₾">1,499 ₾</span>
           </li>
+          <li class="addon">
+            <span class="addon-name">TBC ინტეგრაციის მხარდაჭერა</span>
+            <span class="addon-price tnum" data-eur="€49/თვე" data-gel="139 ₾/თვე">139 ₾/თვე</span>
+          </li>
+          <li class="addon">
+            <span class="addon-name">BOG ინტეგრაციის მხარდაჭერა</span>
+            <span class="addon-price tnum" data-eur="€49/თვე" data-gel="139 ₾/თვე">139 ₾/თვე</span>
+          </li>
+          <li class="addon">
+            <span class="addon-name">NBG ინტეგრაციის მხარდაჭერა</span>
+            <span class="addon-price tnum" data-eur="€29/თვე" data-gel="82 ₾/თვე">82 ₾/თვე</span>
+          </li>
+          <li class="addon">
+            <span class="addon-name">ტექნიკური მხარდაჭერა</span>
+            <span class="addon-price tnum" data-eur="€69/საათი" data-gel="199 ₾/საათი">199 ₾/საათი</span>
+          </li>
+          <li class="addon">
+            <span class="addon-name">კონსულტაცია</span>
+            <span class="addon-price tnum" data-eur="€99/საათი" data-gel="299 ₾/საათი">299 ₾/საათი</span>
+          </li>
         </ul>
       </div>
     </div>
     <div class="price-foot rv">
-      <ul class="notes">
-        <li>ფასებს ემატება დღგ (18%).</li>
-        <li>ბანკის API-ის და CRM-ის ლიცენზიებს პირდაპირ მწარმოებელს უხდი <span class="tnum" data-eur="(TBC €49/თვე, BOG €49/თვე, NBG €29/თვე, შესაბამისი CRM სისტემა ან Google Sheets)" data-gel="(TBC 139₾/თვე, BOG 999₾/თვე, NBG 82₾/თვე, შესაბამისი CRM სისტემა ან Google Sheets)">(TBC 139₾/თვე, BOG 999₾/თვე, NBG 82₾/თვე, შესაბამისი CRM სისტემა ან Google Sheets)</span>.</li>
+      <ul class="notes notes-sm">
+        <li>ფასები არ მოიცავს დღგ-ს.</li>
         <li>პაკეტებში მოცემულია ტიპიური სცენარები. ნებისმიერი დამატებითი დავალება ცალკეულად ფასდება.</li>
       </ul>
     </div>
@@ -1100,8 +1116,8 @@ dialog p{color:var(--dim)}
     <div class="faq rv">
       <details><summary>რა არის „ბანკის ინტეგრაცია" და რას გავაკეთებთ?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>ბანკის ოფიციალური API-ით (TBC, საქართველოს ბანკი) ტრანზაქციები ავტომატურად ჩადის CRM-ში ან Google Sheets-ში. NBG-ის ყოველდღიური კურსით ვალუტები თავისით გადადის ლარში. სისტემა ავტომატურად აბამს ტრანზაქციას შესაბამის ინვოისს და ცვლის სტატუსს. უცნობი გამგზავნები ცალკე სიაში ჩანს ხელით გადასამოწმებლად.</p></div></details>
       <details><summary>რომელ ბანკებთან მუშაობთ?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>TBC ბანკი და საქართველოს ბანკი - ოფიციალური API ინტეგრაციით. NBG-ის ყოველდღიური კურსი - ოფიციალური ეროვნული ბანკიდან. სხვა ბანკის შემთხვევაში ზარზე დავაზუსტებთ, რა ტიპის ინტეგრაცია იქნება შესაძლებელი.</p></div></details>
-      <details><summary>რამდენ ხანს გრძელდება ბანკის ინტეგრაცია?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>სპრინტებად: Bank & Google Sheets 5-10 სამუშაო დღე; Bank & CRM 30 სამუშაო დღე (Sprint 1 - CRM Payments მოდული და ავტომატიზაცია 10 დღე, Sprint 2 - TBC/BOG ტრანზაქციების დამუშავება 15 დღე, Sprint 3 - განვადების გრაფიკის იმპორტი 5 დღე); Bank & CRM + AI დამატებით 10-15 სამუშაო დღე. ვიწყებთ ყველაზე მნიშვნელოვანით და თანდათან ვამატებთ.</p></div></details>
-      <details><summary>რა ღირს ბანკის ინტეგრაცია?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>ფიქსირებული პაკეტები: Bank & Google Sheets €1,490-დან, Bank & CRM €2,990-დან, Bank & CRM + AI €4,990-დან. ფასებს ემატება დღგ (18%). ბანკის API-ის და CRM-ის ლიცენზიებს პირდაპირ მწარმოებელს უხდი. ზუსტ ფასს ზარზე გეტყვით.</p></div></details>
+      <details><summary>რამდენ ხანს გრძელდება ბანკის ინტეგრაცია?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>ძირითადი ინტეგრაცია (1 ბანკი + NBG კურსი) 10-15 სამუშაო დღე. Google Sheets ან CRM დამატებითი ინტეგრაცია - +5-15 დღე თითოზე. სრული პროექტი (CRM Payments მოდული + ავტომატიზაცია + ბანკის ინტეგრაცია + განვადების გრაფიკი) - 30 სამუშაო დღე, 3 სპრინტად. ვიწყებთ ყველაზე მნიშვნელოვანით და თანდათან ვამატებთ.</p></div></details>
+      <details><summary>რა ღირს ბანკის ინტეგრაცია?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>ძირითადი პაკეტი "ბანკთან ინტეგრაცია" - €1,499 / 4,499 ₾, ერთჯერადად. ფასში შედის 1 ბანკის API-სთან კავშირი, ავტომატური შეჯერების წესები, უცნობი გამგზავნების სია, ტრანზაქციის დაკავშირება კლიენტთან/კონტრაქტთან/ინვოისთან, NBG-ის ყოველდღიური კურსი და ვიდეო ინსტრუქციები. ფასები არ მოიცავს დღგ-ს. დამატებითი ინტეგრაციები (Google Sheets, CRM) და მხარდაჭერა (TBC, BOG, NBG, ტექნიკური, კონსულტაცია) ცალკე - იხ. "ღირებულება" სექცია.</p></div></details>
       <details><summary>რა ლიცენზიები მჭირდება ყოველთვიურად?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>TBC Bank API - €49/თვე (წლიური €490), საქართველოს ბანკი API - €49/თვე (წლიური €490), NBG კურსის API - €29/თვე (წლიური €290), შესაბამისი CRM სისტემა (მაგ: Zoho CRM Enterprise €50/მომხმარებელი/თვე) ან Google Sheets (უფასო). ყველა ლიცენზიას პირდაპირ მწარმოებელს უხდი, ოფიციალური ფასით.</p></div></details>
       <details><summary>როგორ მუშაობს ავტომატური შეჯერება?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>ტრანზაქციის დანიშნულების (reference / description) და თანხის მიხედვით სისტემა ავტომატურად აბამს შესაბამის ინვოისს ან კლიენტს. შემოსავლის სრული სურათი რეალურ დროში ჩანს. რასაც სისტემა ვერ ამოიცნობს, ცალკე სიაში ჩანს, რომ ხელით გადაამოწმო.</p></div></details>
       <details><summary>უსაფრთხოა ბანკის CRM-თან დაკავშირება?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>კავშირი ხდება ბანკის ოფიციალური API-ით, დაცული წვდომით. ინტეგრაცია მხოლოდ ანგარიშის მოძრაობას კითხულობს (read-only) - თანხების გაგზავნის უფლება არ აქვს. დაწყებამდე წერილობით გაცნობთ რისკებს და რეკომენდაციებს.</p></div></details>
@@ -1143,8 +1159,8 @@ dialog p{color:var(--dim)}
 {"@context":"https://schema.org","@graph":[
 {"@type":"Organization","name":"Unitty","url":"https://www.unitty.io","telephone":"+995322055060","email":"digital@unitty.io","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","bestRating":"5"}},
 {"@type":"Service","name":"ბანკის ინტეგრაცია CRM-ში (TBC, BOG, NBG)","serviceType":"ბანკის ინტეგრაცია","areaServed":"GE","provider":{"@type":"Organization","name":"Unitty"},
- "offers":[{"@type":"Offer","name":"Bank & Google Sheets","price":"1490","priceCurrency":"EUR"},{"@type":"Offer","name":"Bank & CRM","price":"2990","priceCurrency":"EUR"},{"@type":"Offer","name":"Bank & CRM + AI","price":"4990","priceCurrency":"EUR"}]},
-{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"რა არის „ბანკის ინტეგრაცია" და რას გავაკეთებთ?","acceptedAnswer":{"@type":"Answer","text":"ბანკის ოფიციალური API-ით (TBC, BOG) ტრანზაქციები ავტომატურად ჩადის CRM-ში ან Google Sheets-ში. NBG-ის კურსით ვალუტები თავისით გადადის ლარში. სისტემა აბამს ტრანზაქციას ინვოისს და ცვლის სტატუსს."}},{"@type":"Question","name":"რომელ ბანკებთან მუშაობთ?","acceptedAnswer":{"@type":"Answer","text":"TBC ბანკი და საქართველოს ბანკი ოფიციალური API-ით. NBG-ის ყოველდღიური კურსი."}},{"@type":"Question","name":"რამდენ ხანს გრძელდება ბანკის ინტეგრაცია?","acceptedAnswer":{"@type":"Answer","text":"Bank & Google Sheets 5-10 სამუშაო დღე. Bank & CRM 30 სამუშაო დღე (3 სპრინტი). Bank & CRM + AI დამატებით 10-15 დღე."}},{"@type":"Question","name":"რა ღირს ბანკის ინტეგრაცია?","acceptedAnswer":{"@type":"Answer","text":"Bank & Google Sheets €1,490-დან, Bank & CRM €2,990-დან, Bank & CRM + AI €4,990-დან. ფასებს ემატება დღგ (18%)."}},{"@type":"Question","name":"რა ლიცენზიები მჭირდება?","acceptedAnswer":{"@type":"Answer","text":"TBC API €49/თვე, BOG API €49/თვე, NBG კურსი €29/თვე, შესაბამისი CRM სისტემა ან Google Sheets. პირდაპირ მწარმოებელს უხდი."}},{"@type":"Question","name":"უსაფრთხოა ბანკის CRM-თან დაკავშირება?","acceptedAnswer":{"@type":"Answer","text":"ოფიციალური API-ით, read-only კავშირი. თანხების გაგზავნის უფლება არ აქვს."}}]}
+ "offers":[{"@type":"Offer","name":"ბანკთან ინტეგრაცია","price":"1499","priceCurrency":"EUR"}]},
+{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"რა არის „ბანკის ინტეგრაცია" და რას გავაკეთებთ?","acceptedAnswer":{"@type":"Answer","text":"ბანკის ოფიციალური API-ით (TBC, BOG) ტრანზაქციები ავტომატურად ჩადის CRM-ში ან Google Sheets-ში. NBG-ის კურსით ვალუტები თავისით გადადის ლარში. სისტემა აბამს ტრანზაქციას ინვოისს და ცვლის სტატუსს."}},{"@type":"Question","name":"რომელ ბანკებთან მუშაობთ?","acceptedAnswer":{"@type":"Answer","text":"TBC ბანკი და საქართველოს ბანკი ოფიციალური API-ით. NBG-ის ყოველდღიური კურსი."}},{"@type":"Question","name":"რამდენ ხანს გრძელდება ბანკის ინტეგრაცია?","acceptedAnswer":{"@type":"Answer","text":"Bank & Google Sheets 5-10 სამუშაო დღე. Bank & CRM 30 სამუშაო დღე (3 სპრინტი). Bank & CRM + AI დამატებით 10-15 დღე."}},{"@type":"Question","name":"რა ღირს ბანკის ინტეგრაცია?","acceptedAnswer":{"@type":"Answer","text":"ძირითადი პაკეტი \"ბანკთან ინტეგრაცია\" €1,499 / 4,499 ₾, ერთჯერადად. ფასები არ მოიცავს დღგ-ს. დამატებითი ინტეგრაციები და მხარდაჭერა ცალკე."}},{"@type":"Question","name":"რა ლიცენზიები მჭირდება?","acceptedAnswer":{"@type":"Answer","text":"TBC API €49/თვე, BOG API €49/თვე, NBG კურსი €29/თვე, შესაბამისი CRM სისტემა ან Google Sheets. პირდაპირ მწარმოებელს უხდი."}},{"@type":"Question","name":"უსაფრთხოა ბანკის CRM-თან დაკავშირება?","acceptedAnswer":{"@type":"Answer","text":"ოფიციალური API-ით, read-only კავშირი. თანხების გაგზავნის უფლება არ აქვს."}}]}
 ]}
 </script>
 
