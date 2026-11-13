@@ -1,0 +1,8 @@
+{
+  "name": "banks",
+  "version": "v14-2026-11-13",
+  "standalone": "banks.page.html",
+  "standalone_i18n": "banks.page.i18n.py",
+  "_note": "banks.unitty.io v14: hero h1 rewritten to \"რუტინული პროცესების / ავტომატიზაცია\" (shorter, sharper).",
+  "description": "ბანკის ტრანზაქციები CRM-ში ავტომატურად: TBC, საქართველოს ბანკი, NBG-ის კურსი. ავტომატური შეჯერება და განვადების გრაფიკი. მოითხოვე უფასო 20-წუთიანი ზარი."
+}
