@@ -1,0 +1,7 @@
+{
+  "name": "workplace",
+  "version": "v1-2026-11-23",
+  "standalone": "workplace.page.html",
+  "_note": "workplace.unitty.io v1 (2026-11-23): new standalone landing built on the banks/crm designer page. Sells Zoho Workplace as a 2.3x cheaper alternative to Google Workspace / Microsoft 365: hero price bars, savings calculator, app grid, detailed comparison table, why Zoho + Unitty, 3 steps, Zoho plans (Mail Lite / Standard / Professional, pick -> form), our migration service, testimonials, form (+ optional team size and current tool), FAQ. Hero video popup is wired but off until #vpVideo data-src is set. Georgian only (no i18n file).",
+  "description": "Google Workspace-ის და Microsoft 365-ის ალტერნატივა: ელფოსტა შენს დომენზე, ფაილები, ჩატი და ვიდეოზარები $3-დან. დეტალური შედარება, დანაზოგის კალკულატორი, გადასვლა 3-10 დღეში."
+}

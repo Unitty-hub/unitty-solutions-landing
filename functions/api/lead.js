@@ -36,10 +36,13 @@
 //
 // v65 (2026-10-29, shared chat): Zoho picklist "Language" = Georgian for leads from the Georgian site
 //   (lang "ka", or no lang - all landings are Georgian only since v62), English for "en".
+//
+// v66 (2026-11-23): Service for the new landings workplace.unitty.io ("Zoho Workplace") and creator.unitty.io
+//   ("Software Development").
 
 const ZOHO_API_VERSION = "v6";
 const META_GRAPH_VERSION = "v21.0";
-const LEAD_JS_VERSION = "v65-2026-10-29";
+const LEAD_JS_VERSION = "v66-2026-11-23";
 const MAX_FIELD_RETRIES = 3;
 
 // landing -> Zoho Leads.Service (multi-select picklist values, confirmed 2026-10-29)
@@ -49,6 +52,10 @@ const SERVICE_BY_LANDING = {
   banks: "Process Automation",
   solutions: "Process Automation",
   start: "Consulting",
+  // v66 (2026-11-23): new landings. "Zoho Workplace" must be added to the Zoho Service picklist;
+  // until then Zoho rejects it and the lead is saved without Service (retry logic below).
+  workplace: "Zoho Workplace",
+  creator: "Software Development",
 };
 
 // form "heardFrom" value -> Zoho Leads.Lead_Source picklist value (exact Zoho spelling)

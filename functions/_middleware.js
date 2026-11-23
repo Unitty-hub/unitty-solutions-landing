@@ -8,6 +8,8 @@
 //   ai.unitty.io         -> /ai/
 //   banks.unitty.io      -> /banks/
 //   solutions.unitty.io  -> /solutions/
+//   workplace.unitty.io  -> /workplace/   (2026-11-23)
+//   creator.unitty.io    -> /creator/     (2026-11-23)
 //
 // SEO (v40): every host gets its own robots.txt and sitemap.xml; the *.pages.dev preview host and
 // the thank-you page are kept out of search results (X-Robots-Tag: noindex).
@@ -17,6 +19,8 @@ const HOSTS = {
   "ai.unitty.io": "ai",
   "banks.unitty.io": "banks",
   "solutions.unitty.io": "solutions",
+  "workplace.unitty.io": "workplace",
+  "creator.unitty.io": "creator",
 };
 const PUBLIC_HOSTS = ["start.unitty.io", ...Object.keys(HOSTS)];
 

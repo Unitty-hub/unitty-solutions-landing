@@ -22,8 +22,10 @@ Each chat starts by reading this file and `claude/landings-and-funnel-dashboards
 |---|---|---|
 | **start.unitty.io** | `landings/start.json`, **`landings/start.page.html`** (standalone page since 2026-11-04), start-only files, `public/index.html` *only via the build* | anything else |
 | **crm.unitty.io** | `landings/crm.*` (crm.json, **crm.page.html**, crm.page.i18n.py, crm.process.html, crm.packages.*, crm.extra.html), CRM cards in `landings/pains.html` (crm* cards only), `public/crm/` | anything else |
-| **ai.unitty.io** | `landings/ai.json`, ai-only insert files, `public/ai/` | anything else |
+| **ai.unitty.io** | `landings/ai.json`, **`landings/ai.page.html`** (standalone since v66, 2026-11-23), `public/ai/` (incl. its thank-you copy) | anything else |
 | **banks.unitty.io** | `landings/banks.json`, banks-only insert files, `public/banks/` | anything else |
+| **workplace.unitty.io** (new 2026-11-23) | `landings/workplace.json`, **`landings/workplace.page.html`** (standalone, Georgian only), `public/workplace/` (incl. its thank-you copy) | anything else |
+| **creator.unitty.io** (new 2026-11-23) | `landings/creator.json`, **`landings/creator.page.html`** (standalone, Georgian only), `public/creator/` (incl. its thank-you copy) | anything else |
 | **solutions.unitty.io** | `landings/solutions.json`, `landings/solutions.extra.html`, `public/solutions/` | anything else |
 | **Shared (all landings)** | template `landings/base.html` (header, footer, shared sections of ai / banks / solutions), `public/unitty-v2.css`, `tools/*`, `public/tracking.js`, `functions/*`, `public/thank-you/`, shared pain cards, fonts/logos, this file | — |
 
@@ -122,3 +124,21 @@ reaches CRM only if the CRM chat ports it, or the shared chat edits `crm.page.ht
 - Instagram/Facebook in-app browsers jumped straight to the lead form ~1.5 s after opening a landing from an ad.
   `tracking.js` now undoes any scroll / form-field focus the visitor did not cause during the first 5 s of a fresh
   visit (no #hash, not reload/back). Clarity event `auto_scroll_blocked` shows how often it happens. Do not remove.
+
+## New landings round (2026-11-23)
+
+- Order: workplace → creator → ai → solutions, one at a time with Giorgi's review. All are standalone designer pages
+  built from `banks.page.html` (same nav, trust band, form, tracking, thank-you flow, footer), Georgian only.
+- New subdomain = GoDaddy CNAME `<name>` → `unitty-solutions-landing.pages.dev` + Cloudflare Pages custom domain +
+  `functions/_middleware.js` HOSTS entry + `SERVICE_BY_LANDING` in `functions/api/lead.js` + `public/<name>/thank-you/`.
+- Lead form on new landings: company min 3 chars, placeholder "შპს ...". Hero video popup is wired but stays off until
+  `#vpVideo[data-src]` is set (Giorgi supplies the videos).
+- workplace.unitty.io v1: Zoho Workplace vs Google Workspace / Microsoft 365 (prices Nov 2026, USD, annual), savings
+  calculator, comparison table, Zoho plans (pick → form), optional team size + current tool in the form.
+  Zoho Service picklist needs the value "Zoho Workplace" (lead.js v66 sends it; dropped by the retry until it exists).
+- creator.unitty.io v1: custom software on Zoho Creator ("~10x cheaper than from scratch"), comparison table
+  Creator+Unitty vs from scratch vs off-the-shelf, Creator plans €8/€20/€25 (pick → form), optional team size + process
+  in the form. Zoho Service = "Software Development".
+- ai.unitty.io v66: redesigned as a standalone page (no longer uses base.html). Unitty Chat + Unitty Notes, time
+  calculator, live + coming-soon grid (call transcription, voice assistant, self-filling CRM, reviews autopilot).
+  No price section yet (prices on the call). Optional "interest" + team size in the form.

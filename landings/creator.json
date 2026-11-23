@@ -1,0 +1,7 @@
+{
+  "name": "creator",
+  "version": "v1-2026-11-23",
+  "standalone": "creator.page.html",
+  "_note": "creator.unitty.io v1 (2026-11-23): new standalone landing built on the banks/crm designer page (same CSS layer as workplace v1). Sells custom software on Zoho Creator ('you tell us the process, we build the app, ~10x cheaper than from scratch'): hero process->app visual, use-case grid, comparison table (Creator+Unitty vs from scratch vs off-the-shelf), why Zoho Creator + Unitty, 3 steps, Creator plans (EUR 8/20/25, pick -> form), our development service, testimonials, form (+ optional team size and process), FAQ. Hero video popup wired but off until #vpVideo data-src is set. Georgian only.",
+  "description": "მოგვიყევი შენი პროცესი - Zoho Creator-ზე ავაწყობთ პროგრამას ვებისთვის და მობილურისთვის. კვირებში და არა თვეებში, ნულიდან დაწერის ფასის მცირე ნაწილად."
+}
