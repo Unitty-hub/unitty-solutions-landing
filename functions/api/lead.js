@@ -44,10 +44,12 @@
 //   "Payment: PENDING" go into the Description (SELECTED SOLUTIONS). When env WORKSHOP_FIELDS = "1" the same
 //   data is also written to the custom Lead fields Workshop_Ref, Workshop_Format, Workshop_Track and
 //   Workshop_Payment_Status ("Pending"); set it only after those fields exist in Zoho.
+//
+// v68 (2026-11-24, creator chat, approved by Giorgi): Service for creator.unitty.io = "Creator".
 
 const ZOHO_API_VERSION = "v6";
 const META_GRAPH_VERSION = "v21.0";
-const LEAD_JS_VERSION = "v67-2026-11-24";
+const LEAD_JS_VERSION = "v68-2026-11-24";
 const MAX_FIELD_RETRIES = 3;
 
 // landing -> Zoho Leads.Service (multi-select picklist values, confirmed 2026-10-29)
@@ -60,7 +62,8 @@ const SERVICE_BY_LANDING = {
   // v66 (2026-11-23): new landings. "Zoho Workplace" must be added to the Zoho Service picklist;
   // until then Zoho rejects it and the lead is saved without Service (retry logic below).
   workplace: "Zoho Workplace",
-  creator: "Software Development",
+  // v68 (2026-11-24): creator.unitty.io -> "Creator" (Giorgi). Must be added to the Zoho Service picklist; dropped by the retry until then.
+  creator: "Creator",
   // v67 (2026-11-24): paid workshop. "Workshop" must be added to the Zoho Service picklist (dropped by the retry until then).
   workshop: "Workshop",
 };
