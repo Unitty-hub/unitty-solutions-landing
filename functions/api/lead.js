@@ -39,10 +39,15 @@
 //
 // v66 (2026-11-23): Service for the new landings workplace.unitty.io ("Zoho Workplace") and creator.unitty.io
 //   ("Software Development").
+//
+// v67 (2026-11-24): workshop.unitty.io registrations. The payment ref (WS-xxxxxx), format, track and
+//   "Payment: PENDING" go into the Description (SELECTED SOLUTIONS). When env WORKSHOP_FIELDS = "1" the same
+//   data is also written to the custom Lead fields Workshop_Ref, Workshop_Format, Workshop_Track and
+//   Workshop_Payment_Status ("Pending"); set it only after those fields exist in Zoho.
 
 const ZOHO_API_VERSION = "v6";
 const META_GRAPH_VERSION = "v21.0";
-const LEAD_JS_VERSION = "v66-2026-11-23";
+const LEAD_JS_VERSION = "v67-2026-11-24";
 const MAX_FIELD_RETRIES = 3;
 
 // landing -> Zoho Leads.Service (multi-select picklist values, confirmed 2026-10-29)
@@ -56,6 +61,8 @@ const SERVICE_BY_LANDING = {
   // until then Zoho rejects it and the lead is saved without Service (retry logic below).
   workplace: "Zoho Workplace",
   creator: "Software Development",
+  // v67 (2026-11-24): paid workshop. "Workshop" must be added to the Zoho Service picklist (dropped by the retry until then).
+  workshop: "Workshop",
 };
 
 // form "heardFrom" value -> Zoho Leads.Lead_Source picklist value (exact Zoho spelling)
@@ -164,6 +171,16 @@ export async function onRequestPost(context) {
     Client_User_Agent: clip(server.userAgent, 2000),
     Meta_Event_ID: clip(body.event_id, 100),
   };
+
+  // v67: workshop registration -> optional custom fields (only once they exist in Zoho, see header)
+  const ws = body.workshop && typeof body.workshop === "object" ? body.workshop : null;
+  if (ws && landing === "workshop" && env.WORKSHOP_FIELDS === "1") {
+    lead.Workshop_Ref = clip(ws.ref, 50);
+    lead.Workshop_Format = ws.format === "online" ? "Online" : "Office";
+    lead.Workshop_Track = clip(ws.track, 100);
+    lead.Workshop_Payment_Status = "Pending";
+  }
+  if (ws) console.log("--- workshop registration", JSON.stringify({ ref: ws.ref, format: ws.format, track: ws.track, fields: env.WORKSHOP_FIELDS === "1" }));
 
   for (const k of Object.keys(lead)) {
     if (lead[k] === undefined || lead[k] === null || String(lead[k]).trim() === "") {

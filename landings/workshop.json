@@ -1,0 +1,7 @@
+{
+  "name": "workshop",
+  "version": "v1-2026-11-24",
+  "standalone": "workshop.page.html",
+  "_note": "workshop.unitty.io v1 (2026-11-24): paid 3-hour CRM workshop (2 meetings: 1.5h theory for all + 1.5h practice in 3 tracks: Marketing & Sales / Operations / Finance & Analytics) on Zoho Bigin or Zoho CRM. Office 499 GEL + VAT, online 299 GEL + VAT; value stack 1,000 (3h consulting) + 1,500 (implementation) = 2,500 GEL. No dates on the page. Registration -> /api/lead (lead with Payment ref WS-xxxxxx, Payment: PENDING) -> /workshop/pay/ (bank transfer details + 'გადავიხადე' -> /api/workshop-paid adds a Zoho note). No thank-you page. Pay page is a static file (public/workshop/pay/index.html, built by the landing chat's assemble script from this page's head). Georgian only.",
+  "description": "3-საათიანი ვორქშოფი: 1.5 საათი თეორია და 1.5 საათი პრაქტიკა 3 მიმართულებით. ერთად ავაწყობთ შენს Zoho Bigin-ს ან Zoho CRM-ს. ოფისში 499 ₾, ონლაინ 299 ₾ + დღგ."
+}

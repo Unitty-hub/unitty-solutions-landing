@@ -26,6 +26,7 @@ Each chat starts by reading this file and `claude/landings-and-funnel-dashboards
 | **banks.unitty.io** | `landings/banks.json`, banks-only insert files, `public/banks/` | anything else |
 | **workplace.unitty.io** (new 2026-11-23) | `landings/workplace.json`, **`landings/workplace.page.html`** (standalone, Georgian only), `public/workplace/` (incl. its thank-you copy) | anything else |
 | **creator.unitty.io** (new 2026-11-23) | `landings/creator.json`, **`landings/creator.page.html`** (standalone, Georgian only), `public/creator/` (incl. its thank-you copy) | anything else |
+| **workshop.unitty.io** (new 2026-11-24) | `landings/workshop.json`, **`landings/workshop.page.html`** (standalone), `public/workshop/` incl. the payment page `public/workshop/pay/` | anything else |
 | **solutions.unitty.io** | `landings/solutions.json`, `landings/solutions.extra.html`, `public/solutions/` | anything else |
 | **Shared (all landings)** | template `landings/base.html` (header, footer, shared sections of ai / banks / solutions), `public/unitty-v2.css`, `tools/*`, `public/tracking.js`, `functions/*`, `public/thank-you/`, shared pain cards, fonts/logos, this file | — |
 
@@ -142,3 +143,12 @@ reaches CRM only if the CRM chat ports it, or the shared chat edits `crm.page.ht
 - ai.unitty.io v66: redesigned as a standalone page (no longer uses base.html). Unitty Chat + Unitty Notes, time
   calculator, live + coming-soon grid (call transcription, voice assistant, self-filling CRM, reviews autopilot).
   No price section yet (prices on the call). Optional "interest" + team size in the form.
+- workshop.unitty.io v1 (2026-11-24): paid 3h CRM workshop (Bigin / Zoho CRM), office 499 / online 299 GEL + VAT,
+  value stack 2,500 GEL, 3 practice tracks, no dates. Flow: form -> /api/lead (Description: Payment ref WS-xxxxxx,
+  Payment: PENDING) -> /workshop/pay/ (bank transfer; NO thank-you page) -> "გადავიხადე" -> /api/workshop-paid
+  (verifies ref in the lead Description, adds a Zoho Note, optional Workshop_Payment_Status=Claimed).
+  Final Paid / Not paid is set from the bank statement. Env WORKSHOP_FIELDS=1 only after the Workshop_* fields exist.
+  Pay page IBANs live in the PAY const in public/workshop/pay/index.html; while they contain "XX" the page shows
+  "details by email" instead of accounts.
+- Standing rule (Giorgi 2026-11-23): never use real data or content (client chats, meetings, metrics, names) in
+  landings or mock-ups; always fictional examples.

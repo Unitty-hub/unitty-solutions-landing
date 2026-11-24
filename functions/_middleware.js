@@ -10,6 +10,7 @@
 //   solutions.unitty.io  -> /solutions/
 //   workplace.unitty.io  -> /workplace/   (2026-11-23)
 //   creator.unitty.io    -> /creator/     (2026-11-23)
+//   workshop.unitty.io   -> /workshop/    (2026-11-24; payment page /workshop/pay/ is noindex)
 //
 // SEO (v40): every host gets its own robots.txt and sitemap.xml; the *.pages.dev preview host and
 // the thank-you page are kept out of search results (X-Robots-Tag: noindex).
@@ -21,6 +22,7 @@ const HOSTS = {
   "solutions.unitty.io": "solutions",
   "workplace.unitty.io": "workplace",
   "creator.unitty.io": "creator",
+  "workshop.unitty.io": "workshop",
 };
 const PUBLIC_HOSTS = ["start.unitty.io", ...Object.keys(HOSTS)];
 
@@ -56,7 +58,7 @@ export async function onRequest(context) {
   }
 
   // keep preview hosts and the thank-you page out of search results
-  if (!indexable || url.pathname.startsWith("/thank-you")) {
+  if (!indexable || url.pathname.startsWith("/thank-you") || url.pathname.includes("/pay/")) {
     res = new Response(res.body, res);
     res.headers.set("X-Robots-Tag", "noindex, nofollow");
   }
