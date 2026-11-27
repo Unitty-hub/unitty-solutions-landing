@@ -936,6 +936,11 @@ input[type=range]:focus-visible{outline:2px solid var(--lime);outline-offset:4px
 .svc .btn{flex:none}
 @media(max-width:899px){.svc .btn{width:100%}}
 #pricing .plans{margin-top:8px}
+.plan .guar{display:flex;gap:10px;align-items:flex-start;margin:0;background:var(--lime-soft);border:1px solid var(--lime-line);border-radius:var(--r-ui);padding:12px 14px;font-size:14px;line-height:1.45;color:var(--fg)}
+.plan .guar svg{flex:none;color:var(--lime);margin-top:1px}
+.plan .guar b{color:var(--lime)}
+.plan>.btn{margin-top:auto}
+@media(min-width:1024px){.plans{align-items:stretch}.plan.pop{margin-top:0;padding-top:28px}}
 </style>
 </head>
 <body>
@@ -1154,62 +1159,66 @@ input[type=range]:focus-visible{outline:2px solid var(--lime);outline-offset:4px
   </div>
 </section>
 
-<!-- 7. PRICING (Zoho licences) -->
+<!-- 7. PRICING (workplace v2: 3 ways to start - self / onboarding / migration) -->
 <section class="sec" id="pricing" aria-labelledby="priceH">
   <div class="wrap">
     <div class="price-top">
       <div class="sec-head rv" style="margin-bottom:0">
-        <span class="kicker">Zoho-ს ოფიციალური ფასი</span>
-        <h2 class="display h2" id="priceH">ფასი</h2>
+        <h2 class="display h2" id="priceH">აირჩიე, როგორ დაიწყებ</h2>
       </div>
     </div>
     <div class="plans">
-      <article class="plan rv" data-plan="Mail Lite">
-        <h3 class="plan-name">Mail Lite</h3>
-        <p class="plan-for">მხოლოდ ელფოსტა შენს დომენზე</p>
-        <div class="price"><div class="pl"><span class="amt tnum">$1</span><span class="side"><span class="once">მომხმ. / თვე</span><span class="once">წლიური გადახდით</span></span></div></div>
+      <article class="plan rv" data-plan="დამოუკიდებლად">
+        <h3 class="plan-name">დამოუკიდებლად</h3>
+        <p class="plan-for">თავად დარეგისტრირდები და დააყენებ</p>
+        <div class="price"><div class="pl"><span class="amt tnum">0 ₾</span><span class="side"><span class="once">მომსახურება</span><span class="once">იხდი მხოლოდ ლიცენზიას</span></span></div></div>
         <ul class="ticks">
-          <li>ელფოსტა 5 GB / მომხმარებელი</li>
-          <li>კალენდარი, კონტაქტები, დავალებები</li>
-          <li>მობილური აპლიკაციები</li>
+          <li>რეგისტრაცია Unitty-ს ბმულით</li>
+          <li>15-დღიანი უფასო საცდელი პერიოდი</li>
+          <li>დომენს, მომხმარებლებს და ელფოსტას თავად აწყობ</li>
+          <li>ლიცენზია Zoho-ს ოფიციალური ფასით</li>
+          <li>თუ გაიჭედები, ნებისმიერ დროს შეგიძლია ჩვენი დახმარება მოითხოვო</li>
         </ul>
-        <button class="btn btn-ghost pick" type="button">ამას ვირჩევ</button>
+        <a class="btn btn-ghost" href="https://store.zoho.eu/ResellerCustomerSignUp.do?id=3bc688ca04401872ee1c6754391da90c" target="_blank" rel="noopener" data-cta="self-signup">დარეგისტრირდი <span class="arr" aria-hidden="true">↗</span></a>
       </article>
-      <article class="plan pop rv" data-plan="Workplace Standard">
-        <span class="badge">ყველაზე პოპულარული</span>
-        <h3 class="plan-name">Standard</h3>
-        <p class="plan-for">ელფოსტა + მთელი ოფისი</p>
-        <div class="price"><div class="pl"><span class="amt tnum">$3</span><span class="side"><span class="once">მომხმ. / თვე</span><span class="once">წლიური გადახდით</span></span></div></div>
+      <article class="plan rv" data-plan="ონბორდინგი · 499 ₾ + დღგ">
+        <h3 class="plan-name">ონბორდინგი</h3>
+        <p class="plan-for">თუ კორპორატიული ელფოსტა ჯერ არ გაქვს</p>
+        <div class="price"><div class="pl"><span class="amt tnum">499 ₾</span><span class="side"><span class="once">+ დღგ</span><span class="once">ერთჯერადად</span></span></div></div>
         <ul class="ticks">
-          <li>ელფოსტა 30 GB / მომხმარებელი</li>
-          <li>WorkDrive: 100 GB გუნდზე + 10 GB / მომხმ.</li>
-          <li>Writer, Sheet, Show, Cliq, ToDo</li>
-          <li>ვიდეოზარები 100 მონაწილემდე</li>
-          <li>Zia AI ასისტენტი</li>
+          <li>საჭიროებების განსაზღვრა: მომხმარებლები, მისამართები, ჯგუფები</li>
+          <li>Zoho Workplace-ის ანგარიშის შექმნა</li>
+          <li>დომენის მიერთება და ვერიფიკაცია</li>
+          <li>MX, SPF, DKIM, DMARC ჩანაწერები, რომ წერილები სპამში არ მოხვდეს</li>
+          <li>მომხმარებლები, ჯგუფური მისამართები (info@, sales@) და წვდომები</li>
+          <li>ერთიანი ხელმოწერა ყველა თანამშრომლისთვის</li>
+          <li>აპლიკაციები კომპიუტერსა და ტელეფონზე</li>
+          <li>გუნდის ტრენინგი: Mail, Calendar, Cliq, WorkDrive</li>
         </ul>
+        <p class="guar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m8.8 12 2.2 2.2 4.2-4.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>თანხის დაბრუნების გარანტია.</b> თუ მომსახურებით კმაყოფილი არ დარჩები ან სამუშაო ხარვეზით შესრულდება, თანხას დაგიბრუნებთ.</span></p>
         <button class="btn btn-primary pick" type="button">ამას ვირჩევ</button>
       </article>
-      <article class="plan rv" data-plan="Workplace Professional">
-        <h3 class="plan-name">Professional</h3>
-        <p class="plan-for">მზარდი გუნდებისთვის, მეტი კონტროლით</p>
-        <div class="price"><div class="pl"><span class="amt tnum">$6</span><span class="side"><span class="once">მომხმ. / თვე</span><span class="once">წლიური გადახდით</span></span></div></div>
+      <article class="plan pop rv" data-plan="მიგრაცია · 999 ₾ + დღგ">
+        <h3 class="plan-name">მიგრაცია</h3>
+        <p class="plan-for">თუ უკვე იყენებ Google Workspace-ს ან Microsoft 365-ს</p>
+        <div class="price"><div class="pl"><span class="amt tnum">999 ₾</span><span class="side"><span class="once">+ დღგ</span><span class="once">ერთჯერადად</span></span></div></div>
         <ul class="ticks">
-          <li>ელფოსტა 100 GB / მომხმარებელი</li>
-          <li>WorkDrive: 1 TB გუნდზე + 100 GB / მომხმ.</li>
-          <li>ვიდეოზარები 250 მონაწილემდე</li>
-          <li>eDiscovery, შენახვის წესები, DLP</li>
-          <li>Connect - კომპანიის შიდა პორტალი</li>
+          <li>აუდიტი: მომხმარებლები, ალიასები, ჯგუფები, მონაცემების მოცულობა</li>
+          <li>Zoho Workplace-ის ანგარიში და დომენის ვერიფიკაცია</li>
+          <li>მომხმარებლების, ალიასების და ჯგუფების გადატანა</li>
+          <li>წერილების, საქაღალდეების, კონტაქტების და კალენდრების გადმოტანა</li>
+          <li>ფაილების გადმოტანა Google Drive-დან / OneDrive-დან WorkDrive-ში</li>
+          <li>MX, SPF, DKIM, DMARC გადართვა ელფოსტის შეჩერების გარეშე</li>
+          <li>აპლიკაციები კომპიუტერსა და ტელეფონზე</li>
+          <li>გუნდის ტრენინგი და მხარდაჭერა გადასვლის შემდეგ</li>
         </ul>
-        <button class="btn btn-ghost pick" type="button">ამას ვირჩევ</button>
+        <p class="guar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m8.8 12 2.2 2.2 4.2-4.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>თანხის დაბრუნების გარანტია.</b> თუ მომსახურებით კმაყოფილი არ დარჩები ან სამუშაო ხარვეზით შესრულდება, თანხას დაგიბრუნებთ.</span></p>
+        <button class="btn btn-primary pick" type="button">ამას ვირჩევ</button>
       </article>
-    </div>
-    <div class="svc rv">
-      <div class="svc-txt"><span class="kicker">ჩვენი მომსახურება</span><h3 class="h3">გადასვლა, დანერგვა და ტრენინგი</h3><p>დომენი, ელფოსტის და ფაილების გადმოტანა, მომხმარებლები და წვდომები, გუნდის ტრენინგი. ფასს ზარზე დაგითვლით - დამოკიდებულია მომხმარებლების და მონაცემების რაოდენობაზე.</p></div>
-      <a href="#lead" class="btn btn-primary" data-cta="service">დამითვალე ფასი <span class="arr" aria-hidden="true">→</span></a>
     </div>
     <div class="price-foot rv">
       <ul class="notes notes-sm">
-        <li>ლიცენზიის ფასები Zoho-ს ოფიციალური გვერდიდან, აშშ დოლარში, დღგ-ს გარეშე. თვიური გადახდით ~20%-ით ძვირია.</li>
+        <li>Zoho Workplace-ის ლიცენზია ცალკე იხდება, Zoho-ს ოფიციალური ფასით: $1-დან $6-მდე მომხმარებელზე / თვეში (წლიური გადახდით).</li>
       </ul>
     </div>
   </div>
@@ -1284,7 +1293,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lime);outline-offset:4px
       <details><summary>სად ინახება მონაცემები და რამდენად უსაფრთხოა?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Zoho-ს ევროპულ დატა-ცენტრებში. Zoho-ს აქვს ISO 27001 და SOC 2 სერტიფიკატები და შეესაბამება GDPR-ს. Zoho რეკლამიდან არ შოულობს ფულს და შენს მონაცემებს რეკლამისთვის არ იყენებს. ორფაქტორიანი ავტორიზაცია და წვდომების მართვა ყველა პაკეტშია.</p></div></details>
       <details><summary>შეიძლება ჯერ ვცადო?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>კი. Zoho Workplace-ს 15-დღიანი უფასო საცდელი პერიოდი აქვს. შეგვიძლია ჯერ რამდენიმე თანამშრომელი გადავიყვანოთ და, თუ მოგეწონებათ, მერე - მთელი გუნდი.</p></div></details>
       <details><summary>Zoho CRM-თან ან სხვა სისტემებთან დაკავშირდება?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Zoho CRM, Books, Desk და სხვა Zoho აპლიკაციებთან კავშირი ჩაშენებულია: წერილები CRM-ის ჩანაწერში ჩანს, Cliq-ში შეტყობინებები მოდის. სხვა სისტემებთან (მაგ. Google Sheets, ბანკები, ვებგვერდი) ინტეგრაციას ჩვენ ვაწყობთ.</p></div></details>
-      <details><summary>რა ღირს თქვენი მომსახურება?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>კონსულტაცია და დანაზოგის გათვლა უფასოა. გადასვლის და დანერგვის ფასი დამოკიდებულია მომხმარებლების რაოდენობაზე და იმაზე, რამდენი მონაცემი უნდა გადმოვიტანოთ - ზარზე ზუსტ ფასს გეტყვით. ლიცენზია Zoho-ს ოფიციალური ფასით ღირს.</p></div></details>
+      <details><summary>რა ღირს თქვენი მომსახურება?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>კონსულტაცია უფასოა. თუ დამოუკიდებლად დარეგისტრირდები, მომსახურებას არ იხდი. ონბორდინგი (თუ კორპორატიული ელფოსტა ჯერ არ გაქვს) ღირს 499 ₾ + დღგ, მიგრაცია Google Workspace-იდან ან Microsoft 365-იდან - 999 ₾ + დღგ. ორივეზე მოქმედებს თანხის დაბრუნების გარანტია. ლიცენზია ცალკე, Zoho-ს ოფიციალური ფასით იხდება.</p></div></details>
     </div>
   </div>
 </section>
@@ -1320,8 +1329,8 @@ input[type=range]:focus-visible{outline:2px solid var(--lime);outline-offset:4px
 {"@context":"https://schema.org","@graph":[
 {"@type":"Organization","name":"Unitty","url":"https://www.unitty.io","telephone":"+995322055060","email":"digital@unitty.io"},
 {"@type":"Service","name":"Zoho Workplace: გადასვლა და დანერგვა","serviceType":"Zoho Workplace","areaServed":"GE","provider":{"@type":"Organization","name":"Unitty"},
- "offers":[{"@type":"Offer","name":"Mail Lite","price":"1","priceCurrency":"USD"},{"@type":"Offer","name":"Workplace Standard","price":"3","priceCurrency":"USD"},{"@type":"Offer","name":"Workplace Professional","price":"6","priceCurrency":"USD"}]},
-{"@type":"[{"@type": "Question", "name": "რა არის Zoho Workplace?", "acceptedAnswer": {"@type": "Answer", "text": "Zoho-ს საოფისე პაკეტი: ელფოსტა შენს დომენზე, კალენდარი, გუნდის ჩატი (Cliq), ვიდეოზარები (Meeting), ფაილების საცავი (WorkDrive), დოკუმენტები, ცხრილები და პრეზენტაციები (Writer, Sheet, Show) და AI ასისტენტი Zia. ანუ ის, რასაც Google Workspace ან Microsoft 365 გაძლევს, ერთ ლიცენზიაში."}}, {"@type": "Question", "name": "რამდენს დავზოგავ?", "acceptedAnswer": {"@type": "Answer", "text": "ოფიციალური ფასებით Zoho Workplace Professional ღირს $6 მომხმარებელზე თვეში, Google Workspace და Microsoft 365 Business Standard - $14. ეს 2.3-ჯერ ნაკლებია. 10 თანამშრომელზე დანაზოგი წელიწადში $960-ია, 50-ზე - $4,800. ზუსტ რიცხვს ზემოთ, კალკულატორში ნახავ."}}, {"@type": "Question", "name": "გადასვლისას წერილები ან ფაილები ხომ არ დაიკარგება?", "acceptedAnswer": {"@type": "Answer", "text": "არა. ჯერ ძველი სისტემიდან ვაკოპირებთ წერილებს, საქაღალდეებს, კონტაქტებს, კალენდრებს და ფაილებს, ვამოწმებთ და მხოლოდ ამის შემდეგ გადაგვყავს დომენის ჩანაწერები (MX) Zoho-ზე. ძველი ანგარიში გადასვლის დასრულებამდე მუშაობს, ამიტომ ელფოსტა არ ჩერდება."}}, {"@type": "Question", "name": "Word-ის და Excel-ის ფაილებთან მუშაობას შევძლებ?", "acceptedAnswer": {"@type": "Answer", "text": "კი. Writer, Sheet და Show ხსნის, არედაქტირებს და ინახავს .docx, .xlsx და .pptx ფაილებს. თუ რამდენიმე თანამშრომელს აუცილებლად desktop Office სჭირდება (მაგ. რთული Excel მაკროები), Microsoft-ის ლიცენზია მხოლოდ მათთვის შეგიძლია დატოვო - დანარჩენი გუნდი მაინც დაზოგავს."}}, {"@type": "Question", "name": "რამდენ ხანს გრძელდება გადასვლა?", "acceptedAnswer": {"@type": "Answer", "text": "ჩვეულებრივ 3-10 სამუშაო დღე, მომხმარებლების და მონაცემების რაოდენობის მიხედვით. მცირე გუნდი (10-მდე) ხშირად რამდენიმე დღეში გადადის."}}, {"@type": "Question", "name": "სად ინახება მონაცემები და რამდენად უსაფრთხოა?", "acceptedAnswer": {"@type": "Answer", "text": "Zoho-ს ევროპულ დატა-ცენტრებში. Zoho-ს აქვს ISO 27001 და SOC 2 სერტიფიკატები და შეესაბამება GDPR-ს. Zoho რეკლამიდან არ შოულობს ფულს და შენს მონაცემებს რეკლამისთვის არ იყენებს. ორფაქტორიანი ავტორიზაცია და წვდომების მართვა ყველა პაკეტშია."}}, {"@type": "Question", "name": "შეიძლება ჯერ ვცადო?", "acceptedAnswer": {"@type": "Answer", "text": "კი. Zoho Workplace-ს 15-დღიანი უფასო საცდელი პერიოდი აქვს. შეგვიძლია ჯერ რამდენიმე თანამშრომელი გადავიყვანოთ და, თუ მოგეწონებათ, მერე - მთელი გუნდი."}}, {"@type": "Question", "name": "Zoho CRM-თან ან სხვა სისტემებთან დაკავშირდება?", "acceptedAnswer": {"@type": "Answer", "text": "Zoho CRM, Books, Desk და სხვა Zoho აპლიკაციებთან კავშირი ჩაშენებულია: წერილები CRM-ის ჩანაწერში ჩანს, Cliq-ში შეტყობინებები მოდის. სხვა სისტემებთან (მაგ. Google Sheets, ბანკები, ვებგვერდი) ინტეგრაციას ჩვენ ვაწყობთ."}}, {"@type": "Question", "name": "რა ღირს თქვენი მომსახურება?", "acceptedAnswer": {"@type": "Answer", "text": "კონსულტაცია და დანაზოგის გათვლა უფასოა. გადასვლის და დანერგვის ფასი დამოკიდებულია მომხმარებლების რაოდენობაზე და იმაზე, რამდენი მონაცემი უნდა გადმოვიტანოთ - ზარზე ზუსტ ფასს გეტყვით. ლიცენზია Zoho-ს ოფიციალური ფასით ღირს."}}]Page","mainEntity":[{"@type": "Question", "name": "რა არის Zoho Workplace?", "acceptedAnswer": {"@type": "Answer", "text": "Zoho-ს საოფისე პაკეტი: ელფოსტა შენს დომენზე, კალენდარი, გუნდის ჩატი (Cliq), ვიდეოზარები (Meeting), ფაილების საცავი (WorkDrive), დოკუმენტები, ცხრილები და პრეზენტაციები (Writer, Sheet, Show) და AI ასისტენტი Zia. ანუ ის, რასაც Google Workspace ან Microsoft 365 გაძლევს, ერთ ლიცენზიაში."}}, {"@type": "Question", "name": "რამდენს დავზოგავ?", "acceptedAnswer": {"@type": "Answer", "text": "ოფიციალური ფასებით Zoho Workplace Professional ღირს $6 მომხმარებელზე თვეში, Google Workspace და Microsoft 365 Business Standard - $14. ეს 2.3-ჯერ ნაკლებია. 10 თანამშრომელზე დანაზოგი წელიწადში $960-ია, 50-ზე - $4,800. ზუსტ რიცხვს ზემოთ, კალკულატორში ნახავ."}}, {"@type": "Question", "name": "გადასვლისას წერილები ან ფაილები ხომ არ დაიკარგება?", "acceptedAnswer": {"@type": "Answer", "text": "არა. ჯერ ძველი სისტემიდან ვაკოპირებთ წერილებს, საქაღალდეებს, კონტაქტებს, კალენდრებს და ფაილებს, ვამოწმებთ და მხოლოდ ამის შემდეგ გადაგვყავს დომენის ჩანაწერები (MX) Zoho-ზე. ძველი ანგარიში გადასვლის დასრულებამდე მუშაობს, ამიტომ ელფოსტა არ ჩერდება."}}, {"@type": "Question", "name": "Word-ის და Excel-ის ფაილებთან მუშაობას შევძლებ?", "acceptedAnswer": {"@type": "Answer", "text": "კი. Writer, Sheet და Show ხსნის, არედაქტირებს და ინახავს .docx, .xlsx და .pptx ფაილებს. თუ რამდენიმე თანამშრომელს აუცილებლად desktop Office სჭირდება (მაგ. რთული Excel მაკროები), Microsoft-ის ლიცენზია მხოლოდ მათთვის შეგიძლია დატოვო - დანარჩენი გუნდი მაინც დაზოგავს."}}, {"@type": "Question", "name": "რამდენ ხანს გრძელდება გადასვლა?", "acceptedAnswer": {"@type": "Answer", "text": "ჩვეულებრივ 3-10 სამუშაო დღე, მომხმარებლების და მონაცემების რაოდენობის მიხედვით. მცირე გუნდი (10-მდე) ხშირად რამდენიმე დღეში გადადის."}}, {"@type": "Question", "name": "სად ინახება მონაცემები და რამდენად უსაფრთხოა?", "acceptedAnswer": {"@type": "Answer", "text": "Zoho-ს ევროპულ დატა-ცენტრებში. Zoho-ს აქვს ISO 27001 და SOC 2 სერტიფიკატები და შეესაბამება GDPR-ს. Zoho რეკლამიდან არ შოულობს ფულს და შენს მონაცემებს რეკლამისთვის არ იყენებს. ორფაქტორიანი ავტორიზაცია და წვდომების მართვა ყველა პაკეტშია."}}, {"@type": "Question", "name": "შეიძლება ჯერ ვცადო?", "acceptedAnswer": {"@type": "Answer", "text": "კი. Zoho Workplace-ს 15-დღიანი უფასო საცდელი პერიოდი აქვს. შეგვიძლია ჯერ რამდენიმე თანამშრომელი გადავიყვანოთ და, თუ მოგეწონებათ, მერე - მთელი გუნდი."}}, {"@type": "Question", "name": "Zoho CRM-თან ან სხვა სისტემებთან დაკავშირდება?", "acceptedAnswer": {"@type": "Answer", "text": "Zoho CRM, Books, Desk და სხვა Zoho აპლიკაციებთან კავშირი ჩაშენებულია: წერილები CRM-ის ჩანაწერში ჩანს, Cliq-ში შეტყობინებები მოდის. სხვა სისტემებთან (მაგ. Google Sheets, ბანკები, ვებგვერდი) ინტეგრაციას ჩვენ ვაწყობთ."}}, {"@type": "Question", "name": "რა ღირს თქვენი მომსახურება?", "acceptedAnswer": {"@type": "Answer", "text": "კონსულტაცია და დანაზოგის გათვლა უფასოა. გადასვლის და დანერგვის ფასი დამოკიდებულია მომხმარებლების რაოდენობაზე და იმაზე, რამდენი მონაცემი უნდა გადმოვიტანოთ - ზარზე ზუსტ ფასს გეტყვით. ლიცენზია Zoho-ს ოფიციალური ფასით ღირს."}}]}
+ "offers":[{"@type":"Offer","name":"ონბორდინგი","price":"499","priceCurrency":"GEL"},{"@type":"Offer","name":"მიგრაცია","price":"999","priceCurrency":"GEL"}]},
+{"@type":"FAQPage","mainEntity":[{"@type": "Question", "name": "რა არის Zoho Workplace?", "acceptedAnswer": {"@type": "Answer", "text": "Zoho-ს საოფისე პაკეტი: ელფოსტა შენს დომენზე, კალენდარი, გუნდის ჩატი (Cliq), ვიდეოზარები (Meeting), ფაილების საცავი (WorkDrive), დოკუმენტები, ცხრილები და პრეზენტაციები (Writer, Sheet, Show) და AI ასისტენტი Zia. ანუ ის, რასაც Google Workspace ან Microsoft 365 გაძლევს, ერთ ლიცენზიაში."}}, {"@type": "Question", "name": "რამდენს დავზოგავ?", "acceptedAnswer": {"@type": "Answer", "text": "ოფიციალური ფასებით Zoho Workplace Professional ღირს $6 მომხმარებელზე თვეში, Google Workspace და Microsoft 365 Business Standard - $14. ეს 2.3-ჯერ ნაკლებია. 10 თანამშრომელზე დანაზოგი წელიწადში $960-ია, 50-ზე - $4,800. ზუსტ რიცხვს ზემოთ, კალკულატორში ნახავ."}}, {"@type": "Question", "name": "გადასვლისას წერილები ან ფაილები ხომ არ დაიკარგება?", "acceptedAnswer": {"@type": "Answer", "text": "არა. ჯერ ძველი სისტემიდან ვაკოპირებთ წერილებს, საქაღალდეებს, კონტაქტებს, კალენდრებს და ფაილებს, ვამოწმებთ და მხოლოდ ამის შემდეგ გადაგვყავს დომენის ჩანაწერები (MX) Zoho-ზე. ძველი ანგარიში გადასვლის დასრულებამდე მუშაობს, ამიტომ ელფოსტა არ ჩერდება."}}, {"@type": "Question", "name": "Word-ის და Excel-ის ფაილებთან მუშაობას შევძლებ?", "acceptedAnswer": {"@type": "Answer", "text": "კი. Writer, Sheet და Show ხსნის, არედაქტირებს და ინახავს .docx, .xlsx და .pptx ფაილებს. თუ რამდენიმე თანამშრომელს აუცილებლად desktop Office სჭირდება (მაგ. რთული Excel მაკროები), Microsoft-ის ლიცენზია მხოლოდ მათთვის შეგიძლია დატოვო - დანარჩენი გუნდი მაინც დაზოგავს."}}, {"@type": "Question", "name": "რამდენ ხანს გრძელდება გადასვლა?", "acceptedAnswer": {"@type": "Answer", "text": "ჩვეულებრივ 3-10 სამუშაო დღე, მომხმარებლების და მონაცემების რაოდენობის მიხედვით. მცირე გუნდი (10-მდე) ხშირად რამდენიმე დღეში გადადის."}}, {"@type": "Question", "name": "სად ინახება მონაცემები და რამდენად უსაფრთხოა?", "acceptedAnswer": {"@type": "Answer", "text": "Zoho-ს ევროპულ დატა-ცენტრებში. Zoho-ს აქვს ISO 27001 და SOC 2 სერტიფიკატები და შეესაბამება GDPR-ს. Zoho რეკლამიდან არ შოულობს ფულს და შენს მონაცემებს რეკლამისთვის არ იყენებს. ორფაქტორიანი ავტორიზაცია და წვდომების მართვა ყველა პაკეტშია."}}, {"@type": "Question", "name": "შეიძლება ჯერ ვცადო?", "acceptedAnswer": {"@type": "Answer", "text": "კი. Zoho Workplace-ს 15-დღიანი უფასო საცდელი პერიოდი აქვს. შეგვიძლია ჯერ რამდენიმე თანამშრომელი გადავიყვანოთ და, თუ მოგეწონებათ, მერე - მთელი გუნდი."}}, {"@type": "Question", "name": "Zoho CRM-თან ან სხვა სისტემებთან დაკავშირდება?", "acceptedAnswer": {"@type": "Answer", "text": "Zoho CRM, Books, Desk და სხვა Zoho აპლიკაციებთან კავშირი ჩაშენებულია: წერილები CRM-ის ჩანაწერში ჩანს, Cliq-ში შეტყობინებები მოდის. სხვა სისტემებთან (მაგ. Google Sheets, ბანკები, ვებგვერდი) ინტეგრაციას ჩვენ ვაწყობთ."}}, {"@type": "Question", "name": "რა ღირს თქვენი მომსახურება?", "acceptedAnswer": {"@type": "Answer", "text": "კონსულტაცია უფასოა. თუ დამოუკიდებლად დარეგისტრირდები, მომსახურებას არ იხდი. ონბორდინგი (თუ კორპორატიული ელფოსტა ჯერ არ გაქვს) ღირს 499 ₾ + დღგ, მიგრაცია Google Workspace-იდან ან Microsoft 365-იდან - 999 ₾ + დღგ. ორივეზე მოქმედებს თანხის დაბრუნების გარანტია. ლიცენზია ცალკე, Zoho-ს ოფიციალური ფასით იხდება."}}]}
 ]}
 </script>
 
@@ -1488,7 +1497,7 @@ form.addEventListener('submit',async e=>{ e.preventDefault(); let first=null; Ob
   /* crm-v95: no "where did you hear" question; Lead Source comes from UTM / click id / referrer, else Direct */
   const heardFrom=detectSource(attribution);
   const payload={ fullName:$('#name').value.trim(), phone:phoneFull(), email:$('#email').value.trim(), company:$('#company').value.trim(), heardFrom,
-    package:pkg, lang:LANG, selected_solutions:sel.join(' | '), event_id, hero_variant:'workplace-v1', attribution };
+    package:pkg, lang:LANG, selected_solutions:sel.join(' | '), event_id, hero_variant:'workplace-v2', attribution };
   console.info('>>> lead submit', { pkg, lang:LANG, eid:event_id });
   try{
     const res=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});

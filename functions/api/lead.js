@@ -61,7 +61,8 @@ const SERVICE_BY_LANDING = {
   start: "Consulting",
   // v66 (2026-11-23): new landings. "Zoho Workplace" must be added to the Zoho Service picklist;
   // until then Zoho rejects it and the lead is saved without Service (retry logic below).
-  workplace: "Zoho Workplace",
+  // v69 (2026-11-27, workplace chat, Giorgi): Service value renamed to "Workplace". Must exist in the Zoho Service picklist; dropped by the retry until then.
+  workplace: "Workplace",
   // v68 (2026-11-24): creator.unitty.io -> "Creator" (Giorgi). Must be added to the Zoho Service picklist; dropped by the retry until then.
   creator: "Creator",
   // v67 (2026-11-24): paid workshop. "Workshop" must be added to the Zoho Service picklist (dropped by the retry until then).
